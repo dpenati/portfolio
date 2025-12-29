@@ -391,120 +391,7 @@
 
     <!-- Cards grid -->
     <section aria-label="Case study cards">
-      <div class="grid">
-        <!-- Card 1 -->
-        <article class="card">
-          <div class="card-media">Image Placeholder</div>
-          <div class="card-body">
-            <div class="card-kicker">Build &amp; Release / Engineering Portal</div>
-            <h3 class="card-title">
-              <a href="24_BaR.html">Designing for Clarity in a Complex System</a>
-            </h3>
-            <p class="card-desc">
-              Designing the conditions for alignment, visibility, and product coherence—without disrupting delivery.
-            </p>
-            <div class="card-footer">
-              <span class="pill">Longform</span>
-              <span class="pill">Systems</span>
-              <span class="pill">Leadership</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card 2 -->
-        <article class="card">
-          <div class="card-media">Image Placeholder</div>
-          <div class="card-body">
-            <div class="card-kicker">Case Study Domain</div>
-            <h3 class="card-title">
-              <a href="case-study-placeholder-02.html">Case Study Title Placeholder #2</a>
-            </h3>
-            <p class="card-desc">
-              A concise, outcome-oriented teaser. What changed, for whom, and why it mattered.
-            </p>
-            <div class="card-footer">
-              <span class="pill">Product</span>
-              <span class="pill">Research</span>
-              <span class="pill">~6 min read</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card 3 -->
-        <article class="card">
-          <div class="card-media">Image Placeholder</div>
-          <div class="card-body">
-            <div class="card-kicker">Case Study Domain</div>
-            <h3 class="card-title">
-              <a href="case-study-placeholder-03.html">Case Study Title Placeholder #3</a>
-            </h3>
-            <p class="card-desc">
-              A concise teaser that signals the challenge, your approach, and the resulting clarity.
-            </p>
-            <div class="card-footer">
-              <span class="pill">Design Systems</span>
-              <span class="pill">Scale</span>
-              <span class="pill">~5 min read</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card 4 -->
-        <article class="card">
-          <div class="card-media">Image Placeholder</div>
-          <div class="card-body">
-            <div class="card-kicker">Case Study Domain</div>
-            <h3 class="card-title">
-              <a href="case-study-placeholder-04.html">Case Study Title Placeholder #4</a>
-            </h3>
-            <p class="card-desc">
-              A teaser that makes the reader want to click—specific, calm, and concrete.
-            </p>
-            <div class="card-footer">
-              <span class="pill">Strategy</span>
-              <span class="pill">Cross-functional</span>
-              <span class="pill">~7 min read</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card 5 -->
-        <article class="card">
-          <div class="card-media">Image Placeholder</div>
-          <div class="card-body">
-            <div class="card-kicker">Case Study Domain</div>
-            <h3 class="card-title">
-              <a href="case-study-placeholder-05.html">Case Study Title Placeholder #5</a>
-            </h3>
-            <p class="card-desc">
-              Teaser placeholder. You can also use this slot for “Field Notes” or “Experiments.”
-            </p>
-            <div class="card-footer">
-              <span class="pill">Field Notes</span>
-              <span class="pill">Methods</span>
-              <span class="pill">~3 min read</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card 6 -->
-        <article class="card">
-          <div class="card-media">Image Placeholder</div>
-          <div class="card-body">
-            <div class="card-kicker">Case Study Domain</div>
-            <h3 class="card-title">
-              <a href="case-study-placeholder-06.html">Case Study Title Placeholder #6</a>
-            </h3>
-            <p class="card-desc">
-              Teaser placeholder. Great for a shorter narrative or a “how I think” piece.
-            </p>
-            <div class="card-footer">
-              <span class="pill">Short</span>
-              <span class="pill">Insights</span>
-              <span class="pill">~2 min read</span>
-            </div>
-          </div>
-        </article>
+      <div id="id" class="grid">
       </div>
     </section>
 
@@ -536,4 +423,41 @@
     </footer>
   </main>
 </body>
+  <script>
+    // Sample content source (replace with your CMS/JSON feed)
+    let articles = [];
+
+    function render () {
+    // Sort newest → oldest by date
+    const byDateDesc = [...articles].sort((a,b)=> new Date(b.date) - new Date(a.date));
+
+    
+    // Render grid (skip the latest if you don't want duplication)
+    const grid = document.getElementById('grid');
+    byDateDesc.forEach((a, idx) => {
+      const card = document.createElement('article');
+      card.className = 'card';
+      card.innerHTML = `
+          <div class="card-media"><img src="${a.image}" alt="${a.title}"></div>
+          <div class="card-body">
+            <div class="card-kicker">Case Study Domain</div>
+            <h3 class="card-title">
+              <a href="${a.url}">${a.title}</a>
+            </h3>
+            <p class="card-desc">
+              ${a.excerpt}
+            </p>
+            <div class="card-footer">
+              <span class="pill">Field Notes</span>
+              <span class="pill">Methods</span>
+              <span class="pill">~3 min read</span>
+            </div>
+          </div>
+      `;
+      grid.appendChild(card);
+    });
+    }
+  </script>
+
+  <script src="shared.js"></script>
 </html>
