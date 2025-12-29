@@ -430,7 +430,7 @@
 
     // Sort newest → oldest by date
     const byDateDesc = [...articles].sort((a,b)=> new Date(b.date) - new Date(a.date));
-
+console.log (articles)
     
     // Render grid (skip the latest if you don't want duplication)
     const grid = document.getElementById('grid');
@@ -442,7 +442,7 @@
           <div class="card-body">
             <div class="card-kicker">Case Study Domain</div>
             <h3 class="card-title">
-              <a href="${a.url}">${a.title}</a>
+              <a href="#">${a.title}</a>
             </h3>
             <p class="card-desc">
               ${a.excerpt}
@@ -454,6 +454,7 @@
             </div>
           </div>
       `;
+      console.log (card.innerHTML)
       grid.appendChild(card);
     });
     }
