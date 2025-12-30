@@ -444,7 +444,7 @@ console.log (articles)
       .map(tag => `<span class="pill">${tag}</span>`)
       .join("");
       card.innerHTML = `
-          <div class="card-media"><img src="${a.image}" alt="${a.title}"></div>
+          <div class="card-media"><a href="{a.link}"><img src="${a.image}" alt="${a.title}"></a></div>
           <div class="card-body">
             <div class="card-kicker">Case Study Domain</div>
             <h3 class="card-title">
