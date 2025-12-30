@@ -118,28 +118,36 @@
 
 .masthead-cta{
   font-family: var(--sans);
-  font-size:12px;
-  letter-spacing:.06em;
-  text-transform:uppercase;
-  text-decoration:none;
-  color:var(--ink);
-  border:1px solid var(--hair);
-  border-radius:10px;
-  padding:8px 10px;
-  background:#fff;
+  font-size: 12px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ink);
+  border: 1px solid var(--hairline);
+  border-radius: 10px;
+  padding: 8px 10px;
+  background: #fff;
 }
-.masthead-cta:hover{ background:var(--soft); }
+.masthead-cta:hover{ background: var(--soft); }
 
 .masthead-meta{
   font-family: var(--sans);
   font-size: 12px;
   color: var(--muted);
-  text-decoration: none;        /* no underline by default */
+  text-decoration: none; /* no underline by default */
 }
 .masthead-meta:hover{
   text-decoration: underline;   /* underline on hover */
   text-underline-offset: 3px;
-  color: var(--ink);            /* optional: subtle emphasis */
+  color: var(--ink);
+}
+
+/* Accessibility: visible focus ring for keyboard users (Tab) */
+.masthead-cta:focus-visible,
+.masthead-meta:focus-visible{
+  outline: 2px solid var(--hairline);
+  outline-offset: 3px;
+  border-radius: 10px;
 }
 
 /* Second row nav (like sections bar) */
