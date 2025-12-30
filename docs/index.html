@@ -437,24 +437,24 @@ console.log (articles)
     byDateDesc.forEach((a, idx) => {
       const card = document.createElement('article');
       card.className = 'card';
+      const tags = a.tags
+      .map(tag => `<span class="pill">${tag}</span>`)
+      .join("");
       card.innerHTML = `
           <div class="card-media"><img src="${a.image}" alt="${a.title}"></div>
           <div class="card-body">
             <div class="card-kicker">Case Study Domain</div>
             <h3 class="card-title">
-              <a href="#">${a.title}</a>
+              <a href="${a.url}">${a.title}</a>
             </h3>
             <p class="card-desc">
               ${a.excerpt}
             </p>
-            <div class="card-footer">
-              <span class="pill">Field Notes</span>
-              <span class="pill">Methods</span>
-              <span class="pill">~3 min read</span>
+            <div class="card-footer">              
+              ${tags}
             </div>
           </div>
       `;
-      console.log (card.innerHTML)
       grid.appendChild(card);
     });
     }
