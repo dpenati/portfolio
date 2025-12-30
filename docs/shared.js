@@ -1,6 +1,6 @@
-async function loadData() {
+async function loadDUseCases() {
     try {
-        const res = await fetch('https://dpenati.github.io/portfolio/usecases.json'); // <-- your JSON file
+        const res = await fetch('https://dpenati.github.io/portfolio/usecases/usecases.json'); // <-- your JSON file
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         articles = await res.json();  
         console.log (articles);
@@ -10,4 +10,4 @@ async function loadData() {
     }
 }
 
-loadData ();
+loadDUseCases ();
