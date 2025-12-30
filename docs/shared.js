@@ -10,4 +10,4 @@ async function loadUseCases() {
     }
 }
 
-loadDUseCases ();
+loadUseCases ();
