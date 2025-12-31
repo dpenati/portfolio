@@ -4,389 +4,447 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Designing for Clarity in a Complex System — Case Study</title>
-  <meta name="description" content="A narrative UX case study: designing for clarity in a complex system within Build & Release / Engineering Portal." />
+  <meta name="description" content="A narrative UX case study about designing alignment, visibility, and product coherence in Build & Release / Engineering Portal." />
+
+  <!-- Google Font: Barrio (logo) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barrio&display=swap" rel="stylesheet" />
 
   <style>
     :root{
-      --bg: #ffffff;
-      --ink: #111111;
-      --muted: #5a5a5a;
-      --hairline: #e5e5e5;
-      --soft: #f6f6f6;
+      --bg:#ffffff;
+      --ink:#111111;
+      --muted:#5a5a5a;
+      --hair:#e5e5e5;
+      --soft:#f6f6f6;
 
-      --max: 720px;       /* reading column width */
-      --max-wide: 980px;  /* page width */
+      --max: 980px;       /* overall page width */
+      --max-read: 720px;  /* article measure */
 
       --serif: ui-serif, Georgia, "Times New Roman", Times, serif;
-      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+
+      --logo: "Barrio", ui-serif, Georgia, "Times New Roman", Times, serif;
+      --logo-accent: #6E5B98; /* pantone purple */
     }
 
-    html, body { height: 100%; }
-
-    html{
-      scroll-behavior: smooth;
-      scroll-padding-top: 120px; /* prevents sticky header covering anchor targets */
-    }
-
+    html,body{height:100%;}
     body{
-      margin: 0;
-      background: var(--bg);
-      color: var(--ink);
-      font-family: var(--serif);
-      line-height: 1.65;
-      letter-spacing: 0.01em;
-      text-rendering: optimizeLegibility;
-      -webkit-font-smoothing: antialiased;
+      margin:0;
+      background:var(--bg);
+      color:var(--ink);
+      font-family:var(--serif);
+      line-height:1.65;
+      letter-spacing:.01em;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
     }
 
-    /* -------------------------
-       Header (internal article)
-    -------------------------- */
+    /* Accessibility */
+    .skip-link{
+      position:absolute;
+      left:-999px; top:auto;
+      width:1px; height:1px;
+      overflow:hidden;
+    }
+    .skip-link:focus{
+      left:18px; top:12px;
+      width:auto; height:auto;
+      padding:8px 10px;
+      background:#fff;
+      border:1px solid var(--hair);
+      border-radius:10px;
+      z-index:9999;
+      font-family:var(--sans);
+      font-size:12px;
+    }
+    a:focus-visible{
+      outline:2px solid var(--logo-accent);
+      outline-offset:3px;
+      border-radius:10px;
+    }
+
+    /* ===== Topbar (internal pages) ===== */
     .topbar{
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: rgba(255,255,255,.92);
+      position:sticky;
+      top:0;
+      z-index:10;
+      background:rgba(255,255,255,.92);
       backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--hairline);
+      border-bottom:1px solid var(--hair);
     }
 
+    /* Masthead: logo left, links right */
     .topbar-inner{
-      max-width: var(--max-wide);
-      margin: 0 auto;
-      padding: 10px 18px;
-      font-family: var(--sans);
+      max-width:var(--max);
+      margin:0 auto;
+      padding:10px 18px;
+      display:grid;
+      grid-template-columns:auto 1fr;
+      align-items:center;
+      gap:12px;
+      font-family:var(--sans);
     }
-
-    /* Masthead row */
-    .topbar-inner.masthead{
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      align-items: center;
-      gap: 12px;
+    .masthead-left{ justify-self:start; }
+    .masthead-right{
+      justify-self:end;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
     }
-
-    .masthead-left{ justify-self: start; }
-    .masthead-center{ justify-self: center; text-align: center; }
-    .masthead-right{ justify-self: end; display:flex; align-items:center; gap:10px; }
-
-    .masthead-links a{
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 12px;
-      letter-spacing: .02em;
-    }
-    .masthead-links a:hover{
-      color: var(--ink);
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-    .dot{ margin: 0 6px; color: var(--hairline); }
 
     .masthead-title{
-      font-family: var(--serif);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      text-decoration: none;
-      color: var(--ink);
-      line-height: 1;
-      font-size: 22px; /* internal page logo size */
+      font-family:var(--logo);
+      font-weight:800;
+      letter-spacing:-0.02em;
+      line-height:1;
+      text-decoration:none;
+      color:var(--ink);      /* dots */
+      font-size:30px;        /* internal: legible */
+      white-space:nowrap;
+    }
+    .logo-accent{ color:var(--logo-accent); }
+
+    .masthead-link{
+      color:var(--muted);
+      text-decoration:none;
+      font-size:12px;
+      letter-spacing:.02em;
+      padding:4px 6px;
+      border-radius:6px;
+      font-family:var(--sans);
+    }
+    .masthead-link:hover{
+      color:var(--ink);
+      text-decoration:underline;
+      text-underline-offset:3px;
     }
 
-    .masthead-cta{
-      font-family: var(--sans);
-      font-size: 12px;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: var(--ink);
-      border: 1px solid var(--hairline);
-      border-radius: 10px;
-      padding: 8px 10px;
-      background: #fff;
-    }
-    .masthead-cta:hover{ background: var(--soft); }
-
-    /* Section nav row */
+    /* Secondary row: on-page anchors */
     .topbar-nav{
-      border-top: 1px solid var(--hairline);
-      padding: 8px 0;
+      border-top:1px solid var(--hair);
+      border-bottom:2px solid var(--hair);
+      padding:8px 0;
+      background:transparent;
     }
-
     .nav{
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-      font-family: var(--sans);
-      max-width: var(--max-wide);
-      margin: 0 auto;
-      padding: 0 18px;
+      max-width:var(--max);
+      margin:0 auto;
+      padding:0 18px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:flex-start;
+      font-family:var(--sans);
     }
-
     .nav a{
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 12px;
-      letter-spacing: .02em;
-      padding: 4px 6px;
-      border-radius: 6px;
+      color:var(--logo-accent);          /* requested */
+      text-decoration:none;
+      font-size:14px;
+      letter-spacing:.02em;
+      padding:4px 6px;
+      border-radius:6px;
     }
-    .nav a:hover{ color: var(--ink); background: var(--soft); }
-
-    /* Mobile: stack masthead */
-    @media (max-width: 760px){
-      .topbar-inner.masthead{
-        grid-template-columns: 1fr;
-        justify-items: center;
-        text-align: center;
-      }
-      .masthead-left, .masthead-right{ justify-self: center; }
+    .nav a:hover{
+      text-decoration:underline;
+      text-underline-offset:3px;
+      background:var(--soft);
     }
 
-    /* -------------------------
-       Layout
-    -------------------------- */
+    /* ===== Main layout ===== */
     main{
-      max-width: var(--max-wide);
-      margin: 0 auto;
-      padding: 34px 18px 80px;
+      max-width:var(--max);
+      margin:0 auto;
+      padding:34px 18px 80px;
     }
-
-    article{ margin: 0 auto; }
 
     .kicker{
-      max-width: var(--max);
-      margin: 0 auto 10px;
-      font-family: var(--sans);
-      color: var(--muted);
-      font-size: 12px;
-      letter-spacing: .08em;
-      text-transform: uppercase;
+      max-width:var(--max-read);
+      margin:0 auto 10px;
+      font-family:var(--sans);
+      color:var(--muted);
+      font-size:12px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
     }
 
+    .breadcrumb{
+      max-width:var(--max-read);
+      margin:0 auto 10px;
+      font-family:var(--sans);
+      font-size:12px;
+      color:var(--muted);
+      letter-spacing:.02em;
+    }
+    .breadcrumb a{
+      color:var(--muted);
+      text-decoration:none;
+    }
+    .breadcrumb a:hover{
+      color:var(--ink);
+      text-decoration:underline;
+      text-underline-offset:3px;
+    }
+    .crumb-sep{ margin:0 6px; color:var(--hair); }
+
     h1{
-      max-width: var(--max);
-      margin: 0 auto 10px;
-      font-weight: 700;
-      font-size: clamp(34px, 5vw, 54px);
-      line-height: 1.05;
-      letter-spacing: -0.02em;
+      max-width:var(--max-read);
+      margin:0 auto 10px;
+      font-weight:700;
+      font-size:clamp(30px, 4.2vw, 48px); /* ↓ smaller */
+      line-height:1.06;                   /* tiny tweak optional */
+      letter-spacing:-0.02em;
     }
 
     .subhead{
-      max-width: var(--max);
-      margin: 0 auto 18px;
-      color: var(--muted);
-      font-size: clamp(16px, 2vw, 20px);
-      line-height: 1.4;
+      max-width:var(--max-read);
+      margin:0 auto 18px;
+      color:var(--muted);
+      font-size:clamp(16px, 2vw, 20px);
+      line-height:1.4;
     }
 
     .meta{
-      max-width: var(--max);
-      margin: 0 auto 26px;
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      font-family: var(--sans);
-      font-size: 12px;
-      color: var(--muted);
+      max-width:var(--max-read);
+      margin:0 auto 26px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      font-family:var(--sans);
+      font-size:12px;
+      color:var(--muted);
     }
-    .meta strong{ color: var(--ink); font-weight: 600; }
+    .meta strong{ color:var(--ink); font-weight:600; }
 
     .rule{
-      max-width: var(--max);
-      margin: 0 auto 26px;
-      border-top: 1px solid var(--hairline);
+      max-width:var(--max-read);
+      margin:0 auto 26px;
+      border-top:1px solid var(--hair);
     }
 
-    /* Breadcrumb */
-    .breadcrumb{
-      max-width: var(--max);
-      margin: 0 auto 10px;
-      font-family: var(--sans);
-      font-size: 12px;
-      color: var(--muted);
-      letter-spacing: .02em;
-    }
-    .breadcrumb a{
-      color: var(--muted);
-      text-decoration: none;
-    }
-    .breadcrumb a:hover{
-      color: var(--ink);
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-    .crumb-sep{
-      margin: 0 6px;
-      color: var(--hairline);
-    }
-
-    /* -------------------------
-       Typography blocks
-    -------------------------- */
+    /* Sections */
     section{
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 26px 0;
-      border-top: 1px solid var(--hairline);
+      max-width:var(--max-read);
+      margin:0 auto;
+      padding:26px 0;
+      border-top:1px solid var(--hair);
     }
-    section:first-of-type{
-      border-top: none;
-      padding-top: 0;
-    }
-
-    h2{
-      margin: 0 0 10px;
-      font-size: 20px;
-      line-height: 1.25;
-      letter-spacing: -0.01em;
-    }
+    section:first-of-type{ border-top:none; padding-top:0; }
 
     .section-label{
-      font-family: var(--sans);
-      font-size: 12px;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 8px;
+      font-family:var(--sans);
+      font-size:12px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin-bottom:8px;
     }
-
-    p{
-      margin: 0 0 14px;
-      font-size: 18px;
+    h2{
+      margin:0 0 10px;
+      font-size:20px;
+      line-height:1.25;
+      letter-spacing:-0.01em;
     }
+    p{ margin:0 0 14px; font-size:18px; }
 
     .lead p:first-child::first-letter{
-      float: left;
-      font-size: 3.2em;
-      line-height: .95;
-      padding-right: 8px;
-      padding-top: 6px;
-      font-weight: 700;
+      float:left;
+      font-size:3.2em;
+      line-height:.95;
+      padding-right:8px;
+      padding-top:6px;
+      font-weight:700;
     }
 
-    ul{
-      margin: 10px 0 14px 20px;
-      padding: 0;
-      font-size: 18px;
-    }
-    li{ margin: 6px 0; }
+    ul{ margin:10px 0 14px 20px; padding:0; font-size:18px; }
+    li{ margin:6px 0; }
 
     /* Pullquote */
     .pull{
-      margin: 22px 0;
-      padding: 10px 0;
-      border-top: 1px solid var(--hairline);
-      border-bottom: 1px solid var(--hairline);
+      margin:22px 0;
+      padding:10px 0;
+      border-top:1px solid var(--hair);
+      border-bottom:1px solid var(--hair);
     }
     blockquote{
-      margin: 0;
-      font-size: 22px;
-      line-height: 1.35;
-      letter-spacing: -0.01em;
+      margin:0;
+      font-size:22px;
+      line-height:1.35;
+      letter-spacing:-0.01em;
     }
     .attrib{
-      margin-top: 8px;
-      font-family: var(--sans);
-      font-size: 12px;
-      color: var(--muted);
-      letter-spacing: .02em;
+      margin-top:8px;
+      font-family:var(--sans);
+      font-size:12px;
+      color:var(--muted);
+      letter-spacing:.02em;
     }
 
     /* Figures */
-    figure{
-      margin: 22px auto;
-      max-width: var(--max-wide);
-    }
+    figure{ margin:22px auto; max-width:var(--max); }
     .figure-card{
-      border: 1px solid var(--hairline);
-      border-radius: 12px;
-      padding: 14px;
-      background: #fbfbfb;
+      border:1px solid var(--hair);
+      border-radius:12px;
+      padding:14px;
+      background:#fbfbfb;
     }
     .placeholder{
-      width: 100%;
-      aspect-ratio: 16/9;
-      border-radius: 10px;
-      border: 1px dashed #cfcfcf;
-      display: grid;
-      place-items: center;
-      color: #777;
-      font-family: var(--sans);
-      font-size: 12px;
-      letter-spacing: .04em;
-      text-transform: uppercase;
+      width:100%;
+      aspect-ratio:16/9;
+      border-radius:10px;
+      border:1px dashed #cfcfcf;
+      display:grid;
+      place-items:center;
+      color:#777;
+      font-family:var(--sans);
+      font-size:12px;
+      letter-spacing:.04em;
+      text-transform:uppercase;
     }
     figcaption{
-      max-width: var(--max);
-      margin: 10px auto 0;
-      color: var(--muted);
-      font-size: 13px;
-      font-family: var(--sans);
-      line-height: 1.45;
+      max-width:var(--max-read);
+      margin:10px auto 0;
+      color:var(--muted);
+      font-size:13px;
+      font-family:var(--sans);
+      line-height:1.45;
     }
 
-    /* Callout box */
+    /* Callout */
     .callout{
-      margin: 18px 0 10px;
-      border: 1px solid var(--hairline);
-      border-radius: 12px;
-      padding: 14px 16px;
-      background: #ffffff;
+      max-width:var(--max-read);
+      margin:18px auto 10px;
+      border:1px solid var(--hair);
+      border-radius:12px;
+      padding:14px 16px;
+      background:#fff;
     }
+    /* Option A — refined */
+    .callout-a{
+      background:#faf8ff;
+      border:1px solid var(--hair);
+      border-radius:14px;
+      padding:16px 18px;
+
+      margin:18px auto 22px; /* top | sides | bottom */
+    }
+
+
+    .callout-a h3{
+      margin:0 0 10px;
+      font-family:var(--sans);
+      font-size:12px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:var(--muted);
+    }
+
+    .callout-a ul{
+      margin:0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:12px;
+      font-family:var(--sans);      /* ✅ sans-serif list */
+    }
+
+    @media (min-width:760px){
+      .callout-a ul{
+        grid-template-columns: 1fr 1fr;
+        column-gap:18px;
+      }
+    }
+
+    .callout-a li{
+  margin:0;
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  font-size:14px;
+  line-height:1.45;
+  color:var(--ink);
+}
+
+.callout-a li::before{
+  content:"";
+  width:18px;
+  height:18px;
+  margin-top:2px;
+  flex:0 0 18px;
+  background: var(--logo-accent);
+  -webkit-mask: var(--takeaway-icon) center / contain no-repeat;
+          mask: var(--takeaway-icon) center / contain no-repeat;
+}
+
+  /* Pick one icon for all list items (simple) */
+  .callout-a{
+    --takeaway-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/%3E%3C/svg%3E");
+  }
+
     .callout h3{
-      margin: 0 0 8px;
-      font-family: var(--sans);
-      font-size: 12px;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: var(--muted);
+      margin:0 0 8px;
+      font-family:var(--sans);
+      font-size:12px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:var(--muted);
     }
-    .callout p, .callout li{ font-size: 16px; }
+    .callout li{ font-size:16px; }
 
-    /* Footer */
     footer{
-      max-width: var(--max);
-      margin: 40px auto 0;
-      padding-top: 18px;
-      border-top: 1px solid var(--hairline);
-      font-family: var(--sans);
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.5;
+      max-width:var(--max-read);
+      margin:40px auto 0;
+      padding-top:18px;
+      border-top:1px solid var(--hair);
+      font-family:var(--sans);
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.5;
     }
 
-    /* Small screens */
-    @media (max-width: 520px){
-      p, ul { font-size: 17px; }
-      blockquote { font-size: 20px; }
+    @media (max-width:760px){
+      .topbar-inner{
+        grid-template-columns:1fr;
+        justify-items:center;
+        text-align:center;
+        gap:8px;
+      }
+      .masthead-right{
+        justify-self:center;
+        justify-content:center;
+      }
+      .nav{ justify-content:center; }
+    }
+
+    @media (max-width:520px){
+      p, ul{ font-size:17px; }
+      blockquote{ font-size:20px; }
+      .masthead-title{ font-size:28px; } /* slight downscale for very small screens */
     }
   </style>
 </head>
 
 <body>
-  <!-- Header -->
-  <div class="topbar topbar-article">
-    <div class="topbar-inner masthead" role="banner">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="topbar">
+    <!-- INTERNAL: logo left, nav right (exit UseCases folder to reach top-level pages) -->
+    <div class="topbar-inner" role="banner">
       <div class="masthead-left">
-        <div class="masthead-links">
-          <a href="index.html#case-studies">Case Studies</a>
-          <span class="dot">•</span>
-          <a href="index.html#about">About</a>
-        </div>
+        <a class="masthead-title" href="../Index.html" aria-label="Home">.<span class="logo-accent">DaNiela</span>.</a>
       </div>
 
-      <div class="masthead-center">
-        <a class="masthead-title" href="../index.html" aria-label="Home">Daniela</a>
-      </div>
-
-      <div class="masthead-right">
-        <a class="masthead-cta" href="index.html#contact">Contact</a>
+      <div class="masthead-right" aria-label="Site navigation">
+        <a class="masthead-link" href="../UseCases.html">Use Cases</a>
+        <a class="masthead-link" href="../Notes.html">Notes</a>
+        <a class="masthead-link" href="../About.html">About</a>
       </div>
     </div>
 
+    <!-- INTERNAL: anchor links -->
     <div class="topbar-nav">
       <nav class="nav" aria-label="On-page navigation">
         <a href="#context">Context</a>
@@ -398,31 +456,26 @@
     </div>
   </div>
 
-  <main>
+  <main id="main">
     <article>
       <div class="kicker">Build &amp; Release / Engineering Portal</div>
-
-      <p class="breadcrumb">
-        <a href="index.html#case-studies">Case Studies</a>
-        <span class="crumb-sep">›</span>
-        Build &amp; Release / Engineering Portal
-      </p>
 
       <h1>Designing for Clarity in a Complex System</h1>
 
       <p class="subhead">
-        A narrative case study about designing the conditions for alignment, visibility, and product coherence—without disrupting delivery.
+        A case study about designing the conditions for alignment, visibility, and product coherence—without disrupting delivery.
       </p>
 
       <div class="meta">
         <span><strong>Author:</strong> Daniela Penati</span>
-        <span><strong>Role:</strong> UX Manager (first-time at JPMC)</span>
+        <span><strong>Role:</strong> UX Manager</span>
         <span><strong>Scope:</strong> Team + Operating Model + Product Coherence</span>
       </div>
 
       <div class="rule" role="presentation"></div>
 
-      <div class="callout">
+      <!-- PREVIEW: Option A -->
+      <div class="callout callout-a">
         <h3>Key takeaways</h3>
         <ul>
           <li>Designed a lightweight operating rhythm to improve shared visibility and momentum.</li>
@@ -458,18 +511,17 @@
 
         <figure>
           <div class="figure-card">
-            <div class="placeholder">Visual Placeholder — Context (people/behavior illustration)</div>
+            <div class="placeholder">Visual Placeholder — Context Illustration</div>
           </div>
           <figcaption>
-            Suggested visual: minimal line illustration of the protagonist standing calmly while directional lines and symbols move around her
-            (signals complexity without dramatizing it).
+            Suggested visual: minimal line illustration of the protagonist standing calmly while directional lines and symbols move around her (signals complexity without dramatizing it).
           </figcaption>
         </figure>
       </section>
 
-      <!-- 3. APPROACH -->
+      <!-- 2. APPROACH -->
       <section id="approach">
-        <div class="section-label">3. Strategic approach</div>
+        <div class="section-label">2. Strategic approach</div>
         <h2>Designing the Conditions for Impact</h2>
 
         <p>
@@ -491,13 +543,13 @@
 
         <div class="pull">
           <blockquote>“Structure was never the goal; it was the scaffolding that made flexibility possible.”</blockquote>
-          <div class="attrib">Pull quote (placeholder — you may replace)</div>
+          <div class="attrib">Pull quote (placeholder — replace as desired)</div>
         </div>
       </section>
 
-      <!-- 4. EXECUTION -->
+      <!-- 3. EXECUTION -->
       <section id="execution">
-        <div class="section-label">4. Execution</div>
+        <div class="section-label">3. Execution</div>
         <h2>Turning Strategy into Practice</h2>
 
         <p>
@@ -505,16 +557,15 @@
           I established a predictable weekly cadence that balanced focus, learning, and visibility—allowing the team to build new habits incrementally while continuing to deliver.
         </p>
 
-        <h3 style="font-family: var(--sans); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 18px 0 6px;">
-          One-week cadence (overview)
-        </h3>
-
-        <ul>
-          <li><strong>Commitment:</strong> intentionally scoped work aligned to capacity</li>
-          <li><strong>Learning:</strong> domain knowledge and rationale embedded into delivery</li>
-          <li><strong>Checkpoint:</strong> early visibility into progress, risks, and dependencies</li>
-          <li><strong>Demo:</strong> work shared, connected to the broader experience, and later extended to stakeholders</li>
-        </ul>
+        <div class="callout">
+          <h3>One-week cadence (overview)</h3>
+          <ul>
+            <li><strong>Commitment:</strong> intentionally scoped work aligned to capacity</li>
+            <li><strong>Learning:</strong> domain knowledge and rationale embedded into delivery</li>
+            <li><strong>Checkpoint:</strong> early visibility into progress, risks, and dependencies</li>
+            <li><strong>Demo:</strong> work shared, connected to the broader experience, and later extended to stakeholders</li>
+          </ul>
+        </div>
 
         <figure>
           <div class="figure-card">
@@ -535,9 +586,9 @@
         </figure>
       </section>
 
-      <!-- 5. IMPACT -->
+      <!-- 4. IMPACT -->
       <section id="impact">
-        <div class="section-label">5. Product impact</div>
+        <div class="section-label">4. Product impact</div>
         <h2>From Fragmentation to Coherence</h2>
 
         <p>
@@ -569,9 +620,9 @@
         </figure>
       </section>
 
-      <!-- 6. REFLECTION -->
+      <!-- 5. REFLECTION -->
       <section id="reflection">
-        <div class="section-label">6. Reflection</div>
+        <div class="section-label">5. Reflection</div>
         <h2>Designing at Multiple Levels</h2>
 
         <p>
@@ -595,7 +646,7 @@
 
         <figure>
           <div class="figure-card">
-            <div class="placeholder">Visual Placeholder — Reflection (people/behavior illustration)</div>
+            <div class="placeholder">Visual Placeholder — Reflection Illustration</div>
           </div>
           <figcaption>
             Suggested visual: the same protagonist, relaxed posture, with fewer surrounding marks—signal calm coherence and an expanded horizon.
@@ -605,8 +656,7 @@
 
       <footer>
         <p>
-          Note: This page uses a newspaper-inspired typographic layout (serif body, narrow measure, subtle rules) for readability and focus.
-          Replace placeholder visuals and quotes with your artifacts and anonymized examples as needed.
+          Note: Replace placeholder visuals and quotes with your artifacts and anonymized examples as needed.
         </p>
       </footer>
     </article>
