@@ -13,7 +13,7 @@
 
   <style>
     /* =========================================================
-       0) Design tokens (Parent page)
+       Design tokens (PARENT page)
        ========================================================= */
     :root{
       --bg:#ffffff;
@@ -25,7 +25,6 @@
       --max:1100px;
 
       --serif: ui-serif, Georgia, "Times New Roman", Times, serif;
-      /* Medium-like sans (system stack) */
       --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
               "Apple Color Emoji","Segoe UI Emoji";
 
@@ -46,7 +45,7 @@
     }
 
     /* =========================================================
-       1) Accessibility
+       Accessibility
        ========================================================= */
     .skip-link{
       position:absolute;
@@ -72,10 +71,7 @@
     }
 
     /* =========================================================
-       2) Topbar (PARENT masthead)
-       - date left
-       - big centered logo
-       - CTA + About right
+       Topbar (PARENT masthead)
        ========================================================= */
     .topbar{
       position:sticky;
@@ -121,7 +117,7 @@
       letter-spacing:-0.03em;
       line-height:1;
       text-decoration:none;
-      color:var(--logo-accent); /* all letters purple (incl. dots) */
+      color:var(--logo-accent);
       font-size:clamp(36px, 4.8vw, 68px);
       white-space:nowrap;
     }
@@ -172,8 +168,7 @@
     }
 
     /* =========================================================
-       3) Second-row nav (PARENT)
-       - left aligned links to child pages/sections
+       Second-row nav (PARENT) — centered as a single unit
        ========================================================= */
     .topbar-nav{
       border-top:1px solid var(--hair);
@@ -181,21 +176,43 @@
       padding:10px 0;
       background:transparent;
     }
-    .nav{
+
+    /* Center the whole strip (kicker + links) */
+    .nav-wrap{
       max-width:var(--max);
       margin:0 auto;
       padding:0 18px;
       display:flex;
+      justify-content:center;  /* ✅ center as a group */
+      align-items:center;
+      gap:14px;
+    }
+
+    .nav-kicker{
+      font-family:var(--sans);
+      font-size:12px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:var(--muted);
+      font-weight:700;
+      white-space:nowrap;
+    }
+
+    .nav{
+      display:flex;
       flex-wrap:wrap;
       gap:12px;
-      justify-content:flex-start; /* LEFT */
+      justify-content:center;  /* ✅ center the links inside */
       font-family:var(--sans);
+      margin:0;
+      padding:0;
     }
+
     .nav a{
       color:var(--logo-accent);
       text-decoration:none;
-      font-size:15px;     /* readable */
-      font-weight:700;
+      font-size:14px;
+      font-weight:800;
       letter-spacing:.01em;
       padding:4px 6px;
       border-radius:6px;
@@ -206,35 +223,13 @@
       background:var(--soft);
     }
 
-    /* Feature strip on Index */
-    .nav-features{
-      justify-content:flex-start;
-      gap:12px;
-    }
-
-    .nav-features a{
-      color:var(--logo-accent);
-      font-weight:800;          /* a touch more “nav-like” */
-      font-size:14px;
-      text-decoration:none;
-      padding:4px 6px;
-      border-radius:6px;
-    }
-
-    .nav-features a:hover{
-      text-decoration:underline;
-      text-underline-offset:3px;
-      background:var(--soft);
-    }
-
-
     /* =========================================================
-       4) Main layout
+       Main layout
        ========================================================= */
     main{
       max-width:var(--max);
       margin:0 auto;
-      padding:26px 18px 80px; /* tighter: featured sits closer to masthead */
+      padding:26px 18px 80px;
     }
 
     .rule{ border-top:1px solid var(--hair); margin:22px 0 26px; }
@@ -465,23 +460,59 @@
         text-align:center;
         gap:8px;
       }
-      .masthead-right{
-        justify-content:center;
-      }
-      .nav{ justify-content:center; }
+      .masthead-right{ justify-content:center; }
       main{ padding-top:18px; }
+      .nav-wrap{ flex-direction:column; gap:8px; }
     }
   </style>
+
+  <script src="shared.js" defer></script>
+  <script defer>
+    // Renders cards from `window.articles` (populated in shared.js)
+    document.addEventListener('DOMContentLoaded', () => {
+      const articles = Array.isArray(window.articles) ? window.articles : [];
+      const byDateDesc = [...articles].sort((a,b)=> new Date(b.date) - new Date(a.date));
+
+      const grid = document.getElementById('grid');
+      if (!grid) return;
+
+      for (const a of byDateDesc) {
+        const card = document.createElement('article');
+        card.className = 'card';
+
+        const safeTitle = a.title || 'Untitled';
+        const safeLink  = a.link || '#';
+        const safeImg   = a.image || '';
+        const safeAlt   = a.imageAlt || safeTitle;
+
+        const tags = (a.tags || [])
+          .map(tag => `<span class="pill">${tag}</span>`)
+          .join("");
+
+        card.innerHTML = `
+          <a class="card-media" href="${safeLink}" aria-label="${safeTitle}">
+            ${safeImg ? `<img src="${safeImg}" alt="${safeAlt}" loading="lazy" decoding="async">` : ``}
+          </a>
+          <div class="card-body">
+            <div class="card-kicker">${a.kicker || "Case Study"}</div>
+            <h3 class="card-title"><a href="${safeLink}">${safeTitle}</a></h3>
+            <p class="card-desc">${a.excerpt || ""}</p>
+            <div class="card-footer">${tags}</div>
+          </div>
+        `;
+
+        grid.appendChild(card);
+      }
+    });
+  </script>
 </head>
 
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- =========================================================
-       TOPBAR (PARENT)
-       ========================================================= -->
+  <!-- ===================== TOPBAR (PARENT) ===================== -->
   <div class="topbar">
-    <div class="topbar-inner masthead" role="banner" aria-label="Site header">
+    <div class="topbar-inner" role="banner" aria-label="Site header">
       <div class="masthead-left">
         <div class="masthead-date">Monday, December 29, 2025</div>
       </div>
@@ -497,25 +528,22 @@
         <a class="masthead-meta" href="UseCases.html">Use Cases</a>
         <a class="masthead-meta" href="Notes.html">Notes</a>
       </div>
-
     </div>
 
     <div class="topbar-nav">
-      <nav class="nav nav-features" aria-label="Featured pages">
-        <a href="Feature_Drawings.html">Drawings</a>
-        <a href="Feature_Photos.html">Photos</a>
-        <a href="Feature_Books.html">Books</a>
-        <a href="Feature_Places.html">Places</a>
-      </nav>
+      <div class="nav-wrap">
+        <div class="nav-kicker">STUDIO:</div>
+        <nav class="nav" aria-label="Featured creative work">
+          <a href="F_zentangle.html">Linework</a>
+          <a href="F_fashion.html">Style</a>
+          <a href="F_photography.html">Lens</a>
+        </nav>
+      </div>
     </div>
-
   </div>
 
-  <!-- =========================================================
-       MAIN
-       ========================================================= -->
+  <!-- ===================== MAIN ===================== -->
   <main id="main">
-    <!-- Featured + Latest Posts -->
     <section class="featured" aria-label="Featured">
       <article class="hero">
         <div class="hero-media">Featured Visual Placeholder</div>
@@ -560,7 +588,6 @@
       <div class="hint">Pulled from your shared feed</div>
     </div>
 
-    <!-- Cards grid -->
     <section aria-label="Case study cards">
       <div id="grid" class="grid"></div>
     </section>
@@ -572,55 +599,14 @@
         Contact
       </h2>
       <p style="margin:0; color:var(--muted); font-size:16px;">
-        daniela@dpenati.com / LinkedIn: https://www.linkedin.com/in/danielapenati/
+        <a href="mailto:daniela@dpenati.com">daniela@dpenati.com</a> ·
+        <a href="https://www.linkedin.com/in/danielapenati/" target="_blank" rel="noopener">LinkedIn</a>
       </p>
     </section>
 
     <footer>
-      <p>
-        Tip: keep each card teaser to ~110–150 characters for a crisp editorial feel.
-      </p>
+      <p>Tip: keep each card teaser to ~110–150 characters for a crisp editorial feel.</p>
     </footer>
   </main>
-
-  <!-- =========================================================
-       Scripts
-       ========================================================= -->
-  <script src="shared.js" defer></script>
-  <script>
-    // Renders cards from `window.articles` (populated in shared.js)
-    document.addEventListener('DOMContentLoaded', () => {
-      const articles = Array.isArray(window.articles) ? window.articles : [];
-      const byDateDesc = [...articles].sort((a,b)=> new Date(b.date) - new Date(a.date));
-
-      const grid = document.getElementById('grid');
-      if (!grid) return;
-
-      byDateDesc.forEach((a) => {
-        const card = document.createElement('article');
-        card.className = 'card';
-
-        const tags = (a.tags || [])
-          .map(tag => `<span class="pill">${tag}</span>`)
-          .join("");
-
-        card.innerHTML = `
-          <a class="card-media" href="${a.link}" aria-label="${a.title}">
-            <img src="${a.image}" alt="${a.title}" loading="lazy" decoding="async">
-          </a>
-          <div class="card-body">
-            <div class="card-kicker">${a.kicker || "Case Study"}</div>
-            <h3 class="card-title">
-              <a href="${a.link}">${a.title}</a>
-            </h3>
-            <p class="card-desc">${a.excerpt || ""}</p>
-            <div class="card-footer">${tags}</div>
-          </div>
-        `;
-
-        grid.appendChild(card);
-      });
-    });
-  </script>
 </body>
 </html>
