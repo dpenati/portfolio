@@ -206,6 +206,28 @@
       background:var(--soft);
     }
 
+    /* Feature strip on Index */
+    .nav-features{
+      justify-content:flex-start;
+      gap:12px;
+    }
+
+    .nav-features a{
+      color:var(--logo-accent);
+      font-weight:800;          /* a touch more “nav-like” */
+      font-size:14px;
+      text-decoration:none;
+      padding:4px 6px;
+      border-radius:6px;
+    }
+
+    .nav-features a:hover{
+      text-decoration:underline;
+      text-underline-offset:3px;
+      background:var(--soft);
+    }
+
+
     /* =========================================================
        4) Main layout
        ========================================================= */
@@ -469,18 +491,24 @@
         <div class="masthead-subtitle">UX / Product Design</div>
       </div>
 
-      <div class="masthead-right">
+      <div class="masthead-right" aria-label="Site navigation">
         <a class="masthead-cta" href="#contact">Contact</a>
         <a class="masthead-meta" href="About.html">About</a>
+        <a class="masthead-meta" href="UseCases.html">Use Cases</a>
+        <a class="masthead-meta" href="Notes.html">Notes</a>
       </div>
+
     </div>
 
     <div class="topbar-nav">
-      <nav class="nav" aria-label="Primary navigation">
-        <a href="UseCases.html">Use Cases</a>
-        <a href="Notes.html">Notes</a>
+      <nav class="nav nav-features" aria-label="Featured pages">
+        <a href="Feature_Drawings.html">Drawings</a>
+        <a href="Feature_Photos.html">Photos</a>
+        <a href="Feature_Books.html">Books</a>
+        <a href="Feature_Places.html">Places</a>
       </nav>
     </div>
+
   </div>
 
   <!-- =========================================================
@@ -544,7 +572,7 @@
         Contact
       </h2>
       <p style="margin:0; color:var(--muted); font-size:16px;">
-        Placeholder: email / LinkedIn. (Keep minimal.)
+        daniela@dpenati.com / LinkedIn: https://www.linkedin.com/in/danielapenati/
       </p>
     </section>
 
