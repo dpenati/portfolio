@@ -12,6 +12,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Barrio&display=swap" rel="stylesheet" />
 
   <style>
+    /* =========================================================
+       0) Design tokens
+       ========================================================= */
     :root{
       --bg:#ffffff;
       --ink:#111111;
@@ -23,10 +26,14 @@
       --max-read: 720px;  /* article measure */
 
       --serif: ui-serif, Georgia, "Times New Roman", Times, serif;
-      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      /* “Medium-like” sans (system stack) */
+      --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
 
       --logo: "Barrio", ui-serif, Georgia, "Times New Roman", Times, serif;
       --logo-accent: #6E5B98; /* pantone purple */
+
+      /* Quote text (NOT the rails) */
+      --quote-ink: #6b6f76;   /* modern silver/graphite */
     }
 
     html,body{height:100%;}
@@ -41,7 +48,9 @@
       text-rendering:optimizeLegibility;
     }
 
-    /* Accessibility */
+    /* =========================================================
+       1) Accessibility
+       ========================================================= */
     .skip-link{
       position:absolute;
       left:-999px; top:auto;
@@ -65,7 +74,12 @@
       border-radius:10px;
     }
 
-    /* ===== Topbar (internal pages) ===== */
+    /* =========================================================
+       2) Topbar (internal pages)
+       - logo left
+       - page links right
+       - on-page anchors in second row
+       ========================================================= */
     .topbar{
       position:sticky;
       top:0;
@@ -75,7 +89,6 @@
       border-bottom:1px solid var(--hair);
     }
 
-    /* Masthead: logo left, links right */
     .topbar-inner{
       max-width:var(--max);
       margin:0 auto;
@@ -86,7 +99,7 @@
       gap:12px;
       font-family:var(--sans);
     }
-    .masthead-left{ justify-self:start; }
+
     .masthead-right{
       justify-self:end;
       display:flex;
@@ -127,7 +140,7 @@
     .topbar-nav{
       border-top:1px solid var(--hair);
       border-bottom:2px solid var(--hair);
-      padding:8px 0;
+      padding:10px 0;
       background:transparent;
     }
     .nav{
@@ -136,15 +149,16 @@
       padding:0 18px;
       display:flex;
       flex-wrap:wrap;
-      gap:10px;
+      gap:12px;
       justify-content:flex-start;
       font-family:var(--sans);
     }
     .nav a{
-      color:var(--logo-accent);          /* requested */
+      color:var(--logo-accent);
       text-decoration:none;
-      font-size:14px;
-      letter-spacing:.02em;
+      font-size:15px;        /* bigger = easier to read */
+      font-weight:700;
+      letter-spacing:.01em;
       padding:4px 6px;
       border-radius:6px;
     }
@@ -154,7 +168,9 @@
       background:var(--soft);
     }
 
-    /* ===== Main layout ===== */
+    /* =========================================================
+       3) Main layout + header
+       ========================================================= */
     main{
       max-width:var(--max);
       margin:0 auto;
@@ -171,40 +187,21 @@
       text-transform:uppercase;
     }
 
-    .breadcrumb{
-      max-width:var(--max-read);
-      margin:0 auto 10px;
-      font-family:var(--sans);
-      font-size:12px;
-      color:var(--muted);
-      letter-spacing:.02em;
-    }
-    .breadcrumb a{
-      color:var(--muted);
-      text-decoration:none;
-    }
-    .breadcrumb a:hover{
-      color:var(--ink);
-      text-decoration:underline;
-      text-underline-offset:3px;
-    }
-    .crumb-sep{ margin:0 6px; color:var(--hair); }
-
     h1{
       max-width:var(--max-read);
       margin:0 auto 10px;
       font-weight:700;
-      font-size:clamp(30px, 4.2vw, 48px); /* ↓ smaller */
-      line-height:1.06;                   /* tiny tweak optional */
+      font-size:clamp(28px, 4.2vw, 46px); /* smaller */
+      line-height:1.06;
       letter-spacing:-0.02em;
     }
 
     .subhead{
       max-width:var(--max-read);
-      margin:0 auto 18px;
+      margin:0 auto 22px;
       color:var(--muted);
-      font-size:clamp(16px, 2vw, 20px);
-      line-height:1.4;
+      font-size:clamp(15px, 1.7vw, 18px); /* smaller */
+      line-height:1.5;
     }
 
     .meta{
@@ -225,29 +222,37 @@
       border-top:1px solid var(--hair);
     }
 
-    /* Sections */
+    /* =========================================================
+       4) Sections
+       - extra top padding applies to FIRST section too
+       ========================================================= */
     section{
       max-width:var(--max-read);
       margin:0 auto;
-      padding:26px 0;
+      padding:34px 0 26px;      /* more space ABOVE labels */
       border-top:1px solid var(--hair);
     }
-    section:first-of-type{ border-top:none; padding-top:0; }
+    section:first-of-type{
+      border-top:none;          /* keep breathing room, remove only the line */
+    }
 
     .section-label{
       font-family:var(--sans);
       font-size:12px;
       letter-spacing:.08em;
       text-transform:uppercase;
-      color:var(--muted);
-      margin-bottom:8px;
+      color:var(--logo-accent);
+      font-weight:800;
+      margin:0 0 8px;
     }
+
     h2{
       margin:0 0 10px;
       font-size:20px;
       line-height:1.25;
       letter-spacing:-0.01em;
     }
+
     p{ margin:0 0 14px; font-size:18px; }
 
     .lead p:first-child::first-letter{
@@ -262,19 +267,141 @@
     ul{ margin:10px 0 14px 20px; padding:0; font-size:18px; }
     li{ margin:6px 0; }
 
-    /* Pullquote */
-    .pull{
-      margin:22px 0;
-      padding:10px 0;
-      border-top:1px solid var(--hair);
-      border-bottom:1px solid var(--hair);
+    /* =========================================================
+       5) Key takeaways (Option A)
+       ========================================================= */
+    .callout{
+      max-width:var(--max-read);
+      margin:18px auto 22px;
+      border:1px solid var(--hair);
+      border-radius:14px;
+      padding:16px 18px;
+      background:#fff;
     }
-    blockquote{
+
+    .callout-a{
+      background:#faf8ff;
+    }
+
+    .callout-a h3{
+      margin:0 0 10px;
+      font-family:var(--sans);
+      font-size:12px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:var(--muted);
+    }
+
+    .callout-a ul{
       margin:0;
-      font-size:22px;
-      line-height:1.35;
-      letter-spacing:-0.01em;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:12px;
+      font-family:var(--sans);
     }
+    @media (min-width:760px){
+      .callout-a ul{
+        grid-template-columns: 1fr 1fr;
+        column-gap:18px;
+      }
+    }
+    .callout-a li{
+      margin:0;
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      font-size:14px;
+      line-height:1.45;
+      color:var(--ink);
+    }
+    .callout-a li::before{
+      content:"";
+      width:18px;
+      height:18px;
+      margin-top:2px;
+      flex:0 0 18px;
+      background: var(--logo-accent);
+      -webkit-mask: var(--takeaway-icon) center / contain no-repeat;
+              mask: var(--takeaway-icon) center / contain no-repeat;
+    }
+    .callout-a{
+      --takeaway-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/%3E%3C/svg%3E");
+    }
+
+    /* One-week cadence callout: same purple tint + sans */
+    .callout-accent{
+      background:#faf8ff;
+      font-family:var(--sans);
+    }
+    .callout-accent h3{
+      margin:0 0 10px;
+      font-family:var(--sans);
+      font-size:12px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:var(--logo-accent);
+      font-weight:800;
+    }
+    .callout-accent ul{
+      margin:0;
+      padding-left:18px;
+      font-family:var(--sans);
+      font-size:16px;
+    }
+
+    /* =========================================================
+       6) Quotes (Option B + “designed” enhancement)
+       - vertical rails
+       - thicker left, thinner right
+       - rails inset 16px
+       - quote text silver
+       ========================================================= */
+    .pull{
+      max-width: calc(var(--max-read) - 10px);
+      margin: 28px auto;
+    }
+
+    .pull blockquote{
+      position: relative;
+      margin: 0;
+
+      padding: 16px 30px;
+      padding-left: 48px;
+      padding-right: 38px;
+
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 19px;
+      line-height: 1.52;
+      letter-spacing: -0.004em;
+      color: var(--quote-ink);
+    }
+
+    .pull blockquote::before,
+    .pull blockquote::after{
+      content:"";
+      position:absolute;
+      top: 10px;
+      bottom: 10px;
+      background: var(--logo-accent);
+      border-radius: 999px;
+      pointer-events:none;
+    }
+
+    /* Left rail (thick) */
+    .pull blockquote::before{
+      left: 16px;
+      width: 7px;
+    }
+
+    /* Right rail (thin) */
+    .pull blockquote::after{
+      right: 16px;
+      width: 2px;
+      opacity: .95;
+    }
+
     .attrib{
       margin-top:8px;
       font-family:var(--sans);
@@ -283,7 +410,9 @@
       letter-spacing:.02em;
     }
 
-    /* Figures */
+    /* =========================================================
+       7) Figures / placeholders
+       ========================================================= */
     figure{ margin:22px auto; max-width:var(--max); }
     .figure-card{
       border:1px solid var(--hair);
@@ -313,87 +442,9 @@
       line-height:1.45;
     }
 
-    /* Callout */
-    .callout{
-      max-width:var(--max-read);
-      margin:18px auto 10px;
-      border:1px solid var(--hair);
-      border-radius:12px;
-      padding:14px 16px;
-      background:#fff;
-    }
-    /* Option A — refined */
-    .callout-a{
-      background:#faf8ff;
-      border:1px solid var(--hair);
-      border-radius:14px;
-      padding:16px 18px;
-
-      margin:18px auto 22px; /* top | sides | bottom */
-    }
-
-
-    .callout-a h3{
-      margin:0 0 10px;
-      font-family:var(--sans);
-      font-size:12px;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      color:var(--muted);
-    }
-
-    .callout-a ul{
-      margin:0;
-      padding:0;
-      list-style:none;
-      display:grid;
-      gap:12px;
-      font-family:var(--sans);      /* ✅ sans-serif list */
-    }
-
-    @media (min-width:760px){
-      .callout-a ul{
-        grid-template-columns: 1fr 1fr;
-        column-gap:18px;
-      }
-    }
-
-    .callout-a li{
-  margin:0;
-  display:flex;
-  gap:10px;
-  align-items:flex-start;
-  font-size:14px;
-  line-height:1.45;
-  color:var(--ink);
-}
-
-.callout-a li::before{
-  content:"";
-  width:18px;
-  height:18px;
-  margin-top:2px;
-  flex:0 0 18px;
-  background: var(--logo-accent);
-  -webkit-mask: var(--takeaway-icon) center / contain no-repeat;
-          mask: var(--takeaway-icon) center / contain no-repeat;
-}
-
-  /* Pick one icon for all list items (simple) */
-  .callout-a{
-    --takeaway-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/%3E%3C/svg%3E");
-  }
-
-    .callout h3{
-      margin:0 0 8px;
-      font-family:var(--sans);
-      font-size:12px;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      color:var(--muted);
-    }
-    .callout li{ font-size:16px; }
-
+    /* =========================================================
+       8) Footer
+       ========================================================= */
     footer{
       max-width:var(--max-read);
       margin:40px auto 0;
@@ -405,6 +456,9 @@
       line-height:1.5;
     }
 
+    /* =========================================================
+       9) Responsive
+       ========================================================= */
     @media (max-width:760px){
       .topbar-inner{
         grid-template-columns:1fr;
@@ -421,8 +475,9 @@
 
     @media (max-width:520px){
       p, ul{ font-size:17px; }
-      blockquote{ font-size:20px; }
-      .masthead-title{ font-size:28px; } /* slight downscale for very small screens */
+      .masthead-title{ font-size:28px; }
+      .nav a{ font-size:14px; }
+      .pull blockquote{ font-size:18px; }
     }
   </style>
 </head>
@@ -430,10 +485,13 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
+  <!-- =========================================================
+       TOPBAR (INTERNAL)
+       ========================================================= -->
   <div class="topbar">
-    <!-- INTERNAL: logo left, nav right (exit UseCases folder to reach top-level pages) -->
-    <div class="topbar-inner" role="banner">
+    <div class="topbar-inner" role="banner" aria-label="Site header">
       <div class="masthead-left">
+        <!-- Exit /UseCases folder to reach top-level pages -->
         <a class="masthead-title" href="../Index.html" aria-label="Home">.<span class="logo-accent">DaNiela</span>.</a>
       </div>
 
@@ -444,7 +502,6 @@
       </div>
     </div>
 
-    <!-- INTERNAL: anchor links -->
     <div class="topbar-nav">
       <nav class="nav" aria-label="On-page navigation">
         <a href="#context">Context</a>
@@ -456,6 +513,9 @@
     </div>
   </div>
 
+  <!-- =========================================================
+       MAIN
+       ========================================================= -->
   <main id="main">
     <article>
       <div class="kicker">Build &amp; Release / Engineering Portal</div>
@@ -474,7 +534,9 @@
 
       <div class="rule" role="presentation"></div>
 
-      <!-- PREVIEW: Option A -->
+      <!-- =========================================================
+           KEY TAKEAWAYS
+           ========================================================= -->
       <div class="callout callout-a">
         <h3>Key takeaways</h3>
         <ul>
@@ -484,7 +546,9 @@
         </ul>
       </div>
 
-      <!-- 1. CONTEXT -->
+      <!-- =========================================================
+           1) CONTEXT
+           ========================================================= -->
       <section id="context" class="lead">
         <div class="section-label">1. Context</div>
         <h2>A Leadership Moment in a Complex System</h2>
@@ -514,12 +578,14 @@
             <div class="placeholder">Visual Placeholder — Context Illustration</div>
           </div>
           <figcaption>
-            Suggested visual: minimal line illustration of the protagonist standing calmly while directional lines and symbols move around her (signals complexity without dramatizing it).
+            Suggested visual: minimal line illustration of the protagonist standing calmly while directional lines and symbols move around her.
           </figcaption>
         </figure>
       </section>
 
-      <!-- 2. APPROACH -->
+      <!-- =========================================================
+           2) APPROACH
+           ========================================================= -->
       <section id="approach">
         <div class="section-label">2. Strategic approach</div>
         <h2>Designing the Conditions for Impact</h2>
@@ -547,7 +613,9 @@
         </div>
       </section>
 
-      <!-- 3. EXECUTION -->
+      <!-- =========================================================
+           3) EXECUTION
+           ========================================================= -->
       <section id="execution">
         <div class="section-label">3. Execution</div>
         <h2>Turning Strategy into Practice</h2>
@@ -557,7 +625,7 @@
           I established a predictable weekly cadence that balanced focus, learning, and visibility—allowing the team to build new habits incrementally while continuing to deliver.
         </p>
 
-        <div class="callout">
+        <div class="callout callout-accent">
           <h3>One-week cadence (overview)</h3>
           <ul>
             <li><strong>Commitment:</strong> intentionally scoped work aligned to capacity</li>
@@ -572,7 +640,7 @@
             <div class="placeholder">Visual Placeholder — Weekly Cadence</div>
           </div>
           <figcaption>
-            Suggested visual: a simple weekly calendar strip (Mon–Fri) or a lightweight ritual diagram. If you prefer: a Jira board snapshot cropped to show flow.
+            Suggested visual: a simple weekly calendar strip (Mon–Fri) or a lightweight ritual diagram.
           </figcaption>
         </figure>
 
@@ -586,7 +654,9 @@
         </figure>
       </section>
 
-      <!-- 4. IMPACT -->
+      <!-- =========================================================
+           4) IMPACT
+           ========================================================= -->
       <section id="impact">
         <div class="section-label">4. Product impact</div>
         <h2>From Fragmentation to Coherence</h2>
@@ -601,7 +671,7 @@
             <div class="placeholder">Visual Placeholder — End-to-end Pipeline Flow</div>
           </div>
           <figcaption>
-            Suggested visual: pipeline flow diagram highlighting key stages, transitions, and dependencies (system thinking made visible).
+            Suggested visual: pipeline flow diagram highlighting key stages, transitions, and dependencies.
           </figcaption>
         </figure>
 
@@ -615,12 +685,14 @@
             <div class="placeholder">Visual Placeholder — Representative UI / Prototype</div>
           </div>
           <figcaption>
-            Suggested visual: one representative screen or prototype step with brief callouts for clarity, consistency, and reduced cognitive load.
+            Suggested visual: one representative screen or prototype step with brief callouts for clarity and reduced cognitive load.
           </figcaption>
         </figure>
       </section>
 
-      <!-- 5. REFLECTION -->
+      <!-- =========================================================
+           5) REFLECTION
+           ========================================================= -->
       <section id="reflection">
         <div class="section-label">5. Reflection</div>
         <h2>Designing at Multiple Levels</h2>
@@ -655,9 +727,7 @@
       </section>
 
       <footer>
-        <p>
-          Note: Replace placeholder visuals and quotes with your artifacts and anonymized examples as needed.
-        </p>
+        <p>Note: Replace placeholder visuals and quotes with your artifacts and anonymized examples as needed.</p>
       </footer>
     </article>
   </main>
