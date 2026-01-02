@@ -466,13 +466,17 @@
     }
   </style>
 
-  <script src="shared.js" defer></script>
-  <script defer>
-    // Renders cards from `window.articles` (populated in shared.js)
-    document.addEventListener('DOMContentLoaded', () => {
-      const articles = Array.isArray(window.articles) ? window.articles : [];
-      const byDateDesc = [...articles].sort((a,b)=> new Date(b.date) - new Date(a.date));
+<script>
+  window.addEventListener("useCases:loaded", (e) => {
+    renderUseCases(e.detail);
+  });
 
+// Renders cards from `window.articles` (populated in shared.js)
+    function renderUseCases (useCases) {
+      const articles = Array.isArray(useCases) ? useCases : [];
+      const sortByDateDesc = [...articles].sort((a,b)=> new Date(b.date) - new Date(a.date));
+      const byDateDesc = sortByDateDesc.splice (0,6);
+      
       const grid = document.getElementById('grid');
       if (!grid) return;
 
@@ -503,9 +507,11 @@
 
         grid.appendChild(card);
       }
-    });
+    }
   </script>
-</head>
+
+  <script src="shared.js"></script>
+  </head>
 
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
