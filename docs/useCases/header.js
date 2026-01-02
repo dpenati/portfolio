@@ -1,8 +1,8 @@
 const script = document.currentScript;
-  // const title = script.getAttribute("data-title") || "Use Case";
+// const title = script.getAttribute("data-title") || "Use Case";
 
-  const container = script.parentElement;
-  container.innerHTML = `
+const container = script.parentElement;
+container.innerHTML = `
     <div id="header-container">
     <a class="skip-link" href="#main">Skip to content</a>
 

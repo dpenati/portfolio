@@ -1,694 +1,224 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Designing for Clarity in a Complex System — Case Study</title>
-  <meta name="description" content="A narrative UX case study about designing alignment, visibility, and product coherence in Build & Release / Engineering Portal." />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Designing for Clarity in a Complex System — Case Study</title>
+    <meta name="description" content="A narrative UX case study about designing alignment, visibility, and product coherence in Build & Release / Engineering Portal." />
 
-  <!-- Google Font: Barrio (logo) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Barrio&display=swap" rel="stylesheet" />
+    <!-- Google Font: Barrio (logo) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Barrio&display=swap" rel="stylesheet" />
 
-  <style>
-    /* =========================================================
-       0) Design tokens (internal page)
-       ========================================================= */
-    :root{
-      --bg:#ffffff;
-      --ink:#111111;
-      --muted:#5a5a5a;          /* “silver-ish” site gray */
-      --hair:#e5e5e5;
-      --soft:#f6f6f6;
-
-      --max: 980px;             /* overall page width */
-      --max-read: 720px;        /* article measure */
-
-      --serif: ui-serif, Georgia, "Times New Roman", Times, serif;
-      --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-
-      --logo: "Barrio", ui-serif, Georgia, "Times New Roman", Times, serif;
-      --logo-accent:#6E5B98;    /* pantone purple */
-
-      --quote-ink:#6b6f76;      /* quote text (NOT rails) */
-      --nav-ink: var(--muted);  /* internal anchors (silver) */
-    }
-
-    html,body{height:100%;}
-    body{
-      margin:0;
-      background:var(--bg);
-      color:var(--ink);
-      font-family:var(--serif);
-      line-height:1.65;
-      letter-spacing:.01em;
-      -webkit-font-smoothing:antialiased;
-      text-rendering:optimizeLegibility;
-    }
-
-    /* =========================================================
-       1) Accessibility
-       ========================================================= */
-    .skip-link{
-      position:absolute;
-      left:-999px; top:auto;
-      width:1px; height:1px;
-      overflow:hidden;
-    }
-    .skip-link:focus{
-      left:18px; top:12px;
-      width:auto; height:auto;
-      padding:8px 10px;
-      background:#fff;
-      border:1px solid var(--hair);
-      border-radius:10px;
-      z-index:9999;
-      font-family:var(--sans);
-      font-size:12px;
-    }
-    a:focus-visible{
-      outline:2px solid var(--logo-accent);
-      outline-offset:3px;
-      border-radius:10px;
-    }
-
-    /* =========================================================
-       2) Topbar (internal)
-       - logo left
-       - site links right
-       - on-page anchors in second row
-       ========================================================= */
-    .topbar{
-      position:sticky;
-      top:0;
-      z-index:10;
-      background:rgba(255,255,255,.92);
-      backdrop-filter: blur(8px);
-      border-bottom:1px solid var(--hair);
-    }
-
-    .topbar-inner{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:10px 18px;
-      display:grid;
-      grid-template-columns:auto 1fr;
-      align-items:center;
-      gap:12px;
-      font-family:var(--sans);
-    }
-
-    .masthead-title{
-      font-family:var(--logo);
-      font-weight:800;
-      letter-spacing:-0.02em;
-      line-height:1;
-      text-decoration:none;
-      color:var(--ink);         /* dots */
-      font-size:30px;           /* internal: legible */
-      white-space:nowrap;
-    }
-    .logo-accent{ color:var(--logo-accent); }
-
-    .masthead-right{
-      justify-self:end;
-      display:flex;
-      align-items:center;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-    }
-
-    .masthead-link{
-      color:var(--muted);
-      text-decoration:none;
-      font-size:12px;
-      letter-spacing:.02em;
-      padding:4px 6px;
-      border-radius:6px;
-      font-family:var(--sans);
-    }
-    .masthead-link:hover{
-      color:var(--ink);
-      text-decoration:underline;
-      text-underline-offset:3px;
-    }
-
-    /* --- Internal topbar nav (kicker + anchors) --- */
-    .topbar-nav{
-      border-top:1px solid var(--hair);
-      border-bottom:2px solid var(--hair);
-      padding:10px 0;
-      background:transparent;
-    }
-
-    .nav-wrap{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:0 18px;
-      display:flex;
-      align-items:center;
-      gap:14px;
-    }
-
-    .nav-kicker{
-      font-family:var(--sans);
-      font-size:12px;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      font-weight:800;
-      color:var(--logo-accent); /* purple */
-      white-space:nowrap;
-    }
-
-    .nav{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      justify-content:flex-start;
-      font-family:var(--sans);
-    }
-
-    .nav a{
-      color:var(--nav-ink);     /* silver */
-      text-decoration:none;
-      font-size:14px;
-      font-weight:700;
-      letter-spacing:.01em;
-      padding:4px 6px;
-      border-radius:6px;
-    }
-    .nav a:hover{
-      color:var(--ink);
-      text-decoration:underline;
-      text-underline-offset:3px;
-      background:var(--soft);
-    }
-
-    /* =========================================================
-       3) Main layout + header
-       ========================================================= */
-    main{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:34px 18px 80px;
-    }
-
-    .kicker{
-      max-width:var(--max-read);
-      margin:0 auto 10px;
-      font-family:var(--sans);
-      color:var(--muted);
-      font-size:12px;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-    }
-
-    h1{
-      max-width:var(--max-read);
-      margin:0 auto 10px;
-      font-weight:700;
-      font-size:clamp(28px, 4.2vw, 46px);
-      line-height:1.06;
-      letter-spacing:-0.02em;
-    }
-
-    .subhead{
-      max-width:var(--max-read);
-      margin:0 auto 22px;
-      color:var(--muted);
-      font-size:clamp(15px, 1.7vw, 18px);
-      line-height:1.5;
-    }
-
-    .meta{
-      max-width:var(--max-read);
-      margin:0 auto 26px;
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      font-family:var(--sans);
-      font-size:12px;
-      color:var(--muted);
-    }
-    .meta strong{ color:var(--ink); font-weight:600; }
-
-    .rule{
-      max-width:var(--max-read);
-      margin:0 auto 26px;
-      border-top:1px solid var(--hair);
-    }
-
-    /* =========================================================
-       4) Sections
-       ========================================================= */
-    section{
-      max-width:var(--max-read);
-      margin:0 auto;
-      padding:34px 0 26px;     /* more space above labels */
-      border-top:1px solid var(--hair);
-    }
-    section:first-of-type{
-      border-top:none;         /* keep spacing, remove only the line */
-    }
-
-    .section-label{
-      font-family:var(--sans);
-      font-size:12px;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      color:var(--logo-accent);
-      font-weight:800;
-      margin:0 0 8px;
-    }
-
-    h2{
-      margin:0 0 10px;
-      font-size:20px;
-      line-height:1.25;
-      letter-spacing:-0.01em;
-    }
-
-    p{ margin:0 0 14px; font-size:18px; }
-
-    .lead p:first-child::first-letter{
-      float:left;
-      font-size:3.2em;
-      line-height:.95;
-      padding-right:8px;
-      padding-top:6px;
-      font-weight:700;
-    }
-
-    ul{ margin:10px 0 14px 20px; padding:0; font-size:18px; }
-    li{ margin:6px 0; }
-
-    /* =========================================================
-       5) Callouts
-       ========================================================= */
-    .callout{
-      max-width:var(--max-read);
-      margin:18px auto 22px;
-      border:1px solid var(--hair);
-      border-radius:14px;
-      padding:16px 18px;
-      background:#fff;
-    }
-
-    /* Key takeaways: Option A (icon list) */
-    .callout-a{ background:#faf8ff; }
-    .callout-a h3{
-      margin:0 0 10px;
-      font-family:var(--sans);
-      font-size:12px;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      color:var(--muted);
-    }
-    .callout-a ul{
-      margin:0;
-      padding:0;
-      list-style:none;
-      display:grid;
-      gap:12px;
-      font-family:var(--sans);
-    }
-    @media (min-width:760px){
-      .callout-a ul{ grid-template-columns:1fr 1fr; column-gap:18px; }
-    }
-    .callout-a li{
-      margin:0;
-      display:flex;
-      gap:10px;
-      align-items:flex-start;
-      font-size:14px;
-      line-height:1.45;
-      color:var(--ink);
-    }
-    .callout-a{
-      --takeaway-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/%3E%3C/svg%3E");
-    }
-    .callout-a li::before{
-      content:"";
-      width:18px;
-      height:18px;
-      margin-top:2px;
-      flex:0 0 18px;
-      background:var(--logo-accent);
-      -webkit-mask: var(--takeaway-icon) center / contain no-repeat;
-              mask: var(--takeaway-icon) center / contain no-repeat;
-    }
-
-    /* One-week cadence: match takeaways tint + sans */
-    .callout-accent{
-      background:#faf8ff;
-      font-family:var(--sans);
-    }
-    .callout-accent h3{
-      margin:0 0 10px;
-      font-family:var(--sans);
-      font-size:12px;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      color:var(--logo-accent);
-      font-weight:800;
-    }
-    .callout-accent ul{
-      margin:0;
-      padding-left:18px;
-      font-family:var(--sans);
-      font-size:16px;
-    }
-
-    /* =========================================================
-       6) Quotes (vertical rails)
-       ========================================================= */
-    .pull{
-      max-width: calc(var(--max-read) - 10px);
-      margin: 28px auto;
-    }
-
-    .pull blockquote{
-      position:relative;
-      margin:0;
-
-      /* give the rails breathing room: inset 16px + text padding */
-      padding:16px 30px;
-      padding-left:48px;
-      padding-right:38px;
-
-      font-family:var(--sans);
-      font-weight:600;
-      font-size:19px;
-      line-height:1.52;
-      letter-spacing:-0.004em;
-      color:var(--quote-ink);
-    }
-
-    .pull blockquote::before,
-    .pull blockquote::after{
-      content:"";
-      position:absolute;
-      top:10px;
-      bottom:10px;
-      background:var(--logo-accent);
-      border-radius:999px;
-      pointer-events:none;
-    }
-    .pull blockquote::before{ left:16px; width:7px; }  /* thick left rail */
-    .pull blockquote::after{ right:16px; width:2px; opacity:.95; } /* thin right rail */
-
-    .attrib{
-      margin-top:8px;
-      font-family:var(--sans);
-      font-size:12px;
-      color:var(--muted);
-      letter-spacing:.02em;
-    }
-
-    /* =========================================================
-       7) Figures / placeholders
-       ========================================================= */
-    figure{ margin:22px auto; max-width:var(--max); }
-    .figure-card{
-      border:1px solid var(--hair);
-      border-radius:12px;
-      padding:14px;
-      background:#fbfbfb;
-    }
-    .placeholder{
-      width:100%;
-      aspect-ratio:16/9;
-      border-radius:10px;
-      border:1px dashed #cfcfcf;
-      display:grid;
-      place-items:center;
-      color:#777;
-      font-family:var(--sans);
-      font-size:12px;
-      letter-spacing:.04em;
-      text-transform:uppercase;
-    }
-    figcaption{
-      max-width:var(--max-read);
-      margin:10px auto 0;
-      color:var(--muted);
-      font-size:13px;
-      font-family:var(--sans);
-      line-height:1.45;
-    }
-
-    /* =========================================================
-       8) Footer
-       ========================================================= */
-    footer{
-      max-width:var(--max-read);
-      margin:40px auto 0;
-      padding-top:18px;
-      border-top:1px solid var(--hair);
-      font-family:var(--sans);
-      color:var(--muted);
-      font-size:12px;
-      line-height:1.5;
-    }
-
-    /* =========================================================
-       9) Responsive
-       ========================================================= */
-    @media (max-width:760px){
-      .topbar-inner{
-        grid-template-columns:1fr;
-        justify-items:center;
-        text-align:center;
-        gap:8px;
-      }
-      .masthead-right{
-        justify-self:center;
-        justify-content:center;
-      }
-      .nav-wrap{
-        justify-content:center;
-      }
-      .nav{
-        justify-content:center;
-      }
-    }
-
-    @media (max-width:520px){
-      p, ul{ font-size:17px; }
-      .masthead-title{ font-size:28px; }
-      .nav a{ font-size:14px; }
-      .pull blockquote{ font-size:18px; }
-    }
-  </style>
+    <link rel="stylesheet" href="./style.css" />
 </head>
 
 <body>
-  <script src="./header.js" data-title=""></script>
-  <!-- ====================== MAIN ====================== -->
-  <main id="main">
-    <article>
-      <div class="kicker">Build &amp; Release / Engineering Portal</div>
+    <!-- ====================== HEADER ====================== -->
+    <script src="./header.js" data-title=""></script>
+    <!-- ====================== MAIN ====================== -->
+    <main id="main">
+        <article>
+            <div class="kicker">Build &amp; Release / Engineering Portal</div>
 
-      <h1>Designing for Clarity in a Complex System</h1>
+            <h1>Designing for Clarity in a Complex System</h1>
 
-      <p class="subhead">
-        A case study about designing the conditions for alignment, visibility, and product coherence—without disrupting delivery.
-      </p>
+            <p class="subhead">
+                A case study about designing the conditions for alignment, visibility, and product coherence—without disrupting delivery.
+            </p>
 
-      <div class="meta">
-        <span><strong>Author:</strong> Daniela Penati</span>
-        <span><strong>Role:</strong> UX Manager</span>
-        <span><strong>Scope:</strong> Team + Operating Model + Product Coherence</span>
-      </div>
+            <div class="meta">
+                <span><strong>Author:</strong> Daniela Penati</span>
+                <span><strong>Role:</strong> UX Manager</span>
+                <span><strong>Scope:</strong> Team + Operating Model + Product Coherence</span>
+            </div>
 
-      <div class="rule" role="presentation"></div>
+            <div class="rule" role="presentation"></div>
 
-      <!-- ====================== KEY TAKEAWAYS ====================== -->
-      <div class="callout callout-a">
-        <h3>Key takeaways</h3>
-        <ul>
-          <li>Designed a lightweight operating rhythm to improve shared visibility and momentum.</li>
-          <li>Expanded authorship while holding a coherent experience direction.</li>
-          <li>Enabled the product to be addressed as an end-to-end system.</li>
-        </ul>
-      </div>
+            <!-- ====================== KEY TAKEAWAYS ====================== -->
+            <div class="callout callout-a">
+                <h3>Key takeaways</h3>
+                <ul>
+                    <li>Designed a lightweight operating rhythm to improve shared visibility and momentum.</li>
+                    <li>Expanded authorship while holding a coherent experience direction.</li>
+                    <li>Enabled the product to be addressed as an end-to-end system.</li>
+                </ul>
+            </div>
 
-      <!-- ====================== 1) CONTEXT ====================== -->
-      <section id="context" class="lead">
-        <div class="section-label">1. Context</div>
-        <h2>A Leadership Moment in a Complex System</h2>
+            <!-- ====================== 1) CONTEXT ====================== -->
+            <section id="context" class="lead">
+                <div class="section-label">1. Context</div>
+                <h2>A Leadership Moment in a Complex System</h2>
 
-        <p>
-          In early 2024, I stepped into my first people-management role at <strong>JPMorgan Chase</strong>, transitioning from an individual contributor position into a space that had experienced frequent leadership turnover.
-        </p>
+                <p>
+                    In early 2024, I stepped into my first people-management role at <strong>JPMorgan Chase</strong>, transitioning from an individual contributor position into a space that had experienced frequent leadership turnover.
+                </p>
 
-        <p>
-          Taking responsibility for the five-person UX team supporting the Build &amp; Release area of the Engineering Portal came with challenges often seen in large organizations undergoing change:
-        </p>
+                <p>
+                    Taking responsibility for the five-person UX team supporting the Build &amp; Release area of the Engineering Portal came with challenges often seen in large organizations undergoing change:
+                </p>
 
-        <ul>
-          <li>A distributed team of early-career designers and researchers with growing domain knowledge, but limited experience operating as a coordinated team within a large, multi-stakeholder environment</li>
-          <li>A complex product space with a fragmented experience shaped by multiple owners</li>
-          <li>Evolving expectations around UX’s role within a PM-centric operating model</li>
-          <li>Ongoing misalignment across Product and Engineering teams that impacted planning and delivery</li>
-        </ul>
+                <ul>
+                    <li>A distributed team of early-career designers and researchers with growing domain knowledge, but limited experience operating as a coordinated team within a large, multi-stakeholder environment</li>
+                    <li>A complex product space with a fragmented experience shaped by multiple owners</li>
+                    <li>Evolving expectations around UX’s role within a PM-centric operating model</li>
+                    <li>Ongoing misalignment across Product and Engineering teams that impacted planning and delivery</li>
+                </ul>
 
-        <p>
-          These conditions were not unique, but they required intentional design leadership.
-          My focus became identifying high-leverage interventions that could improve alignment, visibility, and product coherence—without disrupting delivery.
-        </p>
+                <p>
+                    These conditions were not unique, but they required intentional design leadership. My focus became identifying high-leverage interventions that could improve alignment, visibility, and product coherence—without disrupting delivery.
+                </p>
 
-        <figure>
-          <div class="figure-card">
-            <div class="placeholder">Visual Placeholder — Context Illustration</div>
-          </div>
-          <figcaption>
-            Suggested visual: minimal line illustration of the protagonist standing calmly while directional lines and symbols move around her.
-          </figcaption>
-        </figure>
-      </section>
+                <figure>
+                    <div class="figure-card">
+                        <div class="placeholder">Visual Placeholder — Context Illustration</div>
+                    </div>
+                    <figcaption>
+                        Suggested visual: minimal line illustration of the protagonist standing calmly while directional lines and symbols move around her.
+                    </figcaption>
+                </figure>
+            </section>
 
-      <!-- ====================== 2) APPROACH ====================== -->
-      <section id="approach">
-        <div class="section-label">2. Strategic approach</div>
-        <h2>Designing the Conditions for Impact</h2>
+            <!-- ====================== 2) APPROACH ====================== -->
+            <section id="approach">
+                <div class="section-label">2. Strategic approach</div>
+                <h2>Designing the Conditions for Impact</h2>
 
-        <p>
-          Rather than addressing individual symptoms in isolation, I focused on designing the conditions that would allow both the team and the product to progress together.
-        </p>
+                <p>
+                    Rather than addressing individual symptoms in isolation, I focused on designing the conditions that would allow both the team and the product to progress together.
+                </p>
 
-        <p>My approach centered on three deliberate choices:</p>
+                <p>My approach centered on three deliberate choices:</p>
 
-        <ul>
-          <li><strong>Establish a shared operating rhythm.</strong> Create clarity around priorities, sequencing, and ownership—without adding unnecessary process.</li>
-          <li><strong>Make work visible and collaborative.</strong> Shift UX engagement from reactive support to active partnership across Product and Engineering.</li>
-          <li><strong>Hold a coherent product vision while expanding authorship.</strong> Make space for contributions while ensuring the experience evolved as a system.</li>
-        </ul>
+                <ul>
+                    <li><strong>Establish a shared operating rhythm.</strong> Create clarity around priorities, sequencing, and ownership—without adding unnecessary process.</li>
+                    <li><strong>Make work visible and collaborative.</strong> Shift UX engagement from reactive support to active partnership across Product and Engineering.</li>
+                    <li><strong>Hold a coherent product vision while expanding authorship.</strong> Make space for contributions while ensuring the experience evolved as a system.</li>
+                </ul>
 
-        <p>
-          Importantly, these choices were as much about what I avoided—heavy governance, disruptive structural change—as what I introduced:
-          small, high-leverage interventions that could scale through practice.
-        </p>
+                <p>
+                    Importantly, these choices were as much about what I avoided—heavy governance, disruptive structural change—as what I introduced: small, high-leverage interventions that could scale through practice.
+                </p>
 
-        <div class="pull">
-          <blockquote>“Structure was never the goal; it was the scaffolding that made flexibility possible.”</blockquote>
-          <div class="attrib">Pull quote (placeholder — replace as desired)</div>
-        </div>
-      </section>
+                <div class="pull">
+                    <blockquote>“Structure was never the goal; it was the scaffolding that made flexibility possible.”</blockquote>
+                    <div class="attrib">Pull quote (placeholder — replace as desired)</div>
+                </div>
+            </section>
 
-      <!-- ====================== 3) EXECUTION ====================== -->
-      <section id="execution">
-        <div class="section-label">3. Execution</div>
-        <h2>Turning Strategy into Practice</h2>
+            <!-- ====================== 3) EXECUTION ====================== -->
+            <section id="execution">
+                <div class="section-label">3. Execution</div>
+                <h2>Turning Strategy into Practice</h2>
 
-        <p>
-          With a clear strategic direction in place, the focus shifted to translating intent into consistent, observable practice.
-          I established a predictable weekly cadence that balanced focus, learning, and visibility—allowing the team to build new habits incrementally while continuing to deliver.
-        </p>
+                <p>
+                    With a clear strategic direction in place, the focus shifted to translating intent into consistent, observable practice. I established a predictable weekly cadence that balanced focus, learning, and visibility—allowing the team to build new habits incrementally
+                    while continuing to deliver.
+                </p>
 
-        <div class="callout callout-accent">
-          <h3>One-week cadence (overview)</h3>
-          <ul>
-            <li><strong>Commitment:</strong> intentionally scoped work aligned to capacity</li>
-            <li><strong>Learning:</strong> domain knowledge and rationale embedded into delivery</li>
-            <li><strong>Checkpoint:</strong> early visibility into progress, risks, and dependencies</li>
-            <li><strong>Demo:</strong> work shared, connected to the broader experience, and later extended to stakeholders</li>
-          </ul>
-        </div>
+                <div class="callout callout-accent">
+                    <h3>One-week cadence (overview)</h3>
+                    <ul>
+                        <li><strong>Commitment:</strong> intentionally scoped work aligned to capacity</li>
+                        <li><strong>Learning:</strong> domain knowledge and rationale embedded into delivery</li>
+                        <li><strong>Checkpoint:</strong> early visibility into progress, risks, and dependencies</li>
+                        <li><strong>Demo:</strong> work shared, connected to the broader experience, and later extended to stakeholders</li>
+                    </ul>
+                </div>
 
-        <figure>
-          <div class="figure-card">
-            <div class="placeholder">Visual Placeholder — Weekly Cadence</div>
-          </div>
-          <figcaption>
-            Suggested visual: a simple weekly calendar strip (Mon–Fri) or a lightweight ritual diagram.
-          </figcaption>
-        </figure>
+                <figure>
+                    <div class="figure-card">
+                        <div class="placeholder">Visual Placeholder — Weekly Cadence</div>
+                    </div>
+                    <figcaption>
+                        Suggested visual: a simple weekly calendar strip (Mon–Fri) or a lightweight ritual diagram.
+                    </figcaption>
+                </figure>
 
-        <figure>
-          <div class="figure-card">
-            <div class="placeholder">Visual Placeholder — Work Visibility (Jira / board)</div>
-          </div>
-          <figcaption>
-            Suggested visual: simplified board diagram or sanitized screenshot showing work moving from “Ready” → “In Progress” → “Done”.
-          </figcaption>
-        </figure>
-      </section>
+                <figure>
+                    <div class="figure-card">
+                        <div class="placeholder">Visual Placeholder — Work Visibility (Jira / board)</div>
+                    </div>
+                    <figcaption>
+                        Suggested visual: simplified board diagram or sanitized screenshot showing work moving from “Ready” → “In Progress” → “Done”.
+                    </figcaption>
+                </figure>
+            </section>
 
-      <!-- ====================== 4) IMPACT ====================== -->
-      <section id="impact">
-        <div class="section-label">4. Product impact</div>
-        <h2>From Fragmentation to Coherence</h2>
+            <!-- ====================== 4) IMPACT ====================== -->
+            <section id="impact">
+                <div class="section-label">4. Product impact</div>
+                <h2>From Fragmentation to Coherence</h2>
 
-        <p>
-          As the team developed a shared rhythm and clearer operating model, space opened to address the Build &amp; Release experience more holistically.
-          The product could be approached not as isolated surfaces, but as an end-to-end system—with clearer relationships between tools, stages, and user actions.
-        </p>
+                <p>
+                    As the team developed a shared rhythm and clearer operating model, space opened to address the Build &amp; Release experience more holistically. The product could be approached not as isolated surfaces, but as an end-to-end system—with clearer relationships
+                    between tools, stages, and user actions.
+                </p>
 
-        <figure>
-          <div class="figure-card">
-            <div class="placeholder">Visual Placeholder — End-to-end Pipeline Flow</div>
-          </div>
-          <figcaption>
-            Suggested visual: pipeline flow diagram highlighting key stages, transitions, and dependencies.
-          </figcaption>
-        </figure>
+                <figure>
+                    <div class="figure-card">
+                        <div class="placeholder">Visual Placeholder — End-to-end Pipeline Flow</div>
+                    </div>
+                    <figcaption>
+                        Suggested visual: pipeline flow diagram highlighting key stages, transitions, and dependencies.
+                    </figcaption>
+                </figure>
 
-        <p>
-          The resulting designs emphasized clearer sequencing, more consistent interaction patterns, and reduced cognitive load.
-          The experience became calmer—not because it was simplified, but because it was better aligned.
-        </p>
+                <p>
+                    The resulting designs emphasized clearer sequencing, more consistent interaction patterns, and reduced cognitive load. The experience became calmer—not because it was simplified, but because it was better aligned.
+                </p>
 
-        <figure>
-          <div class="figure-card">
-            <div class="placeholder">Visual Placeholder — Representative UI / Prototype</div>
-          </div>
-          <figcaption>
-            Suggested visual: one representative screen or prototype step with brief callouts for clarity and reduced cognitive load.
-          </figcaption>
-        </figure>
-      </section>
+                <figure>
+                    <div class="figure-card">
+                        <div class="placeholder">Visual Placeholder — Representative UI / Prototype</div>
+                    </div>
+                    <figcaption>
+                        Suggested visual: one representative screen or prototype step with brief callouts for clarity and reduced cognitive load.
+                    </figcaption>
+                </figure>
+            </section>
 
-      <!-- ====================== 5) REFLECTION ====================== -->
-      <section id="reflection">
-        <div class="section-label">5. Reflection</div>
-        <h2>Designing at Multiple Levels</h2>
+            <!-- ====================== 5) REFLECTION ====================== -->
+            <section id="reflection">
+                <div class="section-label">5. Reflection</div>
+                <h2>Designing at Multiple Levels</h2>
 
-        <p>
-          This experience reinforced a belief I have carried throughout my career: strong design is not defined by control, but by clarity, care, and intention.
-          Stepping into people leadership did not pull me away from product work—it expanded the surface on which design decisions mattered.
-        </p>
+                <p>
+                    This experience reinforced a belief I have carried throughout my career: strong design is not defined by control, but by clarity, care, and intention. Stepping into people leadership did not pull me away from product work—it expanded the surface on which
+                    design decisions mattered.
+                </p>
 
-        <p>
-          Enabling an early-career team to do their best work required designing the conditions in which good decisions could emerge consistently, without constant intervention:
-          introducing structure early and loosening it deliberately, holding a clear product vision while making space for contributions, and knowing when to step in as a designer and when to step back as a leader.
-        </p>
+                <p>
+                    Enabling an early-career team to do their best work required designing the conditions in which good decisions could emerge consistently, without constant intervention: introducing structure early and loosening it deliberately, holding a clear product
+                    vision while making space for contributions, and knowing when to step in as a designer and when to step back as a leader.
+                </p>
 
-        <p>
-          I remain deeply motivated by complex product challenges. What this experience added is a stronger appreciation for how team dynamics, operating models, and design craft are inseparable at scale.
-        </p>
+                <p>
+                    I remain deeply motivated by complex product challenges. What this experience added is a stronger appreciation for how team dynamics, operating models, and design craft are inseparable at scale.
+                </p>
 
-        <div class="pull">
-          <blockquote>“I still design. I simply do it across more dimensions now.”</blockquote>
-          <div class="attrib">Closing line</div>
-        </div>
+                <div class="pull">
+                    <blockquote>“I still design. I simply do it across more dimensions now.”</blockquote>
+                    <div class="attrib">Closing line</div>
+                </div>
 
-        <figure>
-          <div class="figure-card">
-            <div class="placeholder">Visual Placeholder — Reflection Illustration</div>
-          </div>
-          <figcaption>
-            Suggested visual: the same protagonist, relaxed posture, with fewer surrounding marks—signal calm coherence and an expanded horizon.
-          </figcaption>
-        </figure>
-      </section>
+                <figure>
+                    <div class="figure-card">
+                        <div class="placeholder">Visual Placeholder — Reflection Illustration</div>
+                    </div>
+                    <figcaption>
+                        Suggested visual: the same protagonist, relaxed posture, with fewer surrounding marks—signal calm coherence and an expanded horizon.
+                    </figcaption>
+                </figure>
+            </section>
 
-      <footer>
-        <p>Note: Replace placeholder visuals and quotes with your artifacts and anonymized examples as needed.</p>
-      </footer>
-    </article>
-  </main>
+            <footer>
+                <p>Note: Replace placeholder visuals and quotes with your artifacts and anonymized examples as needed.</p>
+            </footer>
+        </article>
+    </main>
 </body>
+
 </html>
