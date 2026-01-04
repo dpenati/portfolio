@@ -6,25 +6,38 @@
     --bg: #ffffff;
     --ink: #111111;
     --muted: #5a5a5a;
+
     /* “silver-ish” site gray */
     --hair: #e5e5e5;
     --soft: #f6f6f6;
-    --max: 980px;
+
     /* overall page width */
-    --max-read: 720px;
+    --max: 980px;
+
     /* article measure */
+    --max-read: 720px;
+
     --serif: ui-serif, Georgia, "Times New Roman", Times, serif;
     --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
     --logo: "Barrio", ui-serif, Georgia, "Times New Roman", Times, serif;
-    --logo-accent: #6E5B98;
+
     /* pantone purple */
-    --quote-ink: #6b6f76;
+    --logo-accent: #6E5B98;
+
+    /* derived tints for accents (used for small UI surfaces) */
+    --accent-10: color-mix(in srgb, var(--logo-accent) 10%, white 90%);
+    --accent-18: color-mix(in srgb, var(--logo-accent) 18%, white 82%);
+    --accent-85: color-mix(in srgb, var(--logo-accent) 85%, white 15%);
+
     /* quote text (NOT rails) */
-    --nav-ink: var(--muted);
+    --quote-ink: #6b6f76;
+
     /* internal anchors (silver) */
+    --nav-ink: var(--muted);
 }
 
-html, body {
+html,
+body {
     height: 100%;
 }
 
@@ -34,7 +47,7 @@ body {
     color: var(--ink);
     font-family: var(--serif);
     line-height: 1.65;
-    letter-spacing: .01em;
+    letter-spacing: 0.01em;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
 }
@@ -73,6 +86,15 @@ a:focus-visible {
     border-radius: 10px;
 }
 
+/* Fallbacks for browsers that don’t support color-mix() */
+@supports not (color: color-mix(in srgb, #000 10%, #fff)) {
+    :root {
+        --accent-10: rgba(110, 91, 152, 0.10);
+        --accent-18: rgba(110, 91, 152, 0.18);
+        --accent-85: #7b6aa6; /* slightly lighter than #6E5B98 */
+    }
+}
+
 
 /* =========================================================
    2) Topbar (internal)
@@ -85,7 +107,7 @@ a:focus-visible {
     position: sticky;
     top: 0;
     z-index: 10;
-    background: rgba(255, 255, 255, .92);
+    background: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--hair);
 }
@@ -108,8 +130,10 @@ a:focus-visible {
     line-height: 1;
     text-decoration: none;
     color: var(--ink);
+
     /* dots */
     font-size: 30px;
+
     /* internal: legible */
     white-space: nowrap;
 }
@@ -131,7 +155,7 @@ a:focus-visible {
     color: var(--muted);
     text-decoration: none;
     font-size: 12px;
-    letter-spacing: .02em;
+    letter-spacing: 0.02em;
     padding: 4px 6px;
     border-radius: 6px;
     font-family: var(--sans);
@@ -165,11 +189,10 @@ a:focus-visible {
 .nav-kicker {
     font-family: var(--sans);
     font-size: 12px;
-    letter-spacing: .08em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     font-weight: 800;
     color: var(--logo-accent);
-    /* purple */
     white-space: nowrap;
 }
 
@@ -183,11 +206,10 @@ a:focus-visible {
 
 .nav a {
     color: var(--nav-ink);
-    /* silver */
     text-decoration: none;
     font-size: 14px;
     font-weight: 700;
-    letter-spacing: .01em;
+    letter-spacing: 0.01em;
     padding: 4px 6px;
     border-radius: 6px;
 }
@@ -216,7 +238,7 @@ main {
     font-family: var(--sans);
     color: var(--muted);
     font-size: 12px;
-    letter-spacing: .08em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
 }
 
@@ -268,19 +290,17 @@ section {
     max-width: var(--max-read);
     margin: 0 auto;
     padding: 34px 0 26px;
-    /* more space above labels */
     border-top: 1px solid var(--hair);
 }
 
 section:first-of-type {
     border-top: none;
-    /* keep spacing, remove only the line */
 }
 
 .section-label {
     font-family: var(--sans);
     font-size: 12px;
-    letter-spacing: .08em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--logo-accent);
     font-weight: 800;
@@ -302,7 +322,7 @@ p {
 .lead p:first-child::first-letter {
     float: left;
     font-size: 3.2em;
-    line-height: .95;
+    line-height: 0.95;
     padding-right: 8px;
     padding-top: 6px;
     font-weight: 700;
@@ -343,7 +363,7 @@ li {
     margin: 0 0 10px;
     font-family: var(--sans);
     font-size: 12px;
-    letter-spacing: .08em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--muted);
 }
@@ -357,7 +377,7 @@ li {
     font-family: var(--sans);
 }
 
-@media (min-width:760px) {
+@media (min-width: 760px) {
     .callout-a ul {
         grid-template-columns: 1fr 1fr;
         column-gap: 18px;
@@ -401,7 +421,7 @@ li {
     margin: 0 0 10px;
     font-family: var(--sans);
     font-size: 12px;
-    letter-spacing: .08em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--logo-accent);
     font-weight: 800;
@@ -427,7 +447,6 @@ li {
 .pull blockquote {
     position: relative;
     margin: 0;
-    /* give the rails breathing room: inset 16px + text padding */
     padding: 16px 30px;
     padding-left: 48px;
     padding-right: 38px;
@@ -439,7 +458,8 @@ li {
     color: var(--quote-ink);
 }
 
-.pull blockquote::before, .pull blockquote::after {
+.pull blockquote::before,
+.pull blockquote::after {
     content: "";
     position: absolute;
     top: 10px;
@@ -454,24 +474,20 @@ li {
     width: 7px;
 }
 
-
 /* thick left rail */
-
 .pull blockquote::after {
     right: 16px;
     width: 2px;
-    opacity: .95;
+    opacity: 0.95;
 }
 
-
 /* thin right rail */
-
 .attrib {
     margin-top: 8px;
     font-family: var(--sans);
     font-size: 12px;
     color: var(--muted);
-    letter-spacing: .02em;
+    letter-spacing: 0.02em;
 }
 
 
@@ -493,7 +509,7 @@ figure {
 
 .placeholder {
     width: 100%;
-    aspect-ratio: 16/9;
+    aspect-ratio: 16 / 9;
     border-radius: 10px;
     border: 1px dashed #cfcfcf;
     display: grid;
@@ -501,7 +517,7 @@ figure {
     color: #777;
     font-family: var(--sans);
     font-size: 12px;
-    letter-spacing: .04em;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
 }
 
@@ -535,36 +551,125 @@ footer {
    9) Responsive
    ========================================================= */
 
-@media (max-width:760px) {
+@media (max-width: 760px) {
     .topbar-inner {
         grid-template-columns: 1fr;
         justify-items: center;
         text-align: center;
         gap: 8px;
     }
+
     .masthead-right {
         justify-self: center;
         justify-content: center;
     }
+
     .nav-wrap {
         justify-content: center;
     }
+
     .nav {
         justify-content: center;
     }
 }
 
-@media (max-width:520px) {
-    p, ul {
+@media (max-width: 520px) {
+    p,
+    ul {
         font-size: 17px;
     }
+
     .masthead-title {
         font-size: 28px;
     }
+
     .nav a {
         font-size: 14px;
     }
+
     .pull blockquote {
         font-size: 18px;
     }
 }
+
+
+/* =========================================================
+   10) Columns List (4-up context cards)
+   - styled to match .callout family
+   ========================================================= */
+
+.insights-grid {
+  margin: 18px 0 22px; /* matches .callout spacing */
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+/* Variant: 3-up grid (Approach section) */
+.insights-grid.insights-grid-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+
+/* same “card DNA” as .callout */
+.insight-card {
+    border: 1px solid var(--hair);
+    border-radius: 14px;
+    padding: 16px 18px; /* matches .callout padding */
+    background: #fff;
+    font-family: var(--sans);
+}
+
+/* optional: subtle hover softness */
+.insight-card:hover {
+    background: var(--soft);
+}
+
+/* Barrio “stamp” icon */
+.insight-icon {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    margin-bottom: 10px;
+
+    background: var(--accent-10);
+    border: 1px solid var(--accent-18);
+    color: var(--accent-85);
+
+    text-shadow: 0 1px 0 rgba(0,0,0,.05);
+
+    font-family: var(--logo);
+    font-size: 28px;
+    line-height: 1;
+    letter-spacing: 0.02em;
+}
+
+.insight-title {
+    margin: 0 0 8px;
+    font-size: 14px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+}
+
+.insight-desc {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.45;
+    color: var(--muted);
+}
+
+/* Responsive: 4-up and 3-up both become 2-up, then 1 */
+@media (max-width: 980px) {
+  .insights-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 560px) {
+  .insights-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
