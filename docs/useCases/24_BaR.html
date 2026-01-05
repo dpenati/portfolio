@@ -1,272 +1,332 @@
 <!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Designing for Clarity in a Complex System — Case Study</title>
-    <meta name="description" content="A narrative UX case study about designing alignment, visibility, and product coherence in Build & Release / Engineering Portal." />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Designing for Clarity in a Complex System — Case Study</title>
+  <meta
+    name="description"
+    content="A narrative UX case study about designing alignment, visibility, and product coherence in Build & Release / Engineering Portal."
+  />
 
-    <!-- Google Font: Barrio (logo) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Barrio&display=swap" rel="stylesheet" />
+  <!-- Google Font: Barrio (logo) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barrio&display=swap" rel="stylesheet" />
 
-    <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="./style.css" />
 </head>
 
 <body>
-    <!-- ====================== HEADER ====================== -->
-    <script src="./header.js" data-title=""></script>
-    <!-- ====================== MAIN ====================== -->
-    <main id="main">
-        <article>
-            <div class="kicker">Build &amp; Release / Engineering Portal</div>
+  <!-- ====================== HEADER ====================== -->
+  <script src="./header.js" data-title=""></script>
 
-            <h1>Designing for Clarity in a Complex System</h1>
+  <!-- ====================== MAIN ====================== -->
+  <main id="main">
+    <article>
+      <div class="kicker">Build &amp; Release / Engineering Portal</div>
 
-            <p class="subhead">
-                A case study about designing the conditions for alignment, visibility, and product coherence—without disrupting delivery.
+      <h1>Designing for Clarity in a Complex System</h1>
+
+      <p class="subhead">
+        A case study about designing the conditions for alignment, visibility, and product coherence—without disrupting delivery.
+      </p>
+
+      <div class="meta">
+        <span><strong>Author:</strong> Daniela Penati</span>
+        <span><strong>Role:</strong> UX Manager</span>
+        <span><strong>Scope:</strong> Team + Operating Model + Product Coherence</span>
+      </div>
+
+      <div class="rule" role="presentation"></div>
+
+      <!-- ====================== KEY TAKEAWAYS ====================== -->
+      <div class="callout callout-a">
+        <h3>Key takeaways</h3>
+        <ul>
+          <li>Designed a lightweight operating rhythm to improve shared visibility and momentum.</li>
+          <li>Expanded authorship while holding a coherent experience direction.</li>
+          <li>Enabled the product to be addressed as an end-to-end system.</li>
+        </ul>
+      </div>
+
+      <!-- ====================== 1) CONTEXT ====================== -->
+      <section id="context" class="lead">
+        <div class="section-label">1. Context</div>
+        <h2>A Leadership Moment in a Complex System</h2>
+
+        <p>
+          In early 2024, I stepped into my first people-management role at <strong>JPMorgan Chase</strong>,
+          transitioning from an individual contributor position into a space that had experienced frequent leadership turnover.
+        </p>
+
+        <p>
+          Taking responsibility for the five-person UX team supporting the Build &amp; Release area of the Engineering Portal
+          came with challenges often seen in large organizations undergoing change:
+        </p>
+
+        <section class="insights-grid" aria-label="Key context">
+          <article class="insight-card">
+            <div class="insight-icon" aria-hidden="true">T</div>
+            <h3 class="insight-title">Distributed team</h3>
+            <p class="insight-desc">
+              A distributed, early-career team with growing domain knowledge, but limited experience operating as a coordinated unit
+              in a multi-stakeholder environment.
             </p>
+          </article>
 
-            <div class="meta">
-                <span><strong>Author:</strong> Daniela Penati</span>
-                <span><strong>Role:</strong> UX Manager</span>
-                <span><strong>Scope:</strong> Team + Operating Model + Product Coherence</span>
-            </div>
-
-            <div class="rule" role="presentation"></div>
-
-            <!-- ====================== KEY TAKEAWAYS ====================== -->
-            <div class="callout callout-a">
-                <h3>Key takeaways</h3>
-                <ul>
-                    <li>Designed a lightweight operating rhythm to improve shared visibility and momentum.</li>
-                    <li>Expanded authorship while holding a coherent experience direction.</li>
-                    <li>Enabled the product to be addressed as an end-to-end system.</li>
-                </ul>
-            </div>
-
-            <!-- ====================== 1) CONTEXT ====================== -->
-            <section id="context" class="lead">
-                <div class="section-label">1. Context</div>
-                <h2>A Leadership Moment in a Complex System</h2>
-
-                <p>
-                    In early 2024, I stepped into my first people-management role at <strong>JPMorgan Chase</strong>, transitioning from an individual contributor position into a space that had experienced frequent leadership turnover.
-                </p>
-
-                <p>
-                    Taking responsibility for the five-person UX team supporting the Build &amp; Release area of the Engineering Portal came with challenges often seen in large organizations undergoing change:
-                </p>
-
-                <section class="insights-grid" aria-label="Key context">
-                    <article class="insight-card">
-                        <div class="insight-icon" aria-hidden="true">T</div>
-                        <h3 class="insight-title">Distributed team</h3>
-                        <p class="insight-desc">A distributed, early-career team with growing domain knowledge, but limited experience operating as a coordinated unit in a multi-stakeholder environment.</p>
-                    </article>
-
-                    <article class="insight-card">
-                        <div class="insight-icon" aria-hidden="true">p</div>
-                        <h3 class="insight-title">Fragmented product space</h3>
-                        <p class="insight-desc">A complex product space with a fragmented experience shaped by multiple owners.</p>
-                    </article>
-
-                    <article class="insight-card">
-                        <div class="insight-icon" aria-hidden="true">x</div>
-                        <h3 class="insight-title">UX role evolving</h3>
-                        <p class="insight-desc">Evolving expectations around UX’s role within a PM-centric operating model.</p>
-                    </article>
-
-                    <article class="insight-card">
-                        <div class="insight-icon" aria-hidden="true">a</div>
-                        <h3 class="insight-title">Cross-team misalignment</h3>
-                        <p class="insight-desc">Ongoing misalignment across Product and Engineering teams that impacted planning and delivery.</p>
-                    </article>
-                </section>
-
-                <p>
-                    These dynamics were not unique, but they required intentional design leadership. My focus became identifying high-leverage interventions that could improve alignment, visibility, and product coherence—without disrupting delivery.
-                </p>
-
-                <figure>
-                    <div class="figure-card">
-                        <div class="placeholder">Visual Placeholder — Context Illustration</div>
-                    </div>
-                    <figcaption>
-                        Suggested visual: minimal line illustration of the protagonist standing calmly while directional lines and symbols move around her.
-                    </figcaption>
-                </figure>
-            </section>
-
-            <!-- ====================== 2) APPROACH ====================== -->
-            <section id="approach">
-            <div class="section-label">2. Strategic approach</div>
-            <h2>Designing the Conditions for Impact</h2>
-
-            <p>
-            Rather than treating symptoms in isolation, I focused on designing the conditions that enabled
-            <strong>designers, engineers, and product partners</strong> to move forward with shared clarity and momentum.
+          <article class="insight-card">
+            <div class="insight-icon" aria-hidden="true">p</div>
+            <h3 class="insight-title">Fragmented product space</h3>
+            <p class="insight-desc">
+              A complex product space with a fragmented experience shaped by multiple owners.
             </p>
+          </article>
 
-
-            <section class="insights-grid insights-grid-3" aria-label="Strategic approach pillars">
-            <article class="insight-card">
-                <div class="insight-icon" aria-hidden="true">R</div>
-                <h3 class="insight-title">Shared operating rhythm</h3>
-                <p class="insight-desc">
-                I introduce lightweight planning and review rituals to create clarity around priorities, sequencing, and ownership—without adding heavy process.
-                The goal isn’t speed, but predictability and shared momentum.
-                </p>
-            </article>
-
-            <article class="insight-card">
-                <div class="insight-icon" aria-hidden="true">V</div>
-                <h3 class="insight-title">Visible, collaborative work</h3>
-                <p class="insight-desc">
-                I increase visibility into in-progress work and encourage shared accountability, shifting UX engagement from reactive support to an active partnership
-                with Product and Engineering.
-                </p>
-            </article>
-
-            <article class="insight-card">
-                <div class="insight-icon" aria-hidden="true">C</div>
-                <h3 class="insight-title">Coherence + expanded authorship</h3>
-                <p class="insight-desc">
-                I articulate a coherent direction early to help the team align—connecting each contribution to the end-to-end system.
-                As shared accountability grows, authorship expands without reintroducing fragmentation.
-                </p>
-
-            </article>
-            </section>
-
-
-            <p>
-                These choices were intentional not only in what they addressed, but in what they avoided: large reorganizations, heavy governance, or disruptive structural changes.
-                The emphasis stayed on small, repeatable interventions that could scale through practice.
+          <article class="insight-card">
+            <div class="insight-icon" aria-hidden="true">x</div>
+            <h3 class="insight-title">UX role evolving</h3>
+            <p class="insight-desc">
+              Evolving expectations around UX’s role within a PM-centric operating model.
             </p>
+          </article>
 
-            <div class="pull">
-                <blockquote>“Rhythm creates clarity. Visibility creates partnership. Coherence creates calm.”</blockquote>
-            </div>
+          <article class="insight-card">
+            <div class="insight-icon" aria-hidden="true">a</div>
+            <h3 class="insight-title">Cross-team misalignment</h3>
+            <p class="insight-desc">
+              Ongoing misalignment across Product and Engineering teams that impacted planning and delivery.
+            </p>
+          </article>
+        </section>
 
-            </section>
+        <p>
+          These dynamics were not unique, but they required intentional design leadership. My focus became identifying high-leverage
+          interventions that could improve alignment, visibility, and product coherence—without disrupting delivery.
+        </p>
 
-            <!-- ====================== 3) EXECUTION ====================== -->
-            <section id="execution">
-                <div class="section-label">3. Execution</div>
-                <h2>Turning Strategy into Practice</h2>
+        <figure>
+          <div class="figure-card">
+            <div class="placeholder">Visual Placeholder — Context Illustration</div>
+          </div>
+          <figcaption>
+            Suggested visual: minimal line illustration of the protagonist standing calmly while directional lines and symbols move around her.
+          </figcaption>
+        </figure>
+      </section>
 
-                <p>
-                    With a clear strategic direction in place, the focus shifted to translating intent into consistent, observable practice. I established a predictable weekly cadence that balanced focus, learning, and visibility—allowing the team to build new habits incrementally
-                    while continuing to deliver.
-                </p>
+      <!-- ====================== 2) APPROACH ====================== -->
+      <section id="approach">
+        <div class="section-label">2. Strategic approach</div>
+        <h2>Designing the Conditions for Impact</h2>
 
-                <div class="callout callout-accent">
-                    <h3>One-week cadence (overview)</h3>
-                    <ul>
-                        <li><strong>Commitment:</strong> intentionally scoped work aligned to capacity</li>
-                        <li><strong>Learning:</strong> domain knowledge and rationale embedded into delivery</li>
-                        <li><strong>Checkpoint:</strong> early visibility into progress, risks, and dependencies</li>
-                        <li><strong>Demo:</strong> work shared, connected to the broader experience, and later extended to stakeholders</li>
-                    </ul>
-                </div>
+        <p>
+          Rather than treating symptoms in isolation, I focused on designing the conditions that enabled
+          <strong>designers, engineers, and product partners</strong> to move forward with shared clarity and momentum.
+        </p>
 
-                <figure>
-                    <div class="figure-card">
-                        <div class="placeholder">Visual Placeholder — Weekly Cadence</div>
-                    </div>
-                    <figcaption>
-                        Suggested visual: a simple weekly calendar strip (Mon–Fri) or a lightweight ritual diagram.
-                    </figcaption>
-                </figure>
+        <section class="insights-grid insights-grid-3" aria-label="Strategic approach pillars">
+          <article class="insight-card">
+            <div class="insight-icon" aria-hidden="true">R</div>
+            <h3 class="insight-title">Shared operating rhythm</h3>
+            <p class="insight-desc">
+              I introduce lightweight planning and review rituals to create clarity around priorities, sequencing, and ownership—without adding heavy process.
+              The goal isn’t speed, but predictability and shared momentum.
+            </p>
+          </article>
 
-                <figure>
-                    <div class="figure-card">
-                        <div class="placeholder">Visual Placeholder — Work Visibility (Jira / board)</div>
-                    </div>
-                    <figcaption>
-                        Suggested visual: simplified board diagram or sanitized screenshot showing work moving from “Ready” → “In Progress” → “Done”.
-                    </figcaption>
-                </figure>
-            </section>
+          <article class="insight-card">
+            <div class="insight-icon" aria-hidden="true">V</div>
+            <h3 class="insight-title">Visible, collaborative work</h3>
+            <p class="insight-desc">
+              I increase visibility into in-progress work and encourage shared accountability, shifting UX engagement from reactive support
+              to an active partnership with Product and Engineering.
+            </p>
+          </article>
 
-            <!-- ====================== 4) IMPACT ====================== -->
-            <section id="impact">
-                <div class="section-label">4. Product impact</div>
-                <h2>From Fragmentation to Coherence</h2>
+          <article class="insight-card">
+            <div class="insight-icon" aria-hidden="true">C</div>
+            <h3 class="insight-title">Coherence + expanded authorship</h3>
+            <p class="insight-desc">
+              I articulate a coherent direction early to help the team align—connecting each contribution to the end-to-end system.
+              As shared accountability grows, authorship expands without reintroducing fragmentation.
+            </p>
+          </article>
+        </section>
 
-                <p>
-                    As the team developed a shared rhythm and clearer operating model, space opened to address the Build &amp; Release experience more holistically. The product could be approached not as isolated surfaces, but as an end-to-end system—with clearer relationships
-                    between tools, stages, and user actions.
-                </p>
+        <p>
+          These choices were intentional not only in what they addressed, but in what they avoided: large reorganizations, heavy governance,
+          or disruptive structural changes. The emphasis stayed on small, repeatable interventions that could scale through practice.
+        </p>
 
-                <figure>
-                    <div class="figure-card">
-                        <div class="placeholder">Visual Placeholder — End-to-end Pipeline Flow</div>
-                    </div>
-                    <figcaption>
-                        Suggested visual: pipeline flow diagram highlighting key stages, transitions, and dependencies.
-                    </figcaption>
-                </figure>
+        <div class="pull">
+          <blockquote>“Rhythm creates clarity. Visibility creates partnership. Coherence creates calm.”</blockquote>
+          <div class="attrib">Strategic approach</div>
+        </div>
+      </section>
 
-                <p>
-                    The resulting designs emphasized clearer sequencing, more consistent interaction patterns, and reduced cognitive load. The experience became calmer—not because it was simplified, but because it was better aligned.
-                </p>
+      <!-- ====================== 3) EXECUTION ====================== -->
+      <section id="execution">
+        <div class="section-label">3. Execution</div>
+        <h2>Turning Strategy into Practice</h2>
 
-                <figure>
-                    <div class="figure-card">
-                        <div class="placeholder">Visual Placeholder — Representative UI / Prototype</div>
-                    </div>
-                    <figcaption>
-                        Suggested visual: one representative screen or prototype step with brief callouts for clarity and reduced cognitive load.
-                    </figcaption>
-                </figure>
-            </section>
+        <p>
+          With a clear strategic direction in place, I focused on translating intent into a consistent, observable practice.
+          Rather than introducing change all at once, I established a predictable weekly cadence that balanced focus, learning, and visibility—
+          allowing the team to build new habits incrementally while continuing to deliver.
+        </p>
 
-            <!-- ====================== 5) REFLECTION ====================== -->
-            <section id="reflection">
-                <div class="section-label">5. Reflection</div>
-                <h2>Designing at Multiple Levels</h2>
+        <div class="exec-step">
+        <h3>Creating focus through short planning cycles</h3>
+        <p>
+            I introduce one-week cycles to reinforce prioritization, accountability, and completion. Each week begins with a commitment moment,
+            where we align priorities to capacity. Work is broken into small complementary pieces designed to interlock—so progress depends on shared
+            momentum rather than isolated effort. To reinforce partnership rather than oversight, I take on work alongside the team, signaling shared
+            ownership and support.
+        </p>
+        </div>
 
-                <p>
-                    This experience reinforced a belief I have carried throughout my career: strong design is not defined by control, but by clarity, care, and intention. Stepping into people leadership did not pull me away from product work—it expanded the surface on which
-                    design decisions mattered.
-                </p>
+        <div class="exec-step">
+        <h3>Building learning into the flow of work</h3>
+        <p>
+            I allocate dedicated space for designers to share product knowledge, design rationale, and emerging insights—occasionally supplemented with
+            guest perspectives. Over time, this broadens expertise across the team and reduces dependency on single points of knowledge. Learning is
+            treated as part of delivery, not a parallel track.
+        </p>
+        </div>
 
-                <p>
-                    Enabling an early-career team to do their best work required designing the conditions in which good decisions could emerge consistently, without constant intervention: introducing structure early and loosening it deliberately, holding a clear product
-                    vision while making space for contributions, and knowing when to step in as a designer and when to step back as a leader.
-                </p>
+        <div class="exec-step">
+        <h3>Increasing visibility and early alignment</h3>
+        <p>
+            Midweek checkpoints surface progress and risks early, enabling the team to adjust collaboratively rather than react late. These moments are
+            not status updates—they are working sessions used to identify dependencies, unblock, and recalibrate.
+        </p>
+        </div>
 
-                <p>
-                    I remain deeply motivated by complex product challenges. What this experience added is a stronger appreciation for how team dynamics, operating models, and design craft are inseparable at scale.
-                </p>
+        <div class="exec-step">
+        <h3>Reinforcing ownership through demonstration</h3>
+        <p>
+            The week concludes with demos where completed work—regardless of size—is shared and discussed with stakeholders. These sessions connect individual contributions
+            to the broader experience and, over time, and, over time, expand from an internal ritual into a cross-functional alignment point. Visibility becomes a catalyst for trust.
+        </p>
+        </div>
 
-                <div class="pull">
-                    <blockquote>“I still design. I simply do it across more dimensions now.”</blockquote>
-                    <div class="attrib">Closing line</div>
-                </div>
+        <p>
+            As confidence grows, I make room for discovery work—competitive analysis, industry pattern review, and early concept exploration—alongside team-building, and informal connection—so momentum is sustained without burnout. Structure
+            is never the goal; it is the scaffolding that makes flexibility possible.
+        </p>
 
-                <figure>
-                    <div class="figure-card">
-                        <div class="placeholder">Visual Placeholder — Reflection Illustration</div>
-                    </div>
-                    <figcaption>
-                        Suggested visual: the same protagonist, relaxed posture, with fewer surrounding marks—signal calm coherence and an expanded horizon.
-                    </figcaption>
-                </figure>
-            </section>
+        <div class="callout callout-accent">
+        <h3>Weekly rhythm (overview)</h3>
+        <p>
+            The cadence created a steady loop of visibility—turning planning, learning, and alignment into a repeatable rhythm that reduced reactivity over time.
+            In practice, it followed four beats:
+        </p>
+        <ul>
+            <li><strong>Monday — Commitment:</strong> scope work to capacity; lock priorities and ownership</li>
+            <li><strong>Tuesday — Learning:</strong> share domain context, rationale, and patterns-in-progress</li>
+            <li><strong>Wednesday — Checkpoint:</strong> surface risks and dependencies early; unblock and recalibrate</li>
+            <li><strong>Friday — Demo:</strong> share work; connect it to the end-to-end experience with stakeholders</li>
+        </ul>
+        </div>
 
-            <footer>
-                <p>Note: Replace placeholder visuals and quotes with your artifacts and anonymized examples as needed.</p>
-            </footer>
-        </article>
-    </main>
-    <div>
-      <script src="./footer.js"></script>
-    </div>
+        <figure>
+          <div class="figure-card">
+            <div class="placeholder">Visual Placeholder — Weekly Cadence</div>
+          </div>
+          <figcaption>
+            Suggested visual: a simple weekly calendar strip (Mon–Fri) or a lightweight ritual diagram.
+          </figcaption>
+        </figure>
+
+        <figure>
+          <div class="figure-card">
+            <div class="placeholder">Visual Placeholder — Work Visibility (Jira / board)</div>
+          </div>
+          <figcaption>
+            Suggested visual: simplified board diagram or sanitized screenshot showing work moving from “Ready” → “In Progress” → “Done”.
+          </figcaption>
+        </figure>
+      </section>
+
+      <!-- ====================== 4) IMPACT ====================== -->
+      <section id="impact">
+        <div class="section-label">4. Product impact</div>
+        <h2>From Fragmentation to Coherence</h2>
+
+        <p>
+          As the team developed a shared rhythm and clearer operating model, space opened to address the Build &amp; Release experience more holistically.
+          The product could be approached not as isolated surfaces, but as an end-to-end system—with clearer relationships between tools, stages, and user actions.
+        </p>
+
+        <figure>
+          <div class="figure-card">
+            <div class="placeholder">Visual Placeholder — End-to-end Pipeline Flow</div>
+          </div>
+          <figcaption>
+            Suggested visual: pipeline flow diagram highlighting key stages, transitions, and dependencies.
+          </figcaption>
+        </figure>
+
+        <p>
+          The resulting designs emphasized clearer sequencing, more consistent interaction patterns, and reduced cognitive load.
+          The experience became calmer—not because it was simplified, but because it was better aligned.
+        </p>
+
+        <figure>
+          <div class="figure-card">
+            <div class="placeholder">Visual Placeholder — Representative UI / Prototype</div>
+          </div>
+          <figcaption>
+            Suggested visual: one representative screen or prototype step with brief callouts for clarity and reduced cognitive load.
+          </figcaption>
+        </figure>
+      </section>
+
+      <!-- ====================== 5) REFLECTION ====================== -->
+      <section id="reflection">
+        <div class="section-label">5. Reflection</div>
+        <h2>Designing at Multiple Levels</h2>
+
+        <p>
+          This experience reinforced a belief I have carried throughout my career: strong design is not defined by control, but by clarity, care, and intention.
+          Stepping into people leadership did not pull me away from product work—it expanded the surface on which design decisions mattered.
+        </p>
+
+        <p>
+          Enabling an early-career team to do their best work required designing the conditions in which good decisions could emerge consistently,
+          without constant intervention: introducing structure early and loosening it deliberately, holding a clear product vision while making space for contributions,
+          and knowing when to step in as a designer and when to step back as a leader.
+        </p>
+
+        <p>
+          I remain deeply motivated by complex product challenges. What this experience added is a stronger appreciation for how team dynamics, operating models,
+          and design craft are inseparable at scale.
+        </p>
+
+        <div class="pull">
+          <blockquote>“I still design. I simply do it across more dimensions now.”</blockquote>
+          <div class="attrib">Closing line</div>
+        </div>
+
+        <figure>
+          <div class="figure-card">
+            <div class="placeholder">Visual Placeholder — Reflection Illustration</div>
+          </div>
+          <figcaption>
+            Suggested visual: the same protagonist, relaxed posture, with fewer surrounding marks—signal calm coherence and an expanded horizon.
+          </figcaption>
+        </figure>
+      </section>
+
+      <footer>
+        <p>Note: Replace placeholder visuals and quotes with your artifacts and anonymized examples as needed.</p>
+      </footer>
+    </article>
+  </main>
+
+  <div>
+    <script src="./footer.js"></script>
+  </div>
 </body>
-
 </html>
