@@ -17,10 +17,10 @@
   /* article measure */
   --max-read: 720px;
 
-  --serif: ui-serif, Georgia, "Times New Roman", Times, serif;
-  --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
-    "Apple Color Emoji", "Segoe UI Emoji";
-  --logo: "Barrio", ui-serif, Georgia, "Times New Roman", Times, serif;
+  --serif: ui-serif, Georgia, 'Times New Roman', Times, serif;
+  --sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica,
+    Arial, 'Apple Color Emoji', 'Segoe UI Emoji';
+  --logo: 'Barrio', ui-serif, Georgia, 'Times New Roman', Times, serif;
 
   /* pantone purple */
   --logo-accent: #6e5b98;
@@ -91,15 +91,12 @@ a:focus-visible {
   :root {
     --accent-10: rgba(110, 91, 152, 0.1);
     --accent-18: rgba(110, 91, 152, 0.18);
-    --accent-85: #7b6aa6; /* slightly lighter than #6E5B98 */
+    --accent-85: #7b6aa6;
   }
 }
 
 /* =========================================================
    2) Topbar (internal)
-   - logo left
-   - site links right
-   - on-page anchors in second row
    ========================================================= */
 
 .topbar {
@@ -129,7 +126,7 @@ a:focus-visible {
   line-height: 1;
   text-decoration: none;
   color: var(--ink);
-  font-size: 30px; /* dots */
+  font-size: 30px;
   white-space: nowrap;
 }
 
@@ -389,7 +386,7 @@ li {
 }
 
 .callout-a li::before {
-  content: "";
+  content: '';
   width: 18px;
   height: 18px;
   margin-top: 2px;
@@ -422,11 +419,72 @@ li {
   color: var(--muted);
 }
 
+/* Default list styling INSIDE accent callouts (unless overridden below) */
 .callout-accent ul {
   margin: 0;
-  padding-left: 18px; /* keep bullets visible */
+  padding-left: 18px;
   font-family: var(--sans);
   font-size: 16px;
+}
+
+/* =========================================================
+   Weekly rhythm (mini schedule)
+   - tighter, scannable list inside the callout
+   ========================================================= */
+
+.callout-accent.weekly-rhythm .rhythm-list {
+  list-style: none; /* remove bullets */
+  margin: 0; /* override global ul margin */
+  padding: 0; /* override padding-left */
+  display: grid;
+  gap: 10px;
+}
+
+.callout-accent.weekly-rhythm .rhythm-list li {
+  list-style: none;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  gap: 12px;
+
+  padding: 12px 14px;
+  border: 1px solid var(--accent-18);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.callout-accent.weekly-rhythm .rhythm-day {
+  display: inline-grid;
+  place-items: center;
+  min-width: 42px;
+  height: 28px;
+
+  border-radius: 10px;
+  background: var(--accent-10);
+  border: 1px solid var(--accent-18);
+
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--logo-accent);
+}
+
+.callout-accent.weekly-rhythm .rhythm-title {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--ink);
+  line-height: 1.25;
+  margin: 1px 0 2px;
+}
+
+.callout-accent.weekly-rhythm .rhythm-desc {
+  font-family: var(--sans);
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--muted);
 }
 
 /* =========================================================
@@ -454,7 +512,7 @@ li {
 
 .pull blockquote::before,
 .pull blockquote::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 10px;
   bottom: 10px;
@@ -582,11 +640,20 @@ footer {
 }
 
 /* =========================================================
-   10) Columns List (4-up context cards + 3-up approach cards)
+   10) Columns List (4-up context + 3-up approach)
    ========================================================= */
 
+/* IMPORTANT: your grids are <section> elements inside other <section>s.
+   This override prevents the global section padding/border from affecting them. */
+section.insights-grid {
+  max-width: 100%;
+  margin: 18px 0 22px;
+  padding: 0;
+  border-top: none;
+}
+
 .insights-grid {
-  margin: 18px 0 22px; /* matches .callout spacing */
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
@@ -600,7 +667,7 @@ footer {
 .insight-card {
   border: 1px solid var(--hair);
   border-radius: 14px;
-  padding: 16px 18px; /* matches .callout padding */
+  padding: 16px 18px;
   background: #fff;
   font-family: var(--sans);
 }
@@ -665,16 +732,15 @@ footer {
   margin-bottom: 18px;
 }
 
-/* Each group: indented + separated (no card visuals) */
 #execution .exec-step {
-  margin: 0 0 18px;         /* 1) space between groups */
-  padding-left: 18px;       /* 4) indent each group */
-  border-left: 2px solid var(--accent-18); /* subtle guide rail */
+  margin: 0 0 18px;
+  padding-left: 18px;
+  border-left: 2px solid var(--accent-18);
 }
 
-/* 2) H3 = 14px, sans, purple */
+/* H3 = 14px, sans, purple */
 #execution .exec-step h3 {
-  margin: 26px 0 6px;
+  margin: 0 0 6px;
   font-family: var(--sans);
   font-size: 14px;
   letter-spacing: 0.02em;
@@ -683,7 +749,6 @@ footer {
   text-transform: none;
 }
 
-/* 3) Paragraphs are back and scannable */
 #execution .exec-step p {
   margin: 0 0 12px;
   font-size: 16px;
@@ -691,7 +756,6 @@ footer {
   color: var(--muted);
 }
 
-/* Multi-paragraph separation (last group) */
 #execution .exec-step p + p {
   margin-top: 10px;
 }
