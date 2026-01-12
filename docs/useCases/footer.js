@@ -1,8 +1,18 @@
-const scriptFooter = document.currentScript;
+// footer.js
+(() => {
+  const script = document.currentScript;
+  if (!script) return;
 
-const containerFooter = scriptFooter.parentElement;
-containerFooter.innerHTML = `
-  <footer class="footer-container">
-    <div class="footer-text">©2026 <a style="color: #e8f2cc" href="#">Daniela</a></div>
-  </footer>
+  const year = new Date().getFullYear();
+
+  const markup = `
+    <footer class="site-footer" aria-label="Site footer">
+      <div class="site-footer__inner">
+        <div class="site-footer__text">©${year} <a class="site-footer__link" href="../Index.html">Daniela</a></div>
+      </div>
+    </footer>
   `;
+
+  script.insertAdjacentHTML('beforebegin', markup);
+  script.remove();
+})();

@@ -37,6 +37,12 @@
   --nav-ink: var(--muted);
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html,
 body {
   height: 100%;
@@ -308,7 +314,8 @@ p {
   font-size: 18px;
 }
 
-.lead p:first-child::first-letter {
+/* Drop cap: use first paragraph in the lead section */
+.lead > p:first-of-type::first-letter {
   float: left;
   font-size: 3.2em;
   line-height: 0.95;
@@ -341,9 +348,10 @@ li {
   background: #fff;
 }
 
-/* Key takeaways: Option A (icon list) */
+/* Key takeaways */
 .callout-a {
   background: #faf8ff;
+  --takeaway-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/%3E%3C/svg%3E");
 }
 
 .callout-a h3 {
@@ -381,10 +389,6 @@ li {
   color: var(--ink);
 }
 
-.callout-a {
-  --takeaway-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/%3E%3C/svg%3E");
-}
-
 .callout-a li::before {
   content: '';
   width: 18px;
@@ -396,7 +400,7 @@ li {
   mask: var(--takeaway-icon) center / contain no-repeat;
 }
 
-/* One-week cadence callout */
+/* Accent callout */
 .callout-accent {
   background: #faf8ff;
   font-family: var(--sans);
@@ -419,7 +423,7 @@ li {
   color: var(--muted);
 }
 
-/* Default list styling INSIDE accent callouts (unless overridden below) */
+/* Default list styling INSIDE accent callouts */
 .callout-accent ul {
   margin: 0;
   padding-left: 18px;
@@ -429,15 +433,20 @@ li {
 
 /* =========================================================
    Weekly rhythm (mini schedule)
-   - tighter, scannable list inside the callout
    ========================================================= */
 
 .callout-accent.weekly-rhythm .rhythm-list {
-  list-style: none; /* remove bullets */
-  margin: 0; /* override global ul margin */
-  padding: 0; /* override padding-left */
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: grid;
   gap: 10px;
+}
+
+@media (min-width: 760px) {
+  .callout-accent.weekly-rhythm .rhythm-list {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .callout-accent.weekly-rhythm .rhythm-list li {
@@ -535,6 +544,7 @@ li {
 .attrib {
   margin-top: 8px;
   font-family: var(--sans);
+  padding-left: 48px;
   font-size: 12px;
   color: var(--muted);
   letter-spacing: 0.02em;
@@ -546,6 +556,10 @@ li {
 
 figure {
   margin: 22px auto;
+  max-width: var(--max-read);
+}
+
+figure.figure--wide {
   max-width: var(--max);
 }
 
@@ -554,6 +568,78 @@ figure {
   border-radius: 12px;
   padding: 14px;
   background: #fbfbfb;
+}
+
+.figure-card--image {
+  border: none;
+  background: transparent;
+  padding: 0;
+}
+
+/* Image fits the card/page */
+.figure-img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Optional: show it's clickable */
+.figure-link {
+  display: block;
+  cursor: zoom-in;
+}
+
+/* LIGHTBOX (CSS-only via :target) */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 999;
+}
+
+.lightbox:target {
+  display: block;
+}
+
+.lightbox__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.lightbox__content {
+  position: relative;
+  margin: 6vh auto;
+  width: min(1100px, 92vw);
+  max-height: 88vh;
+  display: grid;
+  place-items: center;
+}
+
+.lightbox__img {
+  max-width: 100%;
+  max-height: 88vh;
+  height: auto;
+  border-radius: 14px;
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
+}
+
+.lightbox__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  background: #fff;
+  color: #111;
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+  font-size: 22px;
+  line-height: 1;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  cursor: zoom-out;
 }
 
 .placeholder {
@@ -580,10 +666,10 @@ figcaption {
 }
 
 /* =========================================================
-   8) Footer
+   8) Case footer (article note)
    ========================================================= */
 
-footer {
+.case-footer {
   max-width: var(--max-read);
   margin: 40px auto 0;
   padding-top: 18px;
@@ -643,20 +729,12 @@ footer {
    10) Columns List (4-up context + 3-up approach)
    ========================================================= */
 
-/* IMPORTANT: your grids are <section> elements inside other <section>s.
-   This override prevents the global section padding/border from affecting them. */
-section.insights-grid {
-  max-width: 100%;
-  margin: 18px 0 22px;
-  padding: 0;
-  border-top: none;
-}
-
 .insights-grid {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
+  margin: 18px 0 22px;
 }
 
 .insights-grid.insights-grid-3 {
@@ -758,4 +836,37 @@ section.insights-grid {
 
 #execution .exec-step p + p {
   margin-top: 10px;
+}
+
+/* =========================================================
+   12) Site footer (global)
+   ========================================================= */
+
+.site-footer {
+  border-top: 1px solid var(--hair);
+  background: #111;
+  color: #fff;
+}
+
+.site-footer__inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 16px 18px;
+}
+
+.site-footer__text {
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  opacity: 0.95;
+}
+
+.site-footer__link {
+  color: #e8f2cc;
+  text-decoration: none;
+}
+
+.site-footer__link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
