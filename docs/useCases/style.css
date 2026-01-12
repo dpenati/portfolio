@@ -846,3 +846,15 @@ figcaption a:hover {
   letter-spacing: 0.25em;
   opacity: 0.95;
 }
+
+/* ✅ 3-dot centered separators for Reflection */
+#reflection .dot-sep {
+  margin: 34px 0;
+  text-align: center;
+  font-family: var(--logo);
+  color: var(--accent-18); /* lighter purple */
+  font-size: 30px;
+  line-height: 1;
+  letter-spacing: 0.25em;
+  opacity: 0.95;
+}
