@@ -578,10 +578,18 @@ figure.figure--wide {
 
 /* ✅ Calendar crop (in-page only) */
 .figure-card--crop {
-  /* approximate “half height” feel that adapts across screens */
-  max-height: clamp(180px, 34vh, 320px);
+  height: clamp(280px, 42vh, 460px); /* roughly “half” on desktop, responsive */
   overflow: hidden;
   border-radius: 14px;
+}
+
+/* make the image fill the crop window */
+.figure-card--crop .figure-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top; /* keep the top visible */
+  display: block;
 }
 
 /* Image fits the card/page */
@@ -845,12 +853,12 @@ figcaption a:hover {
 
 /* ✅ 3-dot centered separators for Execution */
 #execution .dot-sep {
-  margin: 34px 0; /* generous top/bottom space */
+  margin: 34px 0;
   text-align: center;
-  font-family: var(--logo); /* Barrio */
-  color: var(--logo-accent); /* purple */
+  font-family: var(--logo);
+  color: var(--accent-18); /* lighter purple */
   font-size: 30px;
   line-height: 1;
-  letter-spacing: 0.25em; /* less than before */
+  letter-spacing: 0.25em;
   opacity: 0.95;
 }
