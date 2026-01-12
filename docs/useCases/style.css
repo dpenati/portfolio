@@ -576,6 +576,14 @@ figure.figure--wide {
   padding: 0;
 }
 
+/* ✅ Calendar crop (in-page only) */
+.figure-card--crop {
+  /* approximate “half height” feel that adapts across screens */
+  max-height: clamp(180px, 34vh, 320px);
+  overflow: hidden;
+  border-radius: 14px;
+}
+
 /* Image fits the card/page */
 .figure-img {
   display: block;
@@ -665,19 +673,16 @@ figcaption {
   line-height: 1.45;
 }
 
-/* =========================================================
-   8) Case footer (article note)
-   ========================================================= */
+/* ✅ Figcaption PDF link */
+figcaption a {
+  color: var(--logo-accent);
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 
-.case-footer {
-  max-width: var(--max-read);
-  margin: 40px auto 0;
-  padding-top: 18px;
-  border-top: 1px solid var(--hair);
-  font-family: var(--sans);
-  color: var(--muted);
-  font-size: 12px;
-  line-height: 1.5;
+figcaption a:hover {
+  color: var(--ink);
 }
 
 /* =========================================================
@@ -838,35 +843,14 @@ figcaption {
   margin-top: 10px;
 }
 
-/* =========================================================
-   12) Site footer (global)
-   ========================================================= */
-
-.site-footer {
-  border-top: 1px solid var(--hair);
-  background: #111;
-  color: #fff;
-}
-
-.site-footer__inner {
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 16px 18px;
-}
-
-.site-footer__text {
-  font-family: var(--sans);
-  font-size: 12px;
-  letter-spacing: 0.02em;
+/* ✅ 3-dot centered separators for Execution */
+#execution .dot-sep {
+  margin: 34px 0; /* generous top/bottom space */
+  text-align: center;
+  font-family: var(--logo); /* Barrio */
+  color: var(--logo-accent); /* purple */
+  font-size: 30px;
+  line-height: 1;
+  letter-spacing: 0.25em; /* less than before */
   opacity: 0.95;
-}
-
-.site-footer__link {
-  color: #e8f2cc;
-  text-decoration: none;
-}
-
-.site-footer__link:hover {
-  text-decoration: underline;
-  text-underline-offset: 3px;
 }
