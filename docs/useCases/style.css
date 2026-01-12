@@ -576,22 +576,6 @@ figure.figure--wide {
   padding: 0;
 }
 
-/* ✅ Calendar crop (in-page only) */
-.figure-card--crop {
-  height: clamp(280px, 42vh, 460px); /* roughly “half” on desktop, responsive */
-  overflow: hidden;
-  border-radius: 14px;
-}
-
-/* make the image fill the crop window */
-.figure-card--crop .figure-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top; /* keep the top visible */
-  display: block;
-}
-
 /* Image fits the card/page */
 .figure-img {
   display: block;
