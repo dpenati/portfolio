@@ -1,5 +1,5 @@
 /* =========================================================
-   0) Design tokens (internal page)
+   0) Design tokens (useCases pages)
    ========================================================= */
 
 :root {
@@ -23,10 +23,10 @@
     Arial, 'Apple Color Emoji', 'Segoe UI Emoji';
   --logo: 'Barrio', ui-serif, Georgia, 'Times New Roman', Times, serif;
 
-  /* pantone purple */
+  /* brand */
   --logo-accent: #6e5b98;
 
-  /* derived tints for accents (used for small UI surfaces) */
+  /* derived tints for accents */
   --accent-10: color-mix(in srgb, var(--logo-accent) 10%, white 90%);
   --accent-18: color-mix(in srgb, var(--logo-accent) 18%, white 82%);
   --accent-85: color-mix(in srgb, var(--logo-accent) 85%, white 15%);
@@ -36,6 +36,15 @@
 
   /* internal anchors (silver) */
   --nav-ink: var(--muted);
+}
+
+/* Fallbacks for browsers that don’t support color-mix() */
+@supports not (color: color-mix(in srgb, #000 10%, #fff)) {
+  :root {
+    --accent-10: rgba(110, 91, 152, 0.1);
+    --accent-18: rgba(110, 91, 152, 0.18);
+    --accent-85: #7b6aa6;
+  }
 }
 
 *,
@@ -91,15 +100,6 @@ a:focus-visible {
   outline: 2px solid var(--logo-accent);
   outline-offset: 3px;
   border-radius: 10px;
-}
-
-/* Fallbacks for browsers that don’t support color-mix() */
-@supports not (color: color-mix(in srgb, #000 10%, #fff)) {
-  :root {
-    --accent-10: rgba(110, 91, 152, 0.1);
-    --accent-18: rgba(110, 91, 152, 0.18);
-    --accent-85: #7b6aa6;
-  }
 }
 
 /* =========================================================
@@ -166,8 +166,7 @@ a:focus-visible {
   text-underline-offset: 3px;
 }
 
-/* --- Internal topbar nav (kicker + anchors) --- */
-
+/* Internal topbar nav (kicker + anchors) */
 .topbar-nav {
   border-top: 1px solid var(--hair);
   border-bottom: 2px solid var(--hair);
@@ -315,7 +314,7 @@ p {
   font-size: 18px;
 }
 
-/* Drop cap: use first paragraph in the lead section */
+/* Drop cap: first paragraph in the lead section */
 .lead > p:first-of-type::first-letter {
   float: left;
   font-size: 3.2em;
@@ -373,15 +372,16 @@ li {
   font-family: var(--sans);
 }
 
-.callout-a.callout-a--single ul {
-  grid-template-columns: 1fr !important;
-}
-
 @media (min-width: 760px) {
   .callout-a ul {
     grid-template-columns: 1fr 1fr;
     column-gap: 18px;
   }
+}
+
+/* Force single column variant */
+.callout-a.callout-a--single ul {
+  grid-template-columns: 1fr !important;
 }
 
 .callout-a li {
@@ -428,7 +428,7 @@ li {
   color: var(--muted);
 }
 
-/* Default list styling INSIDE accent callouts */
+/* Default list styling inside accent callouts */
 .callout-accent ul {
   margin: 0;
   padding-left: 18px;
@@ -436,10 +436,7 @@ li {
   font-size: 16px;
 }
 
-/* =========================================================
-   Weekly rhythm (mini schedule)
-   ========================================================= */
-
+/* Weekly rhythm (mini schedule) */
 .callout-accent.weekly-rhythm .rhythm-list {
   list-style: none;
   margin: 0;
@@ -556,7 +553,7 @@ li {
 }
 
 /* =========================================================
-   7) Figures / placeholders
+   7) Figures + lightbox
    ========================================================= */
 
 figure {
@@ -581,20 +578,18 @@ figure.figure--wide {
   padding: 0;
 }
 
-/* Image fits the card/page */
 .figure-img {
   display: block;
   max-width: 100%;
   height: auto;
 }
 
-/* Optional: show it's clickable */
 .figure-link {
   display: block;
   cursor: zoom-in;
 }
 
-/* LIGHTBOX (CSS-only via :target) */
+/* Lightbox (CSS-only via :target) */
 .lightbox {
   position: fixed;
   inset: 0;
@@ -670,7 +665,7 @@ figcaption {
   line-height: 1.45;
 }
 
-/* ✅ Figcaption PDF link */
+/* Figcaption links */
 figcaption a {
   color: var(--logo-accent);
   font-weight: 800;
@@ -683,52 +678,7 @@ figcaption a:hover {
 }
 
 /* =========================================================
-   9) Responsive
-   ========================================================= */
-
-@media (max-width: 760px) {
-  .topbar-inner {
-    grid-template-columns: 1fr;
-    justify-items: center;
-    text-align: center;
-    gap: 8px;
-  }
-
-  .masthead-right {
-    justify-self: center;
-    justify-content: center;
-  }
-
-  .nav-wrap {
-    justify-content: center;
-  }
-
-  .nav {
-    justify-content: center;
-  }
-}
-
-@media (max-width: 520px) {
-  p,
-  ul {
-    font-size: 17px;
-  }
-
-  .masthead-title {
-    font-size: 28px;
-  }
-
-  .nav a {
-    font-size: 14px;
-  }
-
-  .pull blockquote {
-    font-size: 18px;
-  }
-}
-
-/* =========================================================
-   10) Columns List (4-up context + 3-up approach)
+   8) Columns List (4-up context + 3-up approach)
    ========================================================= */
 
 .insights-grid {
@@ -743,7 +693,6 @@ figcaption a:hover {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-/* same “card DNA” as .callout */
 .insight-card {
   border: 1px solid var(--hair);
   border-radius: 14px;
@@ -805,7 +754,7 @@ figcaption a:hover {
 }
 
 /* =========================================================
-   11) Execution — indented groups (no cards)
+   9) Execution — indented groups
    ========================================================= */
 
 #execution > p {
@@ -818,7 +767,6 @@ figcaption a:hover {
   border-left: 2px solid var(--accent-18);
 }
 
-/* H3 = 14px, sans, purple */
 #execution .exec-step h3 {
   margin: 0 0 6px;
   font-family: var(--sans);
@@ -826,7 +774,6 @@ figcaption a:hover {
   letter-spacing: 0.02em;
   color: var(--logo-accent);
   font-weight: 800;
-  text-transform: none;
 }
 
 #execution .exec-step p {
@@ -840,26 +787,60 @@ figcaption a:hover {
   margin-top: 10px;
 }
 
-/* ✅ 3-dot centered separators for Execution */
-#execution .dot-sep {
+/* 3-dot centered separators */
+#execution .dot-sep,
+#reflection .dot-sep {
   margin: 34px 0;
   text-align: center;
   font-family: var(--logo);
-  color: var(--accent-18); /* lighter purple */
+  color: var(--accent-18);
   font-size: 30px;
   line-height: 1;
   letter-spacing: 0.25em;
   opacity: 0.95;
 }
 
-/* ✅ 3-dot centered separators for Reflection */
-#reflection .dot-sep {
-  margin: 34px 0;
-  text-align: center;
-  font-family: var(--logo);
-  color: var(--accent-18); /* lighter purple */
-  font-size: 30px;
-  line-height: 1;
-  letter-spacing: 0.25em;
-  opacity: 0.95;
+/* =========================================================
+   10) Responsive masthead/nav
+   ========================================================= */
+
+@media (max-width: 760px) {
+  .topbar-inner {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    gap: 8px;
+  }
+
+  .masthead-right {
+    justify-self: center;
+    justify-content: center;
+  }
+
+  .nav-wrap {
+    justify-content: center;
+  }
+
+  .nav {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 520px) {
+  p,
+  ul {
+    font-size: 17px;
+  }
+
+  .masthead-title {
+    font-size: 28px;
+  }
+
+  .nav a {
+    font-size: 14px;
+  }
+
+  .pull blockquote {
+    font-size: 18px;
+  }
 }

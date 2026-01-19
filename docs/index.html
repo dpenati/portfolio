@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -19,8 +19,8 @@
 
     <style>
       /* =========================================================
-       Design tokens (PARENT page)
-       ========================================================= */
+         Design tokens (PARENT page)
+         ========================================================= */
       :root {
         --bg: #ffffff;
         --ink: #111111;
@@ -31,7 +31,8 @@
         --max: 1100px;
 
         --serif: ui-serif, Georgia, 'Times New Roman', Times, serif;
-        --sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto,
+        --sans:
+          ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto,
           Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji';
 
         --logo: 'Barrio', ui-serif, Georgia, 'Times New Roman', Times, serif;
@@ -42,6 +43,7 @@
       body {
         height: 100%;
       }
+
       body {
         margin: 0;
         background: var(--bg);
@@ -54,8 +56,8 @@
       }
 
       /* =========================================================
-       Accessibility
-       ========================================================= */
+         Accessibility
+         ========================================================= */
       .skip-link {
         position: absolute;
         left: -999px;
@@ -64,6 +66,7 @@
         height: 1px;
         overflow: hidden;
       }
+
       .skip-link:focus {
         left: 18px;
         top: 12px;
@@ -77,6 +80,7 @@
         font-family: var(--sans);
         font-size: 12px;
       }
+
       a:focus-visible {
         outline: 2px solid var(--logo-accent);
         outline-offset: 3px;
@@ -84,8 +88,8 @@
       }
 
       /* =========================================================
-       Topbar (PARENT masthead)
-       ========================================================= */
+         Topbar (PARENT masthead)
+         ========================================================= */
       .topbar {
         position: sticky;
         top: 0;
@@ -111,6 +115,7 @@
         color: var(--muted);
         line-height: 1.2;
       }
+
       .masthead-date {
         font-weight: 600;
         color: var(--ink);
@@ -164,6 +169,7 @@
         padding: 8px 10px;
         background: #fff;
       }
+
       .masthead-cta:hover {
         background: var(--soft);
       }
@@ -176,6 +182,7 @@
         padding: 4px 6px;
         border-radius: 6px;
       }
+
       .masthead-meta:hover {
         text-decoration: underline;
         text-underline-offset: 3px;
@@ -183,8 +190,8 @@
       }
 
       /* =========================================================
-       Second-row nav (PARENT) — centered as a single unit
-       ========================================================= */
+         Second-row nav (PARENT) — centered as a single unit
+         ========================================================= */
       .topbar-nav {
         border-top: 1px solid var(--hair);
         border-bottom: 2px solid var(--hair);
@@ -192,13 +199,12 @@
         background: transparent;
       }
 
-      /* Center the whole strip (kicker + links) */
       .nav-wrap {
         max-width: var(--max);
         margin: 0 auto;
         padding: 0 18px;
         display: flex;
-        justify-content: center; /* ✅ center as a group */
+        justify-content: center;
         align-items: center;
         gap: 14px;
       }
@@ -217,7 +223,7 @@
         display: flex;
         flex-wrap: wrap;
         gap: 12px;
-        justify-content: center; /* ✅ center the links inside */
+        justify-content: center;
         font-family: var(--sans);
         margin: 0;
         padding: 0;
@@ -232,6 +238,7 @@
         padding: 4px 6px;
         border-radius: 6px;
       }
+
       .nav a:hover {
         text-decoration: underline;
         text-underline-offset: 3px;
@@ -239,8 +246,8 @@
       }
 
       /* =========================================================
-       Main layout
-       ========================================================= */
+         Main layout
+         ========================================================= */
       main {
         max-width: var(--max);
         margin: 0 auto;
@@ -259,6 +266,7 @@
         gap: 18px;
         align-items: stretch;
       }
+
       @media (max-width: 900px) {
         .featured {
           grid-template-columns: 1fr;
@@ -271,6 +279,7 @@
         overflow: hidden;
         background: #fff;
       }
+
       .hero-media {
         background: #fbfbfb;
         border-bottom: 1px solid var(--hair);
@@ -283,6 +292,7 @@
         letter-spacing: 0.06em;
         text-transform: uppercase;
       }
+
       .hero-body {
         padding: 16px 16px 18px;
       }
@@ -295,6 +305,7 @@
         color: var(--muted);
         margin-bottom: 8px;
       }
+
       .hero-title {
         margin: 0 0 8px;
         font-size: 28px;
@@ -302,10 +313,12 @@
         letter-spacing: -0.01em;
         font-family: var(--serif);
       }
+
       .hero-title a {
         color: var(--ink);
         text-decoration: none;
       }
+
       .hero-title a:hover {
         text-decoration: underline;
         text-underline-offset: 3px;
@@ -327,6 +340,7 @@
         color: var(--muted);
         font-size: 12px;
       }
+
       .pill {
         border: 1px solid var(--hair);
         border-radius: 999px;
@@ -344,6 +358,7 @@
         padding: 14px 14px 6px;
         background: #fff;
       }
+
       .side h2 {
         margin: 0 0 10px;
         font-size: 14px;
@@ -352,13 +367,16 @@
         font-family: var(--sans);
         color: var(--muted);
       }
+
       .side-item {
         padding: 12px 2px;
         border-top: 1px solid var(--hair);
       }
+
       .side-item:first-of-type {
         border-top: none;
       }
+
       .side-item a {
         color: var(--ink);
         text-decoration: none;
@@ -366,10 +384,12 @@
         letter-spacing: -0.005em;
         font-family: var(--serif);
       }
+
       .side-item a:hover {
         text-decoration: underline;
         text-underline-offset: 3px;
       }
+
       .side-item p {
         margin: 6px 0 0;
         color: var(--muted);
@@ -386,6 +406,7 @@
         gap: 12px;
         margin: 30px 0 12px;
       }
+
       .section-head h2 {
         margin: 0;
         font-family: var(--sans);
@@ -394,6 +415,7 @@
         text-transform: uppercase;
         color: var(--muted);
       }
+
       .section-head .hint {
         font-family: var(--sans);
         font-size: 12px;
@@ -406,11 +428,13 @@
         grid-template-columns: repeat(3, 1fr);
         gap: 16px;
       }
+
       @media (max-width: 980px) {
         .grid {
           grid-template-columns: repeat(2, 1fr);
         }
       }
+
       @media (max-width: 620px) {
         .grid {
           grid-template-columns: 1fr;
@@ -426,12 +450,14 @@
         flex-direction: column;
         min-height: 260px;
       }
+
       .card-media {
         background: #fbfbfb;
         border-bottom: 1px solid var(--hair);
         aspect-ratio: 16/9;
         display: block;
       }
+
       .card-media img {
         width: 100%;
         height: 100%;
@@ -446,6 +472,7 @@
         gap: 8px;
         flex: 1;
       }
+
       .card-kicker {
         font-family: var(--sans);
         font-size: 12px;
@@ -453,6 +480,7 @@
         text-transform: uppercase;
         color: var(--muted);
       }
+
       .card-title {
         margin: 0;
         font-size: 20px;
@@ -460,14 +488,17 @@
         letter-spacing: -0.01em;
         font-family: var(--serif);
       }
+
       .card-title a {
         color: var(--ink);
         text-decoration: none;
       }
+
       .card-title a:hover {
         text-decoration: underline;
         text-underline-offset: 3px;
       }
+
       .card-desc {
         margin: 0;
         color: var(--muted);
@@ -475,6 +506,7 @@
         line-height: 1.45;
         font-family: var(--serif);
       }
+
       .card-footer {
         margin-top: auto;
         display: flex;
@@ -503,70 +535,21 @@
           text-align: center;
           gap: 8px;
         }
+
         .masthead-right {
           justify-content: center;
         }
+
         main {
           padding-top: 18px;
         }
+
         .nav-wrap {
           flex-direction: column;
           gap: 8px;
         }
       }
     </style>
-
-    <script>
-      window.addEventListener('useCases:loaded', (e) => {
-        renderUseCases(e.detail);
-      });
-
-      // Renders cards from `window.articles` (populated in shared.js)
-      function renderUseCases(useCases) {
-        const articles = Array.isArray(useCases) ? useCases : [];
-        const sortByDateDesc = [...articles].sort(
-          (a, b) => new Date(b.date) - new Date(a.date)
-        );
-        const byDateDesc = sortByDateDesc.splice(0, 6);
-
-        const grid = document.getElementById('grid');
-        if (!grid) return;
-
-        for (const a of byDateDesc) {
-          const card = document.createElement('article');
-          card.className = 'card';
-
-          const safeTitle = a.title || 'Untitled';
-          const safeLink = a.link || '#';
-          const safeImg = a.image || '';
-          const safeAlt = a.imageAlt || safeTitle;
-
-          const tags = (a.tags || [])
-            .map((tag) => `<span class="pill">${tag}</span>`)
-            .join('');
-
-          card.innerHTML = `
-          <a class="card-media" href="${safeLink}" aria-label="${safeTitle}">
-            ${
-              safeImg
-                ? `<img src="${safeImg}" alt="${safeAlt}" loading="lazy" decoding="async">`
-                : ``
-            }
-          </a>
-          <div class="card-body">
-            <div class="card-kicker">${a.kicker || 'Case Study'}</div>
-            <h3 class="card-title"><a href="${safeLink}">${safeTitle}</a></h3>
-            <p class="card-desc">${a.excerpt || ''}</p>
-            <div class="card-footer">${tags}</div>
-          </div>
-        `;
-
-          grid.appendChild(card);
-        }
-      }
-    </script>
-
-    <script src="shared.js"></script>
   </head>
 
   <body>
@@ -580,7 +563,8 @@
         </div>
 
         <div class="masthead-center">
-          <a class="masthead-title" href="Index.html" aria-label="Home"
+          <!-- ✅ consistent lowercase filename -->
+          <a class="masthead-title" href="index.html" aria-label="Home"
             >.Daniela.</a
           >
           <div class="masthead-subtitle">UX / Product Design</div>
@@ -588,9 +572,10 @@
 
         <div class="masthead-right" aria-label="Site navigation">
           <a class="masthead-cta" href="#contact">Contact</a>
-          <a class="masthead-meta" href="About.html">About</a>
-          <a class="masthead-meta" href="UseCases.html">Use Cases</a>
-          <a class="masthead-meta" href="Notes.html">Notes</a>
+          <!-- ✅ consistent lowercase filenames -->
+          <a class="masthead-meta" href="about.html">About</a>
+          <a class="masthead-meta" href="usecases.html">Use Cases</a>
+          <a class="masthead-meta" href="notes.html">Notes</a>
         </div>
       </div>
 
@@ -598,9 +583,10 @@
         <div class="nav-wrap">
           <div class="nav-kicker">STUDIO:</div>
           <nav class="nav" aria-label="Featured creative work">
-            <a href="F_zentangle.html">Linework</a>
-            <a href="F_fashion.html">Style</a>
-            <a href="F_photography.html">Lens</a>
+            <!-- ✅ consistent lowercase filenames -->
+            <a href="f_zentangle.html">Linework</a>
+            <a href="f_fashion.html">Style</a>
+            <a href="f_photography.html">Lens</a>
           </nav>
         </div>
       </div>
@@ -707,5 +693,59 @@
         </p>
       </footer>
     </main>
+
+    <!-- ===================== SCRIPTS (end of body) ===================== -->
+    <script>
+      // Listen for data loaded by shared.js (which should dispatch "useCases:loaded")
+      window.addEventListener('useCases:loaded', (e) => {
+        renderUseCases(e.detail);
+      });
+
+      // Renders cards from `useCases` payload (populated/loaded in shared.js)
+      function renderUseCases(useCases) {
+        const articles = Array.isArray(useCases) ? useCases : [];
+        const byDateDesc = [...articles]
+          .sort((a, b) => new Date(b.date) - new Date(a.date))
+          .slice(0, 6);
+
+        const grid = document.getElementById('grid');
+        if (!grid) return;
+
+        for (const a of byDateDesc) {
+          const card = document.createElement('article');
+          card.className = 'card';
+
+          const safeTitle = a.title || 'Untitled';
+          const safeLink = a.link || '#';
+          const safeImg = a.image || '';
+          const safeAlt = a.imageAlt || safeTitle;
+
+          const tags = (a.tags || [])
+            .map((tag) => `<span class="pill">${tag}</span>`)
+            .join('');
+
+          card.innerHTML = `
+            <a class="card-media" href="${safeLink}" aria-label="${safeTitle}">
+              ${
+                safeImg
+                  ? `<img src="${safeImg}" alt="${safeAlt}" loading="lazy" decoding="async">`
+                  : ``
+              }
+            </a>
+            <div class="card-body">
+              <div class="card-kicker">${a.kicker || 'Case Study'}</div>
+              <h3 class="card-title"><a href="${safeLink}">${safeTitle}</a></h3>
+              <p class="card-desc">${a.excerpt || ''}</p>
+              <div class="card-footer">${tags}</div>
+            </div>
+          `;
+
+          grid.appendChild(card);
+        }
+      }
+    </script>
+
+    <!-- Keep as-is; just moved to the end for reliability -->
+    <script src="shared.js"></script>
   </body>
 </html>
