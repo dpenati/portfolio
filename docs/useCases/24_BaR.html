@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -673,17 +673,52 @@
             better aligned.
           </p>
 
-          <figure>
-            <div class="figure-card">
-              <div class="placeholder">
-                Visual Placeholder — Representative UI / Prototype
-              </div>
+          <figure id="fig-bar-pipelist">
+            <div class="figure-card figure-card--image">
+              <a class="figure-link" href="#lightbox-bar-pipelist">
+                <img
+                  class="figure-img"
+                  src="images/BaR24_pipelist.png"
+                  alt="Listing of pipelines."
+                  loading="lazy"
+                />
+              </a>
             </div>
+
             <figcaption>
-              Suggested visual: one representative screen or prototype step with
-              brief callouts for clarity and reduced cognitive load.
+              Pipelines list redesign: a consolidated, narrative-style scan from
+              status → context → references → recency → next action—highlighting
+              only what needs attention and surfacing the best next step inline.
             </figcaption>
           </figure>
+
+          <!-- Lightbox overlay -->
+          <div class="lightbox" id="lightbox-bar-pipelist">
+            <a
+              class="lightbox__backdrop"
+              href="#fig-bar-pipelist"
+              aria-label="Close"
+            ></a>
+
+            <div
+              class="lightbox__content"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Expanded image"
+            >
+              <a
+                class="lightbox__close"
+                href="#fig-bar-pipelist"
+                aria-label="Close"
+                >×</a
+              >
+              <img
+                class="lightbox__img"
+                src="images/BaR24_pipelist.png"
+                alt="Listing of pipelines."
+              />
+            </div>
+          </div>
         </section>
 
         <!-- ====================== 5) REFLECTION ====================== -->
@@ -719,26 +754,20 @@
           <!-- 3-dot separator -->
           <p class="dot-sep" aria-hidden="true">• • •</p>
 
-          <p>
-            Stepping into people leadership didn’t pull me away from design
-            craft—it expanded the surface where design has impact: the team’s
-            operating model, the quality of collaboration, and the reliability
-            of delivery. I still design. Now, I simply do it across more
-            dimensions.
-          </p>
+          <div class="callout callout-a callout-a--single">
+            <h3>Closing reflection</h3>
+            <ul>
+              <li>
+                Stepping into people leadership didn’t pull me away from design
+                craft—it expanded the surface where design has impact: the
+                team’s operating model, the quality of collaboration, and the
+                reliability of delivery. I still design. Now, I simply do it
+                across more dimensions.
+              </li>
+            </ul>
+          </div>
 
-          <figure>
-            <div class="figure-card">
-              <div class="placeholder">
-                Visual Placeholder — Reflection Illustration
-              </div>
-            </div>
-            <figcaption>
-              Suggested visual: the protagonist in a calmer space, with a faint
-              weekly rhythm line in the background—signaling steadiness, shared
-              direction, and a wider horizon.
-            </figcaption>
-          </figure>
+          <div class="rule" role="presentation"></div>
         </section>
       </article>
     </main>
