@@ -1,407 +1,751 @@
 <!doctype html>
-<html lang="en" data-theme="auto">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Daniela — A journey of discoveries</title>
+    <title>Daniela — Portfolio</title>
     <meta
       name="description"
-      content="Daniela — Design Leader, System Builder, Quiet Multiplier."
+      content="A curated collection of UX case studies, notes, and visual explorations."
     />
 
-    <!-- Helps browsers render built-in UI correctly for both themes -->
-    <meta name="color-scheme" content="light dark" />
-
-    <!-- Fonts -->
+    <!-- Google Font: Barrio (logo) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;600;700&family=Roboto+Condensed:wght@300;400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Barrio&display=swap"
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="./styles.css" />
+    <style>
+      /* =========================================================
+         Design tokens (PARENT page)
+         ========================================================= */
+      :root {
+        --bg: #ffffff;
+        --ink: #111111;
+        --muted: #5a5a5a;
+        --hair: #e5e5e5;
+        --soft: #f6f6f6;
+
+        --max: 1100px;
+
+        --serif: ui-serif, Georgia, 'Times New Roman', Times, serif;
+        --sans:
+          ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto,
+          Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji';
+
+        --logo: 'Barrio', ui-serif, Georgia, 'Times New Roman', Times, serif;
+        --logo-accent: #6e5b98; /* pantone purple */
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: var(--serif);
+        line-height: 1.55;
+        letter-spacing: 0.01em;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+
+      /* =========================================================
+         Accessibility
+         ========================================================= */
+      .skip-link {
+        position: absolute;
+        left: -999px;
+        top: auto;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      }
+
+      .skip-link:focus {
+        left: 18px;
+        top: 12px;
+        width: auto;
+        height: auto;
+        padding: 8px 10px;
+        background: #fff;
+        border: 1px solid var(--hair);
+        border-radius: 10px;
+        z-index: 9999;
+        font-family: var(--sans);
+        font-size: 12px;
+      }
+
+      a:focus-visible {
+        outline: 2px solid var(--logo-accent);
+        outline-offset: 3px;
+        border-radius: 10px;
+      }
+
+      /* =========================================================
+         Topbar (PARENT masthead)
+         ========================================================= */
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid var(--hair);
+      }
+
+      .topbar-inner {
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 12px 18px;
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        gap: 12px;
+        font-family: var(--sans);
+      }
+
+      .masthead-left {
+        font-size: 12px;
+        color: var(--muted);
+        line-height: 1.2;
+      }
+
+      .masthead-date {
+        font-weight: 600;
+        color: var(--ink);
+      }
+
+      .masthead-center {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .masthead-title {
+        font-family: var(--logo);
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        line-height: 1;
+        text-decoration: none;
+        color: var(--logo-accent);
+        font-size: clamp(36px, 4.8vw, 68px);
+        white-space: nowrap;
+      }
+
+      .masthead-subtitle {
+        font-family: var(--sans);
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .masthead-right {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        font-family: var(--sans);
+      }
+
+      .masthead-cta {
+        font-family: var(--sans);
+        font-size: 12px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: var(--ink);
+        border: 1px solid var(--hair);
+        border-radius: 10px;
+        padding: 8px 10px;
+        background: #fff;
+      }
+
+      .masthead-cta:hover {
+        background: var(--soft);
+      }
+
+      .masthead-meta {
+        font-family: var(--sans);
+        font-size: 12px;
+        color: var(--muted);
+        text-decoration: none;
+        padding: 4px 6px;
+        border-radius: 6px;
+      }
+
+      .masthead-meta:hover {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        color: var(--ink);
+      }
+
+      /* =========================================================
+         Second-row nav (PARENT) — centered as a single unit
+         ========================================================= */
+      .topbar-nav {
+        border-top: 1px solid var(--hair);
+        border-bottom: 2px solid var(--hair);
+        padding: 10px 0;
+        background: transparent;
+      }
+
+      .nav-wrap {
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 0 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .nav-kicker {
+        font-family: var(--sans);
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+        font-weight: 700;
+        white-space: nowrap;
+      }
+
+      .nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: center;
+        font-family: var(--sans);
+        margin: 0;
+        padding: 0;
+      }
+
+      .nav a {
+        color: var(--logo-accent);
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 800;
+        letter-spacing: 0.01em;
+        padding: 4px 6px;
+        border-radius: 6px;
+      }
+
+      .nav a:hover {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        background: var(--soft);
+      }
+
+      /* =========================================================
+         Main layout
+         ========================================================= */
+      main {
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 26px 18px 80px;
+      }
+
+      .rule {
+        border-top: 1px solid var(--hair);
+        margin: 22px 0 26px;
+      }
+
+      /* Featured area */
+      .featured {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 18px;
+        align-items: stretch;
+      }
+
+      @media (max-width: 900px) {
+        .featured {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .hero {
+        border: 1px solid var(--hair);
+        border-radius: 16px;
+        overflow: hidden;
+        background: #fff;
+      }
+
+      .hero-media {
+        background: #fbfbfb;
+        border-bottom: 1px solid var(--hair);
+        aspect-ratio: 16/8;
+        display: grid;
+        place-items: center;
+        color: #777;
+        font-family: var(--sans);
+        font-size: 12px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .hero-body {
+        padding: 16px 16px 18px;
+      }
+
+      .hero-kicker {
+        font-family: var(--sans);
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 8px;
+      }
+
+      .hero-title {
+        margin: 0 0 8px;
+        font-size: 28px;
+        line-height: 1.15;
+        letter-spacing: -0.01em;
+        font-family: var(--serif);
+      }
+
+      .hero-title a {
+        color: var(--ink);
+        text-decoration: none;
+      }
+
+      .hero-title a:hover {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      .hero-desc {
+        margin: 0 0 12px;
+        color: var(--muted);
+        font-size: 16px;
+        line-height: 1.5;
+        font-family: var(--serif);
+      }
+
+      .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        font-family: var(--sans);
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .pill {
+        border: 1px solid var(--hair);
+        border-radius: 999px;
+        padding: 4px 10px;
+        background: #fff;
+        color: var(--muted);
+        white-space: nowrap;
+        font-family: var(--sans);
+      }
+
+      /* Right column list */
+      .side {
+        border: 1px solid var(--hair);
+        border-radius: 16px;
+        padding: 14px 14px 6px;
+        background: #fff;
+      }
+
+      .side h2 {
+        margin: 0 0 10px;
+        font-size: 14px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-family: var(--sans);
+        color: var(--muted);
+      }
+
+      .side-item {
+        padding: 12px 2px;
+        border-top: 1px solid var(--hair);
+      }
+
+      .side-item:first-of-type {
+        border-top: none;
+      }
+
+      .side-item a {
+        color: var(--ink);
+        text-decoration: none;
+        font-weight: 700;
+        letter-spacing: -0.005em;
+        font-family: var(--serif);
+      }
+
+      .side-item a:hover {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      .side-item p {
+        margin: 6px 0 0;
+        color: var(--muted);
+        font-size: 13px;
+        font-family: var(--serif);
+        line-height: 1.45;
+      }
+
+      /* Section head */
+      .section-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+        margin: 30px 0 12px;
+      }
+
+      .section-head h2 {
+        margin: 0;
+        font-family: var(--sans);
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .section-head .hint {
+        font-family: var(--sans);
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      /* Cards grid */
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+
+      @media (max-width: 980px) {
+        .grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 620px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .card {
+        border: 1px solid var(--hair);
+        border-radius: 16px;
+        background: #fff;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        min-height: 260px;
+      }
+
+      .card-media {
+        background: #fbfbfb;
+        border-bottom: 1px solid var(--hair);
+        aspect-ratio: 16/9;
+        display: block;
+      }
+
+      .card-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .card-body {
+        padding: 14px 14px 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        flex: 1;
+      }
+
+      .card-kicker {
+        font-family: var(--sans);
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .card-title {
+        margin: 0;
+        font-size: 20px;
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+        font-family: var(--serif);
+      }
+
+      .card-title a {
+        color: var(--ink);
+        text-decoration: none;
+      }
+
+      .card-title a:hover {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      .card-desc {
+        margin: 0;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.45;
+        font-family: var(--serif);
+      }
+
+      .card-footer {
+        margin-top: auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        font-family: var(--sans);
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      footer {
+        margin-top: 40px;
+        padding-top: 18px;
+        border-top: 1px solid var(--hair);
+        font-family: var(--sans);
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      /* Mobile masthead stack */
+      @media (max-width: 760px) {
+        .topbar-inner {
+          grid-template-columns: 1fr;
+          justify-items: center;
+          text-align: center;
+          gap: 8px;
+        }
+
+        .masthead-right {
+          justify-content: center;
+        }
+
+        main {
+          padding-top: 18px;
+        }
+
+        .nav-wrap {
+          flex-direction: column;
+          gap: 8px;
+        }
+      }
+    </style>
   </head>
 
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- Sticky header -->
-    <header class="site-header" id="top">
-      <div class="container header-row">
-        <div class="brand">
-          <div class="mark" aria-hidden="true">DP</div>
-
-          <div class="brand-text">
-            <div class="brand-title">Daniela</div>
-            <div class="brand-subtitle">A journey of discoveries</div>
-          </div>
+    <!-- ===================== TOPBAR (PARENT) ===================== -->
+    <div class="topbar">
+      <div class="topbar-inner" role="banner" aria-label="Site header">
+        <div class="masthead-left">
+          <div class="masthead-date">Monday, December 29, 2025</div>
         </div>
 
-        <div class="header-actions">
-          <nav class="nav" aria-label="Primary">
-            <a href="#interests">Interests</a>
-            <a href="#work">Work</a>
-            <a href="#contact">Contact</a>
-          </nav>
-
-          <!-- Theme toggle -->
-          <button
-            class="theme-toggle"
-            type="button"
-            aria-label="Toggle dark mode"
-            aria-pressed="false"
-            data-theme-toggle
+        <div class="masthead-center">
+          <!-- ✅ consistent lowercase filename -->
+          <a class="masthead-title" href="index.html" aria-label="Home"
+            >.Daniela.</a
           >
-            <span class="theme-icon" aria-hidden="true">◐</span>
-          </button>
+          <div class="masthead-subtitle">UX / Product Design</div>
+        </div>
+
+        <div class="masthead-right" aria-label="Site navigation">
+          <a class="masthead-cta" href="#contact">Contact</a>
+          <!-- ✅ consistent lowercase filenames -->
+          <a class="masthead-meta" href="about.html">About</a>
+          <a class="masthead-meta" href="usecases.html">Use Cases</a>
+          <a class="masthead-meta" href="notes.html">Notes</a>
         </div>
       </div>
-    </header>
 
+      <div class="topbar-nav">
+        <div class="nav-wrap">
+          <div class="nav-kicker">STUDIO:</div>
+          <nav class="nav" aria-label="Featured creative work">
+            <!-- ✅ consistent lowercase filenames -->
+            <a href="f_zentangle.html">Linework</a>
+            <a href="f_fashion.html">Style</a>
+            <a href="f_photography.html">Lens</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== MAIN ===================== -->
     <main id="main">
-      <!-- INTRO (no "About" label) -->
-      <section class="section section-intro" aria-label="Introduction">
-        <div class="container">
-          <!-- A) above title: Sans Regular -->
-          <div class="kicker">
-            Design Leader, System Builder, Quiet Multiplier
-          </div>
-
-          <!-- B) title: Serif -->
-          <h1 class="title">
-            I lead by building the foundations that let teams do their best
-            work.
-          </h1>
-
-          <!-- C) body: Sans Condensed -->
-          <p class="body">
-            My strength lives in the space between people, processes, and
-            products — where complexity needs translation, where teams need
-            alignment, and where a scattered landscape needs a coherent system.
-            I don’t chase the spotlight; I shape the conditions that make the
-            spotlight unnecessary.
-          </p>
-        </div>
-      </section>
-
-      <!-- INTERESTS -->
-      <section id="interests" class="section section-gallery">
-        <div class="container">
-          <div class="section-head">
-            <div class="section-kicker">Interests</div>
-            <div class="section-note">
-              A few spaces where I recharge and learn.
-            </div>
-          </div>
-
-          <div class="grid grid-interests">
-            <article class="card">
-              <a
-                class="card-link"
-                href="./interests/travel.html"
-                aria-label="Travelling"
+      <section class="featured" aria-label="Featured">
+        <article class="hero">
+          <div class="hero-media">Featured Visual Placeholder</div>
+          <div class="hero-body">
+            <div class="hero-kicker">Editor’s Pick · Writing</div>
+            <h2 class="hero-title">
+              <a href="notes/why-clarity-scales.html"
+                >Clarity Scales: Designing Conditions, Not Just Screens</a
               >
-                <img
-                  src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80"
-                  alt="Travel scene"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </a>
-              <p class="caption">
-                Travelling — discovering new cultures and places.
-              </p>
-            </article>
-
-            <article class="card">
-              <a
-                class="card-link"
-                href="./interests/photography.html"
-                aria-label="Photography"
-              >
-                <img
-                  src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?auto=format&fit=crop&w=1200&q=80"
-                  alt="Camera close-up"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </a>
-              <p class="caption">Photography — capturing the moment.</p>
-            </article>
-
-            <article class="card">
-              <a
-                class="card-link"
-                href="./interests/zentangle.html"
-                aria-label="Zentangle"
-              >
-                <img
-                  src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80"
-                  alt="Ink lines on paper"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </a>
-              <p class="caption">Zentangle — following the line.</p>
-            </article>
-
-            <article class="card">
-              <a
-                class="card-link"
-                href="./interests/cooking.html"
-                aria-label="Cooking"
-              >
-                <img
-                  src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=1200&q=80"
-                  alt="Cooking ingredients"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </a>
-              <p class="caption">Cooking — tasting.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- WORK -->
-      <section id="work" class="section section-gallery">
-        <div class="container">
-          <div class="section-head">
-            <div class="section-kicker">Work</div>
-            <div class="section-note">Selected projects and systems.</div>
-          </div>
-
-          <div class="grid grid-work">
-            <article class="card">
-              <a
-                class="card-link"
-                href="./work/project-1.html"
-                aria-label="Open project 1"
-              >
-                <img
-                  src="https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?auto=format&fit=crop&w=1400&q=80"
-                  alt="Work thumbnail"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </a>
-              <p class="caption">
-                Project title placeholder — one-line description.
-              </p>
-            </article>
-
-            <article class="card">
-              <a
-                class="card-link"
-                href="./work/project-2.html"
-                aria-label="Open project 2"
-              >
-                <img
-                  src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=1400&q=80"
-                  alt="Work thumbnail"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </a>
-              <p class="caption">
-                Project title placeholder — one-line description.
-              </p>
-            </article>
-
-            <article class="card">
-              <a
-                class="card-link"
-                href="./work/project-3.html"
-                aria-label="Open project 3"
-              >
-                <img
-                  src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1400&q=80"
-                  alt="Work thumbnail"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </a>
-              <p class="caption">
-                Project title placeholder — one-line description.
-              </p>
-            </article>
-
-            <article class="card">
-              <a
-                class="card-link"
-                href="./work/project-4.html"
-                aria-label="Open project 4"
-              >
-                <img
-                  src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1400&q=80"
-                  alt="Work thumbnail"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </a>
-              <p class="caption">
-                Project title placeholder — one-line description.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- CONTACT -->
-      <section id="contact" class="section section-contact">
-        <div class="container">
-          <h2 class="contact-title">Drop me a line.</h2>
-
-          <!--
-            FORMSPREE SETUP:
-            1) Create a form on Formspree and get your endpoint:
-               https://formspree.io/f/XXXXXXX
-            2) Replace the action URL below with yours.
-            3) (Optional) Create a thanks.html page and keep _redirect.
-
-            NOTE: GitHub Pages is static. Formspree is the right choice here.
-          -->
-          <form
-            class="form"
-            action="https://formspree.io/f/REPLACE_WITH_YOUR_ID"
-            method="POST"
-          >
-            <!-- Honeypot (spam trap) -->
-            <input
-              class="hp"
-              type="text"
-              name="_gotcha"
-              tabindex="-1"
-              autocomplete="off"
-            />
-
-            <!-- Optional: redirect after submit -->
-            <input type="hidden" name="_redirect" value="./thanks.html" />
-
-            <!-- Optional: email subject -->
-            <input
-              type="hidden"
-              name="_subject"
-              value="New message from dpenati.com"
-            />
-
-            <label class="field">
-              <span class="label">Name</span>
-              <input name="name" type="text" autocomplete="name" />
-            </label>
-
-            <label class="field">
-              <span class="label">Email</span>
-              <input name="email" type="email" autocomplete="email" required />
-            </label>
-
-            <label class="field">
-              <span class="label">Message</span>
-              <textarea name="message" rows="4" required></textarea>
-            </label>
-
-            <button class="btn" type="submit">SEND &gt;</button>
-
-            <p class="form-fallback">
-              Prefer email?
-              <a class="accent-link" href="mailto:daniela@dpenati"
-                >daniela@dpenati</a
-              >
+            </h2>
+            <p class="hero-desc">
+              A short essay on how structure, trust, and shared context allow
+              product quality to scale without fragmentation.
             </p>
-          </form>
-        </div>
-      </section>
-
-      <!-- FOOTER IMAGE -->
-      <section class="footer-hero" aria-label="Footer image">
-        <img
-          src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=2400&q=80"
-          alt="Monochrome texture"
-          loading="lazy"
-          decoding="async"
-        />
-      </section>
-
-      <!-- FOOTER -->
-      <footer class="site-footer">
-        <div class="container footer-row">
-          <div class="footer-left">
-            <div class="footer-kicker">A journey of discoveries</div>
-            <div class="footer-mark" aria-hidden="true">DP</div>
-
-            <div class="social" aria-label="Social links">
-              <a href="#" aria-label="LinkedIn">in</a>
-              <a href="#" aria-label="Instagram">ig</a>
-              <a href="#" aria-label="Medium">m</a>
-              <a href="mailto:daniela@dpenati" aria-label="Email">✉</a>
+            <div class="meta">
+              <span class="pill">Essay</span>
+              <span class="pill">~4 min read</span>
+              <span class="pill">Rotating</span>
             </div>
+          </div>
+        </article>
 
-            <div class="footer-brand">Daniela</div>
+        <aside class="side" aria-label="Latest posts">
+          <h2>Latest posts</h2>
+
+          <div class="side-item">
+            <a href="notes/field-note-01.html"
+              >Field Note: The “First Shift” That Changes a Team</a
+            >
+            <p>
+              A lightweight cadence that builds visibility and momentum—without
+              bureaucracy.
+            </p>
           </div>
 
-          <div class="footer-right">
-            <a class="to-top" href="#top">Back to top ↑</a>
+          <div class="side-item">
+            <a href="notes/visual-language.html"
+              >Visual Language: Minimal Lines, Maximum Signal</a
+            >
+            <p>
+              Why I use restrained illustrations to support narrative and
+              attention.
+            </p>
           </div>
-        </div>
+
+          <div class="side-item">
+            <a href="notes/operating-models.html"
+              >On Operating Models: When UX Is “Support” vs “Driver”</a
+            >
+            <p>
+              How roles and expectations shape outcomes long before design
+              begins.
+            </p>
+          </div>
+        </aside>
+      </section>
+
+      <div class="section-head" style="margin-top: 28px">
+        <h2>Recent case studies</h2>
+        <div class="hint">Pulled from your shared feed</div>
+      </div>
+
+      <section aria-label="Case study cards">
+        <div id="grid" class="grid"></div>
+      </section>
+
+      <div class="rule" role="presentation" style="margin-top: 34px"></div>
+
+      <section id="contact" aria-label="Contact" style="max-width: 70ch">
+        <h2
+          style="
+            font-family: var(--sans);
+            font-size: 12px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin: 0 0 10px;
+          "
+        >
+          Contact
+        </h2>
+        <p style="margin: 0; color: var(--muted); font-size: 16px">
+          <a href="mailto:daniela@dpenati.com">daniela@dpenati.com</a> ·
+          <a
+            href="https://www.linkedin.com/in/danielapenati/"
+            target="_blank"
+            rel="noopener"
+            >LinkedIn</a
+          >
+        </p>
+      </section>
+
+      <footer>
+        <p>
+          Tip: keep each card teaser to ~110–150 characters for a crisp
+          editorial feel.
+        </p>
       </footer>
     </main>
 
+    <!-- ===================== SCRIPTS (end of body) ===================== -->
     <script>
-      // Theme toggle: respects system by default, allows manual override, persists choice.
-      (function () {
-        const root = document.documentElement;
-        const btn = document.querySelector('[data-theme-toggle]');
-        const storageKey = 'dp-theme'; // "light" | "dark" | null
+      // Listen for data loaded by shared.js (which should dispatch "useCases:loaded")
+      window.addEventListener('useCases:loaded', (e) => {
+        renderUseCases(e.detail);
+      });
 
-        function systemPrefersDark() {
-          return (
-            window.matchMedia &&
-            window.matchMedia('(prefers-color-scheme: dark)').matches
-          );
+      // Renders cards from `useCases` payload (populated/loaded in shared.js)
+      function renderUseCases(useCases) {
+        const articles = Array.isArray(useCases) ? useCases : [];
+        const byDateDesc = [...articles]
+          .sort((a, b) => new Date(b.date) - new Date(a.date))
+          .slice(0, 6);
+
+        const grid = document.getElementById('grid');
+        if (!grid) return;
+
+        for (const a of byDateDesc) {
+          const card = document.createElement('article');
+          card.className = 'card';
+
+          const safeTitle = a.title || 'Untitled';
+          const safeLink = a.link || '#';
+          const safeImg = a.image || '';
+          const safeAlt = a.imageAlt || safeTitle;
+
+          const tags = (a.tags || [])
+            .map((tag) => `<span class="pill">${tag}</span>`)
+            .join('');
+
+          card.innerHTML = `
+            <a class="card-media" href="${safeLink}" aria-label="${safeTitle}">
+              ${
+                safeImg
+                  ? `<img src="${safeImg}" alt="${safeAlt}" loading="lazy" decoding="async">`
+                  : ``
+              }
+            </a>
+            <div class="card-body">
+              <div class="card-kicker">${a.kicker || 'Case Study'}</div>
+              <h3 class="card-title"><a href="${safeLink}">${safeTitle}</a></h3>
+              <p class="card-desc">${a.excerpt || ''}</p>
+              <div class="card-footer">${tags}</div>
+            </div>
+          `;
+
+          grid.appendChild(card);
         }
-
-        function applyTheme(theme) {
-          // theme: "light" | "dark" | "auto"
-          root.setAttribute('data-theme', theme);
-          const isDark =
-            theme === 'dark' || (theme === 'auto' && systemPrefersDark());
-          if (btn) btn.setAttribute('aria-pressed', String(isDark));
-        }
-
-        const saved = localStorage.getItem(storageKey);
-        if (saved === 'light' || saved === 'dark') {
-          applyTheme(saved);
-        } else {
-          applyTheme('auto');
-        }
-
-        // Keep in sync with system if in auto
-        if (window.matchMedia) {
-          const mq = window.matchMedia('(prefers-color-scheme: dark)');
-          mq.addEventListener?.('change', () => {
-            if (root.getAttribute('data-theme') === 'auto') applyTheme('auto');
-          });
-        }
-
-        if (btn) {
-          btn.addEventListener('click', () => {
-            const current = root.getAttribute('data-theme');
-            const next =
-              current === 'dark'
-                ? 'light'
-                : current === 'light'
-                  ? 'dark'
-                  : systemPrefersDark()
-                    ? 'light'
-                    : 'dark';
-
-            localStorage.setItem(storageKey, next);
-            applyTheme(next);
-          });
-        }
-      })();
+      }
     </script>
+
+    <!-- Keep as-is; just moved to the end for reliability -->
+    <script src="shared.js"></script>
   </body>
 </html>
