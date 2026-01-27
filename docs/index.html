@@ -94,8 +94,9 @@
             <article class="card flip-card">
               <a
                 class="card-link flip"
-                href="./interests/travel.html"
+                href="./lenses/travel.html"
                 aria-label="Travel"
+                data-soon
               >
                 <span class="flip-inner">
                   <span class="flip-front">
@@ -128,8 +129,9 @@
             <article class="card flip-card">
               <a
                 class="card-link flip"
-                href="./interests/photography.html"
+                href="./lenses/photography.html"
                 aria-label="Photography"
+                data-soon
               >
                 <span class="flip-inner">
                   <span class="flip-front">
@@ -158,13 +160,13 @@
               <p class="caption caption-label"><strong>Photography.</strong></p>
             </article>
 
-            <!-- 3 -->
             <!-- 3 — Visual Notes -->
             <article class="card flip-card">
               <a
                 class="card-link flip"
-                href="./interests/visual-notes.html"
+                href="./lenses/visual-notes.html"
                 aria-label="Visual Notes"
+                data-soon
               >
                 <span class="flip-inner">
                   <span class="flip-front">
@@ -199,8 +201,9 @@
             <article class="card flip-card">
               <a
                 class="card-link flip"
-                href="./interests/zentangle.html"
+                href="./lenses/Zentangle.html"
                 aria-label="Zentangle"
+                data-soon
               >
                 <span class="flip-inner">
                   <span class="flip-front">
@@ -233,8 +236,9 @@
             <article class="card flip-card">
               <a
                 class="card-link flip"
-                href="./interests/cooking.html"
+                href="./lenses/Cooking.html"
                 aria-label="Cooking"
+                data-soon
               >
                 <span class="flip-inner">
                   <span class="flip-front">
@@ -269,8 +273,9 @@
             <article class="card flip-card">
               <a
                 class="card-link flip"
-                href="./interests/capablanca.html"
+                href="./lenses/capablanca.html"
                 aria-label="Capablanca"
+                data-soon
               >
                 <span class="flip-inner">
                   <span class="flip-front">
@@ -302,6 +307,13 @@
             </article>
           </div>
         </div>
+        <script>
+          document.addEventListener('click', (e) => {
+            const a = e.target.closest('a[data-soon]');
+            if (!a) return;
+            e.preventDefault();
+          });
+        </script>
       </section>
 
       <!-- WORK -->
