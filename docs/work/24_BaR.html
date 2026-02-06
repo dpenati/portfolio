@@ -1,148 +1,311 @@
-<main id="main">
-  <section class="section work-hero">
-    <div class="container">
-      <a class="work-back" href="../index.html#work">← Back to Field Notes</a>
+<!doctype html>
+<html lang="en" data-theme="auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Field Note — Project Title</title>
+    <meta
+      name="description"
+      content="Field Note: a narrative case study about systems, alignment, and delivery."
+    />
 
-      <div class="kicker">Build &amp; Release / Engineering Portal</div>
-      <h1 class="work-title">Building a High-Performing UX Team</h1>
-      <p class="work-dek">
-        A case study in aligning teams, stakeholders, and products.
-      </p>
+    <meta name="color-scheme" content="light dark" />
 
-      <div class="work-facts">
-        <div class="fact">
-          <div class="fact-label">Role</div>
-          <div class="fact-value">UX Manager</div>
-        </div>
-        <div class="fact">
-          <div class="fact-label">Focus</div>
-          <div class="fact-value">
-            Team Enablement • Alignment • Predictable Delivery
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;600;700&family=Roboto+Condensed:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- Sticky header (same as home, links adjusted) -->
+    <header class="site-header" id="top">
+      <div class="container header-row">
+        <div class="brand">
+          <div class="mark" aria-hidden="true">DP</div>
+
+          <div class="brand-text">
+            <div class="brand-title">Daniela</div>
+            <div class="brand-subtitle">A journey of discovery</div>
           </div>
+        </div>
+
+        <div class="header-actions">
+          <nav class="nav" aria-label="Primary">
+            <a href="../index.html#lenses">Lenses</a>
+            <a href="../index.html#work">Field Notes</a>
+            <a href="../index.html#contact">Contact</a>
+          </nav>
+
+          <button
+            class="theme-toggle"
+            type="button"
+            aria-label="Toggle dark mode"
+            aria-pressed="false"
+            data-theme-toggle
+          >
+            <span class="theme-icon" aria-hidden="true">◐</span>
+          </button>
         </div>
       </div>
-    </div>
-  </section>
+    </header>
 
-  <section class="section work-content">
-    <div class="container work-grid">
-      <!-- LEFT: ARTICLE -->
-      <article class="work-article">
-        <!-- Your sections go here -->
-        <section id="context" class="block lead">
-          <div class="section-label">1. Context</div>
-          <h2 class="h2">The Conditions I Inherited</h2>
+    <main id="main">
+      <!-- Top meta bar -->
+      <section class="section work-hero">
+        <div class="container">
+          <a class="work-back" href="../index.html#work"
+            >← Back to Field Notes</a
+          >
 
-          <p>...</p>
-
-          <figure id="fig-bar-kickoff" class="figure">
-            <a class="figure-link" href="#lightbox-bar-kickoff">
-              <img
-                class="figure-img"
-                src="./images/BaR24_kickoff.png"
-                alt="Day one: no shared spaces, tools, or rituals."
-                loading="lazy"
-                decoding="async"
-              />
-            </a>
-            <figcaption class="figcaption">
-              Day one: no shared spaces, tools, or rituals. Building them became
-              the foundation for everything that followed.
-            </figcaption>
-          </figure>
-
-          <div class="lightbox" id="lightbox-bar-kickoff">
-            <a
-              class="lightbox__backdrop"
-              href="#fig-bar-kickoff"
-              aria-label="Close"
-            ></a>
-            <div
-              class="lightbox__content"
-              role="dialog"
-              aria-modal="true"
-              aria-label="Expanded image"
-              tabindex="-1"
-            >
-              <a
-                class="lightbox__close"
-                href="#fig-bar-kickoff"
-                aria-label="Close"
-                >×</a
-              >
-              <img
-                class="lightbox__img"
-                src="./images/BaR24_kickoff.png"
-                alt="Day one: no shared spaces, tools, or rituals."
-                decoding="async"
-              />
+          <div class="work-meta">
+            <div class="work-kicker">FIELD NOTE</div>
+            <div class="work-tags">
+              <span class="tag">Systems</span>
+              <span class="tag">Operating Model</span>
+              <span class="tag">Delivery</span>
             </div>
           </div>
-        </section>
 
-        <!-- more sections... -->
+          <h1 class="work-title">Building a High-Performing UX Team</h1>
 
-        <div class="work-bottom">
+          <p class="work-dek">
+            A case study in aligning teams, stakeholders, and products.
+          </p>
+
+          <!-- Optional: quick facts -->
+          <div class="work-facts">
+            <div class="fact">
+              <div class="fact-label">Role</div>
+              <div class="fact-value">UX Lead / Manager</div>
+            </div>
+            <div class="fact">
+              <div class="fact-label">Focus</div>
+              <div class="fact-value">
+                Team Enablement + Cross-Functional Alignment + Predictable
+                Delivery
+              </div>
+            </div>
+            <div class="fact">
+              <div class="fact-label">Timeline</div>
+              <div class="fact-value">2024</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Hero visual (optional) -->
+      <section class="section work-figure" aria-label="Hero image">
+        <div class="container">
+          <figure class="figure">
+            <img
+              src="../images/tn_bar.svg"
+              alt="Project hero visual"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption class="figcaption">
+              A one-sentence caption that frames what the reader is looking at.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- Content -->
+      <section class="section work-content">
+        <div class="container work-grid">
+          <!-- Main narrative -->
+          <article class="work-article">
+            <section class="block">
+              <h2 class="h2">Context</h2>
+              <p>
+                Set the scene. What was broken/fragmented, who was impacted, and
+                what constraints mattered.
+              </p>
+            </section>
+
+            <section class="block">
+              <h2 class="h2">What I did</h2>
+              <ul class="list">
+                <li>Action 1 (rituals, framework, alignment mechanism)</li>
+                <li>
+                  Action 2 (information architecture, workflows, UI changes)
+                </li>
+                <li>Action 3 (adoption, rollout, governance)</li>
+              </ul>
+            </section>
+
+            <section class="block">
+              <h2 class="h2">Outcome</h2>
+              <p>
+                Results and signals: reliability, clarity, cycle time, fewer
+                escalations, better decision-making.
+              </p>
+            </section>
+
+            <!-- Add more blocks as needed -->
+          </article>
+
+          <!-- Sidebar (v2: sticky stack + v2 list classes) -->
+          <aside class="work-aside" aria-label="Case study sidebar">
+            <div class="aside-stack">
+              <div class="aside-card">
+                <div class="aside-title">Highlights</div>
+                <ul class="aside-list">
+                  <li>
+                    Built a cohesive UX team with clear ownership, and shared
+                    goals.
+                  </li>
+                  <li>
+                    Introduced a weekly rhythm that improved prioritization and
+                    follow-through.
+                  </li>
+                  <li>
+                    Turned demos into a cross-functional alignment mechanism
+                    that strengthened trust among stakeholders.
+                  </li>
+                </ul>
+              </div>
+
+              <div class="aside-card">
+                <div class="aside-title">Artifacts</div>
+                <ul class="aside-figs">
+                  <li>
+                    <a href="#" aria-label="Open artifact"
+                      >Figure 1 — Overview</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#" aria-label="Open artifact">Figure 2 — Flow</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Bottom navigation -->
+      <section class="section work-nav">
+        <div class="container nav-row">
           <a class="nav-pill" href="../index.html#work">← All Field Notes</a>
-          <a class="nav-pill" href="./25_SmartCode.html">Next: Smart Code →</a>
+          <a class="nav-pill" href="./25_SmartCode.html" data-soon
+            >Next: Smart Code →</a
+          >
         </div>
-      </article>
+      </section>
 
-      <!-- RIGHT: SIDEBAR -->
-      <aside class="work-aside" aria-label="Field Notes sidebar">
-        <div class="aside-stack">
-          <!-- Key takeaways box -->
-          <section class="aside-card">
-            <div class="aside-title">Key takeaways</div>
-            <ul class="aside-list">
-              <li>
-                Built a cohesive UX team with clear ownership, shared standards,
-                and consistent rituals.
-              </li>
-              <li>
-                Introduced a lightweight weekly rhythm that improved
-                prioritization and follow-through.
-              </li>
-              <li>
-                Increased early visibility via checkpoints and demos, reducing
-                late-stage surprises.
-              </li>
-              <li>
-                Turned demos into a cross-functional alignment mechanism that
-                strengthened trust.
-              </li>
-              <li>Envisioned the product as an end-to-end system.</li>
-            </ul>
-          </section>
+      <!-- Footer (exactly as index.html footer) -->
+      <footer class="site-footer">
+        <div class="container footer-row">
+          <div class="footer-left">
+            <div class="footer-meta" aria-label="Contact links and copyright">
+              <a
+                class="social-icon"
+                href="https://www.linkedin.com/in/danielapenati/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V9h4v2a4 4 0 0 1 2-3z"
+                  />
+                  <rect x="2" y="9" width="4" height="12" />
+                  <circle cx="4" cy="4" r="2" />
+                </svg>
+              </a>
 
-          <!-- Figures index box -->
-          <section class="aside-card">
-            <div class="aside-title">Figures</div>
-            <ol class="aside-figs">
-              <li><a href="#fig-bar-kickoff">Day one — kickoff</a></li>
-              <li><a href="#fig-bar-planning">Weekly rhythm — plans</a></li>
-              <li><a href="#fig-bar-domain">Shared learning — ecosystem</a></li>
-              <li><a href="#fig-bar-wiki">Confluence team space</a></li>
-              <li><a href="#fig-bar-demo">Friday demos</a></li>
-              <li><a href="#fig-bar-calendar">Monthly cadence</a></li>
-              <li><a href="#fig-bar-flow">End-to-end map</a></li>
-              <li><a href="#fig-bar-pipelist">Pipelines list redesign</a></li>
-            </ol>
-          </section>
+              <a
+                class="social-icon"
+                href="mailto:daniela@dpenati.com"
+                aria-label="Email"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 6h16v12H4z" />
+                  <path d="M4 7l8 6 8-6" />
+                </svg>
+              </a>
 
-          <!-- Optional: On this page -->
-          <section class="aside-card">
-            <div class="aside-title">On this page</div>
-            <ul class="aside-links">
-              <li><a href="#context">Context</a></li>
-              <li><a href="#approach">Strategic approach</a></li>
-              <li><a href="#execution">Execution</a></li>
-              <li><a href="#impact">Product impact</a></li>
-              <li><a href="#reflection">Reflection</a></li>
-            </ul>
-          </section>
+              <span class="footer-copy"
+                >© <span data-year></span> Daniela Penati</span
+              >
+            </div>
+          </div>
+
+          <div class="footer-right">
+            <a class="to-top" href="#top">Back to top ↑</a>
+          </div>
         </div>
-      </aside>
-    </div>
-  </section>
-</main>
+      </footer>
+    </main>
+
+    <script>
+      // Theme toggle (same as home) + year
+      (function () {
+        const root = document.documentElement;
+        const btn = document.querySelector('[data-theme-toggle]');
+        const storageKey = 'dp-theme';
+
+        function systemPrefersDark() {
+          return (
+            window.matchMedia &&
+            window.matchMedia('(prefers-color-scheme: dark)').matches
+          );
+        }
+
+        function applyTheme(theme) {
+          root.setAttribute('data-theme', theme);
+          const isDark =
+            theme === 'dark' || (theme === 'auto' && systemPrefersDark());
+          if (btn) btn.setAttribute('aria-pressed', String(isDark));
+        }
+
+        const saved = localStorage.getItem(storageKey);
+        if (saved === 'light' || saved === 'dark') applyTheme(saved);
+        else applyTheme('auto');
+
+        if (window.matchMedia) {
+          const mq = window.matchMedia('(prefers-color-scheme: dark)');
+          mq.addEventListener?.('change', () => {
+            if (root.getAttribute('data-theme') === 'auto') applyTheme('auto');
+          });
+        }
+
+        if (btn) {
+          btn.addEventListener('click', () => {
+            const current = root.getAttribute('data-theme');
+            const next =
+              current === 'dark'
+                ? 'light'
+                : current === 'light'
+                  ? 'dark'
+                  : systemPrefersDark()
+                    ? 'light'
+                    : 'dark';
+            localStorage.setItem(storageKey, next);
+            applyTheme(next);
+          });
+        }
+
+        document.querySelectorAll('[data-year]').forEach((el) => {
+          el.textContent = String(new Date().getFullYear());
+        });
+      })();
+
+      // Optional: prevent navigation for coming-soon links
+      document.addEventListener('click', (e) => {
+        const a = e.target.closest('a[data-soon]');
+        if (!a) return;
+        e.preventDefault();
+      });
+    </script>
+  </body>
+</html>
