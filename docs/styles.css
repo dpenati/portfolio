@@ -96,7 +96,8 @@ a {
 .container {
   width: min(var(--container), 100%);
   margin: 0 auto;
-  padding: 0 var(--pad-x);
+  padding-left: calc(var(--pad-x) + env(safe-area-inset-left));
+  padding-right: calc(var(--pad-x) + env(safe-area-inset-right));
 }
 
 .skip-link {
@@ -246,7 +247,7 @@ a {
   contain-intrinsic-size: 800px;
 }
 
-#lenses,
+#about,
 #work,
 #contact,
 #top {
@@ -290,18 +291,18 @@ a {
 .section-title {
   margin: 0 0 8px 0;
   font-family: var(--serif);
-  font-weight: 600;
-  font-size: 16px;
+  font-weight: 700;
+  font-size: 18px;
   color: var(--ink);
 }
 
 .section-note {
-  font-size: 14px;
+  font-size: 16px;
   color: var(--muted);
 }
 
 /* -------------------------
-   Global list styling (NEW)
+   Global list styling
 -------------------------- */
 
 .list {
@@ -684,6 +685,39 @@ textarea:focus {
 }
 
 /* -------------------------
+   Lightbox (About images)
+-------------------------- */
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: grid;
+  place-items: center;
+  padding: 22px;
+  background: color-mix(in srgb, #000 70%, transparent);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 140ms ease;
+}
+
+.lightbox.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lightbox-img {
+  max-width: min(1100px, 92vw);
+  max-height: 88vh;
+  border-radius: 14px;
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.35);
+}
+
+/* -------------------------
    Responsive
 -------------------------- */
 
@@ -702,6 +736,7 @@ textarea:focus {
 @media (max-width: 760px) {
   :root {
     --header-hint: 110px;
+    --pad-x: 26px;
   }
 
   .header-row {
@@ -723,6 +758,16 @@ textarea:focus {
     align-items: flex-start;
     gap: 14px;
   }
+
+  .lightbox {
+    padding: 14px;
+  }
+
+  .lightbox-img {
+    max-width: 94vw;
+    max-height: 86vh;
+    border-radius: 12px;
+  }
 }
 
 @media (max-width: 520px) {
@@ -743,7 +788,8 @@ textarea:focus {
 
   .card img,
   .nav a::after,
-  .btn {
+  .btn,
+  .lightbox {
     transition: none !important;
   }
 }
@@ -812,7 +858,6 @@ textarea:focus {
   color: var(--ink);
 }
 
-/* Quick facts: uneven columns (1 fit, 2 capped, 3 fit) */
 .work-facts {
   display: grid;
   grid-template-columns: max-content minmax(420px, 720px) max-content;
@@ -826,12 +871,10 @@ textarea:focus {
   max-width: 100%;
 }
 
-/* More space between col 1 and col 2 */
 .work-facts > .fact:first-child {
   padding-right: 40px;
 }
 
-/* Let the middle fact wrap/shrink so the year doesn't get pushed to the edge */
 .work-facts > .fact:nth-child(2) {
   min-width: 0;
 }
@@ -874,6 +917,17 @@ textarea:focus {
   border: 1px solid rgba(127, 127, 127, 0.14);
   background: color-mix(in srgb, var(--surface) 92%, rgba(127, 127, 127, 0.08));
   filter: grayscale(100%);
+}
+
+/* Work hero figure: shorter + crop from top */
+.work-figure .figure {
+  overflow: hidden;
+}
+
+.work-figure .figure img {
+  height: clamp(180px, 18vw, 260px);
+  object-fit: cover;
+  object-position: center top;
 }
 
 .figcaption {

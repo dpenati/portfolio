@@ -25,7 +25,6 @@
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- Sticky header (same as home, links adjusted) -->
     <header class="site-header" id="top">
       <div class="container header-row">
         <div class="brand">
@@ -39,8 +38,8 @@
 
         <div class="header-actions">
           <nav class="nav" aria-label="Primary">
-            <a href="../index.html#lenses">Lenses</a>
-            <a href="../index.html#work">Field Notes</a>
+            <a href="../index.html#about">About</a>
+            <a href="../index.html#work">Work</a>
             <a href="../index.html#contact">Contact</a>
           </nav>
 
@@ -58,12 +57,9 @@
     </header>
 
     <main id="main">
-      <!-- Top meta bar -->
       <section class="section work-hero">
         <div class="container">
-          <a class="work-back" href="../index.html#work"
-            >← Back to Field Notes</a
-          >
+          <a class="work-back" href="../index.html#work">← Back to Work</a>
 
           <div class="work-meta">
             <div class="work-kicker">FIELD NOTE</div>
@@ -80,7 +76,6 @@
             A case study in aligning teams, stakeholders, and products.
           </p>
 
-          <!-- Optional: quick facts -->
           <div class="work-facts">
             <div class="fact">
               <div class="fact-label">Role</div>
@@ -101,7 +96,7 @@
         </div>
       </section>
 
-      <!-- Hero visual (optional) -->
+      <!-- Hero visual -->
       <section class="section work-figure" aria-label="Hero image">
         <div class="container">
           <figure class="figure">
@@ -118,10 +113,8 @@
         </div>
       </section>
 
-      <!-- Content -->
       <section class="section work-content">
         <div class="container work-grid">
-          <!-- Main narrative -->
           <article class="work-article">
             <section class="block">
               <h2 class="h2">Context</h2>
@@ -149,19 +142,15 @@
                 escalations, better decision-making.
               </p>
             </section>
-
-            <!-- Add more blocks as needed -->
           </article>
 
-          <!-- Sidebar (v2: sticky stack + v2 list classes) -->
           <aside class="work-aside" aria-label="Case study sidebar">
             <div class="aside-stack">
               <div class="aside-card">
                 <div class="aside-title">Highlights</div>
                 <ul class="aside-list">
                   <li>
-                    Built a cohesive UX team with clear ownership, and shared
-                    goals.
+                    Built a cohesive UX team with clear ownership and goals.
                   </li>
                   <li>
                     Introduced a weekly rhythm that improved prioritization and
@@ -192,17 +181,15 @@
         </div>
       </section>
 
-      <!-- Bottom navigation -->
       <section class="section work-nav">
         <div class="container nav-row">
-          <a class="nav-pill" href="../index.html#work">← All Field Notes</a>
+          <a class="nav-pill" href="../index.html#work">← All Work</a>
           <a class="nav-pill" href="./25_SmartCode.html" data-soon
             >Next: Smart Code →</a
           >
         </div>
       </section>
 
-      <!-- Footer (exactly as index.html footer) -->
       <footer class="site-footer">
         <div class="container footer-row">
           <div class="footer-left">
@@ -248,7 +235,6 @@
     </main>
 
     <script>
-      // Theme toggle (same as home) + year
       (function () {
         const root = document.documentElement;
         const btn = document.querySelector('[data-theme-toggle]');
@@ -300,7 +286,6 @@
         });
       })();
 
-      // Optional: prevent navigation for coming-soon links
       document.addEventListener('click', (e) => {
         const a = e.target.closest('a[data-soon]');
         if (!a) return;
