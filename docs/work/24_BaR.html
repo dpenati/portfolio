@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Field Note — Project Title</title>
+    <title>Use Case 24 — Building a High-Performing UX Team</title>
     <meta
       name="description"
-      content="Field Note: a narrative case study about systems, alignment, and delivery."
+      content="Use Case 24: a case study in team enablement, cross-functional alignment, and predictable delivery."
     />
 
     <meta name="color-scheme" content="light dark" />
@@ -25,6 +25,7 @@
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
+    <!-- Sticky header (synced with index) -->
     <header class="site-header" id="top">
       <div class="container header-row">
         <div class="brand">
@@ -57,17 +58,11 @@
     </header>
 
     <main id="main">
+      <!-- Top meta bar -->
       <section class="section work-hero">
         <div class="container">
-          <a class="work-back" href="../index.html#work">← Back to Work</a>
-
           <div class="work-meta">
-            <div class="work-kicker">FIELD NOTE</div>
-            <div class="work-tags">
-              <span class="tag">Systems</span>
-              <span class="tag">Operating Model</span>
-              <span class="tag">Delivery</span>
-            </div>
+            <div class="work-kicker">USE CASE 24</div>
           </div>
 
           <h1 class="work-title">Building a High-Performing UX Team</h1>
@@ -76,22 +71,13 @@
             A case study in aligning teams, stakeholders, and products.
           </p>
 
-          <div class="work-facts">
-            <div class="fact">
-              <div class="fact-label">Role</div>
-              <div class="fact-value">UX Lead / Manager</div>
-            </div>
-            <div class="fact">
-              <div class="fact-label">Focus</div>
-              <div class="fact-value">
-                Team Enablement + Cross-Functional Alignment + Predictable
-                Delivery
-              </div>
-            </div>
-            <div class="fact">
-              <div class="fact-label">Timeline</div>
-              <div class="fact-value">2024</div>
-            </div>
+          <!-- Facts line (one row) -->
+          <div class="work-facts-line" aria-label="Role and focus">
+            <span class="fact-inline"><strong>Role:</strong> UX Manager</span>
+            <span class="fact-inline"
+              ><strong>Focus:</strong> Team Enablement + Cross-Functional
+              Alignment + Predictable Delivery</span
+            >
           </div>
         </div>
       </section>
@@ -106,15 +92,14 @@
               loading="lazy"
               decoding="async"
             />
-            <figcaption class="figcaption">
-              A one-sentence caption that frames what the reader is looking at.
-            </figcaption>
           </figure>
         </div>
       </section>
 
+      <!-- Content -->
       <section class="section work-content">
         <div class="container work-grid">
+          <!-- Main narrative -->
           <article class="work-article">
             <section class="block">
               <h2 class="h2">Context</h2>
@@ -144,13 +129,15 @@
             </section>
           </article>
 
+          <!-- Sidebar -->
           <aside class="work-aside" aria-label="Case study sidebar">
             <div class="aside-stack">
               <div class="aside-card">
                 <div class="aside-title">Highlights</div>
                 <ul class="aside-list">
                   <li>
-                    Built a cohesive UX team with clear ownership and goals.
+                    Built a cohesive UX team with clear ownership, and shared
+                    goals.
                   </li>
                   <li>
                     Introduced a weekly rhythm that improved prioritization and
@@ -181,15 +168,17 @@
         </div>
       </section>
 
-      <section class="section work-nav">
-        <div class="container nav-row">
-          <a class="nav-pill" href="../index.html#work">← All Work</a>
-          <a class="nav-pill" href="./25_SmartCode.html" data-soon
+      <!-- Bottom navigation -->
+      <section class="section work-nav" aria-label="Case study navigation">
+        <div class="container nav-row nav-split">
+          <a class="work-back" href="../index.html#work">← All Work</a>
+          <a class="work-back" href="./25_SmartCode.html" data-soon
             >Next: Smart Code →</a
           >
         </div>
       </section>
 
+      <!-- Footer (synced with index) -->
       <footer class="site-footer">
         <div class="container footer-row">
           <div class="footer-left">
@@ -235,6 +224,7 @@
     </main>
 
     <script>
+      // Theme toggle (synced with index)
       (function () {
         const root = document.documentElement;
         const btn = document.querySelector('[data-theme-toggle]');
@@ -286,6 +276,7 @@
         });
       })();
 
+      // prevent navigation for coming-soon links
       document.addEventListener('click', (e) => {
         const a = e.target.closest('a[data-soon]');
         if (!a) return;
