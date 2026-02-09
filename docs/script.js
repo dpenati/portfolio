@@ -61,50 +61,58 @@
 })();
 
 /* =========================================================
-   BULLET -> IMAGE SWAP (E + F)
-   - Hover/focus on bullet activates matching image
-========================================================= */
+   PILLARS HOVER SWAP (D + E + F)
+   - Uses data-index on .bulletList__item and .imagePanel__frame
+   - Keeps exactly one active bullet + one active frame
+   - Marks loaded frames (optional)
+========================================================== */
+(() => {
+  const root = document.querySelector('#pillars');
+  if (!root) return;
 
-(function () {
-  const list = document.getElementById('bulletList');
-  const panel = document.getElementById('imagePanel');
-  if (!list || !panel) return;
+  const items = Array.from(root.querySelectorAll('.bulletList__item'));
+  const frames = Array.from(root.querySelectorAll('.imagePanel__frame'));
 
-  const items = Array.from(list.querySelectorAll('.bulletList__item'));
-  const frames = Array.from(panel.querySelectorAll('.imagePanel__frame'));
-
-  function activate(imgId) {
+  const setActive = (index) => {
     items.forEach((el) =>
-      el.classList.toggle('is-active', el.dataset.img === imgId),
+      el.classList.toggle('is-active', el.dataset.index === String(index)),
     );
     frames.forEach((el) =>
-      el.classList.toggle('is-active', el.dataset.img === imgId),
+      el.classList.toggle('is-active', el.dataset.index === String(index)),
     );
-  }
+  };
 
+  // Ensure starting state is consistent
+  const firstActive =
+    items.find((el) => el.classList.contains('is-active')) || items[0];
+  if (firstActive) setActive(firstActive.dataset.index ?? 0);
+
+  // Hover/focus behavior
   items.forEach((item) => {
-    item.addEventListener('mouseenter', () => activate(item.dataset.img));
-    item.addEventListener('focus', () => activate(item.dataset.img));
-    item.addEventListener('click', () => activate(item.dataset.img));
+    const idx = item.dataset.index;
 
+    item.addEventListener('mouseenter', () => setActive(idx));
+    item.addEventListener('focus', () => setActive(idx));
     item.addEventListener('keydown', (e) => {
-      const idx = items.indexOf(item);
-      if (e.key === 'ArrowDown') {
-        e.preventDefault();
-        const next = items[Math.min(idx + 1, items.length - 1)];
-        next.focus();
-        activate(next.dataset.img);
-      }
-      if (e.key === 'ArrowUp') {
-        e.preventDefault();
-        const prev = items[Math.max(idx - 1, 0)];
-        prev.focus();
-        activate(prev.dataset.img);
-      }
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        activate(item.dataset.img);
+        setActive(idx);
       }
     });
+  });
+
+  // Loaded handling
+  frames.forEach((frame) => {
+    const shot = frame.querySelector('.shotFrame');
+    const img = frame.querySelector('.shotFrame__img');
+    if (!shot || !img) return;
+
+    const markLoaded = () => shot.classList.add('is-loaded');
+
+    if (img.complete && img.naturalWidth > 0) {
+      markLoaded();
+    } else {
+      img.addEventListener('load', markLoaded, { once: true });
+    }
   });
 })();

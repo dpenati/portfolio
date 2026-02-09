@@ -1,7 +1,5 @@
 /* =========================================================
    TOKENS + THEME
-   - Quicksand becomes baseline body font (Light 300 available)
-   - Encode Sans SC is used for the brand mark + dp.* titles
 ========================================================== */
 
 :root {
@@ -15,8 +13,10 @@
   --font-brand:
     'Encode Sans SC', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
     Helvetica, Arial;
+  --font-script: 'Story Script';
 
   --accent: #ff4d2e;
+  --purple: #532d8d;
 
   /* Light */
   --bg: #fbf7f1;
@@ -27,15 +27,14 @@
   --hairline: rgba(17, 17, 17, 0.14);
 
   /* Dark volume */
-  --hero: #1f2329;
-  --hero-2: #2b313a;
+  --hero: #232728; /* requested flat */
+  --hero-2: #232728;
   --hero-ink: rgba(255, 255, 255, 0.92);
-  --hero-muted: rgba(255, 255, 255, 0.62);
+  --hero-muted: rgba(255, 255, 255, 0.72);
   --hero-hairline: rgba(255, 255, 255, 0.14);
 
   --shadow: 0 18px 40px rgba(0, 0, 0, 0.06);
 
-  /* Topbar flat dark requested */
   --topbar-dark: #232728;
 }
 
@@ -48,10 +47,10 @@ html[data-theme='dark'] {
   --muted: rgba(255, 255, 255, 0.62);
   --hairline: rgba(255, 255, 255, 0.14);
 
-  --hero: #0e1116;
-  --hero-2: #151b26;
+  --hero: #232728;
+  --hero-2: #232728;
   --hero-ink: rgba(255, 255, 255, 0.92);
-  --hero-muted: rgba(255, 255, 255, 0.62);
+  --hero-muted: rgba(255, 255, 255, 0.72);
   --hero-hairline: rgba(255, 255, 255, 0.14);
 
   --shadow: 0 18px 40px rgba(0, 0, 0, 0.38);
@@ -82,20 +81,8 @@ a {
   padding-inline: var(--pad-x);
 }
 
-/* Screen-reader helper */
-.srOnly {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
-}
-
 /* =========================================================
-   TOP BAR (A + Z) — Flat dark background
+   TOP BAR (A + Z)
 ========================================================== */
 
 .topbar {
@@ -121,36 +108,63 @@ a {
 .brandCluster {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px; /* brand + theme toggle spacing */
 }
 
 .brand__mark {
   font-family: var(--font-brand);
   font-weight: 400;
   letter-spacing: 0.2px;
-  /* at least 1.5x bigger than previous */
   font-size: 24px;
   line-height: 1;
   color: rgba(255, 255, 255, 0.92);
 }
 
-/* Theme/menu action area:
-   - Make the whole remaining topbar width hoverable (left of the menu icon)
-   - Keep the actual controls aligned to the right
-*/
 .topbar__actions {
   display: flex;
-  align-items: center;
-  justify-content: flex-end;
   gap: 10px;
-  flex: 1; /* <-- key: fills the "imaginary space" */
-  min-width: 0;
+  align-items: center;
+}
+
+/* Theme toggle */
+.iconbtn {
+  height: 36px;
+  width: 36px;
+  border-radius: 999px;
+  border: 1px solid var(--hairline);
+  background: color-mix(in srgb, var(--surface) 80%, transparent);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.iconbtn:hover {
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+}
+
+.iconbtn__dot {
+  height: 10px;
+  width: 10px;
+  border-radius: 999px;
+  background: var(--ink);
+  opacity: 0.72;
+}
+
+.iconbtn--onDark {
+  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.iconbtn--onDark:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.iconbtn--onDark .iconbtn__dot {
+  background: rgba(255, 255, 255, 0.9);
 }
 
 /* =========================================================
-   Brand hover menu (Slite-like)
-   - Open on hover (and keyboard focus-within)
-   - The entire .topbar__actions width becomes the hover target
+   Hover Menu (Slite-like)
 ========================================================== */
 
 .brandMenu {
@@ -159,16 +173,25 @@ a {
   align-items: center;
 }
 
-/* Hover bridge: keeps menu open as cursor moves down */
+/* Wide invisible hover zone to the LEFT */
+.brandMenu--wide::before {
+  content: '';
+  position: absolute;
+  top: -18px;
+  bottom: -18px;
+  right: 0;
+  left: -240px;
+  background: transparent;
+}
+
 .brandMenu::after {
   content: '';
   position: absolute;
-  left: 0;
+  right: 0;
   top: 100%;
-  width: 100%;
-  height: 14px;
+  width: 60px;
+  height: 16px;
   background: transparent;
-  pointer-events: auto;
 }
 
 .brandMenu__trigger {
@@ -179,7 +202,7 @@ a {
   background: rgba(255, 255, 255, 0.06);
   display: grid;
   place-items: center;
-  cursor: default; /* communicates “hover, not click” */
+  cursor: default;
 }
 
 .brandMenu__trigger:hover {
@@ -211,13 +234,12 @@ a {
   bottom: 0;
 }
 
-/* Panel */
 .brandMenu__panel {
   position: absolute;
   top: 100%;
   margin-top: 10px;
-  left: 0;
-  min-width: 280px;
+  right: 0;
+  min-width: 320px;
   padding: 8px;
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.14);
@@ -232,11 +254,6 @@ a {
   z-index: 60;
 }
 
-/* Hover-open behavior:
-   - Hovering ANYWHERE in the topbar__actions area opens the menu
-   - Also supports keyboard focus
-*/
-.topbar__actions:hover .brandMenu__panel,
 .brandMenu:hover .brandMenu__panel,
 .brandMenu:focus-within .brandMenu__panel {
   opacity: 1;
@@ -244,15 +261,9 @@ a {
   pointer-events: auto;
 }
 
-/* If menu sits on the right side, align panel to the right edge */
-.brandMenu--right .brandMenu__panel {
-  left: auto;
-  right: 0;
-}
-
 .brandMenu__item {
   display: block;
-  padding: 10px 12px;
+  padding: 12px 12px;
   border-radius: 12px;
   border: 1px solid transparent;
 }
@@ -265,7 +276,7 @@ a {
 .brandMenu__title {
   font-family: var(--font-brand);
   font-weight: 400;
-  font-size: 14px; /* smaller than brand name */
+  font-size: 14px;
   color: rgba(255, 255, 255, 0.92);
   line-height: 1.1;
 }
@@ -273,58 +284,14 @@ a {
 .brandMenu__desc {
   margin-top: 4px;
   font-family: var(--font-body);
-  font-weight: 300; /* Quicksand Light */
+  font-weight: 300;
   font-size: 13px;
   color: rgba(255, 255, 255, 0.68);
   line-height: 1.25;
 }
 
-/* Theme toggle on dark topbar */
-.topbar__actions {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-.iconbtn {
-  height: 36px;
-  width: 36px;
-  border-radius: 999px;
-  border: 1px solid var(--hairline);
-  background: color-mix(in srgb, var(--surface) 80%, transparent);
-  display: grid;
-  place-items: center;
-  cursor: pointer;
-}
-
-.iconbtn:hover {
-  background: color-mix(in srgb, var(--surface) 92%, transparent);
-}
-
-.iconbtn__dot {
-  height: 10px;
-  width: 10px;
-  border-radius: 999px;
-  background: var(--ink);
-  opacity: 0.72;
-}
-
-/* Variant for dark topbar */
-.iconbtn--onDark {
-  border-color: rgba(255, 255, 255, 0.14);
-  background: rgba(255, 255, 255, 0.06);
-}
-
-.iconbtn--onDark:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.iconbtn--onDark .iconbtn__dot {
-  background: rgba(255, 255, 255, 0.9);
-}
-
 /* =========================================================
-   VOLUMES + CURVES
+   VOLUMES + CURVE
 ========================================================== */
 
 .volume {
@@ -333,22 +300,22 @@ a {
 }
 
 .volume--dark {
-  /* Temporary flat background until final shape is defined */
-  background: var(--topbar-dark);
+  background: var(--hero);
   color: var(--hero-ink);
 }
 
 .volume--light {
   background: var(--bg);
+  color: var(--ink);
 }
 
 .volume--footer {
-  background: linear-gradient(180deg, var(--hero), var(--hero-2));
+  background: var(--hero);
   color: var(--hero-ink);
 }
 
 .curve {
-  height: 96px;
+  height: 120px;
   width: 100%;
   position: absolute;
   left: 0;
@@ -357,46 +324,47 @@ a {
   background: var(--bg);
   border-top-left-radius: 120% 90%;
   border-top-right-radius: 120% 90%;
-  transform: translateY(30%);
+  transform: translateY(55%);
+  z-index: 0;
 }
 
 .curve--light {
   background: var(--bg);
 }
 
-.curve--work {
-  background: var(--bg);
+/* =========================================================
+   SECTION COMMON
+========================================================== */
+
+.sectionPad {
+  padding-block: clamp(40px, 6vw, 64px);
+}
+
+.sectionTitle {
+  margin: 0;
+  font-size: 22px;
+  letter-spacing: -0.01em;
 }
 
 /* =========================================================
-   HERO (B + C)
+   #1 — HERO (B + C)
 ========================================================== */
 
 .hero__inner {
-  /* Keep bottom breathing room away from the curve */
-  padding-top: clamp(54px, 8vw, 92px);
-  padding-bottom: clamp(96px, 12vw, 152px);
-}
-
-/* Center-align whole hero section */
-.hero__inner--center {
-  display: flex;
-  justify-content: center;
-  text-align: center;
+  padding-block: clamp(54px, 8vw, 92px);
+  padding-bottom: clamp(90px, 10vw, 140px);
+  position: relative;
+  z-index: 1;
 }
 
 .hero__copy {
-  max-width: 820px;
-}
-
-.hero__copy--center {
+  max-width: 920px;
   margin-inline: auto;
+  text-align: center;
 }
 
-/* Title: Quicksand Regular 400 */
 .hero__title {
   margin: 0;
-  font-size: clamp(36px, 5vw, 56px);
   line-height: 1.02;
   letter-spacing: -0.02em;
 }
@@ -404,6 +372,8 @@ a {
 .hero__title--quicksand {
   font-family: var(--font-body);
   font-weight: 400;
+  font-size: clamp(34px, 4.7vw, 54px);
+  color: var(--hero-ink);
 }
 
 .hero__titleLine {
@@ -414,104 +384,45 @@ a {
   margin-top: 8px;
 }
 
-.hero__meets {
-  opacity: 0.95;
-}
-
-/* tighter spacers (per screenshot note) */
-.hero__titleSpacer {
-  display: inline-block;
-}
-
-.hero__titleSpacer--meets {
-  width: 8px;
-}
-
-.hero__titleSpacer--afterChaos {
-  width: 6px;
-}
-
-/* =========================================================
-   Cancel line: thicker, “drawn”, not wavy
-   - Applies ONLY to the word "chaos"
-   - Diagonal: bottom-left -> top-right
-   - Extends toward Clarity but stops before it
-========================================================== */
-
 .cancelTarget {
   position: relative;
   display: inline-block;
   color: var(--hero-ink);
-  opacity: 0.98;
+  margin-inline: 10px 8px;
 }
 
 .cancelTarget::after {
   content: '';
   position: absolute;
-
-  /* start earlier (before chaos) */
-  left: -0.45em;
-
-  /* extend toward Clarity but avoid overlap */
-  right: -0.65em;
-
-  /* center vertically on the word */
-  top: 50%;
-  height: 1.05em;
-
-  transform: translateY(-50%) rotate(-12deg);
-  transform-origin: center;
-
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  pointer-events: none;
-
-  /* “drawn but not wavy” diagonal stroke
-     - reduced thickness (~2/3 of prior)
-     - square-ish end (no rounded blob)
-  */
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 60'%3E%3Cpath d='M10 46 C 70 36, 140 26, 230 16' fill='none' stroke='%23532D8D' stroke-width='9.5' stroke-linecap='butt' stroke-linejoin='round'/%3E%3C/svg%3E");
+  left: -0.55em;
+  right: -0.25em;
+  top: 58%;
+  height: 10px;
+  background: var(--purple);
+  border-radius: 999px;
+  transform: rotate(-16deg);
+  opacity: 0.92;
 }
 
-/* Script word: Story Script Regular 400 + purple + larger */
 .scriptWord {
-  font-family: 'Story Script', var(--font-body);
+  font-family: var(--font-script), var(--font-body);
   font-weight: 400;
-  letter-spacing: 0;
-  color: #532d8d;
-  font-size: 1.34em; /* bigger than before */
-  line-height: 0.95;
+  font-size: 1.42em;
+  color: var(--purple);
 }
 
-/* Subtitle uses baseline font (Quicksand), close the gap */
 .hero__subtitle {
-  margin: 18px auto 0 auto; /* CLOSE space vs prior */
+  margin: 18px auto 0 auto;
   max-width: 88ch;
   font-size: 16px;
   color: rgba(255, 255, 255, 1);
   font-family: var(--font-body);
   font-weight: 300;
-
-  /* reduce awkward single-word breaks */
   text-wrap: balance;
 }
 
 /* =========================================================
-   SECTION TITLES
-========================================================== */
-
-.sectionTitle {
-  margin: 0;
-  font-size: 22px;
-  letter-spacing: -0.01em;
-}
-
-.sectionTitle--center {
-  text-align: center;
-}
-
-/* =========================================================
-   PILLARS (D + E + F)
+   #2 — PILLARS (D + E + F)
 ========================================================== */
 
 .pillars {
@@ -522,12 +433,27 @@ a {
   align-items: start;
 }
 
+.pillars__copy {
+  font-family: var(--font-body);
+}
+
+.pillars__title {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: clamp(24px, 2.6vw, 34px);
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+}
+
 .bulletList {
   list-style: none;
   padding: 0;
   margin: 18px 0 0 0;
   display: grid;
   gap: 10px;
+  font-family: var(--font-body);
+  font-weight: 300;
 }
 
 .bulletList__item {
@@ -541,6 +467,7 @@ a {
   border: 1px solid transparent;
   cursor: pointer;
   outline: none;
+  line-height: 1.35;
 }
 
 .bulletList__item:hover,
@@ -567,11 +494,10 @@ a {
 }
 
 .bulletList__item.is-active .bulletList__dot {
-  opacity: 0.85;
-  background: var(--accent);
+  opacity: 0.95;
+  background: var(--purple);
 }
 
-/* Image panel */
 .imagePanel {
   position: relative;
   border-radius: 22px;
@@ -580,6 +506,10 @@ a {
   box-shadow: var(--shadow);
   overflow: hidden;
   min-height: 280px;
+}
+
+.imagePanel--handdrawn {
+  background: #cbc0dd;
 }
 
 .imagePanel__frame {
@@ -598,95 +528,115 @@ a {
   transform: translateY(0);
 }
 
-.fakeShot {
+.shotFrame {
   height: 100%;
   border-radius: 18px;
-  border: 1px solid var(--hairline);
-  background: linear-gradient(
-    135deg,
-    color-mix(in srgb, var(--surface-2) 85%, transparent),
-    color-mix(in srgb, var(--surface) 85%, transparent)
-  );
+  border: 1px solid rgba(20, 20, 20, 0.14);
+  background: rgba(255, 255, 255, 0.72);
+  overflow: hidden;
+  position: relative;
   display: grid;
   place-items: center;
 }
 
-.fakeShot__num {
+.shotFrame__fallback {
+  font-family: var(--font-body);
+  font-weight: 500;
   font-size: 48px;
-  font-weight: 650;
-  letter-spacing: -0.02em;
-  color: color-mix(in srgb, var(--ink) 70%, transparent);
-  opacity: 0.4;
+  color: rgba(17, 17, 17, 0.22);
+}
+
+.shotFrame__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  opacity: 0;
+}
+
+.shotFrame.is-loaded .shotFrame__img {
+  opacity: 1;
 }
 
 /* =========================================================
-   TAG ROW (G)
+   TAG ROW (G) — looping text carousel
 ========================================================== */
 
 .tagRow {
-  margin-top: 22px;
+  margin-top: 18px;
   padding-bottom: clamp(22px, 4vw, 34px);
   position: relative;
+  overflow: visible;
 }
 
-.tagRow__kicker {
-  font-size: 12px;
+.tagRow__title {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 14px;
   color: var(--muted);
   margin-bottom: 10px;
 }
 
-.tagRow__scroller {
-  display: flex;
-  gap: 10px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding: 4px 2px 10px 2px;
-  -webkit-overflow-scrolling: touch;
-}
-
-.tagRow__scroller::-webkit-scrollbar {
-  height: 8px;
-}
-.tagRow__scroller::-webkit-scrollbar-thumb {
-  background: color-mix(in srgb, var(--ink) 18%, transparent);
-  border-radius: 999px;
-}
-
-.tag {
-  scroll-snap-align: start;
-  border: 1px solid var(--hairline);
-  background: color-mix(in srgb, var(--surface) 88%, transparent);
-  color: var(--muted);
-  padding: 10px 12px;
-  border-radius: 999px;
-  font-size: 13px;
-  white-space: nowrap;
-}
-
-.tagRow__fade {
-  position: absolute;
-  top: 22px;
-  bottom: 0;
-  width: 36px;
+.tagRow__rail {
+  height: 14px;
+  width: 100%;
+  margin: 0 0 10px 0;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  opacity: 0.9;
   pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 60'%3E%3Cpath d='M15 32 C 160 22, 310 42, 460 30 S 740 22, 885 30' fill='none' stroke='%23151515' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E");
 }
 
-.tagRow__fade--left {
-  left: 0;
-  background: linear-gradient(90deg, var(--bg), transparent);
+.tagRow__rail--bottom {
+  margin: 10px 0 0 0;
 }
-.tagRow__fade--right {
-  right: 0;
-  background: linear-gradient(270deg, var(--bg), transparent);
+
+.tagRow__marquee {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+  padding-block: 6px;
+  line-height: 1.4;
+}
+
+.tagRow__track {
+  display: inline-flex;
+  gap: 14px;
+  align-items: center;
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 14px;
+  color: var(--muted);
+  animation: tagMarquee 22s linear infinite;
+}
+
+.tagSep {
+  opacity: 0.45;
+}
+
+@keyframes tagMarquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tagRow__track {
+    animation: none;
+  }
 }
 
 /* =========================================================
-   SELECTED WORK
+   SELECTED WORK (H–O)
 ========================================================== */
-
-.volume--work .container {
-  padding-block: clamp(40px, 6vw, 64px);
-}
 
 .workGrid {
   margin-top: 18px;
@@ -776,12 +726,8 @@ a {
 }
 
 /* =========================================================
-   HOW I WORK
+   HOW I WORK (V + v1–v6)
 ========================================================== */
-
-.volume--how .container {
-  padding-block: clamp(40px, 6vw, 64px);
-}
 
 .howGrid {
   margin-top: 18px;
@@ -861,12 +807,8 @@ html[data-theme='dark'] .howCard__art--6 {
 }
 
 /* =========================================================
-   ABOUT + CONTACT
+   ABOUT + CONTACT (Q–T)
 ========================================================== */
-
-.volume--contact .container {
-  padding-block: clamp(44px, 7vw, 72px);
-}
 
 .aboutGrid {
   display: grid;
@@ -953,7 +895,7 @@ html[data-theme='dark'] .howCard__art--6 {
 }
 
 /* =========================================================
-   FOOTER
+   FOOTER (U)
 ========================================================== */
 
 .footer__inner {
@@ -991,7 +933,7 @@ html[data-theme='dark'] .howCard__art--6 {
   }
 
   .imagePanel {
-    min-height: 240px;
+    min-height: 260px;
   }
 
   .workGrid {
