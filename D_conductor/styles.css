@@ -1,0 +1,817 @@
+/* =========================================================
+   Blueprint with Breath — styles.css (v1 quick visual)
+   - Ink + cue accent
+   - Faint blueprint texture + blueprint lines
+   - Gentle asymmetry
+   - Bookish all-sans sizing
+   - Soft edges + micro-interactions
+   - Light/Dark via [data-theme]
+========================================================== */
+
+/* ---------- Base + Theme Tokens ---------- */
+:root {
+  /* Typography */
+  --font-sans:
+    'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+    Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji';
+  --text-size: 16px;
+  --lh: 1.65;
+
+  /* Radii + spacing */
+  --radius: 18px;
+  --radius-sm: 12px;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  --shadow-soft: 0 6px 18px rgba(0, 0, 0, 0.05);
+
+  /* Layout */
+  --max: 1100px;
+  --gutter: clamp(18px, 4vw, 36px);
+  --section-pad: clamp(42px, 7vw, 84px);
+
+  /* “Cue” accent (change this to your chosen accent) */
+  --cue: #758184;
+  --cue-strong: color-mix(in oklab, var(--cue) 85%, black);
+
+  /* Blueprint line weight */
+  --line: 1px;
+
+  /* Light theme defaults */
+  --bg: #f6f5f2; /* paper */
+  --panel: #ffffffcc; /* translucent paper panel */
+  --ink: #121619; /* ink */
+  --muted: #4b565c;
+  --subtle: #6c7a80;
+
+  /* Blueprint texture + lines (light) */
+  --bp-ink: rgba(117, 129, 132, 0.14); /* faint blueprint */
+  --bp-ink-2: rgba(117, 129, 132, 0.08);
+  --hairline: rgba(18, 22, 25, 0.1);
+
+  /* Links & focus */
+  --link: color-mix(in oklab, var(--cue) 85%, var(--ink));
+  --focus: color-mix(in oklab, var(--cue) 70%, white);
+}
+
+html[data-theme='dark'] {
+  --bg: #0b0f12;
+  --panel: rgba(16, 21, 25, 0.72);
+  --ink: #eef2f3;
+  --muted: rgba(238, 242, 243, 0.82);
+  --subtle: rgba(238, 242, 243, 0.62);
+
+  --bp-ink: rgba(117, 129, 132, 0.2);
+  --bp-ink-2: rgba(117, 129, 132, 0.1);
+  --hairline: rgba(238, 242, 243, 0.12);
+
+  --shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  --shadow-soft: 0 8px 22px rgba(0, 0, 0, 0.32);
+
+  --link: color-mix(in oklab, var(--cue) 70%, var(--ink));
+  --focus: color-mix(in oklab, var(--cue) 55%, black);
+}
+
+/* Auto theme: respect system preference if HTML stays data-theme="auto" */
+@media (prefers-color-scheme: dark) {
+  html[data-theme='auto'] {
+    --bg: #0b0f12;
+    --panel: rgba(16, 21, 25, 0.72);
+    --ink: #eef2f3;
+    --muted: rgba(238, 242, 243, 0.82);
+    --subtle: rgba(238, 242, 243, 0.62);
+
+    --bp-ink: rgba(117, 129, 132, 0.2);
+    --bp-ink-2: rgba(117, 129, 132, 0.1);
+    --hairline: rgba(238, 242, 243, 0.12);
+
+    --shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    --shadow-soft: 0 8px 22px rgba(0, 0, 0, 0.32);
+
+    --link: color-mix(in oklab, var(--cue) 70%, var(--ink));
+    --focus: color-mix(in oklab, var(--cue) 55%, black);
+  }
+}
+
+/* ---------- Resets ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  font-size: var(--text-size);
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  line-height: var(--lh);
+  color: var(--ink);
+  background: var(--bg);
+  overflow-x: hidden;
+}
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 10px;
+}
+
+/* ---------- Blueprint background layer ---------- */
+.blueprint {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    /* faint vignette "breath" */
+    radial-gradient(
+      1200px 800px at 50% 10%,
+      rgba(255, 255, 255, 0.18),
+      transparent 60%
+    ),
+    radial-gradient(
+      1100px 900px at 10% 20%,
+      rgba(117, 129, 132, 0.07),
+      transparent 60%
+    ),
+    radial-gradient(
+      1100px 900px at 90% 30%,
+      rgba(117, 129, 132, 0.06),
+      transparent 60%
+    ),
+    /* blueprint grid */
+    linear-gradient(to right, var(--bp-ink-2) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--bp-ink-2) 1px, transparent 1px),
+    /* blueprint major grid */
+    linear-gradient(to right, var(--bp-ink) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--bp-ink) 1px, transparent 1px);
+
+  /* Grid sizing: minor then major */
+  background-size:
+    auto,
+    auto,
+    auto,
+    24px 24px,
+    24px 24px,
+    120px 120px,
+    120px 120px;
+
+  background-position:
+    center,
+    center,
+    center,
+    top left,
+    top left,
+    top left,
+    top left;
+
+  opacity: 1;
+}
+
+/* ---------- Page container ---------- */
+.page {
+  position: relative;
+}
+
+/* ---------- Header ---------- */
+.siteHeader {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(10px);
+  background: color-mix(in oklab, var(--panel) 85%, transparent);
+  border-bottom: var(--line) solid var(--hairline);
+}
+
+.siteHeader__inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 14px var(--gutter);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 14px;
+  align-items: center;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.brand__name {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.brand__mark {
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  color: var(--subtle);
+  border: 1px solid var(--hairline);
+  padding: 2px 8px;
+  border-radius: 999px;
+  transform: translateY(-1px);
+}
+
+.siteNav {
+  display: flex;
+  justify-content: center;
+  gap: clamp(10px, 2vw, 18px);
+}
+.siteNav__link {
+  font-size: 0.95rem;
+  color: var(--muted);
+  padding: 8px 10px;
+  border-radius: 999px;
+  transition:
+    background 160ms ease,
+    color 160ms ease;
+}
+.siteNav__link:hover {
+  background: color-mix(in oklab, var(--cue) 12%, transparent);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.themeToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--hairline);
+  background: transparent;
+  color: var(--muted);
+  padding: 9px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition:
+    transform 150ms ease,
+    background 150ms ease,
+    color 150ms ease;
+}
+.themeToggle:hover {
+  background: color-mix(in oklab, var(--cue) 10%, transparent);
+  color: var(--ink);
+}
+.themeToggle:active {
+  transform: translateY(1px);
+}
+.themeToggle__icon {
+  display: inline-block;
+  transform: translateY(-1px);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  padding: calc(var(--section-pad) * 0.9) 0 var(--section-pad);
+}
+.hero__inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  text-align: center;
+  position: relative;
+}
+
+.kicker {
+  display: inline-block;
+  font-size: 0.88rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--subtle);
+  border: 1px solid var(--hairline);
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--panel) 60%, transparent);
+}
+
+.hero__title {
+  margin: 18px auto 10px;
+  max-width: 900px;
+  font-size: clamp(2.2rem, 4.4vw, 3.35rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  font-weight: 560;
+}
+
+.hero__lede {
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+  color: var(--muted);
+}
+
+.hero__cta {
+  margin-top: 22px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Conductor “score” hint */
+.hero__score {
+  margin: 34px auto 0;
+  width: min(760px, 100%);
+  position: relative;
+  opacity: 0.9;
+}
+.scoreLine {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--hairline), transparent);
+}
+.scoreNote {
+  position: absolute;
+  left: 58%;
+  top: -7px;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: var(--cue);
+  box-shadow: 0 0 0 6px color-mix(in oklab, var(--cue) 18%, transparent);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-weight: 520;
+  letter-spacing: -0.01em;
+  padding: 11px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--hairline);
+  background: transparent;
+  color: var(--ink);
+  transition:
+    transform 150ms ease,
+    background 160ms ease,
+    border-color 160ms ease;
+}
+.btn:hover {
+  text-decoration: none;
+  background: color-mix(in oklab, var(--cue) 10%, transparent);
+}
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn--primary {
+  background: color-mix(in oklab, var(--cue) 14%, var(--panel));
+  border-color: color-mix(in oklab, var(--cue) 26%, var(--hairline));
+}
+.btn--primary:hover {
+  background: color-mix(in oklab, var(--cue) 18%, var(--panel));
+}
+.btn--ghost {
+  color: var(--muted);
+}
+
+/* ---------- Sections ---------- */
+.section {
+  padding: var(--section-pad) 0;
+}
+.section__inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.sectionHeader {
+  margin-bottom: 18px;
+}
+.sectionHeader__title {
+  margin: 0;
+  font-size: clamp(1.5rem, 2.2vw, 1.9rem);
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+.sectionHeader__sub {
+  margin: 8px 0 0;
+  color: var(--muted);
+  max-width: 70ch;
+}
+
+/* ---------- About layout (gentle asymmetry) ---------- */
+.aboutGrid {
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: 1.3fr 0.9fr;
+  gap: clamp(16px, 3vw, 26px);
+  align-items: start;
+}
+
+.aboutCard {
+  background: var(--panel);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  padding: clamp(18px, 3vw, 26px);
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  overflow: hidden;
+}
+
+/* blueprint “frame line” */
+.aboutCard::before {
+  content: '';
+  position: absolute;
+  inset: 16px;
+  border-radius: calc(var(--radius) - 10px);
+  border: 1px dashed color-mix(in oklab, var(--cue) 26%, transparent);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.aboutText {
+  margin: 0;
+  font-size: 1.02rem;
+  color: var(--muted);
+}
+
+.aboutMeta {
+  list-style: none;
+  padding: 0;
+  margin: 18px 0 0;
+  display: grid;
+  gap: 10px;
+  color: var(--muted);
+}
+.label {
+  display: inline-block;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--subtle);
+  margin-right: 10px;
+}
+
+.marginNote {
+  position: relative;
+  padding-top: 10px;
+}
+.marginNote__frame {
+  background: color-mix(in oklab, var(--panel) 75%, transparent);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-sm);
+  padding: 18px;
+  box-shadow: var(--shadow-soft);
+  transform: translateY(6px);
+}
+.marginNote__kicker {
+  margin: 0 0 8px;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--subtle);
+}
+.marginNote__text {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* Hand-sketched accent (very subtle) */
+.marginNote__frame::after {
+  content: '';
+  position: absolute;
+  inset: -10px -12px -12px -10px;
+  border-radius: 24px;
+  border: 1px solid color-mix(in oklab, var(--cue) 22%, transparent);
+  transform: rotate(-1.2deg);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+/* ---------- Work / Case files ---------- */
+.caseGrid {
+  margin-top: 26px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: clamp(14px, 2.6vw, 22px);
+}
+
+/* gentle asymmetry: two wide, one slightly offset on larger screens */
+.caseFile {
+  grid-column: span 12;
+  background: var(--panel);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  padding: clamp(18px, 3vw, 24px);
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease;
+}
+.caseFile:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in oklab, var(--cue) 22%, var(--hairline));
+}
+
+/* Blueprint frame line */
+.caseFile::before {
+  content: '';
+  position: absolute;
+  inset: 14px;
+  border-radius: calc(var(--radius) - 8px);
+  border: 1px solid color-mix(in oklab, var(--cue) 16%, transparent);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.caseFile__meta {
+  margin: 0 0 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.tag {
+  font-size: 0.78rem;
+  color: var(--muted);
+  padding: 5px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--hairline);
+  background: color-mix(in oklab, var(--cue) 8%, transparent);
+}
+
+.caseFile__title {
+  margin: 0;
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+  font-weight: 620;
+}
+
+/* Bold cue quote (your “forte”) */
+.cueQuote {
+  margin: 16px 0 4px;
+  padding: 14px 14px 14px 16px;
+  border-left: 3px solid var(--cue);
+  background: color-mix(in oklab, var(--cue) 10%, transparent);
+  border-radius: 14px;
+}
+.cueQuote p {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.35;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.cueQuote footer {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: var(--subtle);
+}
+
+.caseFile__body {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+/* Movement blocks */
+.movement {
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-sm);
+  padding: 14px 14px 12px;
+  background: color-mix(in oklab, var(--panel) 80%, transparent);
+}
+.movement__title {
+  margin: 0 0 8px;
+  font-size: 0.88rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--subtle);
+}
+.movement__text {
+  margin: 0;
+  color: var(--muted);
+}
+.bullets,
+.outcomes {
+  margin: 10px 0 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+.outcomes .metric {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--subtle);
+  margin-right: 10px;
+}
+
+.caseFile__footer {
+  margin-top: 16px;
+  display: flex;
+  justify-content: flex-end;
+}
+.caseFile__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 560;
+  color: var(--link);
+  padding: 8px 10px;
+  border-radius: 999px;
+  transition:
+    background 160ms ease,
+    transform 160ms ease;
+}
+.caseFile__link:hover {
+  background: color-mix(in oklab, var(--cue) 12%, transparent);
+  text-decoration: none;
+}
+.caseFile__link:active {
+  transform: translateY(1px);
+}
+
+/* ---------- Resume card ---------- */
+.resumeCard {
+  background: var(--panel);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.resumeCard__inner {
+  padding: clamp(18px, 3vw, 24px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.resumeCard__text {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* ---------- Contact cards ---------- */
+.contactGrid {
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: clamp(14px, 2.6vw, 22px);
+}
+.contactCard {
+  grid-column: span 12;
+  background: var(--panel);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: var(--shadow-soft);
+}
+.contactCard__title {
+  margin: 0 0 8px;
+  font-size: 0.9rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--subtle);
+}
+.contactCard__text {
+  margin: 0;
+  color: var(--muted);
+}
+.link {
+  color: var(--link);
+}
+
+.contactCard--note {
+  position: relative;
+  overflow: hidden;
+}
+.contactCard__sketch {
+  position: absolute;
+  right: -30px;
+  top: -30px;
+  width: 140px;
+  height: 140px;
+  border-radius: 999px;
+  border: 1px dashed color-mix(in oklab, var(--cue) 26%, transparent);
+  transform: rotate(11deg);
+  opacity: 0.35;
+}
+
+/* ---------- Footer ---------- */
+.siteFooter {
+  border-top: var(--line) solid var(--hairline);
+  background: color-mix(in oklab, var(--panel) 85%, transparent);
+}
+.siteFooter__inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 18px var(--gutter);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.siteFooter__copy {
+  margin: 0;
+  color: var(--subtle);
+}
+.siteFooter__top {
+  color: var(--subtle);
+}
+
+/* ---------- Cross-out (once per page) ---------- */
+.crossout {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+  position: relative;
+  padding: 0 6px;
+  border-radius: 10px;
+  background: color-mix(in oklab, var(--cue) 8%, transparent);
+}
+
+.crossout__old {
+  color: color-mix(in oklab, var(--muted) 70%, var(--subtle));
+  position: relative;
+}
+.crossout__old::after {
+  content: '';
+  position: absolute;
+  left: -2px;
+  right: -2px;
+  top: 58%;
+  height: 2px;
+  background: var(--cue);
+  transform: rotate(-6deg);
+  opacity: 0.85;
+}
+
+.crossout__new {
+  color: var(--cue-strong);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* ---------- Responsive ---------- */
+@media (min-width: 820px) {
+  .caseFile {
+    grid-column: span 6;
+  }
+  .caseFile:nth-child(3) {
+    grid-column: 4 / span 6; /* gentle asymmetry: center/offset */
+  }
+
+  .contactCard {
+    grid-column: span 4;
+  }
+}
+
+@media (max-width: 860px) {
+  .siteHeader__inner {
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      'brand toggle'
+      'nav nav';
+  }
+  .brand {
+    grid-area: brand;
+  }
+  .themeToggle {
+    grid-area: toggle;
+    justify-self: end;
+  }
+  .siteNav {
+    grid-area: nav;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 6px;
+  }
+}
+
+@media (max-width: 760px) {
+  .aboutGrid {
+    grid-template-columns: 1fr;
+  }
+  .marginNote__frame {
+    transform: none;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -19,7 +19,7 @@
   --purple: #532d8d;
 
   /* Light */
-  --bg: #fbf7f1;
+  --bg: #EEEDEB;
   --surface: #ffffff;
   --surface-2: #f3ede5;
   --ink: #111111;
@@ -565,24 +565,22 @@ a {
 ========================================================== */
 
 .tagRow {
-  margin-top: 18px;
+margin-top: 18px;
   padding-bottom: clamp(22px, 4vw, 34px);
   position: relative;
   overflow: visible;
+  width: min(66%, 900px);
+  margin-inline: auto;
 }
 
-.tagRow__title {
-  font-family: var(--font-body);
-  font-weight: 500;
-  font-size: 14px;
-  color: var(--muted);
-  margin-bottom: 10px;
+Hpx;
 }
 
 .tagRow__rail {
-  height: 14px;
+  margin: 10px auto;
+height: 14px;
   width: 100%;
-  margin: 0 0 10px 0;
+margin: 0;
   background-repeat: no-repeat;
   background-size: 100% 100%;
   opacity: 0.9;
@@ -591,7 +589,7 @@ a {
 }
 
 .tagRow__rail--bottom {
-  margin: 10px 0 0 0;
+  margin-top: 10px;
 }
 
 .tagRow__marquee {
@@ -815,6 +813,7 @@ html[data-theme='dark'] .howCard__art--6 {
   grid-template-columns: 1.2fr 0.8fr;
   gap: clamp(16px, 4vw, 42px);
   align-items: start;
+  padding-bottom: clamp(18px, 4vw, 34px);
 }
 
 .aboutText {
@@ -822,6 +821,7 @@ html[data-theme='dark'] .howCard__art--6 {
   color: var(--muted);
   font-size: 15px;
   max-width: 70ch;
+  font-weight: 300;
 }
 
 .infoCard {
@@ -830,6 +830,9 @@ html[data-theme='dark'] .howCard__art--6 {
   background: color-mix(in srgb, var(--surface) 90%, transparent);
   box-shadow: var(--shadow);
   padding: 16px;
+  transform-origin: top left;
+  transform: rotate(1.6deg);
+  margin-bottom: 22px;
 }
 
 .infoCard__name {
@@ -958,4 +961,17 @@ html[data-theme='dark'] .howCard__art--6 {
     flex-direction: column;
     align-items: flex-start;
   }
+}
+
+
+/* About title modifier */
+.sectionTitle--about {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 22px;
+}
+
+
+.aboutCtas {
+  margin-top: 14px;
 }
