@@ -1788,3 +1788,6 @@ textarea:focus {
   display: inline-grid;
   place-items: center;
 }
+
+
+.site-footer .social-icon{ color: var(--ink); }

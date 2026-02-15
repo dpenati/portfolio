@@ -381,17 +381,6 @@ a {
 }
 
 
-/* Work card placeholder (temporary until final artwork is ready) */
-.work-thumb{
-  width: 100%;
-  height: 100%;
-  border: 2px solid rgba(0,0,0,.55);
-  border-radius: 16px;
-  background:
-    linear-gradient(to right, rgba(0,0,0,.10) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0,0,0,.10) 1px, transparent 1px);
-  background-size: 18px 18px;
-}
 @media (max-width: 900px) {
   .work-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1704,3 +1693,98 @@ textarea:focus {
 /* -------------------------
    End of styles.css
 -------------------------- */
+
+/* -------------------------
+   Selected Work — flip cards
+-------------------------- */
+
+.work-grid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(14px, 2.2vw, 22px);
+  margin-top: clamp(18px, 3vw, 26px);
+}
+
+@media (max-width: 860px){
+  .work-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 540px){
+  .work-grid{ grid-template-columns: 1fr; }
+}
+
+.work-card{
+  position: relative;
+  border-radius: 18px;
+  aspect-ratio: 3 / 4;
+  perspective: 1100px;
+}
+
+.work-card-inner{
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  transform-style: preserve-3d;
+  transition: transform 700ms cubic-bezier(.2,.8,.2,1);
+}
+
+.work-card:hover .work-card-inner,
+.work-card:focus-within .work-card-inner{
+  transform: rotateY(180deg);
+}
+
+.work-face{
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  backface-visibility: hidden;
+  overflow: hidden;
+}
+
+.work-front{
+  transform: rotateY(0deg);
+}
+
+.work-img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.work-back{
+  transform: rotateY(180deg);
+  display: grid;
+  place-items: center;
+  border: 2px solid rgba(0,0,0,.55);
+  background:
+    linear-gradient(to right, rgba(0,0,0,.10) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0,0,0,.10) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+.work-read{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,.35);
+  background: rgba(255,255,255,.82);
+  color: inherit;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.work-read:hover{
+  transform: translateY(-1px);
+}
+
+.work-read:focus-visible{
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+.work-read-icon{
+  display: inline-grid;
+  place-items: center;
+}
