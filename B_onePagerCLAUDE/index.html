@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Daniela Penati — UX Design & Strategic Leadership</title>
+    <title>Daniela Penati – UX Design & Strategic Leadership</title>
     <meta
       name="description"
       content="Daniela Penati's portfolio: building high-performing teams and coherent product experiences."
@@ -19,7 +19,7 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./stylesHP.css" />
   </head>
 
   <body>
@@ -31,7 +31,7 @@
         <div class="brand">
           <div class="mark" aria-hidden="true">DP</div>
 
-          <div class="brand-text">
+          <div>
             <div class="brand-title">Daniela</div>
             <div class="brand-subtitle">A journey of discovery</div>
           </div>
@@ -62,7 +62,7 @@
       <section class="section section-hero">
         <div class="container">
           <div class="hero-grid">
-            <div class="hero-content">
+            <div>
               <h1 class="hero-title">
                 Design leadership<br />
                 through clarity,<br />
@@ -81,8 +81,8 @@
               </div>
             </div>
 
-                        <!-- Illustration placeholder -->
-            <div class="hero-ill" aria-hidden="true">
+            <!-- Illustration placeholder -->
+            <div aria-hidden="true">
               <div class="img-placeholder img-placeholder--hero"></div>
             </div>
           </div>
@@ -111,91 +111,166 @@
               </p>
             </div>
 
-                        <div class="intro-accent" aria-hidden="true">
+            <div class="intro-accent" aria-hidden="true">
               <div class="img-placeholder img-placeholder--mini"></div>
             </div>
           </div>
         </div>
       </section>
 
-                                          <!-- Selected Work -->
+      <!-- Selected Work -->
       <section class="section" id="work">
         <div class="container">
           <div class="kicker">Selected Work</div>
-          <h2 class="title">Case files</h2>
-          <p class="body">Case studies in team building and product design.</p>
+          <h2 class="title">Case studies</h2>
+          <p class="body">
+            A few recent stories where complex systems, workflows, and teams
+            came together.
+          </p>
 
           <div class="work-grid" role="list">
-  <article class="work-card" role="listitem">
-    <div class="work-card-inner">
-      <div class="work-face work-front">
-        <img class="work-img" src="https://via.placeholder.com/600x800/7b61ff/ffffff?text=CASE+STUDY+01" alt="Selected work — case study 1" loading="lazy" />
-      </div>
-      <div class="work-face work-back">
-        <a class="work-read" href="./work/24_BaR.html" target="_blank" rel="noopener">
-          <span class="work-read-icon" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-              <path d="M14 2v6h6"/>
-              <path d="M8 13h8"/>
-              <path d="M8 17h8"/>
-            </svg>
-          </span>
-          <span>Read me</span>
-        </a>
-      </div>
-    </div>
-  </article>
+            <!-- Card 1: Atlas Discovery -->
+            <article
+              class="work-card"
+              role="listitem"
+              aria-label="Atlas Discovery case study"
+              data-card="atlas"
+            >
+              <div class="work-card-inner">
+                <div class="work-face work-front">
+                  <img
+                    class="work-img"
+                    src="./images/UCatlasDiscovery.webp"
+                    alt="Atlas Discovery"
+                    loading="lazy"
+                  />
+                  <h3 class="work-card-title">Atlas Discovery & Navigation</h3>
+                </div>
+                <div class="work-face work-back">
+                  <div class="work-back-content">
+                    <div class="work-back-icon">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        width="40"
+                        height="40"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                      >
+                        <circle cx="11" cy="11" r="8" />
+                        <path d="m21 21-4.35-4.35" />
+                        <path d="M11 8v6" />
+                        <path d="M8 11h6" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
 
-  <article class="work-card" role="listitem">
-    <div class="work-card-inner">
-      <div class="work-face work-front">
-        <img class="work-img" src="https://via.placeholder.com/600x800/00b894/ffffff?text=CASE+STUDY+02" alt="Selected work — case study 2" loading="lazy" />
-      </div>
-      <div class="work-face work-back">
-        <a class="work-read" href="./work/24_BaR.html" target="_blank" rel="noopener">
-          <span class="work-read-icon" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-              <path d="M14 2v6h6"/>
-              <path d="M8 13h8"/>
-              <path d="M8 17h8"/>
-            </svg>
-          </span>
-          <span>Read me</span>
-        </a>
-      </div>
-    </div>
-  </article>
+            <!-- Card 2: IDE Reframing -->
+            <article
+              class="work-card"
+              role="listitem"
+              aria-label="IDE Reframing case study"
+              data-card="ide"
+            >
+              <div class="work-card-inner">
+                <div class="work-face work-front">
+                  <img
+                    class="work-img"
+                    src="./images/UCideReframing.webp"
+                    alt="IDE Reframing"
+                    loading="lazy"
+                  />
+                  <h3 class="work-card-title">IDE Platform Reframing</h3>
+                </div>
+                <div class="work-face work-back">
+                  <div class="work-back-content">
+                    <div class="work-back-icon">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        width="40"
+                        height="40"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                      >
+                        <polyline points="16 18 22 12 16 6" />
+                        <polyline points="8 6 2 12 8 18" />
+                        <line x1="14" y1="4" x2="10" y2="20" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
 
-  <article class="work-card" role="listitem">
-    <div class="work-card-inner">
-      <div class="work-face work-front">
-        <img class="work-img" src="https://via.placeholder.com/600x800/f39c12/ffffff?text=CASE+STUDY+03" alt="Selected work — case study 3" loading="lazy" />
-      </div>
-      <div class="work-face work-back">
-        <a class="work-read" href="./work/24_BaR.html" target="_blank" rel="noopener">
-          <span class="work-read-icon" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-              <path d="M14 2v6h6"/>
-              <path d="M8 13h8"/>
-              <path d="M8 17h8"/>
-            </svg>
-          </span>
-          <span>Read me</span>
-        </a>
-      </div>
-    </div>
-  </article>
-</div></span>
-                <span class="flip-face flip-back">
-                  <div class="work-thumb" aria-hidden="true"></div>
-                  <span class="work-back-text">Read case study</span>
-                </span>
-              </span>
-            </a>
+            <!-- Card 3: Pipes E2E -->
+            <article
+              class="work-card"
+              role="listitem"
+              aria-label="Pipes end-to-end case study"
+              data-card="pipes"
+            >
+              <div class="work-card-inner">
+                <div class="work-face work-front">
+                  <img
+                    class="work-img"
+                    src="./images/UCpipesE2E.webp"
+                    alt="Pipes end-to-end"
+                    loading="lazy"
+                  />
+                  <h3 class="work-card-title">Pipes End-to-End Experience</h3>
+                </div>
+                <div class="work-face work-back">
+                  <div class="work-back-content">
+                    <div class="work-back-icon">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        width="40"
+                        height="40"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                      >
+                        <path
+                          d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                        />
+                        <polyline points="14 2 14 8 20 8" />
+                        <line x1="9" y1="15" x2="15" y2="15" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
 
+        <!-- Expanded Detail Modal -->
+        <div class="work-detail-overlay" id="workDetailOverlay">
+          <div class="work-detail-modal">
+            <button class="work-detail-close" aria-label="Close detail view">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
+            <div class="work-detail-content" id="workDetailContent">
+              <!-- Content will be injected by JavaScript -->
+            </div>
           </div>
         </div>
       </section>
@@ -239,13 +314,13 @@
             </div>
 
             <div class="form-actions">
-              <button type="submit" class="btn-ghost btn-ghost--form">Send Message</button>
-</div>
+              <button type="submit" class="btn-ghost btn-ghost--form">
+                Send Message
+              </button>
+            </div>
           </form>
         </div>
       </section>
-
-
 
       <!-- Footer hero -->
       <div class="footer-hero">
@@ -262,7 +337,7 @@
     <!-- Footer -->
     <footer class="site-footer">
       <div class="container footer-row">
-        <div class="footer-left">
+        <div>
           <div class="footer-meta" aria-label="Contact links and copyright">
             <a
               class="social-icon"
@@ -270,31 +345,47 @@
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V9h4v2a4.5 4.5 0 0 1 2-3z"/>
-                <path d="M2 9h4v12H2z"/>
-                <path d="M4 4a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"/>
-              </svg>
-            </a>
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="22"
+                height="22"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+              >
+                <path
+                  d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V9h4v2"
+                />
+                <path d="M2 9h4v12H2z" />
+                <path d="M4 4a2 2 0 1 0 0 .001z" /></svg
+            ></a>
 
             <a
               class="social-icon"
               href="mailto:daniela@dpenati.com"
               aria-label="Email"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/>
-                <path d="m22 6-10 7L2 6"/>
-              </svg>
-            </a>
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="22"
+                height="22"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+              >
+                <path d="M4 4h16v16H4z" />
+                <path d="m4 6 8 6 8-6" /></svg
+            ></a>
 
             <span class="footer-copy"
               >© <span data-year></span> Daniela Penati</span
             >
           </div>
         </div>
-</div>
+      </div>
     </footer>
 
     <!-- Floating back-to-top button -->
@@ -303,5 +394,5 @@
     </a>
 
     <script src="./script.js" defer></script>
-</body>
+  </body>
 </html>

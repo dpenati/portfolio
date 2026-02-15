@@ -1,14 +1,18 @@
-// script.js – site behavior with parallax reveal effect
+// script.js – minimal site behavior (theme toggle + back-to-top + work cards)
+// Keeps the page readable even if JS fails.
 
 (function () {
   const root = document.documentElement;
 
   // --- Theme handling ---
-  const KEY = 'dp-theme';
+  // Storage key used by the site
+  const KEY = 'dp-theme'; // "light" | "dark" | "auto"
 
   function applyTheme(mode) {
+    // mode can be "light", "dark", or "auto"
     root.setAttribute('data-theme', mode);
 
+    // For browsers that respect color-scheme, mirror intent
     if (mode === 'dark') root.style.colorScheme = 'dark';
     else if (mode === 'light') root.style.colorScheme = 'light';
     else root.style.colorScheme = 'light dark';
@@ -34,6 +38,10 @@
     applyTheme(mode);
   }
 
+  // Wire up any theme toggle buttons if present
+  // Supports either:
+  // - button[data-theme-toggle]
+  // - button#themeToggle
   function bindThemeToggle() {
     const btn =
       document.querySelector('[data-theme-toggle]') ||
@@ -48,6 +56,7 @@
       applyTheme(next);
       setStoredTheme(next);
 
+      // Optional ARIA label updates
       btn.setAttribute('aria-label', `Theme: ${next}`);
     });
   }
@@ -58,12 +67,14 @@
     if (!a) return;
 
     a.addEventListener('click', (e) => {
+      // Allow normal anchor behavior, but add smooth scroll
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
+      // Keep URL clean by not adding #top to history:
       history.replaceState(
         null,
         '',
-        window.location.pathname + window.location.search
+        window.location.pathname + window.location.search,
       );
     });
   }
@@ -164,29 +175,23 @@
       `;
 
       overlay.classList.add('is-open');
-      
-      // Scroll modal content to top
-      const modal = overlay.querySelector('.work-detail-modal');
-      if (modal) {
-        modal.scrollTop = 0;
-      }
-      
-      // Small delay to ensure overlay is rendered, then scroll it to show modal from top
-      setTimeout(() => {
-        overlay.scrollTop = 0;
-      }, 10);
+      document.body.style.overflow = 'hidden';
     }
 
     // Close modal
     function closeDetail() {
       overlay.classList.remove('is-open');
+      document.body.style.overflow = '';
     }
 
-    // Bind card clicks
+    // Bind card clicks - use mousedown/touchstart to not interfere with hover
     cards.forEach((card) => {
-      card.addEventListener('click', () => {
+      let clickTimer = null;
+
+      card.addEventListener('click', (e) => {
         const cardId = card.getAttribute('data-card');
         if (cardId) {
+          // Small delay to allow flip to be seen
           setTimeout(() => {
             openDetail(cardId);
           }, 300);
@@ -226,18 +231,9 @@
     });
   }
 
-  // --- Set current year in footer ---
-  function setCurrentYear() {
-    const yearSpan = document.querySelector('[data-year]');
-    if (yearSpan) {
-      yearSpan.textContent = new Date().getFullYear();
-    }
-  }
-
   // Init
   initTheme();
   bindThemeToggle();
   bindBackToTop();
   initWorkCards();
-  setCurrentYear();
 })();
