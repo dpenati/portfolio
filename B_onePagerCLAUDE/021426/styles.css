@@ -30,15 +30,7 @@
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
 
   scroll-behavior: smooth;
-
-  /* Blueprint tokens (Selected Work card backs) */
-  --bp-surface: rgba(255, 255, 255, 0.78);
-  --bp-line: rgba(15, 15, 15, 0.14);
-  --bp-grid: rgba(15, 15, 15, 0.08);
-  --bp-dots: rgba(15, 15, 15, 0.06);
-  --bp-sheen: rgba(255, 255, 255, 0.35);
 }
-
 
 @media (prefers-color-scheme: dark) {
   html[data-theme='auto'] {
@@ -58,14 +50,7 @@ html[data-theme='dark'] {
   --muted: rgba(241, 241, 243, 0.72);
   --rule: rgba(241, 241, 243, 0.18);
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-
-  --bp-surface: rgba(10, 12, 16, 0.64);
-  --bp-line: rgba(255, 255, 255, 0.16);
-  --bp-grid: rgba(255, 255, 255, 0.10);
-  --bp-dots: rgba(255, 255, 255, 0.07);
-  --bp-sheen: rgba(255, 255, 255, 0.12);
 }
-
 
 html[data-theme='light'] {
   --bg: #ffffff;
@@ -270,7 +255,7 @@ a {
 }
 
 .section-intro {
-  padding-top: calc(var(--section-pad) - 6px);
+  padding-top: var(--section-pad);
 }
 
 .kicker {
@@ -383,6 +368,171 @@ a {
 .grid-work img {
   aspect-ratio: 4 / 3;
   object-fit: cover;
+
+/* -------------------------
+   Selected Work flip cards
+-------------------------- */
+
+.work-grid {
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(16px, 2.6vw, 26px);
+}
+
+
+@media (max-width: 900px) {
+  .work-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .work-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.work-card {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 18px;
+  border: 1px solid rgba(127, 127, 127, 0.18);
+  background: color-mix(in srgb, var(--surface) 96%, rgba(127, 127, 127, 0.06));
+  box-shadow: var(--shadow);
+  overflow: hidden;
+
+  /* Responsive portrait card */
+  aspect-ratio: 3 / 4;
+  min-height: 0;
+
+  /* Flip */
+  perspective: 1100px;
+}
+
+.work-card .flip-inner {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  transform-style: preserve-3d;
+  transition: transform 600ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.work-card .flip-front,
+.work-card .flip-back {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  backface-visibility: hidden;
+}
+
+.work-card .flip-front {
+  padding: 16px;
+}
+
+.work-card .flip-back {
+  padding: 18px;
+  transform: rotateY(180deg);
+}
+
+.work-ill {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+}
+
+.work-back-icon {
+  width: 26px;
+  height: 26px;
+  margin-bottom: 10px;
+  opacity: 0.9;
+}
+
+.work-back-text {
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.work-back-sub {
+  margin-top: 8px;
+  font-family: var(--condensed);
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--muted);
+}
+
+.work-card:hover .flip-inner,
+.work-card:focus-visible .flip-inner,
+.work-card:focus-within .flip-inner {
+  transform: rotateY(180deg);
+}
+
+/* -------------------------
+   Image placeholders
+-------------------------- */
+
+.img-placeholder {
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  border: 1px solid rgba(127, 127, 127, 0.18);
+  box-shadow: var(--shadow);
+  background:
+    linear-gradient(90deg, rgba(127, 127, 127, 0.10) 1px, transparent 1px),
+    linear-gradient(rgba(127, 127, 127, 0.10) 1px, transparent 1px);
+  background-size: 16px 16px;
+  background-position: 0 0;
+}
+
+.img-placeholder--hero {
+  aspect-ratio: 1 / 1;
+  max-width: 420px;
+  margin-left: auto;
+}
+
+.img-placeholder--mini {
+  aspect-ratio: 1 / 1;
+  max-width: 180px;
+  margin-left: auto;
+}
+
+/* -------------------------
+   Contact layout tweaks
+-------------------------- */
+
+.contact-lead {
+  margin-bottom: 28px;
+}
+
+.form-actions {
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-ghost--form {
+  cursor: pointer;
+}
+
+.form-fallback--inline {
+  margin: 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+@media (max-width: 520px) {
+  .form-actions {
+    align-items: flex-start;
+  }
+}
 }
 
 /* -------------------------
@@ -507,7 +657,7 @@ a {
 -------------------------- */
 
 .section-contact {
-  padding-top: calc(var(--section-pad) + 2px);
+  padding-top: var(--section-pad);
 }
 
 .form {
@@ -766,8 +916,27 @@ textarea:focus {
    Work pages
 -------------------------- */
 
-.work-hero .work-hero .work-back:hover {
+.work-hero .work-back {
+  display: inline-block;
+  margin-bottom: 14px;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--muted);
+}
+
+.work-hero .work-back:hover {
   color: var(--accent);
+}
+
+.work-back {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--muted);
 }
 
 .work-back:hover {
@@ -1113,7 +1282,16 @@ textarea:focus {
   justify-content: space-between;
 }
 
-.work-nav .work-nav .work-back:hover {
+.work-nav .work-back {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--muted);
+}
+
+.work-nav .work-back:hover {
   color: var(--accent);
 }
 
@@ -1446,6 +1624,10 @@ textarea:focus {
    Scroll reveal animation
 -------------------------- */
 
+.section {
+  opacity: 1;
+  transform: none;
+}
 /* -------------------------
    Landing page: Responsive
 -------------------------- */
@@ -1511,12 +1693,9 @@ textarea:focus {
 /* -------------------------
    End of styles.css
 -------------------------- */
-/* Work read — dark mode */
-[data-theme="dark"] /* Safety: ensure sections are visible even if JS is missing */
-.section{opacity:1; transform:none;}
 
 /* -------------------------
-   Selected Work — 3 flip cards (responsive)
+   Selected Work — flip cards
 -------------------------- */
 
 .work-grid{
@@ -1529,7 +1708,6 @@ textarea:focus {
 @media (max-width: 860px){
   .work-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
-
 @media (max-width: 540px){
   .work-grid{ grid-template-columns: 1fr; }
 }
@@ -1562,7 +1740,9 @@ textarea:focus {
   overflow: hidden;
 }
 
-.work-front{ transform: rotateY(0deg); }
+.work-front{
+  transform: rotateY(0deg);
+}
 
 .work-img{
   width: 100%;
@@ -1571,53 +1751,15 @@ textarea:focus {
   object-fit: cover;
 }
 
-/* Sophisticated blueprint back (theme-aware tokens) */
 .work-back{
   transform: rotateY(180deg);
   display: grid;
   place-items: center;
-  position: relative;
-  border: 1px solid var(--bp-line);
-  background-color: var(--bp-surface);
-
-  background-image:
-    radial-gradient(1200px 600px at 20% 10%, var(--bp-sheen), transparent 55%),
-    radial-gradient(900px 520px at 80% 90%, rgba(0,0,0,0.04), transparent 60%),
-    radial-gradient(circle at 1px 1px, var(--bp-dots) 1px, transparent 1.2px),
-    repeating-linear-gradient(to right, var(--bp-grid) 0 1px, transparent 1px 18px),
-    repeating-linear-gradient(to bottom, var(--bp-grid) 0 1px, transparent 1px 18px),
-    linear-gradient(var(--bp-line), var(--bp-line)),
-    linear-gradient(var(--bp-line), var(--bp-line));
-
-  background-size:
-    auto,
-    auto,
-    14px 14px,
-    18px 18px,
-    18px 18px,
-    100% 1px,
-    1px 100%;
-
-  background-position:
-    0 0,
-    0 0,
-    0 0,
-    0 0,
-    0 0,
-    0 84%,
-    14% 0;
-
-  background-repeat: no-repeat;
-}
-
-.work-back::after{
-  content: "";
-  position: absolute;
-  inset: 14px;
-  border-radius: 14px;
-  border: 1px solid var(--bp-line);
-  pointer-events: none;
-  opacity: 0.9;
+  border: 2px solid rgba(0,0,0,.55);
+  background:
+    linear-gradient(to right, rgba(0,0,0,.10) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0,0,0,.10) 1px, transparent 1px);
+  background-size: 18px 18px;
 }
 
 .work-read{
@@ -1633,7 +1775,9 @@ textarea:focus {
   font-size: 15px;
 }
 
-.work-read:hover{ transform: translateY(-1px); }
+.work-read:hover{
+  transform: translateY(-1px);
+}
 
 .work-read:focus-visible{
   outline: 2px solid currentColor;
@@ -1643,10 +1787,4 @@ textarea:focus {
 .work-read-icon{
   display: inline-grid;
   place-items: center;
-}
-
-/* Button legibility in dark mode */
-[data-theme="dark"] .work-read{
-  background: rgba(10, 12, 16, 0.72);
-  border-color: rgba(255,255,255,0.22);
 }
