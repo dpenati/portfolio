@@ -1,0 +1,760 @@
+<!doctype html>
+<html lang="en" data-theme="auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Daniela Penati – UX Design & Strategic Leadership</title>
+    <meta
+      name="description"
+      content="Daniela Penati's portfolio: building high-performing teams and coherent product experiences."
+    />
+
+    <meta name="color-scheme" content="light dark" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo+Play:wght@400;600;700&family=Caveat:wght@700&family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;600;700&family=Roboto+Condensed:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+      emailjs.init('hni_Z9x6JvTGqEA5j');
+    </script>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <!-- Header component -->
+    <site-header src="./components/header.html"></site-header>
+
+<main id="main">
+      <!-- Parallax background image -->
+      <div
+        class="parallax-bg"
+        style="background-image: url('./images/milanoSFsq2.webp')"
+      >
+        <div class="parallax-welcome">Welcome</div>
+      </div>
+
+      <!-- Hero content strip that scrolls over parallax -->
+      <div class="hero-strip">
+        <div class="container">
+          <div class="hero-hook">
+            <div class="hook-line-main">
+              Where complexity meets
+              <span class="hook-crossed">chaos</span>
+              <span class="hook-clarity">Clarity</span>
+            </div>
+            <div class="hook-line-sub">
+              I uncover simplicity without sacrificing depth.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- About (offset grid) -->
+      <section class="section section-intro" id="about">
+        <div class="container">
+          <div class="intro-grid">
+            <div class="intro-text">
+              <div class="kicker">About</div>
+              <h2 class="title">Designing for impact at scale</h2>
+              <p class="body">
+                I'm Daniela Penati, a UX leader who believes great design comes
+                from great teams. My work focuses on creating the conditions for
+                clarity, partnership, and predictability—building systems that
+                enable designers and cross-functional partners to move forward
+                with shared momentum.
+              </p>
+              <p class="body">
+                Currently at JPMorgan Chase, I lead UX teams that transform
+                complex enterprise tools into coherent experiences. Previously,
+                I shaped product strategy and design at early-stage startups,
+                learning to balance vision with velocity.
+              </p>
+            </div>
+
+            <div class="intro-accent" aria-hidden="true">
+              <div class="accent-interactive">
+                <svg
+                  class="accent-drawing accent-pulse"
+                  viewBox="0 0 200 200"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <defs>
+                    <radialGradient id="accentGradient">
+                      <stop
+                        offset="0%"
+                        style="stop-color: #6e5b98; stop-opacity: 0.1"
+                      />
+                      <stop
+                        offset="100%"
+                        style="stop-color: #6e5b98; stop-opacity: 0"
+                      />
+                    </radialGradient>
+                  </defs>
+
+                  <!-- Organic ink splash -->
+                  <circle
+                    cx="100"
+                    cy="100"
+                    r="60"
+                    fill="url(#accentGradient)"
+                    class="pulse-circle"
+                  />
+
+                  <!-- Geometric structure -->
+                  <circle
+                    cx="100"
+                    cy="100"
+                    r="50"
+                    stroke="currentColor"
+                    stroke-width="0.5"
+                    fill="none"
+                    opacity="0.3"
+                  />
+                  <path
+                    d="M100,50 L150,100 L100,150 L50,100 Z"
+                    stroke="currentColor"
+                    stroke-width="0.5"
+                    fill="none"
+                    opacity="0.2"
+                  />
+
+                  <!-- Detail lines -->
+                  <line
+                    x1="70"
+                    y1="70"
+                    x2="130"
+                    y2="130"
+                    stroke="currentColor"
+                    stroke-width="0.5"
+                    opacity="0.4"
+                  />
+                  <line
+                    x1="130"
+                    y1="70"
+                    x2="70"
+                    y2="130"
+                    stroke="currentColor"
+                    stroke-width="0.5"
+                    opacity="0.4"
+                  />
+                </svg>
+
+                <!-- Plus icon indicator -->
+                <div class="accent-plus-icon">+</div>
+
+                <div class="accent-links">
+                  <a href="./daniela/indexDP.html" class="accent-link"
+                    >More about me</a
+                  >
+                  <a
+                    href="./daniela/Daniela_CV.pdf"
+                    target="_blank"
+                    rel="noopener"
+                    class="accent-link"
+                    >Resume</a
+                  >
+                </div>
+              </div>
+
+              <!-- Mobile-only text links (no graphic) -->
+              <div class="accent-mobile-links">
+                <a href="./daniela/AboutMe.html" class="accent-mobile-link"
+                  >More about me →</a
+                >
+                <a
+                  href="./daniela/Daniela_CV.pdf"
+                  target="_blank"
+                  rel="noopener"
+                  class="accent-mobile-link"
+                  >Resume →</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Selected Work -->
+      <section class="section" id="work">
+        <div class="container">
+          <div class="kicker">Selected Work</div>
+          <h2 class="title">Case studies</h2>
+          <p class="body">
+            A few recent stories where complex systems, workflows, and teams
+            came together.
+          </p>
+
+          <div class="work-grid" role="list">
+            <!-- Card 1: Atlas Discovery -->
+            <article
+              class="work-card"
+              role="listitem"
+              aria-label="Atlas Discovery case study"
+              data-card="atlas"
+            >
+              <div class="work-card-inner">
+                <div class="work-face work-front">
+                  <svg
+                    class="work-svg"
+                    viewBox="0 0 320 427"
+                    xmlns="http://www.w3.org/2000/svg"
+                    preserveAspectRatio="xMidYMid slice"
+                  >
+                    <defs>
+                      <linearGradient
+                        id="atlasGrad"
+                        x1="0%"
+                        y1="0%"
+                        x2="100%"
+                        y2="100%"
+                      >
+                        <stop
+                          offset="0%"
+                          style="stop-color: #f8f8f8; stop-opacity: 1"
+                        />
+                        <stop
+                          offset="100%"
+                          style="stop-color: #e0e0e0; stop-opacity: 1"
+                        />
+                      </linearGradient>
+                      <radialGradient id="atlasInk">
+                        <stop
+                          offset="0%"
+                          style="stop-color: #6e5b98; stop-opacity: 0.15"
+                        />
+                        <stop
+                          offset="100%"
+                          style="stop-color: #6e5b98; stop-opacity: 0"
+                        />
+                      </radialGradient>
+                    </defs>
+
+                    <rect width="320" height="427" fill="url(#atlasGrad)" />
+
+                    <!-- Ink splash accent -->
+                    <circle cx="160" cy="213" r="120" fill="url(#atlasInk)" />
+
+                    <!-- Navigation/discovery pattern - radiating structure -->
+                    <g
+                      stroke="#2a2a2a"
+                      stroke-width="1.5"
+                      fill="none"
+                      opacity="0.7"
+                    >
+                      <circle cx="160" cy="213" r="60" />
+                      <circle cx="160" cy="213" r="90" opacity="0.5" />
+                      <circle cx="160" cy="213" r="120" opacity="0.3" />
+
+                      <!-- Radiating search paths -->
+                      <line x1="160" y1="213" x2="160" y2="93" />
+                      <line x1="160" y1="213" x2="240" y2="153" />
+                      <line x1="160" y1="213" x2="260" y2="213" />
+                      <line x1="160" y1="213" x2="240" y2="273" />
+                      <line x1="160" y1="213" x2="160" y2="333" />
+                      <line x1="160" y1="213" x2="80" y2="273" />
+                      <line x1="160" y1="213" x2="60" y2="213" />
+                      <line x1="160" y1="213" x2="80" y2="153" />
+                    </g>
+
+                    <!-- Discovery nodes -->
+                    <g fill="#6e5b98" opacity="0.6">
+                      <circle cx="160" cy="93" r="4" />
+                      <circle cx="240" cy="153" r="4" />
+                      <circle cx="260" cy="213" r="4" />
+                      <circle cx="240" cy="273" r="4" />
+                      <circle cx="160" cy="333" r="4" />
+                      <circle cx="80" cy="273" r="4" />
+                      <circle cx="60" cy="213" r="4" />
+                      <circle cx="80" cy="153" r="4" />
+                    </g>
+
+                    <!-- Fine detail lines -->
+                    <g stroke="#2a2a2a" stroke-width="0.5" opacity="0.3">
+                      <line x1="100" y1="50" x2="220" y2="50" />
+                      <line x1="80" y1="377" x2="240" y2="377" />
+                      <line x1="30" y1="150" x2="30" y2="276" />
+                      <line x1="290" y1="150" x2="290" y2="276" />
+                    </g>
+                  </svg>
+                  <h3 class="work-card-title">Atlas Discovery & Navigation</h3>
+                </div>
+                <div class="work-face work-back">
+                  <div class="work-back-content">
+                    <div class="work-back-icon">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        width="40"
+                        height="40"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                      >
+                        <circle cx="11" cy="11" r="8" />
+                        <path d="m21 21-4.35-4.35" />
+                        <path d="M11 8v6" />
+                        <path d="M8 11h6" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 2: IDE Reframing -->
+            <article
+              class="work-card"
+              role="listitem"
+              aria-label="IDE Reframing case study"
+              data-card="ide"
+            >
+              <div class="work-card-inner">
+                <div class="work-face work-front">
+                  <svg
+                    class="work-svg"
+                    viewBox="0 0 320 427"
+                    xmlns="http://www.w3.org/2000/svg"
+                    preserveAspectRatio="xMidYMid slice"
+                  >
+                    <defs>
+                      <linearGradient
+                        id="ideGrad"
+                        x1="0%"
+                        y1="0%"
+                        x2="0%"
+                        y2="100%"
+                      >
+                        <stop
+                          offset="0%"
+                          style="stop-color: #f0f0f0; stop-opacity: 1"
+                        />
+                        <stop
+                          offset="100%"
+                          style="stop-color: #d8d8d8; stop-opacity: 1"
+                        />
+                      </linearGradient>
+                      <radialGradient id="ideInk">
+                        <stop
+                          offset="0%"
+                          style="stop-color: #6e5b98; stop-opacity: 0.2"
+                        />
+                        <stop
+                          offset="100%"
+                          style="stop-color: #6e5b98; stop-opacity: 0"
+                        />
+                      </radialGradient>
+                    </defs>
+
+                    <rect width="320" height="427" fill="url(#ideGrad)" />
+
+                    <!-- Ink accent in corner -->
+                    <circle cx="80" cy="100" r="90" fill="url(#ideInk)" />
+
+                    <!-- Code/IDE structure - nested rectangles and brackets -->
+                    <g
+                      stroke="#2a2a2a"
+                      stroke-width="1.5"
+                      fill="none"
+                      opacity="0.7"
+                    >
+                      <!-- Main frame -->
+                      <rect x="60" y="120" width="200" height="187" rx="2" />
+
+                      <!-- Nested panels -->
+                      <rect
+                        x="70"
+                        y="135"
+                        width="80"
+                        height="157"
+                        opacity="0.5"
+                      />
+                      <rect
+                        x="160"
+                        y="135"
+                        width="90"
+                        height="70"
+                        opacity="0.5"
+                      />
+                      <rect
+                        x="160"
+                        y="215"
+                        width="90"
+                        height="77"
+                        opacity="0.5"
+                      />
+
+                      <!-- Code bracket symbols -->
+                      <path d="M85,170 L80,175 L85,180" stroke-width="2" />
+                      <path d="M135,170 L140,175 L135,180" stroke-width="2" />
+
+                      <path
+                        d="M175,160 L170,165 L175,170"
+                        stroke-width="1.5"
+                        opacity="0.6"
+                      />
+                      <path
+                        d="M235,160 L240,165 L235,170"
+                        stroke-width="1.5"
+                        opacity="0.6"
+                      />
+                    </g>
+
+                    <!-- Detail lines suggesting code -->
+                    <g stroke="#6e5b98" stroke-width="0.5" opacity="0.4">
+                      <line x1="75" y1="150" x2="135" y2="150" />
+                      <line x1="75" y1="158" x2="125" y2="158" />
+                      <line x1="75" y1="166" x2="140" y2="166" />
+                      <line x1="75" y1="190" x2="130" y2="190" />
+                      <line x1="75" y1="198" x2="135" y2="198" />
+
+                      <line x1="165" y1="150" x2="235" y2="150" />
+                      <line x1="165" y1="158" x2="220" y2="158" />
+
+                      <line x1="165" y1="230" x2="230" y2="230" />
+                      <line x1="165" y1="238" x2="225" y2="238" />
+                      <line x1="165" y1="246" x2="235" y2="246" />
+                    </g>
+
+                    <!-- Accent dots -->
+                    <g fill="#6e5b98" opacity="0.6">
+                      <circle cx="180" cy="145" r="2" />
+                      <circle cx="190" cy="145" r="2" />
+                      <circle cx="200" cy="145" r="2" />
+                    </g>
+
+                    <!-- Fine geometric frame -->
+                    <rect
+                      x="40"
+                      y="100"
+                      width="240"
+                      height="227"
+                      rx="4"
+                      stroke="#2a2a2a"
+                      stroke-width="0.5"
+                      fill="none"
+                      opacity="0.3"
+                    />
+                  </svg>
+                  <h3 class="work-card-title">IDE Platform Reframing</h3>
+                </div>
+                <div class="work-face work-back">
+                  <div class="work-back-content">
+                    <div class="work-back-icon">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        width="40"
+                        height="40"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                      >
+                        <polyline points="16 18 22 12 16 6" />
+                        <polyline points="8 6 2 12 8 18" />
+                        <line x1="14" y1="4" x2="10" y2="20" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 3: Pipes E2E -->
+            <article
+              class="work-card"
+              role="listitem"
+              aria-label="Pipes end-to-end case study"
+              data-card="pipes"
+            >
+              <div class="work-card-inner">
+                <div class="work-face work-front">
+                  <svg
+                    class="work-svg"
+                    viewBox="0 0 320 427"
+                    xmlns="http://www.w3.org/2000/svg"
+                    preserveAspectRatio="xMidYMid slice"
+                  >
+                    <defs>
+                      <linearGradient
+                        id="pipesGrad"
+                        x1="0%"
+                        y1="0%"
+                        x2="100%"
+                        y2="0%"
+                      >
+                        <stop
+                          offset="0%"
+                          style="stop-color: #e8e8e8; stop-opacity: 1"
+                        />
+                        <stop
+                          offset="100%"
+                          style="stop-color: #f4f4f4; stop-opacity: 1"
+                        />
+                      </linearGradient>
+                      <radialGradient id="pipesInk">
+                        <stop
+                          offset="0%"
+                          style="stop-color: #6e5b98; stop-opacity: 0.18"
+                        />
+                        <stop
+                          offset="100%"
+                          style="stop-color: #6e5b98; stop-opacity: 0"
+                        />
+                      </radialGradient>
+                    </defs>
+
+                    <rect width="320" height="427" fill="url(#pipesGrad)" />
+
+                    <!-- Ink splash on right -->
+                    <circle cx="240" cy="300" r="100" fill="url(#pipesInk)" />
+
+                    <!-- Data pipeline flow - flowing lines with nodes -->
+                    <g
+                      stroke="#2a2a2a"
+                      stroke-width="2"
+                      fill="none"
+                      opacity="0.7"
+                    >
+                      <!-- Main flow path -->
+                      <path d="M40,120 L80,120" />
+                      <path d="M120,120 L160,120" />
+                      <path d="M160,120 Q200,120 200,160" />
+                      <path d="M200,200 L200,240" />
+                      <path d="M200,240 Q200,280 240,280" />
+                      <path d="M280,280 L280,320" />
+
+                      <!-- Branch flows -->
+                      <path
+                        d="M160,120 Q160,90 200,90"
+                        stroke-width="1.5"
+                        opacity="0.5"
+                      />
+                      <path
+                        d="M200,240 Q240,240 260,220"
+                        stroke-width="1.5"
+                        opacity="0.5"
+                      />
+                    </g>
+
+                    <!-- Processing nodes -->
+                    <g stroke="#2a2a2a" stroke-width="1.5" fill="#f4f4f4">
+                      <circle cx="100" cy="120" r="16" />
+                      <circle cx="200" cy="180" r="16" />
+                      <circle cx="260" cy="280" r="16" />
+                    </g>
+
+                    <!-- Detail elements inside nodes -->
+                    <g
+                      stroke="#6e5b98"
+                      stroke-width="0.5"
+                      fill="none"
+                      opacity="0.6"
+                    >
+                      <rect x="94" y="114" width="12" height="12" rx="1" />
+                      <line x1="197" y1="177" x2="203" y2="183" />
+                      <line x1="203" y1="177" x2="197" y2="183" />
+                      <circle cx="260" cy="280" r="6" />
+                    </g>
+
+                    <!-- Data flow indicators -->
+                    <g fill="#6e5b98" opacity="0.5">
+                      <circle cx="60" cy="120" r="3" />
+                      <circle cx="140" cy="120" r="3" />
+                      <circle cx="180" cy="100" r="2" />
+                      <circle cx="200" cy="220" r="3" />
+                      <circle cx="250" cy="250" r="2" />
+                      <circle cx="280" cy="300" r="3" />
+                    </g>
+
+                    <!-- Fine grid suggesting system complexity -->
+                    <g stroke="#2a2a2a" stroke-width="0.5" opacity="0.15">
+                      <line x1="80" y1="60" x2="80" y2="367" />
+                      <line x1="160" y1="60" x2="160" y2="367" />
+                      <line x1="240" y1="60" x2="240" y2="367" />
+                      <line x1="20" y1="150" x2="300" y2="150" />
+                      <line x1="20" y1="250" x2="300" y2="250" />
+                      <line x1="20" y1="350" x2="300" y2="350" />
+                    </g>
+                  </svg>
+                  <h3 class="work-card-title">Pipes End-to-End Experience</h3>
+                </div>
+                <div class="work-face work-back">
+                  <div class="work-back-content">
+                    <div class="work-back-icon">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        width="40"
+                        height="40"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                      >
+                        <path
+                          d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                        />
+                        <polyline points="14 2 14 8 20 8" />
+                        <line x1="9" y1="15" x2="15" y2="15" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- View All Work CTA -->
+          <div class="view-all-work">
+            <button class="view-all-button" id="viewAllWorkBtn">
+              View All Work →
+            </button>
+          </div>
+        </div>
+
+        <!-- Expanded Detail Modal -->
+        <div class="work-detail-overlay" id="workDetailOverlay">
+          <div class="work-detail-modal">
+            <button class="work-detail-close" aria-label="Close detail view">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
+            <div class="work-detail-content" id="workDetailContent">
+              <!-- Content will be injected by JavaScript -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section class="section section-contact" id="contact">
+        <div class="container">
+          <div class="kicker">Get in touch</div>
+          <h2 class="title">Let's collaborate</h2>
+          <p class="body contact-lead">
+            I'm always interested in new opportunities and conversations about
+            design leadership, team building, or product strategy.
+          </p>
+
+          <form
+            id="contact-form"
+            class="form"
+            action="https://formspree.io/f/YOUR_FORM_ID"
+            method="POST"
+          >
+            <input
+              type="text"
+              name="_gotcha"
+              class="hp"
+              tabindex="-1"
+              autocomplete="off"
+            />
+
+            <div class="field">
+              <label for="name" class="label">Name</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+
+            <div class="field">
+              <label for="email" class="label">Email</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+
+            <div class="field">
+              <label for="message" class="label">Message</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn-ghost btn-ghost--form">
+                Send Message
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container footer-row">
+        <div>
+          <div class="footer-meta" aria-label="Contact links and copyright">
+            <a
+              class="social-icon"
+              href="https://www.linkedin.com/in/danielapenati/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="22"
+                height="22"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+              >
+                <path
+                  d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V9h4v2"
+                />
+                <path d="M2 9h4v12H2z" />
+                <path d="M4 4a2 2 0 1 0 0 .001z" />
+              </svg>
+            </a>
+
+            <a
+              class="social-icon"
+              href="mailto:daniela@dpenati.com"
+              aria-label="Email"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="22"
+                height="22"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                aria-hidden="true"
+              >
+                <path d="M4 4h16v16H4z" />
+                <path d="m4 6 8 6 8-6" />
+              </svg>
+            </a>
+
+            <span class="footer-copy">
+              © <span data-year>2026</span> Daniela Penati
+            </span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating back-to-top button -->
+    <a class="fab-top" href="#top" aria-label="Back to top">
+      <span aria-hidden="true">↑</span>
+    </a>
+
+    <script src="./components/site-header.js" defer></script>
+    <script src="./script.js" defer></script>
+  </body>
+</html>
