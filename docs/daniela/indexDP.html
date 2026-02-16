@@ -50,7 +50,13 @@
             <a href="../index.html#contact">Contact</a>
           </nav>
 
-          <button class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false" data-theme-toggle>
+          <button
+            class="theme-toggle"
+            type="button"
+            aria-label="Toggle dark mode"
+            aria-pressed="false"
+            data-theme-toggle
+          >
             <span class="theme-icon" aria-hidden="true">◐</span>
           </button>
         </div>
@@ -58,12 +64,14 @@
     </header>
 
     <main id="main">
-      <!-- Purple parallax hero (half height) -->
-      <div class="hero-parallax">
-        <div class="hero-title-corner">About</div>
+      <!-- Purple parallax hero (short strip) -->
+      <div class="hero-parallax-container">
+        <div class="hero-parallax-fixed">
+          <div class="hero-title-corner">About</div>
+        </div>
       </div>
 
-      <!-- Grey strip with hook (3 lines) -->
+      <!-- Grey strip with hook (3 lines) - scrolls over purple hero -->
       <div class="hook-strip">
         <div class="container">
           <div class="hook-content">
@@ -224,7 +232,7 @@
         </div>
       </section>
 
-      <!-- Final grey strip with closing statement (parallax reveal) -->
+      <!-- Final grey strip with closing statement -->
       <div class="closing-strip">
         <div class="container">
           <p class="closing-statement">
@@ -264,7 +272,9 @@
               </svg>
             </a>
 
-            <span class="footer-copy">© 2026 Daniela Penati</span>
+            <span class="footer-copy">
+              © <span data-year>2026</span> Daniela Penati
+            </span>
           </div>
         </div>
       </div>
