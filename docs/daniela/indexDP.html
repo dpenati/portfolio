@@ -20,48 +20,16 @@
     />
 
     <link rel="stylesheet" href="./styleDP.css" />
+    <script src="../components/site-header.js" defer></script>
   </head>
 
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
     <!-- Sticky header -->
-    <header class="site-header" id="top">
-      <div class="container header-row">
-        <div class="brand">
-          <a href="../index.html" class="brand-link">
-            <svg class="brand-mark" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <circle cx="30" cy="30" r="27" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.3"/>
-              <circle cx="30" cy="30" r="24" fill="currentColor" opacity="0.08"/>
-              <text x="30" y="38" text-anchor="middle" font-family="'Cairo Play', sans-serif" font-size="20" font-weight="800" letter-spacing="-1" fill="currentColor">d:p</text>
-            </svg>
-
-            <div>
-              <div class="brand-title">Daniela Penati</div>
-              <div class="brand-subtitle">UX Design & Leadership</div>
-            </div>
-          </a>
-        </div>
-
-        <div class="header-actions">
-          <nav class="nav" aria-label="Primary">
-            <a href="../index.html#about">About</a>
-            <a href="../index.html#work">Work</a>
-            <a href="../index.html#contact">Contact</a>
-          </nav>
-
-          <button
-            class="theme-toggle"
-            type="button"
-            aria-label="Toggle dark mode"
-            aria-pressed="false"
-            data-theme-toggle
-          >
-            <span class="theme-icon" aria-hidden="true">◐</span>
-          </button>
-        </div>
-      </div>
-    </header>
+    <site-header
+      src="https://dpenati.github.io/portfolio/components/header.html"
+    ></site-header>
 
     <main id="main">
       <!-- Purple parallax hero (short strip) -->
