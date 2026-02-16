@@ -68,6 +68,76 @@
     });
   }
 
+  // --- Login functionality ---
+  function initLogin() {
+    const brandTrigger = document.querySelector('.brand-trigger');
+    const loginDropdown = document.getElementById('loginDropdown');
+    const loginForm = document.getElementById('loginForm');
+    const passwordInput = document.getElementById('passwordInput');
+    const loginError = document.getElementById('loginError');
+    const viewAllWorkBtn = document.getElementById('viewAllWorkBtn');
+
+    // Correct password (change this to your desired password)
+    const correctPassword = 'uxleader2024';
+
+    // Mobile: Toggle dropdown on click
+    if (brandTrigger && window.innerWidth <= 768) {
+      brandTrigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        loginDropdown.classList.toggle('is-open');
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!loginDropdown.contains(e.target) && !brandTrigger.contains(e.target)) {
+          loginDropdown.classList.remove('is-open');
+        }
+      });
+    }
+
+    // Handle login form submission
+    if (loginForm) {
+      loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const password = passwordInput.value;
+
+        if (password === correctPassword) {
+          // Store login state
+          sessionStorage.setItem('isLoggedIn', 'true');
+          // Redirect to work index
+          window.location.href = './work/indexWK.html';
+        } else {
+          // Show error
+          loginError.style.display = 'block';
+          passwordInput.value = '';
+          passwordInput.focus();
+
+          // Hide error after 3 seconds
+          setTimeout(() => {
+            loginError.style.display = 'none';
+          }, 3000);
+        }
+      });
+    }
+
+    // Handle View All Work button
+    if (viewAllWorkBtn) {
+      viewAllWorkBtn.addEventListener('click', () => {
+        // Check if already logged in
+        if (sessionStorage.getItem('isLoggedIn') === 'true') {
+          window.location.href = './work/indexWK.html';
+        } else {
+          // Show login dropdown
+          loginDropdown.classList.add('is-open');
+          passwordInput.focus();
+
+          // Scroll to top so dropdown is visible
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      });
+    }
+  }
+
   // --- Work Cards Detail Modal ---
   function initWorkCards() {
     const cards = document.querySelectorAll('.work-card');
@@ -238,6 +308,7 @@
   initTheme();
   bindThemeToggle();
   bindBackToTop();
+  initLogin();
   initWorkCards();
   setCurrentYear();
 })();
