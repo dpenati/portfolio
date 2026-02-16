@@ -20,6 +20,10 @@
     />
 
     <link rel="stylesheet" href="./styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+      emailjs.init('hni_Z9x6JvTGqEA5j');
+    </script>
   </head>
 
   <body>
@@ -738,6 +742,7 @@
           </p>
 
           <form
+            id="contact-form"
             class="form"
             action="https://formspree.io/f/YOUR_FORM_ID"
             method="POST"

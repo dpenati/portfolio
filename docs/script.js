@@ -63,7 +63,7 @@
       history.replaceState(
         null,
         '',
-        window.location.pathname + window.location.search
+        window.location.pathname + window.location.search,
       );
     });
   }
@@ -242,13 +242,13 @@
       `;
 
       overlay.classList.add('is-open');
-      
+
       // Scroll modal content to top
       const modal = overlay.querySelector('.work-detail-modal');
       if (modal) {
         modal.scrollTop = 0;
       }
-      
+
       // Small delay to ensure overlay is rendered, then scroll it to show modal from top
       setTimeout(() => {
         overlay.scrollTop = 0;
@@ -311,6 +311,23 @@
       yearSpan.textContent = new Date().getFullYear();
     }
   }
+
+  //--- Send email from email.JS ---
+  document
+    .getElementById('contact-form')
+    .addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      emailjs.sendForm('service_7p3fahn', 'template_an37vz8', this).then(
+        function () {
+          alert('Message sent successfully!');
+        },
+        function (error) {
+          alert('Failed to send message.');
+          console.log(error);
+        },
+      );
+    });
 
   // Init
   initTheme();
