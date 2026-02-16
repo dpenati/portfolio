@@ -71,6 +71,7 @@
   // --- Login functionality ---
   function initLogin() {
     const brandTrigger = document.querySelector('.brand-trigger');
+    const brand = document.querySelector('.brand');
     const loginDropdown = document.getElementById('loginDropdown');
     const loginForm = document.getElementById('loginForm');
     const passwordInput = document.getElementById('passwordInput');
@@ -86,14 +87,21 @@
         e.stopPropagation();
         loginDropdown.classList.toggle('is-open');
       });
-
-      // Close dropdown when clicking outside
-      document.addEventListener('click', (e) => {
-        if (!loginDropdown.contains(e.target) && !brandTrigger.contains(e.target)) {
-          loginDropdown.classList.remove('is-open');
-        }
-      });
     }
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (loginDropdown && !brand.contains(e.target)) {
+        loginDropdown.classList.remove('is-open');
+      }
+    });
+
+    // Close dropdown on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && loginDropdown) {
+        loginDropdown.classList.remove('is-open');
+      }
+    });
 
     // Handle login form submission
     if (loginForm) {
