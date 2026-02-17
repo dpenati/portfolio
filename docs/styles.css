@@ -12,10 +12,17 @@
   --section-pad: clamp(40px, 6vw, 80px);
   --header-hint: 84px;
 
+  /* How much of the hero strip should be visible at the bottom on load */
+  --hero-peek: clamp(120px, 16vh, 220px);
+
   --serif: 'Playfair Display', ui-serif, Georgia, serif;
   --hook: 'Cairo Play', 'Playfair Display', ui-serif, Georgia, serif;
-  --sans: 'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-  --condensed: 'Roboto Condensed', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  --sans:
+    'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+    Helvetica, Arial;
+  --condensed:
+    'Roboto Condensed', ui-sans-serif, system-ui, -apple-system, Segoe UI,
+    Roboto, Helvetica, Arial;
 
   --kicker: 13px;
   --title: 26px;
@@ -245,7 +252,7 @@ a {
     visibility: hidden;
     transform: translateY(-10px);
   }
-  
+
   .brand-trigger {
     -webkit-tap-highlight-color: transparent;
   }
@@ -343,7 +350,8 @@ a {
 
 .parallax-bg {
   /* Fixed background image that stays in place while content scrolls over */
-  min-height: 100vh;
+  min-height: calc(100vh - var(--hero-peek));
+  min-height: calc(100svh - var(--hero-peek)); /* better on mobile browsers */
   background-attachment: fixed;
   background-position: top center;
   background-repeat: no-repeat;
@@ -433,7 +441,7 @@ html[data-theme='auto'] .parallax-welcome {
     padding: calc(var(--header-hint) + 15px) var(--pad-x) 0;
     margin-top: calc(-1 * var(--header-hint));
   }
-  
+
   .parallax-welcome {
     font-size: clamp(40px, 10vw, 70px);
   }
@@ -538,12 +546,12 @@ html[data-theme='auto'] .hero-strip {
   .hero-strip {
     padding: clamp(20px, 5vh, 32px) 0;
   }
-  
+
   .hook-line-main {
     font-size: clamp(24px, 6vw, 36px);
     flex-wrap: wrap;
   }
-  
+
   .hook-line-sub {
     font-size: clamp(16px, 4vw, 24px);
     max-width: 100%;
@@ -649,7 +657,8 @@ html[data-theme='auto'] .hero-strip {
 }
 
 @keyframes pulse {
-  0%, 100% {
+  0%,
+  100% {
     r: 60;
     opacity: 0.5;
   }
@@ -742,14 +751,14 @@ html[data-theme='auto'] .hero-strip {
   .accent-interactive {
     display: none;
   }
-  
+
   .accent-mobile-links {
     display: flex;
     flex-direction: column;
     gap: 12px;
     margin-top: 20px;
   }
-  
+
   .accent-mobile-link {
     font-family: var(--sans);
     font-size: 14px;
@@ -758,7 +767,7 @@ html[data-theme='auto'] .hero-strip {
     text-decoration: none;
     transition: color 220ms ease;
   }
-  
+
   .accent-mobile-link:hover {
     color: color-mix(in srgb, var(--accent) 85%, #000);
   }
@@ -981,7 +990,8 @@ html[data-theme='auto'] .work-card:hover .work-svg {
 }
 
 @keyframes iconPulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0;
     transform: scale(1);
   }
