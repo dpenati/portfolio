@@ -131,17 +131,18 @@
     // Handle View All Work button
     if (viewAllWorkBtn) {
       viewAllWorkBtn.addEventListener('click', () => {
-        // Check if already logged in
-        if (sessionStorage.getItem('isLoggedIn') === 'true') {
-          window.location.href = './work/indexWK.html';
-        } else {
-          // Show login dropdown
-          loginDropdown.classList.add('is-open');
-          passwordInput.focus();
+        window.location.href = './work/indexWK.html';
+        // // Check if already logged in
+        // if (sessionStorage.getItem('isLoggedIn') === 'true') {
+        //   window.location.href = './work/indexWK.html';
+        // } else {
+        //   // Show login dropdown
+        //   loginDropdown.classList.add('is-open');
+        //   passwordInput.focus();
 
-          // Scroll to top so dropdown is visible
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+        //   // Scroll to top so dropdown is visible
+        //   window.scrollTo({ top: 0, behavior: 'smooth' });
+        // }
       });
     }
   }
