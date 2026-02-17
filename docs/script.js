@@ -3,55 +3,6 @@ const websiteURL = 'https://dpenati.github.io/portfolio/';
 (function () {
   const root = document.documentElement;
 
-  // --- Theme handling ---
-  const KEY = 'dp-theme';
-
-  function applyTheme(mode) {
-    root.setAttribute('data-theme', mode);
-
-    if (mode === 'dark') root.style.colorScheme = 'dark';
-    else if (mode === 'light') root.style.colorScheme = 'light';
-    else root.style.colorScheme = 'light dark';
-  }
-
-  function getStoredTheme() {
-    try {
-      return localStorage.getItem(KEY);
-    } catch {
-      return null;
-    }
-  }
-
-  function setStoredTheme(mode) {
-    try {
-      localStorage.setItem(KEY, mode);
-    } catch {}
-  }
-
-  function initTheme() {
-    const stored = getStoredTheme();
-    const mode = stored || root.getAttribute('data-theme') || 'auto';
-    applyTheme(mode);
-  }
-
-  function bindThemeToggle() {
-    const btn =
-      document.querySelector('[data-theme-toggle]') ||
-      document.getElementById('themeToggle');
-
-    if (!btn) return;
-
-    btn.addEventListener('click', () => {
-      const current = root.getAttribute('data-theme') || 'auto';
-      const next =
-        current === 'auto' ? 'dark' : current === 'dark' ? 'light' : 'auto';
-      applyTheme(next);
-      setStoredTheme(next);
-
-      btn.setAttribute('aria-label', `Theme: ${next}`);
-    });
-  }
-
   // --- Back to top ---
   function bindBackToTop() {
     const a = document.querySelector('a[href="#top"], a[data-back-to-top]');
@@ -330,8 +281,6 @@ const websiteURL = 'https://dpenati.github.io/portfolio/';
     });
 
   // Init
-  initTheme();
-  bindThemeToggle();
   bindBackToTop();
   initLogin();
   initWorkCards();
