@@ -10,7 +10,7 @@ const logoutBtn = document.getElementById('logout');
 
 onAuthStateChanged(auth, (user) => {
   if (!user) {
-    window.location.href = './login.html';
+    window.location.href = '../login.html';
     return;
   }
   who.textContent = `Signed in as: ${user.email}`;
@@ -19,5 +19,5 @@ onAuthStateChanged(auth, (user) => {
 
 logoutBtn.addEventListener('click', async () => {
   await signOut(auth);
-  window.location.href = './login.html';
+  window.location.href = '../login.html';
 });
