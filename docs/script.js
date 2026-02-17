@@ -1,7 +1,56 @@
 // script.js – site behavior with parallax reveal effect
-const websiteURL = 'https://dpenati.github.io/portfolio/';
+
 (function () {
   const root = document.documentElement;
+
+  // --- Theme handling ---
+  const KEY = 'dp-theme';
+
+  function applyTheme(mode) {
+    root.setAttribute('data-theme', mode);
+
+    if (mode === 'dark') root.style.colorScheme = 'dark';
+    else if (mode === 'light') root.style.colorScheme = 'light';
+    else root.style.colorScheme = 'light dark';
+  }
+
+  function getStoredTheme() {
+    try {
+      return localStorage.getItem(KEY);
+    } catch {
+      return null;
+    }
+  }
+
+  function setStoredTheme(mode) {
+    try {
+      localStorage.setItem(KEY, mode);
+    } catch {}
+  }
+
+  function initTheme() {
+    const stored = getStoredTheme();
+    const mode = stored || root.getAttribute('data-theme') || 'auto';
+    applyTheme(mode);
+  }
+
+  function bindThemeToggle() {
+    const btn =
+      document.querySelector('[data-theme-toggle]') ||
+      document.getElementById('themeToggle');
+
+    if (!btn) return;
+
+    btn.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme') || 'auto';
+      const next =
+        current === 'auto' ? 'dark' : current === 'dark' ? 'light' : 'auto';
+      applyTheme(next);
+      setStoredTheme(next);
+
+      btn.setAttribute('aria-label', `Theme: ${next}`);
+    });
+  }
 
   // --- Back to top ---
   function bindBackToTop() {
@@ -64,7 +113,7 @@ const websiteURL = 'https://dpenati.github.io/portfolio/';
           // Store login state
           sessionStorage.setItem('isLoggedIn', 'true');
           // Redirect to work index
-          window.location.href = websiteURL + 'work/indexWK.html';
+          window.location.href = './work/indexWK.html';
         } else {
           // Show error
           loginError.style.display = 'block';
@@ -84,7 +133,7 @@ const websiteURL = 'https://dpenati.github.io/portfolio/';
       viewAllWorkBtn.addEventListener('click', () => {
         // Check if already logged in
         if (sessionStorage.getItem('isLoggedIn') === 'true') {
-          window.location.href = websiteURL + 'work/indexWK.html';
+          window.location.href = './work/indexWK.html';
         } else {
           // Show login dropdown
           loginDropdown.classList.add('is-open');
@@ -281,6 +330,8 @@ const websiteURL = 'https://dpenati.github.io/portfolio/';
     });
 
   // Init
+  initTheme();
+  bindThemeToggle();
   bindBackToTop();
   initLogin();
   initWorkCards();
