@@ -9,6 +9,7 @@ const content = document.getElementById('content');
 const logoutBtn = document.getElementById('logout');
 
 onAuthStateChanged(auth, (user) => {
+  console.log('USer --> ', user);
   if (!user) {
     window.location.href = '../login.html';
     return;
