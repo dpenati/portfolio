@@ -1,5 +1,5 @@
 // script.js – site behavior with parallax reveal effect
-
+const websiteURL = 'https://dpenati.github.io/portfolio/';
 (function () {
   const root = document.documentElement;
 
@@ -113,7 +113,7 @@
           // Store login state
           sessionStorage.setItem('isLoggedIn', 'true');
           // Redirect to work index
-          window.location.href = './work/indexWK.html';
+          window.location.href = websiteURL + 'work/indexWK.html';
         } else {
           // Show error
           loginError.style.display = 'block';
@@ -133,7 +133,7 @@
       viewAllWorkBtn.addEventListener('click', () => {
         // Check if already logged in
         if (sessionStorage.getItem('isLoggedIn') === 'true') {
-          window.location.href = './work/indexWK.html';
+          window.location.href = websiteURL + 'work/indexWK.html';
         } else {
           // Show login dropdown
           loginDropdown.classList.add('is-open');
