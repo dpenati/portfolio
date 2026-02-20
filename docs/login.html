@@ -50,7 +50,7 @@
          Login form area — sits on the grey strip
       ---------------------------------------- */
 
-      .login-section {
+      .auth-section {
         position: relative;
         z-index: 100;
         background: rgba(60, 60, 60, 0.95);
@@ -58,25 +58,25 @@
         padding: clamp(48px, 8vh, 80px) 0 clamp(56px, 9vh, 90px);
       }
 
-      html[data-theme='dark'] .login-section,
-      html[data-theme='auto'] .login-section {
+      html[data-theme='dark'] .auth-section,
+      html[data-theme='auto'] .auth-section {
         background: rgba(30, 30, 30, 0.95);
       }
 
       @media (prefers-color-scheme: dark) {
-        html[data-theme='auto'] .login-section {
+        html[data-theme='auto'] .auth-section {
           background: rgba(30, 30, 30, 0.95);
         }
       }
 
-      .login-inner {
+      .auth-inner {
         max-width: 560px;
         margin: 0 auto;
         padding: 0 var(--pad-x);
       }
 
       /* Form heading */
-      .login-heading {
+      .auth-heading {
         font-family: 'Cairo Play', var(--serif);
         font-weight: 600;
         font-size: clamp(28px, 4vw, 38px);
@@ -86,7 +86,7 @@
         line-height: 1.2;
       }
 
-      .login-subheading {
+      .auth-subheading {
         font-family: var(--condensed);
         font-weight: 300;
         font-size: 16px;
@@ -96,20 +96,20 @@
       }
 
       /* Form fields */
-      .login-form {
+      .auth-form {
         display: flex;
         flex-direction: column;
         gap: 36px;
       }
 
-      .login-field {
+      .auth-field {
         display: flex;
         flex-direction: column;
         gap: 10px;
         position: relative;
       }
 
-      .login-label {
+      .auth-label {
         font-family: var(--sans);
         font-weight: 500;
         font-size: 11px;
@@ -119,11 +119,11 @@
         transition: color 0.25s ease;
       }
 
-      .login-field:focus-within .login-label {
+      .auth-field:focus-within .auth-label {
         color: rgba(110, 91, 152, 0.9);
       }
 
-      .login-input {
+      .auth-input {
         width: 100%;
         padding: 18px 0 16px;
         border: none;
@@ -140,17 +140,17 @@
         -webkit-appearance: none;
       }
 
-      .login-input::placeholder {
+      .auth-input::placeholder {
         color: rgba(255, 255, 255, 0.2);
         font-weight: 300;
       }
 
-      .login-input:focus {
+      .auth-input:focus {
         border-bottom-color: var(--accent);
       }
 
       /* Animated underline glow */
-      .login-field::after {
+      .auth-field::after {
         content: '';
         position: absolute;
         bottom: 0;
@@ -161,16 +161,16 @@
         transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       }
 
-      .login-field:focus-within::after {
+      .auth-field:focus-within::after {
         width: 100%;
       }
 
       /* Submit button */
-      .login-submit-wrap {
+      .auth-submit-wrap {
         margin-top: 12px;
       }
 
-      .login-btn {
+      .auth-btn {
         width: 100%;
         padding: 22px 40px;
         background: transparent;
@@ -187,7 +187,7 @@
         overflow: hidden;
       }
 
-      .login-btn::before {
+      .auth-btn::before {
         content: '';
         position: absolute;
         inset: 0;
@@ -198,21 +198,21 @@
         z-index: 0;
       }
 
-      .login-btn:hover::before {
+      .auth-btn:hover::before {
         transform: scaleX(1);
       }
 
-      .login-btn:hover {
+      .auth-btn:hover {
         border-color: var(--accent);
         transform: translateY(-2px);
         box-shadow: 0 12px 32px rgba(110, 91, 152, 0.35);
       }
 
-      .login-btn:active {
+      .auth-btn:active {
         transform: translateY(0);
       }
 
-      .login-btn span {
+      .auth-btn span {
         position: relative;
         z-index: 1;
       }
@@ -231,7 +231,7 @@
       }
 
       /* Purple reveal below (matching indexDP pattern) */
-      .login-purple-reveal {
+      .auth-purple-reveal {
         width: 100%;
         min-height: 30vh;
         background: linear-gradient(135deg, #6e5b98 0%, #8b7ba8 100%);
@@ -239,13 +239,13 @@
         z-index: 100;
       }
 
-      html[data-theme='dark'] .login-purple-reveal,
-      html[data-theme='auto'] .login-purple-reveal {
+      html[data-theme='dark'] .auth-purple-reveal,
+      html[data-theme='auto'] .auth-purple-reveal {
         background: linear-gradient(135deg, #5a4a7a 0%, #6e5b98 100%);
       }
 
       @media (prefers-color-scheme: dark) {
-        html[data-theme='auto'] .login-purple-reveal {
+        html[data-theme='auto'] .auth-purple-reveal {
           background: linear-gradient(135deg, #5a4a7a 0%, #6e5b98 100%);
         }
       }
@@ -342,18 +342,18 @@
       </div>
 
       <!-- Grey login section -->
-      <section class="login-section" aria-label="Login">
-        <div class="login-inner">
-          <h1 class="login-heading">Members only</h1>
-          <p class="login-subheading">
+      <section class="auth-section" aria-label="Login">
+        <div class="auth-inner">
+          <h1 class="auth-heading">Members only</h1>
+          <p class="auth-subheading">
             Enter your credentials to access protected work.
           </p>
 
-          <form id="loginForm" class="login-form" novalidate>
-            <div class="login-field">
-              <label class="login-label" for="email">Email</label>
+          <form id="loginForm" class="auth-form" novalidate>
+            <div class="auth-field">
+              <label class="auth-label" for="email">Email</label>
               <input
-                class="login-input"
+                class="auth-input"
                 id="email"
                 type="email"
                 placeholder="your@email.com"
@@ -362,10 +362,10 @@
               />
             </div>
 
-            <div class="login-field">
-              <label class="login-label" for="password">Password</label>
+            <div class="auth-field">
+              <label class="auth-label" for="password">Password</label>
               <input
-                class="login-input"
+                class="auth-input"
                 id="password"
                 type="password"
                 placeholder="••••••••••"
@@ -374,8 +374,8 @@
               />
             </div>
 
-            <div class="login-submit-wrap">
-              <button type="submit" class="login-btn">
+            <div class="auth-submit-wrap">
+              <button type="submit" class="auth-btn">
                 <span>Come in</span>
               </button>
             </div>
@@ -386,7 +386,7 @@
       </section>
 
       <!-- Purple reveal base -->
-      <div class="login-purple-reveal" aria-hidden="true"></div>
+      <div class="auth-purple-reveal" aria-hidden="true"></div>
     </main>
 
     <!-- Footer -->
