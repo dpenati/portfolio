@@ -2,8 +2,73 @@
 <html lang="en" data-theme="auto">
   <head>
     <style>
-      html.auth-pending body {
-        visibility: hidden;
+      /* Auth pending: show a lightweight loading state instead of a blank page */
+      #auth-loading {
+        position: fixed;
+        inset: 0;
+        display: none;
+        place-items: center;
+        z-index: 9999;
+        background: radial-gradient(
+          circle at 30% 20%,
+          rgba(110, 91, 152, 0.22),
+          rgba(0, 0, 0, 0.78)
+        );
+        color: rgba(255, 255, 255, 0.92);
+        font-family: var(--sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial);
+        text-align: center;
+        padding: 24px;
+      }
+
+      #auth-loading .loader-card {
+        width: min(520px, calc(100vw - 48px));
+        border-radius: 14px;
+        padding: 22px 22px 18px;
+        background: rgba(20, 20, 20, 0.72);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+        backdrop-filter: blur(10px);
+      }
+
+      #auth-loading .loader-title {
+        font-family: 'Cairo Play', var(--sans, system-ui);
+        font-weight: 700;
+        letter-spacing: 0.01em;
+        font-size: 18px;
+        margin: 0 0 10px 0;
+      }
+
+      #auth-loading .loader-sub {
+        margin: 0;
+        opacity: 0.72;
+        line-height: 1.45;
+        font-size: 14px;
+      }
+
+      #auth-loading .spinner {
+        width: 34px;
+        height: 34px;
+        border-radius: 999px;
+        border: 2px solid rgba(255, 255, 255, 0.28);
+        border-top-color: rgba(255, 255, 255, 0.9);
+        margin: 0 auto 14px auto;
+        animation: dpSpin 0.9s linear infinite;
+      }
+
+      @keyframes dpSpin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      html.auth-pending #auth-loading {
+        display: grid;
+      }
+
+      /* Keep layout from flashing while auth resolves */
+      html.auth-pending body > :not(#auth-loading) {
+        opacity: 0;
+        pointer-events: none;
       }
     </style>
     <script>
@@ -33,6 +98,14 @@
 
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
+    <div id="auth-loading" aria-live="polite" aria-busy="true">
+      <div class="loader-card">
+        <div class="spinner" aria-hidden="true"></div>
+        <p class="loader-title">Checking access…</p>
+        <p class="loader-sub">If you’re not signed in, you’ll be sent to the login page.</p>
+      </div>
+    </div>
+
 
     <!-- Sticky header -->
     <header class="site-header" id="top">

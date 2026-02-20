@@ -20,6 +20,7 @@ form.addEventListener('submit', async (e) => {
       document.getElementById('email').value,
       document.getElementById('password').value,
     );
+    try { localStorage.setItem('dp_last_login_at', String(Date.now())); } catch {}
     window.location.href = './work/indexWK.html';
   } catch (err) {
     msg.textContent = err.code || err.message;

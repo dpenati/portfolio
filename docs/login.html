@@ -24,7 +24,7 @@
       /* Hero subtitle — calligraphy quote */
       .hero-subtitle-quote {
         position: absolute;
-        top: calc(100px + clamp(52px, 9vw, 110px) + 12px);
+        top: calc(var(--header-hint) + 44px + clamp(52px, 9vw, 110px) + 12px);
         left: var(--pad-x);
         font-family: 'Caveat', cursive;
         font-weight: 400;
@@ -39,7 +39,7 @@
 
       @media (max-width: 760px) {
         .hero-subtitle-quote {
-          top: calc(130px + clamp(40px, 12vw, 70px) + 10px);
+          top: calc(var(--header-hint) + 44px + clamp(40px, 12vw, 70px) + 10px);
           font-size: clamp(16px, 4vw, 24px);
           white-space: normal;
           max-width: 90vw;
@@ -259,6 +259,29 @@
         transition: background-color 5000s ease-in-out 0s;
         caret-color: white;
       }
+      /* ----------------------------------------
+   Login page: header no-wrap safety
+---------------------------------------- */
+      .site-header .header-row {
+        flex-wrap: nowrap;
+        gap: clamp(16px, 2vw, 28px);
+      }
+
+      .site-header .brand,
+      .site-header .header-actions {
+        min-width: 0;
+        flex-wrap: nowrap;
+      }
+
+      .site-header .nav {
+        white-space: nowrap;
+        flex-wrap: nowrap;
+      }
+
+      .site-header .brand-title,
+      .site-header .brand-subtitle {
+        white-space: nowrap;
+      }
     </style>
   </head>
 
@@ -269,13 +292,14 @@
     <header class="site-header" id="top">
       <div class="container header-row">
         <div class="brand">
-          <a href="../index.html" class="brand-link">
+          <div class="brand-trigger">
             <svg
               class="brand-mark"
               viewBox="0 0 60 60"
               xmlns="http://www.w3.org/2000/svg"
               aria-hidden="true"
             >
+              <!-- Outer circle outline -->
               <circle
                 cx="30"
                 cy="30"
@@ -285,6 +309,8 @@
                 fill="none"
                 opacity="0.3"
               />
+
+              <!-- Inner circle with grey fill -->
               <circle
                 cx="30"
                 cy="30"
@@ -292,6 +318,8 @@
                 fill="currentColor"
                 opacity="0.08"
               />
+
+              <!-- Text centered with tighter spacing -->
               <text
                 x="30"
                 y="38"
@@ -305,18 +333,19 @@
                 d:p
               </text>
             </svg>
+
             <div>
               <div class="brand-title">Daniela Penati</div>
               <div class="brand-subtitle">UX Design & Leadership</div>
             </div>
-          </a>
+          </div>
         </div>
 
         <div class="header-actions">
           <nav class="nav" aria-label="Primary">
-            <a href="../daniela/indexDP.html">About</a>
-            <a href="../work/indexWK.html">Work</a>
-            <a href="../index.html#contact">Contact</a>
+            <a href="./daniela/indexDP.html">About</a>
+            <a href="./work/indexWK.html">Work</a>
+            <a href="./index.html#contact">Contact</a>
           </nav>
 
           <button
@@ -508,5 +537,24 @@
 
     <!-- Auth module -->
     <script type="module" src="./auth-login.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const brand = document.querySelector('.brand-trigger');
+        if (brand) {
+          brand.setAttribute('role', 'link');
+          brand.setAttribute('tabindex', '0');
+
+          const goHome = () => (window.location.href = './index.html');
+
+          brand.addEventListener('click', goHome);
+          brand.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              goHome();
+            }
+          });
+        }
+      });
+    </script>
   </body>
 </html>
