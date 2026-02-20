@@ -448,6 +448,96 @@ html[data-theme='auto'] .parallax-welcome {
 }
 
 /* -------------------------
+   Shared: Purple Hero with Parallax Effect (DP pages)
+   Used by: daniela/indexDP.html + login.html
+-------------------------- */
+
+.hero-parallax-container {
+  position: relative;
+  height: 33vh;
+  min-height: 220px;
+  max-height: 280px;
+  overflow: visible;
+  pointer-events: none;
+  background: linear-gradient(135deg, #6e5b98 0%, #8b7ba8 100%);
+}
+
+html[data-theme='dark'] .hero-parallax-container,
+html[data-theme='auto'] .hero-parallax-container {
+  background: linear-gradient(135deg, #5a4a7a 0%, #6e5b98 100%);
+}
+
+@media (prefers-color-scheme: dark) {
+  html[data-theme='auto'] .hero-parallax-container {
+    background: linear-gradient(135deg, #5a4a7a 0%, #6e5b98 100%);
+  }
+}
+
+.hero-parallax-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 33vh;
+  min-height: 220px;
+  max-height: 280px;
+  background: linear-gradient(135deg, #6e5b98 0%, #8b7ba8 100%);
+  z-index: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-top: var(--header-hint);
+  pointer-events: none;
+}
+
+html[data-theme='dark'] .hero-parallax-fixed,
+html[data-theme='auto'] .hero-parallax-fixed {
+  background: linear-gradient(135deg, #5a4a7a 0%, #6e5b98 100%);
+}
+
+@media (prefers-color-scheme: dark) {
+  html[data-theme='auto'] .hero-parallax-fixed {
+    background: linear-gradient(135deg, #5a4a7a 0%, #6e5b98 100%);
+  }
+}
+
+.hero-title-corner {
+  position: absolute;
+  top: 100px;
+  left: var(--pad-x);
+  font-family: 'Cairo Play', var(--hook);
+  font-weight: 600;
+  font-size: clamp(52px, 9vw, 110px);
+  font-style: italic;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.15);
+  text-shadow: 0 2px 20px rgba(255, 255, 255, 0.1);
+  line-height: 1;
+  margin: 0;
+  z-index: 2;
+}
+
+@media (max-width: 760px) {
+  .hero-parallax-container {
+    height: 28vh;
+    min-height: 200px;
+    max-height: 240px;
+  }
+
+  .hero-parallax-fixed {
+    height: 28vh;
+    min-height: 200px;
+    max-height: 240px;
+    padding-top: var(--header-hint);
+  }
+
+  .hero-title-corner {
+    top: 130px;
+    font-size: clamp(40px, 12vw, 70px);
+  }
+}
+
+/* -------------------------
    Hero Strip (scrolls over parallax)
 -------------------------- */
 
