@@ -259,9 +259,47 @@
         transition: background-color 5000s ease-in-out 0s;
         caret-color: white;
       }
+
+      .auth-password-wrap {
+        position: relative;
+      }
+
+      .auth-password-wrap .auth-input {
+        padding-right: 4.8rem; /* spazio per il bottone */
+      }
+
+      .auth-password-toggle {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        border: 0;
+        background: transparent;
+        font: inherit;
+        font-size: 14px;
+        padding: 6px 8px;
+        border-radius: 10px;
+        cursor: pointer;
+
+        /* pick one depending on your theme */
+        color: rgba(255, 255, 255, 0.75); /* se login è su sfondo scuro */
+        /* color: rgba(29, 29, 30, 0.65); */ /* se login è su sfondo chiaro */
+      }
+
+      .auth-password-toggle:hover {
+        background: rgba(255, 255, 255, 0.08);
+        /* background: rgba(29, 29, 30, 0.08); */
+      }
+
+      .auth-password-toggle:focus-visible {
+        outline: 2px solid rgba(255, 255, 255, 0.35);
+        outline-offset: 2px;
+        /* outline-color: rgba(29, 29, 30, 0.35); */
+      }
+
       /* ----------------------------------------
-   Login page: header no-wrap safety
----------------------------------------- */
+      Login page: header no-wrap safety
+      ---------------------------------------- */
       .site-header .header-row {
         flex-wrap: nowrap;
         gap: clamp(16px, 2vw, 28px);
@@ -393,14 +431,26 @@
 
             <div class="auth-field">
               <label class="auth-label" for="password">Password</label>
-              <input
-                class="auth-input"
-                id="password"
-                type="password"
-                placeholder="••••••••••"
-                required
-                autocomplete="current-password"
-              />
+
+              <div class="auth-password-wrap">
+                <input
+                  class="auth-input"
+                  id="password"
+                  type="password"
+                  placeholder="••••••••••"
+                  required
+                  autocomplete="current-password"
+                />
+
+                <button
+                  type="button"
+                  class="auth-password-toggle"
+                  aria-label="Show password"
+                  aria-pressed="false"
+                >
+                  Show
+                </button>
+              </div>
             </div>
 
             <div class="auth-submit-wrap">
