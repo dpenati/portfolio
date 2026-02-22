@@ -21,29 +21,64 @@
          Login page overrides & form styles
       ---------------------------------------- */
 
-      /* Hero subtitle — calligraphy quote */
-      .hero-subtitle-quote {
+      /* Hero quote block (quote + author) */
+      .hero-quote-block {
         position: absolute;
         top: calc(var(--header-hint) + 44px + clamp(52px, 9vw, 110px) + 12px);
         left: var(--pad-x);
+        z-index: 2;
+        margin: 0;
+        max-width: 90vw;
+      }
+
+      /* Quote */
+      .hero-quote-text {
+        margin: 0;
         font-family: 'Caveat', cursive;
         font-weight: 400;
         font-size: clamp(24px, 3.6vw, 40px);
-        color: rgba(29, 29, 30, 0.6);
+        color: rgba(29, 29, 30, 0.52);
         letter-spacing: 0.02em;
         font-style: italic;
-        z-index: 2;
-        margin: 0;
+        line-height: 1.05;
         white-space: nowrap;
       }
 
+      /* Author */
+      .hero-quote-author {
+        margin: 8px 0 0 0;
+        font-family: 'Cairo Play', var(--sans);
+        font-weight: 650;
+        font-size: clamp(13px, 1.5vw, 16px);
+        letter-spacing: 0.06em;
+        color: rgba(29, 29, 30, 0.6);
+        line-height: 1.2;
+      }
+
       @media (max-width: 760px) {
-        .hero-subtitle-quote {
+        .hero-quote-block {
           top: calc(var(--header-hint) + 44px + clamp(40px, 12vw, 70px) + 10px);
-          font-size: clamp(18px, 5vw, 30px);
-          white-space: normal;
           max-width: 90vw;
         }
+
+        .hero-quote-text {
+          font-size: clamp(18px, 5vw, 30px);
+          white-space: normal;
+        }
+
+        .hero-quote-author {
+          margin-top: 6px;
+          font-size: 13px;
+        }
+      }
+
+      /* Lock quote colors across themes (prevents dark-mode overrides) */
+      .hero-quote-text {
+        color: rgba(29, 29, 30, 0.52);
+      }
+
+      .hero-quote-author {
+        color: rgba(29, 29, 30, 0.6);
       }
 
       /* ----------------------------------------
@@ -320,6 +355,10 @@
       .site-header .brand-subtitle {
         white-space: nowrap;
       }
+      :root[data-theme='dark'] .hero-quote-text,
+      :root[data-theme='dark'] .hero-quote-author {
+        color: rgba(245, 245, 246, 0.62);
+      }
     </style>
   </head>
 
@@ -404,7 +443,10 @@
       <div class="hero-parallax-container">
         <div class="hero-parallax-fixed">
           <div class="hero-title-corner">Private</div>
-          <p class="hero-subtitle-quote">Qui si entra, ma non si esce</p>
+          <div class="hero-quote-block" aria-label="Quote">
+            <p class="hero-quote-text">Qui si entra, ma non si esce</p>
+            <p class="hero-quote-author">Gabriele D’Annunzio</p>
+          </div>
         </div>
       </div>
 
