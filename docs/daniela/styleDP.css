@@ -3,10 +3,6 @@
    Hero + glossy strips + split section
    =================================== */
 
-/* -------------------------
-   Theme + tokens
--------------------------- */
-
 :root {
   --accent: #6e5b98;
   --accent-soft: rgba(110, 91, 152, 0.12);
@@ -14,7 +10,6 @@
 
   --container: 1100px;
   --pad-x: clamp(22px, 5vw, 72px);
-  --section-pad: clamp(40px, 6vw, 80px);
   --header-hint: 84px;
 
   --serif: 'Playfair Display', ui-serif, Georgia, serif;
@@ -35,8 +30,8 @@
   --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.08);
 
   /* Glossy strip */
-  --glass-bg: rgba(60, 60, 60, 0.96); /* light mode */
-  --glass-bg-strong: rgba(30, 30, 30, 0.97); /* dark mode */
+  --glass-bg: rgba(60, 60, 60, 0.96);
+  --glass-bg-strong: rgba(30, 30, 30, 0.97);
   --glass-border: rgba(255, 255, 255, 0.14);
   --glass-text: #ffffff;
   --glass-text-muted: rgba(255, 255, 255, 0.78);
@@ -53,13 +48,12 @@
     --rule: rgba(245, 245, 245, 0.12);
     --shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
     --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.6);
-
     --glass-bg: rgba(30, 30, 30, 0.97);
   }
 }
 
-body[data-theme='dark'],
-html[data-theme='dark'] {
+html[data-theme='dark'],
+body[data-theme='dark'] {
   --bg: #0a0a0a;
   --surface: #0f0f0f;
   --ink: #f5f5f5;
@@ -67,21 +61,7 @@ html[data-theme='dark'] {
   --rule: rgba(245, 245, 245, 0.12);
   --shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.6);
-
   --glass-bg: rgba(30, 30, 30, 0.97);
-}
-
-body[data-theme='light'],
-html[data-theme='light'] {
-  --bg: #fafafa;
-  --surface: #ffffff;
-  --ink: #1a1a1a;
-  --muted: #6b6b6b;
-  --rule: rgba(26, 26, 26, 0.1);
-  --shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
-  --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.08);
-
-  --glass-bg: rgba(60, 60, 60, 0.96);
 }
 
 /* -------------------------
@@ -392,7 +372,7 @@ body[data-theme='dark'] .hero-parallax-fixed {
   background: var(--glass-bg);
   backdrop-filter: blur(12px);
   border-top: 1px solid var(--glass-border);
-  border-bottom: 0; /* avoids seam with next section */
+  border-bottom: 0;
   z-index: 200;
   padding: clamp(32px, 5vh, 50px) 0;
   margin: 0;
@@ -469,7 +449,7 @@ body[data-theme='dark'] .glass-strip {
 }
 
 /* -------------------------
-   Split section (bullets + photo)
+   Split section (bullets + tilted photo)
 -------------------------- */
 
 .about-split {
@@ -482,16 +462,14 @@ body[data-theme='dark'] .glass-strip {
 .about-split-inner {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
-  gap: clamp(20px, 4vw, 60px);
-  align-items: start;
+  gap: clamp(22px, 4vw, 70px);
+  align-items: center;
 }
 
 .about-split-text {
   display: grid;
-  gap: clamp(16px, 3vh, 28px);
 }
 
-/* Panel base */
 .glass-panel {
   backdrop-filter: blur(12px);
   border-radius: 22px;
@@ -499,7 +477,6 @@ body[data-theme='dark'] .glass-strip {
   padding: clamp(22px, 4vw, 36px);
 }
 
-/* Purple wash behind bullets */
 .glass-panel--purple {
   background: rgba(110, 91, 152, 0.16);
   border: 1px solid rgba(110, 91, 152, 0.22);
@@ -508,7 +485,15 @@ body[data-theme='dark'] .glass-strip {
     var(--shadow-lg);
 }
 
-/* Bullets */
+.split-lead {
+  margin: 0 0 14px 0;
+  font-family: 'Cairo Play', var(--sans);
+  font-weight: 600;
+  font-size: clamp(19px, 2.7vw, 24px);
+  line-height: 1.35;
+  color: rgba(26, 26, 26, 0.92);
+}
+
 .split-bullets {
   margin: 0;
   padding-left: 1.1em;
@@ -526,95 +511,128 @@ body[data-theme='dark'] .glass-strip {
   margin-bottom: 0;
 }
 
-/* Dark mode: make bullets readable on the purple panel */
-html[data-theme='dark'] .split-bullets,
-body[data-theme='dark'] .split-bullets {
-  color: rgba(255, 255, 255, 0.82);
-}
-
-html[data-theme='dark'] .split-bullets li:first-child,
-body[data-theme='dark'] .split-bullets li:first-child {
-  color: rgba(255, 255, 255, 0.94);
-}
-
-@media (prefers-color-scheme: dark) {
-  html[data-theme='auto'] .split-bullets {
-    color: rgba(255, 255, 255, 0.82);
-  }
-
-  html[data-theme='auto'] .split-bullets li:first-child {
-    color: rgba(255, 255, 255, 0.94);
-  }
-}
-
-.split-lead {
-  margin: 0 0 14px 0;
-  font-family: 'Cairo Play', var(--sans);
-  font-weight: 600;
-  font-size: clamp(19px, 2.7vw, 24px);
-  line-height: 1.35;
-  color: rgba(26, 26, 26, 0.92);
-}
-
+/* Dark mode readability for bullets panel */
 html[data-theme='dark'] .split-lead,
 body[data-theme='dark'] .split-lead {
   color: rgba(255, 255, 255, 0.94);
+}
+
+html[data-theme='dark'] .split-bullets,
+body[data-theme='dark'] .split-bullets {
+  color: rgba(255, 255, 255, 0.82);
 }
 
 @media (prefers-color-scheme: dark) {
   html[data-theme='auto'] .split-lead {
     color: rgba(255, 255, 255, 0.94);
   }
+
+  html[data-theme='auto'] .split-bullets {
+    color: rgba(255, 255, 255, 0.82);
+  }
 }
 
-/* Portrait */
+/* Photo column */
 .about-split-photo {
   position: relative;
+  display: grid;
+  justify-items: end;
 }
 
+/* The key: aspect-ratio guarantees a real height -> object-fit can crop */
 .portrait-frame {
   margin: 0;
+  width: min(520px, 100%);
+  aspect-ratio: 1 / 1; /* crop-friendly portrait ratio */
   border-radius: 28px;
   overflow: hidden;
-  border: 1px solid color-mix(in srgb, var(--rule) 70%, transparent);
-  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.18);
-  background: var(--surface);
   position: relative;
+  background: var(--surface);
+  border: 1px solid color-mix(in srgb, var(--rule) 70%, transparent);
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.22);
 }
 
+/* Tilt + float like your mockup */
+.portrait-frame--tilt {
+  transform: rotate(9deg) translate(10px, 18px);
+  transform-origin: 65% 35%;
+}
+
+/* Extra soft ambient shadow behind the tilted card */
+.portrait-frame--tilt::before {
+  content: '';
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(
+    circle at 50% 60%,
+    rgba(0, 0, 0, 0.25),
+    rgba(0, 0, 0, 0) 70%
+  );
+  filter: blur(18px);
+  opacity: 0.35;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Vignette overlay */
 .portrait-frame::after {
   content: '';
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(
-    circle at 50% 40%,
-    rgba(255, 255, 255, 0) 55%,
-    rgba(0, 0, 0, 0.1) 100%
-  );
+  background:
+    radial-gradient(
+      ellipse 80% 80% at 50% 42%,
+      transparent 40%,
+      rgba(110, 91, 152, 0.35) 100%
+    ),
+    linear-gradient(
+      160deg,
+      rgba(110, 91, 152, 0.3) 0%,
+      rgba(60, 40, 110, 0.15) 100%
+    );
+  mix-blend-mode: color;
+  z-index: 2;
 }
 
 .portrait-frame img {
+  position: relative;
+  z-index: 1;
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
-  filter: grayscale(1) contrast(0.95) brightness(0.95);
-}
+  object-fit: cover;
 
-@media (min-width: 1100px) {
-  .about-split-photo {
-    max-width: 420px;
-    justify-self: end;
-  }
+  /* keep head safe; crop comes mostly from bottom */
+  object-position: center 8%;
+
+  filter: grayscale(1) contrast(1.05) brightness(0.88);
+  mask-image: radial-gradient(
+    ellipse 85% 85% at 50% 42%,
+    black 38%,
+    rgba(0, 0, 0, 0.6) 65%,
+    transparent 100%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 85% 85% at 50% 42%,
+    black 38%,
+    rgba(0, 0, 0, 0.6) 65%,
+    transparent 100%
+  );
 }
 
 @media (max-width: 900px) {
   .about-split-inner {
     grid-template-columns: 1fr;
+    gap: 26px;
   }
 
   .about-split-photo {
-    max-width: 520px;
+    justify-items: center;
+  }
+
+  .portrait-frame--tilt {
+    transform: rotate(-5deg);
   }
 }
 
@@ -632,7 +650,7 @@ body[data-theme='dark'] .split-lead {
   padding: clamp(36px, 6vh, 60px) 0;
   position: relative;
   z-index: 100;
-  margin-top: 0; /* avoids seam */
+  margin-top: 0;
 }
 
 html[data-theme='dark'] .purple-reveal,
@@ -664,7 +682,7 @@ body[data-theme='dark'] .purple-reveal {
 }
 
 /* -------------------------
-   Footer
+   Footer + Back to top
 -------------------------- */
 
 .site-footer {
@@ -711,10 +729,6 @@ body[data-theme='dark'] .purple-reveal {
   color: var(--muted);
 }
 
-/* -------------------------
-   Back to top
--------------------------- */
-
 .fab-top {
   position: fixed;
   right: 20px;
@@ -754,5 +768,9 @@ body[data-theme='dark'] .purple-reveal {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .portrait-frame--tilt {
+    transform: none;
   }
 }
