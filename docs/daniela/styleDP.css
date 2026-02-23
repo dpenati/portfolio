@@ -1,6 +1,7 @@
 /* ===================================
    About Page Styles (styleDP.css)
    Hero + glossy strips + split section
+   + Sticky purple reveal with draw-on grid
    =================================== */
 
 :root {
@@ -272,10 +273,7 @@ img {
   max-height: 300px;
   background: linear-gradient(135deg, #6e5b98 0%, #8b7ba8 100%);
   z-index: 0;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding-top: var(--header-hint);
+  overflow: hidden;
   pointer-events: none;
 }
 
@@ -284,6 +282,16 @@ html[data-theme='dark'] .hero-parallax-fixed,
 body[data-theme='dark'] .hero-parallax-container,
 body[data-theme='dark'] .hero-parallax-fixed {
   background: linear-gradient(135deg, #5a4a7a 0%, #6e5b98 100%);
+}
+
+/* Graph paper grid sitting inside the hero */
+.hero-grid-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .hero-title-corner {
@@ -300,6 +308,7 @@ body[data-theme='dark'] .hero-parallax-fixed {
   line-height: 1;
   margin: 0;
   z-index: 2;
+  will-change: transform;
 }
 
 .hero-quote-block {
@@ -309,6 +318,7 @@ body[data-theme='dark'] .hero-parallax-fixed {
   z-index: 2;
   margin: 0;
   max-width: 90vw;
+  will-change: transform;
 }
 
 .hero-quote-text {
@@ -363,7 +373,7 @@ body[data-theme='dark'] .hero-parallax-fixed {
 }
 
 /* -------------------------
-   Glossy strips (#3 and #6)
+   Glossy strips
 -------------------------- */
 
 .glass-strip {
@@ -428,6 +438,7 @@ body[data-theme='dark'] .glass-strip {
   color: rgba(255, 255, 255, 0.75);
 }
 
+/* close strip text styles (used inside .close-strip-sliding) */
 .close-strip-title {
   margin: 0 0 12px 0;
   font-family: 'Cairo Play', var(--serif);
@@ -456,7 +467,7 @@ body[data-theme='dark'] .glass-strip {
   position: relative;
   z-index: 120;
   padding: clamp(40px, 7vh, 90px) 0;
-  background: var(--bg);
+  background: var(--bg); /* ← change from transparent to var(--bg) */
 }
 
 .about-split-inner {
@@ -539,11 +550,10 @@ body[data-theme='dark'] .split-bullets {
   justify-items: end;
 }
 
-/* The key: aspect-ratio guarantees a real height -> object-fit can crop */
 .portrait-frame {
   margin: 0;
   width: min(520px, 100%);
-  aspect-ratio: 1 / 1; /* crop-friendly portrait ratio */
+  aspect-ratio: 1 / 1;
   border-radius: 28px;
   overflow: hidden;
   position: relative;
@@ -552,13 +562,11 @@ body[data-theme='dark'] .split-bullets {
   box-shadow: 0 22px 70px rgba(0, 0, 0, 0.22);
 }
 
-/* Tilt + float like your mockup */
 .portrait-frame--tilt {
   transform: rotate(9deg) translate(10px, 18px);
   transform-origin: 65% 35%;
 }
 
-/* Extra soft ambient shadow behind the tilted card */
 .portrait-frame--tilt::before {
   content: '';
   position: absolute;
@@ -574,7 +582,6 @@ body[data-theme='dark'] .split-bullets {
   pointer-events: none;
 }
 
-/* Vignette overlay */
 .portrait-frame::after {
   content: '';
   position: absolute;
@@ -602,10 +609,7 @@ body[data-theme='dark'] .split-bullets {
   height: 100%;
   display: block;
   object-fit: cover;
-
-  /* keep head safe; crop comes mostly from bottom */
   object-position: center 8%;
-
   filter: grayscale(1) contrast(1.05) brightness(0.88);
   mask-image: radial-gradient(
     ellipse 85% 85% at 50% 42%,
@@ -636,26 +640,95 @@ body[data-theme='dark'] .split-bullets {
   }
 }
 
-/* -------------------------
-   Purple reveal (shorter)
--------------------------- */
+/* =========================================
+   Purple reveal zone
+   Close strip scrolls away naturally,
+   purple sticky holds beneath it
+========================================= */
 
-.purple-reveal {
+.reveal-scroll-zone {
+  position: relative;
+  z-index: 50;
+}
+
+/* Close strip — normal flow, scrolls away on its own */
+.close-strip-sliding {
+  position: relative;
   width: 100%;
-  min-height: 34vh;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  border-top: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-border);
+  padding: clamp(40px, 7vh, 70px) 0;
+  z-index: 60;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+html[data-theme='dark'] .close-strip-sliding,
+body[data-theme='dark'] .close-strip-sliding {
+  background: var(--glass-bg-strong);
+}
+
+/* Purple — sticky so it holds in viewport while strip scrolls off */
+.purple-sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  min-height: 60vh;
   background: linear-gradient(135deg, #6e5b98 0%, #8b7ba8 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: clamp(36px, 6vh, 60px) 0;
-  position: relative;
-  z-index: 100;
-  margin-top: 0;
+  overflow: hidden;
+  z-index: 50;
 }
 
-html[data-theme='dark'] .purple-reveal,
-body[data-theme='dark'] .purple-reveal {
+html[data-theme='dark'] .purple-sticky,
+body[data-theme='dark'] .purple-sticky {
   background: linear-gradient(135deg, #5a4a7a 0%, #6e5b98 100%);
+}
+
+/* Draw-on grid SVG */
+.reveal-grid-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Drifting secondary grid layer */
+.reveal-drift-grid {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.06;
+  will-change: transform;
+}
+
+/* Button and eyebrow */
+.purple-content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+
+.purple-eyebrow {
+  font-family: 'Cairo Play', var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  margin: 0;
 }
 
 .resume-button {
@@ -669,9 +742,21 @@ body[data-theme='dark'] .purple-reveal {
   font-weight: 600;
   letter-spacing: 0.02em;
   cursor: pointer;
-  transition: all 0.3s ease;
   display: inline-block;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.55s ease,
+    transform 0.55s ease,
+    background 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.resume-button.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .resume-button:hover {
@@ -759,6 +844,10 @@ body[data-theme='dark'] .purple-reveal {
   line-height: 1;
 }
 
+/* -------------------------
+   Reduced motion
+-------------------------- */
+
 @media (prefers-reduced-motion: reduce) {
   :root {
     scroll-behavior: auto;
@@ -772,5 +861,25 @@ body[data-theme='dark'] .purple-reveal {
 
   .portrait-frame--tilt {
     transform: none;
+  }
+
+  .hero-title-corner,
+  .hero-quote-block {
+    will-change: auto;
+    transform: none !important;
+  }
+
+  .reveal-drift-grid {
+    will-change: auto;
+    transform: none !important;
+  }
+
+  .resume-button {
+    opacity: 1;
+    transform: none;
+  }
+
+  .close-strip-sliding {
+    will-change: auto;
   }
 }

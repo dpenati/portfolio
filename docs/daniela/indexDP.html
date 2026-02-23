@@ -8,6 +8,7 @@
       name="description"
       content="I lead by building the foundations that let teams do their best work."
     />
+
     <meta name="color-scheme" content="light dark" />
 
     <!-- Fonts -->
@@ -24,7 +25,7 @@
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- ::: 01 HD -->
+    <!-- ::: 01 HEADER -->
     <header class="site-header" id="top">
       <div class="container header-row">
         <div class="brand">
@@ -64,7 +65,6 @@
                 d:p
               </text>
             </svg>
-
             <div>
               <div class="brand-title">Daniela Penati</div>
               <div class="brand-subtitle">UX Design & Leadership</div>
@@ -84,7 +84,6 @@
             <a href="../work/indexWK.html">Work</a>
             <a href="../index.html#contact">Contact</a>
           </nav>
-
           <button
             class="theme-toggle"
             type="button"
@@ -99,20 +98,69 @@
     </header>
 
     <main id="main">
-      <!-- ::: 02 HERO -->
+      <!-- ::: 02 HERO — purple fixed background with grid atmosphere -->
       <div class="hero-parallax-container">
-        <div class="hero-parallax-fixed">
-          <div class="hero-title-corner">About</div>
+        <div class="hero-parallax-fixed" id="heroFixed">
+          <!-- Graph paper grid — fades in on scroll -->
+          <svg
+            class="hero-grid-canvas"
+            id="heroGrid"
+            viewBox="0 0 1200 300"
+            preserveAspectRatio="xMidYMid slice"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <defs>
+              <pattern
+                id="heroSmallGrid"
+                width="40"
+                height="40"
+                patternUnits="userSpaceOnUse"
+              >
+                <path
+                  d="M 40 0 L 0 0 0 40"
+                  fill="none"
+                  stroke="rgba(255,255,255,0.10)"
+                  stroke-width="0.5"
+                />
+              </pattern>
+              <pattern
+                id="heroLargeGrid"
+                width="200"
+                height="200"
+                patternUnits="userSpaceOnUse"
+              >
+                <rect width="200" height="200" fill="url(#heroSmallGrid)" />
+                <path
+                  d="M 200 0 L 0 0 0 200"
+                  fill="none"
+                  stroke="rgba(255,255,255,0.18)"
+                  stroke-width="1"
+                />
+              </pattern>
+            </defs>
+            <rect
+              id="heroGridRect"
+              width="1200"
+              height="300"
+              fill="url(#heroLargeGrid)"
+              opacity="0.4"
+            />
+          </svg>
 
-          <div class="hero-quote-block" aria-label="Quote">
-            <p class="hero-quote-text">“La chiarezza è una forma di cura.”</p>
+          <!-- Ghost title (layer 1 — slowest drift) -->
+          <div class="hero-title-corner" id="heroTitle">About</div>
+
+          <!-- Quote (layer 2 — medium drift) -->
+          <div class="hero-quote-block" id="heroQuote" aria-label="Quote">
+            <p class="hero-quote-text">"La chiarezza è una forma di cura."</p>
             <p class="hero-quote-author">— Daniela Penati</p>
           </div>
         </div>
       </div>
 
-      <!-- ::: 03 HOOK -->
-      <section class="glass-strip glass-strip--hook">
+      <!-- ::: 03 HOOK STRIP — scrolls over the purple -->
+      <section class="glass-strip glass-strip--hook" id="hookStrip">
         <div class="container">
           <div class="hook-content">
             <div class="hook-line-main">
@@ -131,7 +179,7 @@
         </div>
       </section>
 
-      <!-- ::: 04–05 SPLIT -->
+      <!-- ::: 04–05 SPLIT — scrolls normally, no background so purple peeks through -->
       <section class="about-split" aria-label="About details">
         <div class="container about-split-inner">
           <!-- Left: bullets panel -->
@@ -140,7 +188,6 @@
               <p class="split-lead">
                 I build trust through consistency, follow-through, and clarity.
               </p>
-
               <ul class="split-bullets">
                 <li>
                   My work is grounded in empathy: for teams navigating pressure,
@@ -148,14 +195,14 @@
                   need someone who can connect the dots.
                 </li>
                 <li>
-                  I map what exists, anticipate what’s missing, and create the
+                  I map what exists, anticipate what's missing, and create the
                   structures that allow teams to move with confidence.
                 </li>
               </ul>
             </div>
           </div>
 
-          <!-- Right: tilted portrait -->
+          <!-- Right: portrait -->
           <div class="about-split-photo">
             <figure class="portrait-frame portrait-frame--tilt">
               <img
@@ -168,36 +215,225 @@
         </div>
       </section>
 
-      <!-- ::: 06 CLOSE (standalone strip) -->
-      <section class="glass-strip glass-strip--close">
-        <div class="container">
-          <p class="close-strip-title">
-            I work in the space between people, processes, and products.
-          </p>
-          <p class="close-strip-body">
-            My strength lives where complexity needs translation—where teams
-            need alignment, dependencies need visibility, and systems must scale
-            without losing the human thread.
-          </p>
-        </div>
-      </section>
+      <!-- ::: 06 PURPLE REVEAL ZONE — sticky purple with sliding close strip -->
+      <div class="reveal-scroll-zone" id="revealZone">
 
-      <!-- ::: 07 BUTTON -->
-      <div class="purple-reveal">
-        <div class="container">
-          <a
-            href="./Daniela_CV.pdf"
-            target="_blank"
-            rel="noopener"
-            class="resume-button"
-          >
-            Download Resume
-          </a>
+        <!-- Close strip — sits on top of purple, scrolls away naturally -->
+        <div class="close-strip-sliding" id="closeStrip">
+          <div class="container">
+            <p class="close-strip-title">
+              I work in the space between people, processes, and products.
+            </p>
+            <p class="close-strip-body">
+              My strength lives where complexity needs translation—where teams
+              need alignment, dependencies need visibility, and systems must
+              scale without losing the human thread.
+            </p>
+          </div>
         </div>
+
+        <!-- Purple sticky layer (sits behind, draws grid on reveal) -->
+        <div class="purple-sticky" id="purpleSticky">
+          <!-- Graph paper grid — draws on as strip slides away -->
+          <svg
+            class="reveal-grid-canvas"
+            id="revealGrid"
+            viewBox="0 0 1200 900"
+            preserveAspectRatio="xMidYMid slice"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <defs>
+              <pattern
+                id="revealSmallGrid"
+                width="40"
+                height="40"
+                patternUnits="userSpaceOnUse"
+              >
+                <path
+                  d="M 40 0 L 0 0 0 40"
+                  fill="none"
+                  stroke="rgba(255,255,255,0.10)"
+                  stroke-width="0.5"
+                />
+              </pattern>
+              <pattern
+                id="revealLargeGrid"
+                width="200"
+                height="200"
+                patternUnits="userSpaceOnUse"
+              >
+                <rect width="200" height="200" fill="url(#revealSmallGrid)" />
+                <path
+                  d="M 200 0 L 0 0 0 200"
+                  fill="none"
+                  stroke="rgba(255,255,255,0.20)"
+                  stroke-width="1"
+                />
+              </pattern>
+            </defs>
+
+            <!-- Base grid -->
+            <rect
+              id="revealGridRect"
+              width="1200"
+              height="900"
+              fill="url(#revealLargeGrid)"
+              opacity="0"
+            />
+
+            <!-- Horizontal accent lines (draw left→right) -->
+            <line
+              id="rh1"
+              x1="0"
+              y1="225"
+              x2="1200"
+              y2="225"
+              stroke="rgba(255,255,255,0.20)"
+              stroke-width="1"
+              stroke-dasharray="1200"
+              stroke-dashoffset="1200"
+            />
+            <line
+              id="rh2"
+              x1="0"
+              y1="450"
+              x2="1200"
+              y2="450"
+              stroke="rgba(255,255,255,0.14)"
+              stroke-width="0.6"
+              stroke-dasharray="1200"
+              stroke-dashoffset="1200"
+            />
+            <line
+              id="rh3"
+              x1="0"
+              y1="675"
+              x2="1200"
+              y2="675"
+              stroke="rgba(255,255,255,0.20)"
+              stroke-width="1"
+              stroke-dasharray="1200"
+              stroke-dashoffset="1200"
+            />
+
+            <!-- Vertical accent lines (draw top→bottom) -->
+            <line
+              id="rv1"
+              x1="240"
+              y1="0"
+              x2="240"
+              y2="900"
+              stroke="rgba(255,255,255,0.14)"
+              stroke-width="0.6"
+              stroke-dasharray="900"
+              stroke-dashoffset="900"
+            />
+            <line
+              id="rv2"
+              x1="480"
+              y1="0"
+              x2="480"
+              y2="900"
+              stroke="rgba(255,255,255,0.20)"
+              stroke-width="1"
+              stroke-dasharray="900"
+              stroke-dashoffset="900"
+            />
+            <line
+              id="rv3"
+              x1="720"
+              y1="0"
+              x2="720"
+              y2="900"
+              stroke="rgba(255,255,255,0.14)"
+              stroke-width="0.6"
+              stroke-dasharray="900"
+              stroke-dashoffset="900"
+            />
+            <line
+              id="rv4"
+              x1="960"
+              y1="0"
+              x2="960"
+              y2="900"
+              stroke="rgba(255,255,255,0.20)"
+              stroke-width="1"
+              stroke-dasharray="900"
+              stroke-dashoffset="900"
+            />
+
+            <!-- Intersection dots -->
+            <g id="revealDots" opacity="0">
+              <circle cx="240" cy="225" r="2.5" fill="rgba(255,255,255,0.30)" />
+              <circle cx="480" cy="225" r="3" fill="rgba(255,255,255,0.40)" />
+              <circle cx="720" cy="225" r="2.5" fill="rgba(255,255,255,0.30)" />
+              <circle cx="960" cy="225" r="2.5" fill="rgba(255,255,255,0.30)" />
+              <circle cx="240" cy="450" r="2.5" fill="rgba(255,255,255,0.30)" />
+              <circle cx="480" cy="450" r="3.5" fill="rgba(255,255,255,0.45)" />
+              <circle cx="720" cy="450" r="3.5" fill="rgba(255,255,255,0.45)" />
+              <circle cx="960" cy="450" r="2.5" fill="rgba(255,255,255,0.30)" />
+              <circle cx="240" cy="675" r="2.5" fill="rgba(255,255,255,0.30)" />
+              <circle cx="480" cy="675" r="2.5" fill="rgba(255,255,255,0.30)" />
+              <circle cx="720" cy="675" r="3" fill="rgba(255,255,255,0.40)" />
+              <circle cx="960" cy="675" r="2.5" fill="rgba(255,255,255,0.30)" />
+            </g>
+          </svg>
+
+          <!-- Drift grid (parallax layer — moves slowly as you scroll) -->
+          <svg
+            id="revealDriftGrid"
+            class="reveal-drift-grid"
+            viewBox="0 0 1200 900"
+            preserveAspectRatio="xMidYMid slice"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <defs>
+              <pattern
+                id="driftPat"
+                width="80"
+                height="80"
+                patternUnits="userSpaceOnUse"
+              >
+                <path
+                  d="M 80 0 L 0 0 0 80"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="0.35"
+                />
+              </pattern>
+            </defs>
+            <rect
+              width="1400"
+              height="1100"
+              x="-100"
+              y="-100"
+              fill="url(#driftPat)"
+            />
+          </svg>
+
+          <!-- Resume button — fades in once strip is gone -->
+          <div class="purple-content" id="purpleContent">
+            <p class="purple-eyebrow">Nice to meet you.</p>
+            <a
+              href="./Daniela_CV.pdf"
+              target="_blank"
+              rel="noopener"
+              class="resume-button"
+              id="resumeBtn"
+            >
+              Download Resume
+            </a>
+          </div>
+        </div>
+        <!-- end purple-sticky -->
+
       </div>
+      <!-- end reveal-scroll-zone -->
     </main>
 
-    <!-- ::: 08 END -->
+    <!-- ::: 07 FOOTER -->
     <footer class="site-footer">
       <div class="container footer-row">
         <div class="footer-meta">
@@ -256,12 +492,12 @@
     </a>
 
     <script src="../script.js" defer></script>
-    <script src="./carouselDP.js" defer></script>
+
+    <!-- Theme toggle -->
     <script>
       (function () {
         const btn = document.querySelector('[data-theme-toggle]');
         if (!btn) return;
-
         btn.addEventListener('click', () => {
           const root = document.documentElement;
           const cur = root.getAttribute('data-theme') || 'auto';
@@ -269,6 +505,70 @@
           root.setAttribute('data-theme', next);
           btn.setAttribute('aria-pressed', String(next === 'dark'));
         });
+      })();
+    </script>
+
+    <!-- Parallax & reveal scroll driver -->
+    <script>
+      (function () {
+        const heroTitle = document.getElementById('heroTitle');
+        const heroQuote = document.getElementById('heroQuote');
+        const revealZone = document.getElementById('revealZone');
+        const closeStrip = document.getElementById('closeStrip');
+        const revealGridRect = document.getElementById('revealGridRect');
+        const revealDots = document.getElementById('revealDots');
+        const revealDrift = document.getElementById('revealDriftGrid');
+        const resumeBtn = document.getElementById('resumeBtn');
+        const hLines = ['rh1', 'rh2', 'rh3'].map((id) =>
+          document.getElementById(id),
+        );
+        const vLines = ['rv1', 'rv2', 'rv3', 'rv4'].map((id) =>
+          document.getElementById(id),
+        );
+
+        function clamp(v, lo, hi) {
+          return Math.max(lo, Math.min(hi, v));
+        }
+
+        function tick() {
+          const sy = window.scrollY;
+
+          // ── HERO drift ──
+          heroTitle.style.transform = `translateY(${sy * 0.1}px)`;
+          heroQuote.style.transform = `translateY(${sy * 0.18}px)`;
+
+          // ── GRID draw-on: purely based on purple section visibility ──
+          const purpleRect = revealZone.getBoundingClientRect();
+          const wh = window.innerHeight;
+
+          // progress 0 = purple just entered view, 1 = purple fully in view
+          const progress = clamp((wh - purpleRect.top) / wh, 0, 1);
+
+          revealGridRect.setAttribute('opacity', clamp(progress * 1.2, 0, 0.9));
+
+          hLines.forEach((line, i) => {
+            const p = clamp((progress - i * 0.08) * 2, 0, 1);
+            line.setAttribute('stroke-dashoffset', 1200 * (1 - p));
+          });
+
+          vLines.forEach((line, i) => {
+            const p = clamp((progress - 0.1 - i * 0.06) * 2, 0, 1);
+            line.setAttribute('stroke-dashoffset', 900 * (1 - p));
+          });
+
+          const dotsP = clamp((progress - 0.4) * 4, 0, 1);
+          revealDots.setAttribute('opacity', dotsP);
+          revealDrift.style.transform = `translateY(${-purpleRect.top * 0.07}px)`;
+
+          if (progress > 0.4) {
+            resumeBtn.classList.add('is-visible');
+          } else {
+            resumeBtn.classList.remove('is-visible');
+          }
+        }
+
+        window.addEventListener('scroll', tick, { passive: true });
+        window.addEventListener('load', tick);
       })();
     </script>
   </body>
