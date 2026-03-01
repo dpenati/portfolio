@@ -1,67 +1,121 @@
+// auth-members.js
 import { auth } from './auth-config.js';
 import {
   onAuthStateChanged,
   signOut,
 } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js';
 
-/**
- * auth-members.js
- * Guard protected pages (e.g., /work/indexWK.html).
- *
- * Important: This file may run on pages that do NOT have header auth UI elements.
- * So we must null-check optional DOM nodes.
- */
+// Keep your existing behavior: 1 day strict expiry, key name unchanged
+const EXPIRY_MS = 24 * 60 * 60 * 1000;
+const LAST_LOGIN_KEY = 'dp_last_login_at';
 
+// DOM used by your private templates
 const who = document.getElementById('who');
 const content = document.getElementById('content');
 const logoutBtn = document.getElementById('logout');
 
-// Keep page hidden while we re-confirm auth (helps with back/forward cache restores)
+// Keep the loader behavior your indexWK.html expects.
+// pageshow also covers Safari back/forward cache restores.
 window.addEventListener('pageshow', () => {
   document.documentElement.classList.add('auth-pending');
 });
 
+// ---- helpers ----
+function log(...args) {
+  // Flip to false if you ever want to silence these.
+  const DEBUG = true;
+  if (DEBUG) console.log('[auth-members]', ...args);
+}
+
+function clearLastLogin() {
+  try {
+    localStorage.removeItem(LAST_LOGIN_KEY);
+  } catch {}
+}
+
+function isExpired() {
+  try {
+    const raw = localStorage.getItem(LAST_LOGIN_KEY);
+    if (!raw) return true;
+
+    const ts = Number(raw);
+    if (!Number.isFinite(ts)) return true;
+
+    return Date.now() - ts > EXPIRY_MS;
+  } catch {
+    return true;
+  }
+}
+
+function revealPrivateContent(user) {
+  document.documentElement.classList.remove('auth-pending');
+
+  if (who && user?.email) who.textContent = `Signed in as: ${user.email}`;
+  if (content) content.style.display = 'block';
+}
+
+function buildNextFromCurrentPage() {
+  // Convert current path to a repo-relative "next" like:
+  // ./work/indexWK.html or ./work/24pipes.html
+  const path = window.location.pathname;
+  const workIdx = path.indexOf('/work/');
+  if (workIdx !== -1) return `.${path.slice(workIdx)}`;
+  return './work/indexWK.html';
+}
+
+/**
+ * SAFETY: Keep next restricted to ./work/*.html
+ * (matches the allowlist in auth-login.js)
+ */
+function sanitizeNext(next) {
+  if (!next || typeof next !== 'string') return './work/indexWK.html';
+
+  const trimmed = next.trim();
+  const allowed = /^\.\/work\/[a-zA-Z0-9_-]+\.html$/;
+  return allowed.test(trimmed) ? trimmed : './work/indexWK.html';
+}
+
+function redirectToLoginPreserveNext(reason) {
+  const next = sanitizeNext(buildNextFromCurrentPage());
+  const url = `../login.html?next=${encodeURIComponent(next)}`;
+
+  log(`${reason} → redirecting to login`, { next });
+  window.location.replace(url);
+}
+
+// ---- auth gate ----
 onAuthStateChanged(auth, async (user) => {
-  // If not signed in, send to root login
   if (!user) {
-    window.location.replace('../login.html');
+    redirectToLoginPreserveNext('no-user');
     return;
   }
 
-// Enforce re-auth after 1 day (app-level session expiry)
-const KEY_LAST = 'dp_last_login_at';
-const MAX_AGE_MS = 24 * 60 * 60 * 1000; // 1 day
-let last = 0;
-try {
-  last = Number(localStorage.getItem(KEY_LAST) || 0);
-} catch {}
-const expired = !last || Date.now() - last > MAX_AGE_MS;
+  if (isExpired()) {
+    log('session-expired → signing out');
+    try {
+      await signOut(auth);
+    } catch (e) {
+      log('signOut error (ignored)', e);
+    }
+    clearLastLogin();
+    redirectToLoginPreserveNext('expired');
+    return;
+  }
 
-if (expired) {
-  // Force a fresh credential entry
-  try {
-    await signOut(auth);
-  } catch {}
-  try {
-    localStorage.removeItem(KEY_LAST);
-  } catch {}
-  const loginUrl = window.location.pathname.includes('/work/') ? '../login.html' : './login.html';
-  window.location.replace(loginUrl);
-  return;
-}
-
-  // Signed in: reveal page
-  document.documentElement.classList.remove('auth-pending');
-
-  // Optional UI wiring (only if elements exist on this page)
-  if (who) who.textContent = `Signed in as: ${user.email}`;
-  if (content) content.style.display = 'block';
+  log('auth-ok');
+  revealPrivateContent(user);
 });
 
-// Logout button is optional; only bind if present
+// ---- logout ----
 if (logoutBtn) {
   logoutBtn.addEventListener('click', async () => {
-    await signOut(auth);
+    log('manual-logout');
+    try {
+      await signOut(auth);
+    } catch (e) {
+      log('signOut error (ignored)', e);
+    }
+    clearLastLogin();
     window.location.replace('../login.html');
   });
 }

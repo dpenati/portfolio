@@ -78,8 +78,16 @@
 
     if (!overlay || !detailContent || !cards.length) return;
 
+    // Map each card to its *private* case-study page
+    const CASE_TARGETS = {
+      pipes: './work/24pipes.html',
+      canopy: './work/16canopy.html',
+      cyber: './work/12cyber.html',
+    };
+
+    const DEFAULT_TARGET = './work/indexWK.html';
+
     // Case study data
-    // IMPORTANT: keys must match HTML data-card values: pipes, canopy, cyber
     const caseStudies = {
       pipes: {
         title: 'Bringing Structure to Enterprise Engineering Workflows',
@@ -90,8 +98,6 @@
         },
         summary:
           'Re-architected six core engineering workflow domains within a constrained delivery window, sequencing discovery ahead of backend execution to restore predictability and reduce systemic churn across the SDLC — enabling more accurate planning and cross-team alignment at enterprise scale.',
-        // Optional:
-        // whatWeDid: ['...', '...'],
       },
 
       canopy: {
@@ -103,8 +109,6 @@
         },
         summary:
           'Led discovery and experience design for a regional Accountable Care Network, unifying clinical and insurance systems into a cohesive patient portal across multiple organizations and regulatory constraints.',
-        // Optional:
-        // whatWeDid: ['...', '...'],
       },
 
       cyber: {
@@ -116,28 +120,43 @@
         },
         summary:
           'Reframed enterprise data protection around identity, replacing channel-based incident management with a unified user model that correlated cross-system risk and supported investigative workflows at scale — avoiding costly system re-architecture.',
-        // Optional:
-        // whatWeDid: ['...', '...'],
       },
     };
 
+    function normalizeTargetHref(href) {
+      // Defensive normalization: only allow the expected ./work/*.html patterns
+      if (!href || typeof href !== 'string') return DEFAULT_TARGET;
+
+      const trimmed = href.trim();
+
+      // Only allow relative ./work/...html (matches allowlist in auth-login.js)
+      const allowed = /^\.\/work\/[a-zA-Z0-9_-]+\.html$/;
+      if (!allowed.test(trimmed)) return DEFAULT_TARGET;
+
+      return trimmed;
+    }
+
+    function buildLoginRedirectUrl(targetHref) {
+      const safeTarget = normalizeTargetHref(targetHref);
+      const next = encodeURIComponent(safeTarget);
+      return `./login.html?next=${next}`;
+    }
+
     function openDetail(cardId) {
       const study = caseStudies[cardId];
-      if (!study) return;
+      if (!study) {
+        console.warn('[work modal] Unknown card id:', cardId);
+        // Fallback: send to indexWK through login
+        const fallbackHref = buildLoginRedirectUrl(DEFAULT_TARGET);
+        window.location.href = fallbackHref;
+        return;
+      }
 
-      const mainText = study.summary || study.challenge || '';
-
-      const whatWeDidHtml =
-        Array.isArray(study.whatWeDid) && study.whatWeDid.length
-          ? `
-            <div class="work-detail-section">
-              <h3 class="work-detail-section-title">What we did</h3>
-              <div class="work-detail-section-content">
-                <ul>${study.whatWeDid.map((item) => `<li>${item}</li>`).join('')}</ul>
-              </div>
-            </div>
-          `
-          : '';
+      const mainText = study.summary || '';
+      const targetHref = normalizeTargetHref(
+        CASE_TARGETS[cardId] || DEFAULT_TARGET,
+      );
+      const loginHref = buildLoginRedirectUrl(targetHref);
 
       detailContent.innerHTML = `
         <div class="work-detail-header">
@@ -156,16 +175,27 @@
           </div>
         </div>
 
-        ${whatWeDidHtml}
+        <!-- Modal CTA (same styling as your "View All Work" button) -->
+        <div class="view-all-work" style="margin-top: 18px;">
+          <button class="view-all-button" type="button" data-work-cta="${loginHref}">
+            View Work →
+          </button>
+        </div>
       `;
+
+      const ctaBtn = detailContent.querySelector('[data-work-cta]');
+      if (ctaBtn) {
+        ctaBtn.addEventListener('click', () => {
+          const href = ctaBtn.getAttribute('data-work-cta');
+          if (href) window.location.href = href;
+        });
+      }
 
       overlay.classList.add('is-open');
 
-      // Scroll modal content to top
       const modal = overlay.querySelector('.work-detail-modal');
       if (modal) modal.scrollTop = 0;
 
-      // Ensure overlay is at top (some browsers keep previous scroll position)
       setTimeout(() => {
         overlay.scrollTop = 0;
       }, 10);
@@ -177,14 +207,15 @@
 
     // Bind card clicks
     cards.forEach((card) => {
-      // Make cards focusable (keyboard)
       card.setAttribute('tabindex', '0');
 
       card.addEventListener('click', () => {
         const cardId = card.getAttribute('data-card');
-        if (!cardId) return;
+        if (!cardId) {
+          console.warn('[work modal] Missing data-card on:', card);
+          return;
+        }
 
-        // Respect your flip animation timing
         setTimeout(() => openDetail(cardId), 300);
       });
 
@@ -192,20 +223,18 @@
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
           const cardId = card.getAttribute('data-card');
-          if (cardId) openDetail(cardId);
+          if (!cardId) return;
+          openDetail(cardId);
         }
       });
     });
 
-    // Close button
     if (closeBtn) closeBtn.addEventListener('click', closeDetail);
 
-    // Close on overlay click (only when clicking the dark backdrop)
     overlay.addEventListener('click', (e) => {
       if (e.target === overlay) closeDetail();
     });
 
-    // Close on Escape key
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && overlay.classList.contains('is-open')) {
         closeDetail();
