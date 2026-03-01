@@ -1139,15 +1139,22 @@ html[data-theme='auto'] .work-card:hover .work-svg {
 
 .work-detail-modal {
   position: relative;
-  width: 100%;
-  max-width: 900px;
-  max-height: none;
+
+  /* Narrower / more vertical, but still responsive */
+  width: min(620px, calc(100vw - 40px));
+  max-width: 620px;
+
+  /* Keep the panel contained and scrollable */
+  max-height: calc(100vh - 2 * clamp(20px, 5vh, 60px));
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+
   background: var(--surface);
   border-radius: 20px;
   border: 1px solid var(--rule);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-  overflow-y: visible;
-  overflow-x: hidden;
+
   transform: scale(0.95);
   transition: transform 0.3s ease;
   margin: 0 auto;
@@ -1190,6 +1197,12 @@ html[data-theme='auto'] .work-card:hover .work-svg {
 @media (max-width: 620px) {
   .work-detail-content {
     padding: 50px 30px;
+  }
+
+  /* Tiny screens: give a little more usable width */
+  .work-detail-modal {
+    width: calc(100vw - 24px);
+    max-width: none;
   }
 }
 

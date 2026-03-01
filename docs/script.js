@@ -49,6 +49,7 @@
       setStoredTheme(next);
 
       btn.setAttribute('aria-label', `Theme: ${next}`);
+      btn.setAttribute('aria-pressed', next === 'dark' ? 'true' : 'false');
     });
   }
 
@@ -75,125 +76,118 @@
     const detailContent = document.getElementById('workDetailContent');
     const closeBtn = overlay?.querySelector('.work-detail-close');
 
-    if (!overlay || !detailContent) return;
+    if (!overlay || !detailContent || !cards.length) return;
 
     // Case study data
+    // IMPORTANT: keys must match HTML data-card values: pipes, canopy, cyber
     const caseStudies = {
-      atlas: {
-        title: 'Atlas Discovery & Navigation',
+      pipes: {
+        title: 'Bringing Structure to Enterprise Engineering Workflows',
         meta: {
-          services: 'UX Research, Information Architecture, Interaction Design',
-          industries: 'Financial Services',
+          role: 'UX Manager',
+          domain: 'Enterprise Engineering Platform',
           year: '2024',
         },
-        challenge:
-          'The essential task was to create a unified discovery experience that helps users navigate complex enterprise tools while reducing cognitive load and improving findability across multiple product ecosystems.',
-        whatWeDid: [
-          'Conducted comprehensive user research to understand navigation pain points and mental models',
-          'Designed intuitive search and filtering mechanisms that adapt to user context',
-          'Created a scalable taxonomy system that grows with the platform',
-          'Implemented progressive disclosure patterns to manage information complexity',
-        ],
+        summary:
+          'Re-architected six core engineering workflow domains within a constrained delivery window, sequencing discovery ahead of backend execution to restore predictability and reduce systemic churn across the SDLC — enabling more accurate planning and cross-team alignment at enterprise scale.',
+        // Optional:
+        // whatWeDid: ['...', '...'],
       },
-      ide: {
-        title: 'IDE Platform Reframing',
+
+      canopy: {
+        title: 'Designing a Unified Experience for an Accountable Care Network',
         meta: {
-          services: 'Product Strategy, UX Design, Developer Experience',
-          industries: 'Technology & Software',
-          year: '2023-2024',
+          role: 'Lead UX',
+          domain: 'Healthcare & Insurance Integration',
+          year: '2016',
         },
-        challenge:
-          'The challenge was to reimagine a legacy development environment as a modern, extensible platform that empowers developers while maintaining backwards compatibility and minimizing disruption to established workflows.',
-        whatWeDid: [
-          'Led strategic workshops to align stakeholders on platform vision and priorities',
-          'Redesigned core workflows with focus on developer productivity and joy',
-          'Created a flexible design system that enables third-party extensions',
-          'Established patterns for progressive feature adoption',
-        ],
+        summary:
+          'Led discovery and experience design for a regional Accountable Care Network, unifying clinical and insurance systems into a cohesive patient portal across multiple organizations and regulatory constraints.',
+        // Optional:
+        // whatWeDid: ['...', '...'],
       },
-      pipes: {
-        title: 'Pipes End-to-End Experience',
+
+      cyber: {
+        title: 'Shifting Enterprise Security Toward an Identity-Centric Model',
         meta: {
-          services: 'Service Design, UX Strategy, Process Optimization',
-          industries: 'Enterprise Software',
-          year: '2023',
+          role: 'Principal UX',
+          domain: 'Enterprise Cybersecurity',
+          year: '2012',
         },
-        challenge:
-          'The essential task was to design a seamless end-to-end experience for data pipeline management, balancing technical complexity with usability while ensuring reliability and visibility across the entire workflow.',
-        whatWeDid: [
-          'Mapped comprehensive user journeys across all pipeline stages',
-          'Designed clear status visualization and error handling patterns',
-          'Created unified monitoring and debugging experiences',
-          'Implemented feedback loops that reduced time-to-resolution',
-        ],
+        summary:
+          'Reframed enterprise data protection around identity, replacing channel-based incident management with a unified user model that correlated cross-system risk and supported investigative workflows at scale — avoiding costly system re-architecture.',
+        // Optional:
+        // whatWeDid: ['...', '...'],
       },
     };
 
-    // Open modal
     function openDetail(cardId) {
       const study = caseStudies[cardId];
       if (!study) return;
 
-      const whatWeDidList = study.whatWeDid
-        .map((item) => `<li>${item}</li>`)
-        .join('');
+      const mainText = study.summary || study.challenge || '';
+
+      const whatWeDidHtml =
+        Array.isArray(study.whatWeDid) && study.whatWeDid.length
+          ? `
+            <div class="work-detail-section">
+              <h3 class="work-detail-section-title">What we did</h3>
+              <div class="work-detail-section-content">
+                <ul>${study.whatWeDid.map((item) => `<li>${item}</li>`).join('')}</ul>
+              </div>
+            </div>
+          `
+          : '';
 
       detailContent.innerHTML = `
         <div class="work-detail-header">
           <h2 class="work-detail-title">${study.title}</h2>
           <div class="work-detail-meta">
-            <span><strong>Services:</strong> ${study.meta.services}</span>
-            <span><strong>Industries:</strong> ${study.meta.industries}</span>
+            <span><strong>Role:</strong> ${study.meta.role}</span>
+            <span><strong>Domain:</strong> ${study.meta.domain}</span>
             <span><strong>Year:</strong> ${study.meta.year}</span>
           </div>
         </div>
 
         <div class="work-detail-section">
-          <h3 class="work-detail-section-title">Challenge</h3>
+          <h3 class="work-detail-section-title">Summary</h3>
           <div class="work-detail-section-content">
-            <p>${study.challenge}</p>
+            <p>${mainText}</p>
           </div>
         </div>
 
-        <div class="work-detail-section">
-          <h3 class="work-detail-section-title">What we did</h3>
-          <div class="work-detail-section-content">
-            <ul>${whatWeDidList}</ul>
-          </div>
-        </div>
+        ${whatWeDidHtml}
       `;
 
       overlay.classList.add('is-open');
 
       // Scroll modal content to top
       const modal = overlay.querySelector('.work-detail-modal');
-      if (modal) {
-        modal.scrollTop = 0;
-      }
+      if (modal) modal.scrollTop = 0;
 
-      // Small delay to ensure overlay is rendered, then scroll it to show modal from top
+      // Ensure overlay is at top (some browsers keep previous scroll position)
       setTimeout(() => {
         overlay.scrollTop = 0;
       }, 10);
     }
 
-    // Close modal
     function closeDetail() {
       overlay.classList.remove('is-open');
     }
 
     // Bind card clicks
     cards.forEach((card) => {
+      // Make cards focusable (keyboard)
+      card.setAttribute('tabindex', '0');
+
       card.addEventListener('click', () => {
         const cardId = card.getAttribute('data-card');
-        if (cardId) {
-          setTimeout(() => {
-            openDetail(cardId);
-          }, 300);
-        }
+        if (!cardId) return;
+
+        // Respect your flip animation timing
+        setTimeout(() => openDetail(cardId), 300);
       });
 
-      // Keyboard accessibility
       card.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
@@ -201,21 +195,14 @@
           if (cardId) openDetail(cardId);
         }
       });
-
-      // Make cards focusable
-      card.setAttribute('tabindex', '0');
     });
 
     // Close button
-    if (closeBtn) {
-      closeBtn.addEventListener('click', closeDetail);
-    }
+    if (closeBtn) closeBtn.addEventListener('click', closeDetail);
 
-    // Close on overlay click
+    // Close on overlay click (only when clicking the dark backdrop)
     overlay.addEventListener('click', (e) => {
-      if (e.target === overlay) {
-        closeDetail();
-      }
+      if (e.target === overlay) closeDetail();
     });
 
     // Close on Escape key
@@ -229,20 +216,21 @@
   // --- Set current year in footer ---
   function setCurrentYear() {
     const yearSpan = document.querySelector('[data-year]');
-    if (yearSpan) {
-      yearSpan.textContent = new Date().getFullYear();
-    }
+    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
   }
 
-  //--- Send email from email.JS ---
-  document
-    .getElementById('contact-form')
-    .addEventListener('submit', function (event) {
+  // --- Send email from EmailJS (safe-guarded) ---
+  function bindEmailForm() {
+    const form = document.getElementById('contact-form');
+    if (!form || typeof emailjs === 'undefined') return;
+
+    form.addEventListener('submit', function (event) {
       event.preventDefault();
 
       emailjs.sendForm('service_7p3fahn', 'template_an37vz8', this).then(
         function () {
           alert('Message sent successfully!');
+          form.reset();
         },
         function (error) {
           alert('Failed to send message.');
@@ -250,6 +238,7 @@
         },
       );
     });
+  }
 
   // Init
   initTheme();
@@ -257,4 +246,5 @@
   bindBackToTop();
   initWorkCards();
   setCurrentYear();
+  bindEmailForm();
 })();
