@@ -277,7 +277,7 @@ a {
   padding: clamp(32px, 5vh, 50px) 0;
   position: relative;
   z-index: 2;
-  margin-bottom: clamp(40px, 6vh, 60px);
+  margin-bottom: 0;
 }
 
 html[data-theme='dark'] .case-study-strip,
@@ -370,6 +370,7 @@ html[data-theme='auto'] .case-study-strip {
 -------------------------- */
 
 .case-study-toc {
+  padding-top: 0;
   padding: clamp(20px, 3vh, 32px) 0;
 }
 
@@ -394,18 +395,30 @@ html[data-theme='auto'] .case-study-strip {
 .toc-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 4px; /* tighter gap since padding is on the links */
 }
 
 .toc-links a {
-  font-size: 14px;
+  font-family: 'Cairo Play', var(--sans);
+  font-size: 16px;
+  font-weight: 700; /* ← Cairo Play earns its keep here */
   color: var(--ink);
   text-decoration: none;
-  transition: color 220ms ease;
+  padding: 5px 14px;
+  border-radius: 6px;
+  border: 1px solid transparent; /* ← reserves space so border doesn't shift layout on hover */
+  transition:
+    background 200ms ease,
+    border-color 200ms ease,
+    color 200ms ease;
 }
 
 .toc-links a:hover {
-  color: var(--accent);
+  background: var(--accent-soft);
+  border-color: var(--accent-muted);
+  color: var(
+    --accent
+  ); /* ← text nudges to accent too, but background carries it */
 }
 
 /* -------------------------
@@ -468,6 +481,72 @@ html[data-theme='auto'] .case-study-strip {
 .block-text strong {
   font-weight: 500;
   color: var(--ink);
+}
+
+/* -------------------------
+   Opening Block
+-------------------------- */
+
+.opening-block {
+  width: 100%;
+  margin-bottom: clamp(20px, 4vh, 40px); /* ← controls the gap to the article */
+  padding-top: 20px; /* ← changed: space after the top rule */
+  padding-bottom: 0;
+  border-top: 3px solid var(--accent); /* ← thick accent above intro text "this initiative..." */
+  border-bottom: none; /* ← remove, last <li> carries it */
+}
+
+.opening-lead {
+  margin: 0 0 32px 0;
+  font-family: var(--serif);
+  font-size: clamp(20px, 2.8vw, 28px);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--ink);
+  max-width: 72ch;
+}
+
+.shifts-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0;
+}
+
+.shifts-list li {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 24px;
+  padding: 18px 0;
+  border-top: 1px solid var(--rule);
+  font-family: var(--condensed);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink);
+  opacity: 0.9;
+}
+
+.shifts-list li:last-child {
+  border-bottom: 2px solid var(--accent); /* ← the last under Perception */
+}
+
+.shift-label {
+  font-family: 'Cairo Play', var(--sans); /* ← changed: Cairo Play */
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding-top: 3px;
+}
+
+@media (max-width: 580px) {
+  .shifts-list li {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
 }
 
 /* -------------------------
@@ -588,30 +667,41 @@ html[data-theme='auto'] .case-study-strip {
 
 .rhythm-item {
   display: grid;
-  grid-template-columns: 80px 1fr;
+  grid-template-columns: 64px 1fr;
   gap: 20px;
   padding: 20px;
   background: var(--surface);
   border: 1px solid var(--rule);
   border-radius: 12px;
   box-shadow: var(--shadow);
+  align-items: center;
 }
 
 @media (max-width: 580px) {
   .rhythm-item {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 14px;
   }
 }
 
 .rhythm-day {
-  font-family: 'Cairo Play', var(--sans);
-  font-weight: 700;
-  font-size: 18px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--accent);
-  padding-top: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  border: 1px solid color-mix(in srgb, var(--accent) 20%, transparent);
+  color: #a0a0a8;
+  flex-shrink: 0;
+}
+
+.rhythm-day svg {
+  width: 24px;
+  height: 24px;
+  stroke: #a0a0a8;
+  flex-shrink: 0;
 }
 
 .rhythm-title {
@@ -636,33 +726,38 @@ html[data-theme='auto'] .case-study-strip {
 
 .impact-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
   margin: 32px 0;
 }
 
-@media (max-width: 780px) {
+@media (max-width: 580px) {
   .impact-grid {
     grid-template-columns: 1fr;
   }
 }
 
 .impact-card {
-  padding: 24px;
+  padding: 28px 24px;
   text-align: center;
   background: var(--surface);
   border: 1px solid var(--rule);
   border-radius: 12px;
   box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 .impact-metric {
   font-family: 'Cairo Play', var(--sans);
   font-weight: 700;
-  font-size: clamp(24px, 3.2vw, 34px);
+  font-size: clamp(20px, 2.6vw, 28px);
   color: var(--accent);
-  line-height: 1;
-  margin-bottom: 8px;
+  line-height: 1.2;
+  margin-bottom: 0;
 }
 
 .impact-label {
@@ -670,12 +765,12 @@ html[data-theme='auto'] .case-study-strip {
   font-weight: 600;
   font-size: 14px;
   color: var(--ink);
-  margin-bottom: 8px;
+  margin-bottom: 0;
 }
 
 .impact-desc {
   font-family: var(--condensed);
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.5;
   color: var(--muted);
   margin: 0;

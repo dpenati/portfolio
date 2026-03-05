@@ -125,8 +125,24 @@
         </div>
       </div>
 
+      <!-- Table of contents -->
+      <section class="section case-study-toc" style="padding-top:0">
+        <div class="container">
+          <div class="toc-row">
+            <div class="toc-label">On this page</div>
+            <nav class="toc-links">
+              <a href="#context">Context</a>
+              <a href="#approach">Strategy</a>
+              <a href="#execution">Execution</a>
+              <a href="#impact">Impact</a>
+              <a href="#reflection">Reflection</a>
+            </nav>
+          </div>
+        </div>
+      </section>
+
       <!-- Hero visual (optional) -->
-      <section class="section case-study-hero">
+      <section class="section case-study-hero" style="padding-top:0">
         <div class="container">
           <figure class="hero-figure">
             <!-- Replace with your SVG, or swap to an image -->
@@ -196,64 +212,46 @@
         </div>
       </section>
 
-      <!-- Table of contents -->
-      <section class="section case-study-toc">
-        <div class="container">
-          <div class="toc-row">
-            <div class="toc-label">On this page</div>
-            <nav class="toc-links">
-              <a href="#context">Context</a>
-              <a href="#approach">Strategy</a>
-              <a href="#execution">Execution</a>
-              <a href="#impact">Impact</a>
-              <a href="#reflection">Reflection</a>
-            </nav>
-          </div>
-        </div>
-      </section>
-
       <!-- Content -->
-      <section class="section case-study-content">
+      <section class="section case-study-content" style="padding-top:0">
         <div class="container">
-          <article class="content-article">
-            <p class="block-text">
+          <!-- Opening statement + shifts — full container width, outside article column -->
+          <div class="opening-block">
+            <p class="opening-lead">
               This initiative required more than delivering interface updates.
               It required restoring structural clarity to the delivery system
               itself:
             </p>
-            <!-- Highlights -->
-            <div class="content-block highlights-block">
-              <div class="callout">
-                <h3 class="callout-title">Structural Shifts</h3>
-                <ul class="callout-list">
-                  <li>
-                    <b>MINDSET SHIFT:</b> Reframed the problem from a feature
-                    migration effort to a delivery integrity
-                    challenge—positioning UX discovery as the structural front
-                    end of the development process.
-                  </li>
-                  <li>
-                    <b>SCOPE SHIFT:</b> Moved beyond individual screens to
-                    workflow architecture, clarifying how engineers navigate
-                    promotion, diagnostics, reporting, and pipeline states
-                    across the SDLC.
-                  </li>
-                  <li>
-                    <b>PROCESS SHIFT:</b> Established a discovery-first
-                    sequencing model that aligned design exploration with
-                    engineering planning cycles, improving estimation accuracy
-                    and reducing downstream churn.
-                  </li>
-                  <li>
-                    <b>PERCEPTION SHIFT:</b> RChallenged the assumption that UX
-                    entered too late to influence delivery by demonstrating that
-                    structured discovery and planning could anticipate
-                    engineering needs and support delivery under pressure.
-                  </li>
-                </ul>
-              </div>
-            </div>
+            <ul class="shifts-list">
+              <li>
+                <span class="shift-label">Mindset</span>
+                Reframed the problem from a feature migration effort to a
+                delivery integrity challenge — positioning UX discovery as the
+                structural front end of the development process.
+              </li>
+              <li>
+                <span class="shift-label">Scope</span>
+                Moved beyond individual screens to workflow architecture,
+                clarifying how engineers navigate promotion, diagnostics,
+                reporting, and pipeline states across the SDLC.
+              </li>
+              <li>
+                <span class="shift-label">Process</span>
+                Established a discovery-first sequencing model that aligned
+                design exploration with engineering planning cycles, improving
+                estimation accuracy and reducing downstream churn.
+              </li>
+              <li>
+                <span class="shift-label">Perception</span>
+                Challenged the assumption that UX entered too late to influence
+                delivery by demonstrating that structured discovery and planning
+                could anticipate engineering needs and support delivery under
+                pressure.
+              </li>
+            </ul>
+          </div>
 
+          <article class="content-article">
             <!-- Context -->
             <div id="context" class="content-block">
               <div class="block-label">Context</div>
@@ -434,10 +432,35 @@
 
               <h3 class="block-subtitle">Key Modules Delivered</h3>
 
-              <!-- Optional: Rhythm / timeline list (works well for “steps”) -->
+              <!-- Optional: Rhythm / timeline list (works well for "steps") -->
               <div class="rhythm-list">
                 <div class="rhythm-item">
-                  <div class="rhythm-day">1</div>
+                  <div class="rhythm-day">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M9 12h6M9 16h6M9 8h3" />
+                      <path
+                        d="M5 4h10a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"
+                      />
+                      <circle
+                        cx="16"
+                        cy="18"
+                        r="3"
+                        fill="currentColor"
+                        stroke="none"
+                        opacity="0"
+                      />
+                      <path d="M17 7h.01" />
+                    </svg>
+                  </div>
                   <div class="rhythm-content">
                     <div class="rhythm-title">Evidence & Promotion</div>
                     <div class="rhythm-desc">
@@ -449,7 +472,24 @@
                 </div>
 
                 <div class="rhythm-item">
-                  <div class="rhythm-day">2</div>
+                  <div class="rhythm-day">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <circle cx="5" cy="6" r="2" />
+                      <circle cx="5" cy="18" r="2" />
+                      <circle cx="19" cy="12" r="2" />
+                      <path d="M7 6h4a4 4 0 0 1 4 4v1" />
+                      <path d="M7 18h4a4 4 0 0 0 4-4v-1" />
+                    </svg>
+                  </div>
                   <div class="rhythm-content">
                     <div class="rhythm-title">Pipelines Overview</div>
                     <div class="rhythm-desc">
@@ -460,7 +500,22 @@
                 </div>
 
                 <div class="rhythm-item">
-                  <div class="rhythm-day">3</div>
+                  <div class="rhythm-day">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <circle cx="11" cy="11" r="7" />
+                      <path d="m21 21-4.35-4.35" />
+                      <path d="M11 8v3l2 2" />
+                    </svg>
+                  </div>
                   <div class="rhythm-content">
                     <div class="rhythm-title">Diagnostics</div>
                     <div class="rhythm-desc">
@@ -471,7 +526,21 @@
                 </div>
 
                 <div class="rhythm-item">
-                  <div class="rhythm-day">4</div>
+                  <div class="rhythm-day">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M3 3v18h18" />
+                      <path d="m7 16 4-4 4 4 4-4" />
+                    </svg>
+                  </div>
                   <div class="rhythm-content">
                     <div class="rhythm-title">Reporting</div>
                     <div class="rhythm-desc">
@@ -636,11 +705,7 @@
               </svg>
             </a>
 
-            <a
-              class="social-icon"
-              href="mailto:daniela@dpenati.com"
-              aria-label="Email"
-            >
+            <a class="social-icon" href="/cdn-cgi/l/email-protection#6b0f0a05020e070a2b0f1b0e050a1f0245080406" aria-label="Email">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -667,9 +732,6 @@
     </a>
 
     <!-- Theme + shared interactions -->
-    <script src="../script.js" defer></script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="../script.js" defer></script>
 
-    <!-- RECOMMENDED: gate private case pages just like indexWK -->
-    <script type="module" src="../auth-members.js"></script>
-  </body>
-</html>
+    <!-- RECOMMENDED: gate private case pages just l
