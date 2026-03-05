@@ -97,7 +97,7 @@
           year: '2024',
         },
         summary:
-          'Re-architected six core engineering workflow domains within a constrained delivery window, sequencing discovery ahead of backend execution to restore predictability and reduce systemic churn across the SDLC — enabling more accurate planning and cross-team alignment at enterprise scale.',
+          'Re-architected six core engineering workflow domains within a constrained delivery window—introducing discovery-first sequencing to restore predictability and reduce systemic churn across the SDLC.',
       },
 
       canopy: {

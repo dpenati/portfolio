@@ -107,10 +107,12 @@
           </div>
 
           <!-- ====== TOP SUMMARY (EDIT) ====== -->
-          <h1 class="case-study-title">Restoring Predictability to Delivery</h1>
+          <h1 class="case-study-title">
+            Restoring Predictability to Platform Delivery
+          </h1>
           <p class="case-study-subtitle">
-            Re-architecting 8 engineering modules to stabilize delivery under GA
-            pressure.
+            Re-architecting core developer workflows to stabilize delivery under
+            GA pressure.
           </p>
 
           <div class="case-study-meta">
@@ -201,7 +203,7 @@
             <div class="toc-label">On this page</div>
             <nav class="toc-links">
               <a href="#context">Context</a>
-              <a href="#approach">Strategic Approach</a>
+              <a href="#approach">Strategy</a>
               <a href="#execution">Execution</a>
               <a href="#impact">Impact</a>
               <a href="#reflection">Reflection</a>
@@ -214,34 +216,39 @@
       <section class="section case-study-content">
         <div class="container">
           <article class="content-article">
+            <p class="block-text">
+              This initiative required more than delivering interface updates.
+              It required restoring structural clarity to the delivery system
+              itself:
+            </p>
             <!-- Highlights -->
             <div class="content-block highlights-block">
               <div class="callout">
                 <h3 class="callout-title">Structural Shifts</h3>
                 <ul class="callout-list">
                   <li>
-                    <b>MINDSET SHIFT:</b> Repositioned discovery from a
-                    perceived bottleneck to an integrated step of the design
-                    process to de-risk delivery and balance user expectations.
+                    <b>MINDSET SHIFT:</b> Reframed the problem from a feature
+                    migration effort to a delivery integrity
+                    challenge—positioning UX discovery as the structural front
+                    end of the development process.
                   </li>
                   <li>
-                    <b>SCOPE SHIFT:</b> Replaced fragmented feature requests
-                    with a cohesive domain vision, delivering eight integrated
-                    modules within 12 weeks, expanding scope beyond reactive
-                    fixes.
+                    <b>SCOPE SHIFT:</b> Moved beyond individual screens to
+                    workflow architecture, clarifying how engineers navigate
+                    promotion, diagnostics, reporting, and pipeline states
+                    across the SDLC.
                   </li>
                   <li>
-                    <b>PROCESS SHIFT:</b> Established a disciplined weekly
-                    execution cadence—structured checkpoints and hands-on
-                    cross-functional workshops, that aligned engineering,
-                    product, and UX in real time, accelerated decision-making,
-                    and reduced downstream rework.
+                    <b>PROCESS SHIFT:</b> Established a discovery-first
+                    sequencing model that aligned design exploration with
+                    engineering planning cycles, improving estimation accuracy
+                    and reducing downstream churn.
                   </li>
                   <li>
-                    <b>CONFIDENCE SHIFT:</b> Restored organizational confidence
-                    by demonstrating that intentional sequencing accelerates
-                    enterprise delivery—meeting GA pressure with full-scope
-                    execution rather than partial releases.
+                    <b>PERCEPTION SHIFT:</b> RChallenged the assumption that UX
+                    entered too late to influence delivery by demonstrating that
+                    structured discovery and planning could anticipate
+                    engineering needs and support delivery under pressure.
                   </li>
                 </ul>
               </div>
@@ -256,18 +263,28 @@
 
               <p class="block-text">
                 In Q2 2024, the Integrated Engineering Portal (IEP) was
-                preparing for General Availability. Although launched in beta
-                the previous November, it remained incomplete. For GA to
-                proceed, major functionality—including Pipelines and
-                Releases—needed to be integrated into the new platform.
+                scheduled to reach General Availability on March 1, 2025—less
+                than a year after I stepped in as Experience Lead for the
+                Pipelines domain.
               </p>
               <p>
-                Much of this functionality already existed in a separate system
-                (JET), and the prevailing assumption was that it could be
-                migrated quickly. However, architectural differences and
-                fragmented workflows made a direct lift-and-shift approach
-                risky. Without structural clarity, migration would have
-                preserved—and amplified—existing friction.
+                FThe platform had already launched in beta, but several core
+                engineering workflows remained fragmented across legacy patterns
+                and evolving backend services. Pipelines functionality also
+                existed in a separate system (JET), but architectural
+                differences and workflow inconsistencies made direct migration
+                structurally unsound.
+              </p>
+              <p>
+                At the same time, developer adoption depended on bringing
+                critical capabilities into the new platform before GA. The
+                challenge was not simply migrating features—it was establishing
+                a coherent workflow architecture capable of supporting
+                predictable delivery across the engineering lifecycle.
+              </p>
+              <p>
+                Without structural clarity, migration would have preserved and
+                amplified existing friction.
               </p>
 
               <!-- Optional: Problem / constraints grid (reuse your existing classes) -->
@@ -276,9 +293,9 @@
                   <div class="insight-icon">1</div>
                   <h3 class="insight-title">GA Timeline Pressure</h3>
                   <p class="insight-desc">
-                    IEP required critical workflows to be integrated within a
-                    constrained delivery window, with backend planning already
-                    underway.
+                    The platform needed to integrate essential developer
+                    workflows within a constrained delivery window while backend
+                    development was still actively evolving.
                   </p>
                 </div>
 
@@ -286,9 +303,9 @@
                   <div class="insight-icon">2</div>
                   <h3 class="insight-title">Cross-System Migration Risk</h3>
                   <p class="insight-desc">
-                    Existing capabilities lived in JET, but architectural and
-                    workflow differences made simple replication structurally
-                    unsound.
+                    Existing capabilities lived in legacy systems with different
+                    architectural assumptions, making lift-and-shift migration
+                    impractical.
                   </p>
                 </div>
 
@@ -296,9 +313,9 @@
                   <div class="insight-icon">3</div>
                   <h3 class="insight-title">Fragmented Workflow States</h3>
                   <p class="insight-desc">
-                    Pipelines and Releases operated with inconsistent
-                    terminology and loosely connected states, increasing
-                    cognitive load for engineers.
+                    Promotion flows, diagnostics, reporting, and pipeline states
+                    had grown organically, producing fragmented mental models
+                    for engineers.
                   </p>
                 </div>
 
@@ -306,8 +323,10 @@
                   <div class="insight-icon">4</div>
                   <h3 class="insight-title">Reactive Delivery Patterns</h3>
                   <p class="insight-desc">
-                    UX had historically entered late in the cycle, limiting its
-                    ability to shape sequencing and system coherence.
+                    Historically UX entered the process late, limiting its
+                    ability to shape architectural clarity and forcing design
+                    decisions to respond to engineering constraints rather than
+                    guide them.
                   </p>
                 </div>
               </div>
@@ -319,12 +338,12 @@
               <h2 class="block-title">Designing for Predictable Delivery</h2>
 
               <p class="block-text">
-                Rather than treating this as a feature migration, I reframed it
-                as a delivery integrity problem. The objective was not to move
-                screens, but to define a coherent workflow architecture that
-                could support both legacy capabilities and new functionality
-                within a unified system. The intervention focused on three
-                principles:
+                Rather than treating the initiative as a feature migration, I
+                reframed the effort as a platform workflow problem. The
+                objective was to design a delivery architecture that could
+                support both legacy capabilities and new functionality while
+                improving clarity for engineers navigating the system. The
+                strategy focused on three structural principles:
               </p>
 
               <div class="insight-grid insight-grid-3">
@@ -332,19 +351,26 @@
                   <div class="insight-icon">A</div>
                   <h3 class="insight-title">Workflow Before Interface</h3>
                   <p class="insight-desc">
-                    We mapped domain-level workflows first—clarifying system
-                    states, transitions, and dependencies before designing UI
-                    artifacts.
+                    Mapped developer journeys across pipeline states before
+                    designing UI artifacts. This exposed structural
+                    inconsistencies between systems and clarified the workflow
+                    architecture required to support a coherent developer
+                    experience. Early discovery work surfaced workflow friction
+                    that helped prioritize which legacy capabilities needed to
+                    be integrated first for GA readiness.
                   </p>
                 </div>
 
                 <div class="insight-card">
                   <div class="insight-icon">B</div>
-                  <h3 class="insight-title">Structured Sequencing</h3>
+                  <h3 class="insight-title">Structured Delivery Sequencing</h3>
                   <p class="insight-desc">
-                    I divided Pipelines into six logical workflow domains and
-                    aligned UX delivery to engineering feasibility, enabling
-                    backend planning to follow architectural clarity.
+                    Introduced a discovery-first execution model that embedded
+                    UX exploration into the delivery cycle rather than treating
+                    it as a separate preliminary phase. By intentionally
+                    sequencing research, design, and engineering planning, the
+                    team established a predictable path from discovery to
+                    implementation.
                   </p>
                 </div>
 
@@ -352,10 +378,13 @@
                   <div class="insight-icon">C</div>
                   <h3 class="insight-title">Leadership as Multiplication</h3>
                   <p class="insight-desc">
-                    As a first-time manager, I balanced hands-on architectural
-                    definition with enabling my team to own execution. I learned
-                    when to lean in to protect the vision—and when to step back
-                    so the team could scale the work beyond me.
+                    With a small team supporting a complex platform, I
+                    established operating practices that allowed the group to
+                    function as a coordinated system. As a first-time manager, I
+                    balanced hands-on architectural definition with enabling the
+                    team to own execution—learning when to lean in to protect
+                    the vision and when to step back so the work could scale
+                    beyond me.
                   </p>
                 </div>
               </div>
@@ -365,34 +394,56 @@
             <div id="execution" class="content-block">
               <div class="block-label">Execution</div>
               <h2 class="block-title">
-                From Fragmentation to Structured Domains
+                From Fragmentation to Structured Workflows
               </h2>
 
               <p class="block-text">
-                Within a 12-week window, we delivered eight core workflow
-                modules, integrating legacy functionality and new capabilities
-                into coherent, role-based experiences.
+                Within a twelve-week window, we delivered eight core workflow
+                modules, integrating legacy functionality into the new platform
+                while establishing clearer developer journeys. Rather than
+                designing isolated features, the work focused on restructuring
+                how engineers move through pipeline states and supporting
+                functions across the SDLC.
               </p>
 
               <h3 class="block-subtitle">Sequencing the Work Intentionally</h3>
               <p class="block-text">
                 Previously disconnected promotion flows were re-architected into
                 structured stages with transparent authorization logic and
-                integrated validation states—aligning UX states directly with
-                users' mental model.
+                integrated validation states—aligning system behavior with
+                engineers’ mental models. Work was delivered through a sequenced
+                sprint model:
               </p>
+
+              <p class="block-text">
+                <b>Sprint 1 — Discovery and backend logic alignment.</b> Mapping
+                system states, permissions, and workflow transitions with
+                engineering teams.
+              </p>
+
+              <p class="block-text">
+                <b>Sprint 2 — Dev-ready experience design.</b> Delivering
+                interaction models and UI architecture aligned with
+                implementation constraints.
+              </p>
+
+              <p class="block-text">
+                This structure allowed design exploration and technical
+                feasibility to evolve together rather than sequentially.
+              </p>
+
+              <h3 class="block-subtitle">Key Modules Delivered</h3>
 
               <!-- Optional: Rhythm / timeline list (works well for “steps”) -->
               <div class="rhythm-list">
                 <div class="rhythm-item">
                   <div class="rhythm-day">1</div>
                   <div class="rhythm-content">
-                    <div class="rhythm-title">
-                      Evidence & Promotion Module (2 Sprints · 50 pts)]
-                    </div>
+                    <div class="rhythm-title">Evidence & Promotion</div>
                     <div class="rhythm-desc">
-                      Incorporated the Promotion and Authorization workflows
-                      into the newly created attestation page.
+                      Structured promotion workflows and validation states
+                      supporting controlled progression across pipeline
+                      environments.
                     </div>
                   </div>
                 </div>
@@ -400,25 +451,10 @@
                 <div class="rhythm-item">
                   <div class="rhythm-day">2</div>
                   <div class="rhythm-content">
-                    <div class="rhythm-title">
-                      Pipelines Listing Module (2 Sprints · 58 pts)
-                    </div>
+                    <div class="rhythm-title">Pipelines Overview</div>
                     <div class="rhythm-desc">
-                      Re-architected listing and filtering to reduce noise and
-                      improve visibility of what requires user attention.
-                    </div>
-                  </div>
-                </div>
-
-                <div class="rhythm-item">
-                  <div class="rhythm-day">2</div>
-                  <div class="rhythm-content">
-                    <div class="rhythm-title">
-                      Diagnostics Module (1 Sprint · 30 pts)
-                    </div>
-                    <div class="rhythm-desc">
-                      Unified troubleshooting views (Logs, Timeline, Details,
-                      and Policies).
+                      Improved visibility into pipeline health and developer
+                      actions required to progress builds.
                     </div>
                   </div>
                 </div>
@@ -426,11 +462,21 @@
                 <div class="rhythm-item">
                   <div class="rhythm-day">3</div>
                   <div class="rhythm-content">
-                    <div class="rhythm-title">
-                      Reporting Module (1 Sprint · 20 pts)
-                    </div>
+                    <div class="rhythm-title">Diagnostics</div>
                     <div class="rhythm-desc">
-                      Structured reporting to support audits.
+                      Unified troubleshooting surfaces across logs, timelines,
+                      and policy checks.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="rhythm-item">
+                  <div class="rhythm-day">4</div>
+                  <div class="rhythm-content">
+                    <div class="rhythm-title">Reporting</div>
+                    <div class="rhythm-desc">
+                      Structured reporting to support auditing and operational
+                      oversight.
                     </div>
                   </div>
                 </div>
@@ -450,34 +496,47 @@
 
               <div class="impact-grid">
                 <div class="impact-card">
-                  <div class="impact-metric">6 Sprints</div>
-                  <div class="impact-label">8 Modules</div>
+                  <div class="impact-metric">6 Sprints Structured</div>
                   <p class="impact-desc">
-                    Structured execution across 160 planned story points.
+                    Intentional sequencing of research, design, and engineering
+                    planning across a 12-week delivery window.
                   </p>
                 </div>
 
                 <div class="impact-card">
-                  <div class="impact-metric">100% Closure</div>
-                  <div class="impact-label">No Sprint spillover</div>
+                  <div class="impact-metric">100% Planned Work Delivered</div>
                   <p class="impact-desc">
-                    All UX commitments delivered on schedule.
+                    All committed engineering work completed within the
+                    execution window.
                   </p>
                 </div>
 
                 <div class="impact-card">
-                  <div class="impact-metric">160 pt.</div>
-                  <div class="impact-label">3.5 Designers</div>
+                  <div class="impact-metric">
+                    8 Core Workflows Re-architected
+                  </div>
                   <p class="impact-desc">
-                    Work completed two weeks ahead of schedule.
+                    Fragmented pipeline states consolidated into coherent
+                    journeys across the SDLC.
+                  </p>
+                </div>
+
+                <div class="impact-card">
+                  <div class="impact-metric">
+                    45% of Legacy Platform Traffic Transitioned
+                  </div>
+                  <p class="impact-desc">
+                    The redesigned workflows represented nearly half of legacy
+                    system activity and were critical to achieving GA readiness.
                   </p>
                 </div>
               </div>
 
               <p class="block-text">
-                By investing upfront in structured planning, the team delivered
-                more than incremental features—we delivered a cohesive system
-                foundation capable of supporting future expansion.
+                These results reflected more than delivery performance—they
+                demonstrated how intentional sequencing of discovery, design,
+                and engineering planning restored predictability to a critical
+                developer platform.
               </p>
             </div>
 
@@ -487,25 +546,45 @@
               <h2 class="block-title">What I Learned</h2>
 
               <p class="block-text">
-                This experience reinforced that enterprise systems rarely fail
-                at the interface layer—they fail at the sequencing layer.
-                Predictability is not a byproduct of effort; it is the result of
-                intentional architectural clarity.
+                This experience reinforced that challenges in large enterprise
+                platforms rarely stem from interface design alone. More often,
+                they arise when workflows, system states, and delivery
+                coordination lack a shared structure.
               </p>
 
               <p>
-                I learned that structured UX planning can stabilize delivery in
-                environments that default to reactive execution. Establishing
-                shared workflow definitions early not only reduces rework—it
-                creates alignment across product, engineering, and leadership.
+                Predictability does not emerge from process alone. It depends on
+                clarity across workflows, data states, and the collaboration
+                between design, product, and engineering.
               </p>
 
               <p class="block-text">
-                As a first-time manager operating as both IC and lead, I also
-                learned to multiply impact through others: protecting
-                architectural integrity while empowering designers to own
-                execution. Leadership required both firmness in vision and
-                flexibility in stakeholder navigation.
+                Establishing clear workflow definitions early—how systems
+                behave, how states transition, and how engineers interact with
+                them—creates a shared foundation that improves both delivery
+                accuracy and cross-team alignment.
+              </p>
+
+              <p class="block-text">
+                Leading a small team in this environment also shaped my approach
+                to management. As a first-time manager, I learned to balance
+                hands-on architectural definition with enabling distributed
+                ownership of the work—stepping in to protect structural
+                coherence while allowing execution to scale beyond a single
+                contributor.
+              </p>
+
+              <p class="block-text">
+                Ultimately, restoring predictability was less about accelerating
+                delivery and more about creating the structural clarity that
+                allowed delivery to unfold reliably.
+              </p>
+
+              <p class="block-text">
+                In large-scale platforms, the most valuable design contributions
+                are often invisible: establishing the clarity and alignment that
+                allow teams to build with confidence and systems to evolve
+                without accumulating unnecessary complexity.
               </p>
             </div>
           </article>
