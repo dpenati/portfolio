@@ -978,3 +978,673 @@ html[data-theme='auto'] .case-study-strip {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* -------------------------
+   Purple section rule
+   mirrors the border-top on .opening-block
+   use between container-level blocks
+-------------------------- */
+
+.section-rule-accent {
+  width: 100%;
+  height: 1px;
+  background: var(--accent);
+  margin: clamp(32px, 5vh, 48px) 0 clamp(48px, 7.5vh, 72px) 0;
+}
+
+/* -------------------------
+   Artifact Figure + Modal
+   Reusable pattern — add data-artifact to any <figure>
+   and follow it with a sibling .artifact-modal
+-------------------------- */
+
+.artifact-figure {
+  margin: 36px 0 0 0;
+}
+
+/* Thumb — sits at .container level so width = TOC width naturally */
+.artifact-thumb {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid var(--rule);
+  cursor: zoom-in;
+  background: var(--surface);
+}
+
+.artifact-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top left;
+  filter: grayscale(100%);
+  transition: filter 300ms ease;
+  display: block;
+}
+
+.artifact-thumb:hover .artifact-img,
+.artifact-thumb:focus .artifact-img {
+  filter: grayscale(40%);
+}
+
+/* Hover overlay */
+.artifact-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0);
+  transition: background 300ms ease;
+  pointer-events: none;
+}
+
+.artifact-overlay svg {
+  width: 28px;
+  height: 28px;
+  stroke: #ffffff;
+  opacity: 0;
+  transform: scale(0.85);
+  transition:
+    opacity 280ms ease,
+    transform 280ms ease;
+}
+
+.artifact-overlay span {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  opacity: 0;
+  transition: opacity 280ms ease;
+}
+
+.artifact-thumb:hover .artifact-overlay,
+.artifact-thumb:focus .artifact-overlay {
+  background: rgba(0, 0, 0, 0.28);
+}
+
+.artifact-thumb:hover .artifact-overlay svg,
+.artifact-thumb:focus .artifact-overlay svg {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.artifact-thumb:hover .artifact-overlay span,
+.artifact-thumb:focus .artifact-overlay span {
+  opacity: 1;
+}
+
+/* Caption */
+.artifact-caption {
+  margin-top: 10px;
+  font-family: var(--condensed);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* ---- Modal ---- */
+
+.artifact-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 20000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.artifact-modal[hidden] {
+  display: none;
+}
+
+.artifact-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(6px);
+  cursor: zoom-out;
+}
+
+.artifact-modal-frame {
+  position: relative;
+  z-index: 1;
+  max-width: min(1100px, calc(100vw - 48px));
+  max-height: calc(100vh - 48px);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.artifact-modal-close {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  z-index: 2;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(20, 20, 20, 0.9);
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition:
+    background 200ms ease,
+    border-color 200ms ease;
+}
+
+.artifact-modal-close:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.artifact-modal-close svg {
+  width: 16px;
+  height: 16px;
+}
+
+.artifact-modal-scroll {
+  overflow: auto;
+  max-height: calc(100vh - 120px);
+  border-radius: 10px;
+  cursor: zoom-out;
+}
+
+.artifact-modal-img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
+}
+
+.artifact-modal-caption {
+  font-family: var(--condensed);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.55);
+  font-style: italic;
+  margin: 0;
+}
+
+/* -------------------------
+   Artifact — horizontal scroll variant
+   Used for wide diagrams where breadth is the message
+-------------------------- */
+
+.artifact-thumb--scroll {
+  height: 280px;
+  cursor: default;
+  overflow: hidden;
+  /* Light blue sampled from diagram border */
+  background: #ddeaf7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.artifact-scroll-track {
+  /* Center image when narrower than container */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  cursor: grab;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-muted) transparent;
+}
+
+.artifact-scroll-track:active {
+  cursor: grabbing;
+}
+
+.artifact-scroll-track::-webkit-scrollbar {
+  height: 4px;
+}
+
+.artifact-scroll-track::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.artifact-scroll-track::-webkit-scrollbar-thumb {
+  background: var(--accent-muted);
+  border-radius: 999px;
+}
+
+.artifact-img--scroll {
+  /* Natural size — let it breathe inside the blue container */
+  width: auto;
+  height: 90%;
+  max-width: none;
+  object-fit: unset;
+  filter: none;
+  transition: none;
+  flex-shrink: 0;
+  margin: 0 auto;
+}
+
+/* Right-edge fade — signals more content to the right */
+.artifact-scroll-fade {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80px;
+  height: 100%;
+  background: linear-gradient(to right, transparent, #ddeaf7);
+  pointer-events: none;
+  border-radius: 0 10px 10px 0;
+  transition: opacity 300ms ease;
+}
+
+.artifact-thumb--scroll:hover .artifact-scroll-fade {
+  opacity: 0.5;
+}
+
+.artifact-thumb--scroll .artifact-overlay {
+  pointer-events: none;
+}
+
+/* -------------------------
+   Lightbox viewer
+-------------------------- */
+
+.lightbox .artifact-modal-backdrop {
+  background: rgba(0, 0, 0, 0.88);
+}
+
+.lightbox-frame {
+  position: relative;
+  z-index: 1;
+  width: 92vw;
+  height: 88vh;
+  display: flex;
+  flex-direction: column;
+  background: #1a1a1a;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 32px 100px rgba(0, 0, 0, 0.7);
+}
+
+/* Toolbar */
+.lightbox-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 16px;
+  background: #111111;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+}
+
+.lightbox-title {
+  font-family: var(--condensed);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lightbox-controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.lightbox-btn {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.75);
+  cursor: pointer;
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease;
+  text-decoration: none;
+}
+
+.lightbox-btn svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 2;
+}
+
+.lightbox-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.lightbox-btn--download {
+  margin-left: 4px;
+  border-color: var(--accent-muted);
+  color: var(--accent);
+}
+
+.lightbox-btn--download:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.lightbox-btn--close {
+  margin-left: 4px;
+}
+
+.lightbox-btn--close:hover {
+  background: rgba(220, 60, 60, 0.15);
+  border-color: rgba(220, 60, 60, 0.4);
+  color: #ff6b6b;
+}
+
+.lightbox-zoom-level {
+  font-family: var(--condensed);
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.45);
+  min-width: 38px;
+  text-align: center;
+}
+
+/* Scrollable canvas */
+.lightbox-canvas {
+  flex: 1;
+  overflow: auto;
+  padding: 24px;
+  cursor: grab;
+  background: #1a1a1a;
+  /* Checkerboard to make transparency visible */
+  background-image:
+    linear-gradient(45deg, #222 25%, transparent 25%),
+    linear-gradient(-45deg, #222 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #222 75%),
+    linear-gradient(-45deg, transparent 75%, #222 75%);
+  background-size: 20px 20px;
+  background-position:
+    0 0,
+    0 10px,
+    10px -10px,
+    -10px 0px;
+}
+
+.lightbox-canvas:active {
+  cursor: grabbing;
+}
+
+.lightbox-img {
+  display: block;
+  /* Native size — user scrolls/zooms to navigate */
+  width: auto;
+  height: auto;
+  max-width: none;
+  transform-origin: top left;
+  transition: transform 150ms ease;
+  border-radius: 4px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  user-select: none;
+}
+
+/* -------------------------
+   Accordion rhythm cards
+-------------------------- */
+
+.rhythm-list--accordion {
+  gap: 12px;
+}
+
+.rhythm-accordion {
+  display: block;
+  padding: 0;
+  overflow: hidden;
+  transition:
+    box-shadow 200ms ease,
+    background 200ms ease;
+  cursor: default;
+}
+
+.rhythm-accordion:hover {
+  background: color-mix(in srgb, var(--accent-soft) 60%, var(--surface));
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+}
+
+html[data-theme='dark'] .rhythm-accordion:hover,
+html[data-theme='auto'] .rhythm-accordion:hover {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
+}
+
+.rhythm-accordion.is-open {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Header row — the tap/click/hover target */
+.rhythm-header {
+  display: grid;
+  grid-template-columns: 64px 1fr auto;
+  gap: 20px;
+  padding: 20px;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+@media (max-width: 580px) {
+  .rhythm-header {
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+  }
+  .rhythm-header .rhythm-day {
+    display: none;
+  }
+}
+
+/* Override title font to Cairo Play */
+.rhythm-accordion .rhythm-title {
+  font-family: 'Cairo Play', var(--sans);
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+/* Chevron */
+.rhythm-chevron {
+  width: 20px;
+  height: 20px;
+  stroke: #5f9000;
+  flex-shrink: 0;
+  transition: transform 300ms ease;
+}
+
+.rhythm-accordion.is-open .rhythm-chevron {
+  transform: rotate(180deg);
+}
+
+/* Accordion body — height animated via JS */
+.rhythm-accordion-body {
+  height: 0;
+  overflow: hidden;
+  transition: height 350ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.rhythm-accordion-inner {
+  padding: 0 20px 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Mockup image */
+.rhythm-mockup {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--rule);
+  box-shadow: var(--shadow);
+  display: block;
+}
+
+/* Spec link */
+.rhythm-spec-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--accent);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 200ms ease;
+  align-self: flex-start;
+}
+
+.rhythm-spec-link:hover {
+  opacity: 0.75;
+}
+
+/* -------------------------
+   Wiki strip modal
+-------------------------- */
+
+.wiki-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 20000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.wiki-modal[hidden] {
+  display: none;
+}
+
+.wiki-modal .wiki-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.82);
+  backdrop-filter: blur(6px);
+  cursor: zoom-out;
+}
+
+.wiki-modal-frame {
+  position: relative;
+  z-index: 1;
+  width: 92vw;
+  height: 88vh;
+  display: flex;
+  flex-direction: column;
+  background: #1a1a1a;
+  border-radius: 12px;
+  overflow: hidden; /* canvas handles its own scroll */
+  box-shadow: 0 32px 100px rgba(0, 0, 0, 0.7);
+}
+
+/* Lightweight toolbar */
+.wiki-modal-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 8px 12px;
+  background: #111111;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+}
+
+.wiki-modal-controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.wiki-btn {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.75);
+  cursor: pointer;
+  transition:
+    background 180ms ease,
+    color 180ms ease;
+}
+
+.wiki-btn svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 2;
+}
+
+.wiki-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.wiki-btn--close:hover {
+  background: rgba(220, 60, 60, 0.15);
+  color: #ff6b6b;
+}
+
+.wiki-zoom-label {
+  font-family: var(--condensed);
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.55);
+  min-width: 40px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.wiki-zoom-label:hover {
+  color: #ffffff;
+}
+
+/* Scrollable canvas */
+.wiki-modal-canvas {
+  flex: 1;
+  overflow: hidden; /* JS switches to 'auto' when zoomed past fit */
+  padding: 32px;
+  background: rgba(15, 15, 15, 0.96);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wiki-modal-img {
+  display: block;
+  width: 100%; /* fit to canvas width by default */
+  height: auto;
+  max-width: 100%; /* never exceed canvas width */
+  border-radius: 4px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+  margin: 0 auto;
+  /* Width overridden by JS only when zooming in past fit */
+}

@@ -102,7 +102,6 @@
       <div class="case-study-strip">
         <div class="container">
           <div class="breadcrumb">
-            <!-- In private area, you may prefer indexWK.html instead of index.html#work -->
             <a href="./indexWK.html">← All Work</a>
           </div>
 
@@ -126,7 +125,7 @@
       </div>
 
       <!-- Table of contents -->
-      <section class="section case-study-toc" style="padding-top:0">
+      <section class="section case-study-toc" style="padding-top: 0">
         <div class="container">
           <div class="toc-row">
             <div class="toc-label">On this page</div>
@@ -142,11 +141,9 @@
       </section>
 
       <!-- Hero visual (optional) -->
-      <section class="section case-study-hero" style="padding-top:0">
+      <section class="section case-study-hero" style="padding-top: 0">
         <div class="container">
           <figure class="hero-figure">
-            <!-- Replace with your SVG, or swap to an image -->
-            <!-- Option A (SVG): keep a unique <svg> per case -->
             <svg
               class="hero-svg"
               viewBox="0 0 1200 400"
@@ -181,7 +178,6 @@
               <rect width="1200" height="400" fill="url(#heroGrad)" />
               <circle cx="930" cy="190" r="160" fill="url(#heroInk)" />
 
-              <!-- Minimal placeholder geometry -->
               <g stroke="#2a2a2a" stroke-width="2" fill="none" opacity="0.7">
                 <rect x="180" y="110" width="320" height="180" rx="6" />
                 <rect
@@ -204,16 +200,12 @@
                 <line x1="100" y1="280" x2="1100" y2="280" />
               </g>
             </svg>
-
-            <!-- Option B (Image): uncomment and use instead of SVG
-            <img class="hero-img" src="./images/[your-hero].webp" alt="[Alt text]" />
-            -->
           </figure>
         </div>
       </section>
 
       <!-- Content -->
-      <section class="section case-study-content" style="padding-top:0">
+      <section class="section case-study-content" style="padding-top: 0">
         <div class="container">
           <!-- Opening statement + shifts — full container width, outside article column -->
           <div class="opening-block">
@@ -266,7 +258,7 @@
                 Pipelines domain.
               </p>
               <p>
-                FThe platform had already launched in beta, but several core
+                The platform had already launched in beta, but several core
                 engineering workflows remained fragmented across legacy patterns
                 and evolving backend services. Pipelines functionality also
                 existed in a separate system (JET), but architectural
@@ -285,7 +277,6 @@
                 amplified existing friction.
               </p>
 
-              <!-- Optional: Problem / constraints grid (reuse your existing classes) -->
               <div class="insight-grid">
                 <div class="insight-card">
                   <div class="insight-icon">1</div>
@@ -329,6 +320,95 @@
                 </div>
               </div>
             </div>
+          </article>
+          <!-- /end article X1 — Context -->
+
+          <!-- =====================================================
+               Artifact: Before-state diagram
+               Sits at .container level — same width as TOC row
+          ====================================================== -->
+          <figure class="artifact-figure" data-artifact>
+            <div
+              class="artifact-thumb"
+              role="button"
+              tabindex="0"
+              aria-label="View full diagram: Build &amp; Release Ecosystem before intervention"
+            >
+              <img
+                src="./images/BAR24_productsBefore.webp"
+                alt="Lucidspark board showing 7 parallel systems in the Build and Release Ecosystem before intervention — Evidence Widget, Deployment App, Release Manager, Runway, Earhart, Release Coordinator, Pipelines, and Policies with no shared structure"
+                class="artifact-img"
+                loading="lazy"
+              />
+              <div class="artifact-overlay">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="m21 21-4.35-4.35" />
+                  <path d="M11 8v3M8 11h6" />
+                </svg>
+                <span>View diagram</span>
+              </div>
+            </div>
+            <figcaption class="artifact-caption">
+              Build &amp; Release Ecosystem, pre-intervention — 7 parallel
+              systems, no shared structure
+            </figcaption>
+          </figure>
+
+          <!-- Modal — sibling of figure, not nested inside it -->
+          <div
+            class="artifact-modal"
+            id="artifact-modal-before"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Build and Release Ecosystem diagram"
+            hidden
+          >
+            <div class="artifact-modal-backdrop"></div>
+            <div class="artifact-modal-frame">
+              <button class="artifact-modal-close" aria-label="Close diagram">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M18 6 6 18M6 6l12 12" />
+                </svg>
+              </button>
+              <div class="artifact-modal-scroll">
+                <img
+                  src="./images/BAR24_productsBefore.webp"
+                  alt="Full view: Build and Release Ecosystem before intervention"
+                  class="artifact-modal-img"
+                />
+              </div>
+              <p class="artifact-modal-caption">
+                Build &amp; Release Ecosystem, pre-intervention — 7 parallel
+                systems, no shared structure
+              </p>
+            </div>
+          </div>
+          <!-- end artifact -->
+
+          <!-- Purple section rule — mirrors the one above the opening-block -->
+          <div class="section-rule-accent"></div>
+
+          <article class="content-article">
+            <!-- reopen article X1 — Strategy onward -->
 
             <!-- Strategic Approach -->
             <div id="approach" class="content-block">
@@ -387,6 +467,199 @@
                 </div>
               </div>
             </div>
+          </article>
+          <!-- /end article X1 — Strategy -->
+
+          <!-- =====================================================
+               Artifact: Workflow architecture map
+               Full-color, horizontal scroll — breadth is the message
+          ====================================================== -->
+          <figure
+            class="artifact-figure artifact-figure--scroll"
+            data-artifact
+            data-artifact-lightbox
+          >
+            <div
+              class="artifact-thumb artifact-thumb--scroll"
+              role="button"
+              tabindex="0"
+              aria-label="View full diagram: Pipelines Executions workflow architecture map"
+            >
+              <div class="artifact-scroll-track">
+                <img
+                  src="./images/BaR24_flow.webp"
+                  alt="End-to-end workflow architecture map showing all pipeline modules — Grafana, Pipelines Widget, Evidence Widget, Policy Service, Deployment Widget, Release Manager, and Release Orchestrator — connected across the full SDLC"
+                  class="artifact-img artifact-img--scroll"
+                  loading="lazy"
+                />
+              </div>
+              <div class="artifact-scroll-fade"></div>
+              <div class="artifact-overlay">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="m21 21-4.35-4.35" />
+                  <path d="M11 8v3M8 11h6" />
+                </svg>
+                <span>View full diagram</span>
+              </div>
+            </div>
+            <figcaption class="artifact-caption">
+              Pipelines Executions — end-to-end workflow architecture across the
+              full SDLC, connecting all 8 modules
+            </figcaption>
+          </figure>
+
+          <!-- Lightbox viewer — flow diagram -->
+          <div
+            class="artifact-modal lightbox"
+            id="artifact-modal-flow"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Pipelines Executions workflow architecture diagram"
+            hidden
+          >
+            <div class="artifact-modal-backdrop"></div>
+            <div class="lightbox-frame">
+              <!-- Toolbar -->
+              <div class="lightbox-toolbar">
+                <span class="lightbox-title"
+                  >Pipelines Executions — end-to-end workflow architecture</span
+                >
+                <div class="lightbox-controls">
+                  <button
+                    class="lightbox-btn"
+                    id="lb-zoom-out"
+                    aria-label="Zoom out"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <circle cx="11" cy="11" r="7" />
+                      <path d="m21 21-4.35-4.35" />
+                      <path d="M8 11h6" />
+                    </svg>
+                  </button>
+                  <span class="lightbox-zoom-level" id="lb-zoom-label"
+                    >100%</span
+                  >
+                  <button
+                    class="lightbox-btn"
+                    id="lb-zoom-in"
+                    aria-label="Zoom in"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <circle cx="11" cy="11" r="7" />
+                      <path d="m21 21-4.35-4.35" />
+                      <path d="M11 8v3M8 11h6" />
+                    </svg>
+                  </button>
+                  <button
+                    class="lightbox-btn"
+                    id="lb-zoom-reset"
+                    aria-label="Reset zoom"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"
+                      />
+                      <path d="M3 3v5h5" />
+                    </svg>
+                  </button>
+                  <a
+                    class="lightbox-btn lightbox-btn--download"
+                    href="./images/BaR24_flow.webp"
+                    download="BaR24_flow.webp"
+                    aria-label="Download full-size diagram"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                      <polyline points="7 10 12 15 17 10" />
+                      <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                  </a>
+                  <button
+                    class="lightbox-btn lightbox-btn--close"
+                    id="lb-close"
+                    aria-label="Close diagram"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M18 6 6 18M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Scrollable canvas -->
+              <div class="lightbox-canvas" id="lb-canvas">
+                <img
+                  src="./images/BaR24_flow.webp"
+                  alt="Full view: Pipelines Executions workflow architecture map"
+                  class="lightbox-img"
+                  id="lb-img"
+                  draggable="false"
+                />
+              </div>
+            </div>
+          </div>
+          <!-- end artifact -->
+
+          <!-- Purple section rule -->
+          <div class="section-rule-accent"></div>
+
+          <article class="content-article">
+            <!-- reopen article X1 — Execution onward -->
 
             <!-- Execution -->
             <div id="execution" class="content-block">
@@ -409,7 +682,7 @@
                 Previously disconnected promotion flows were re-architected into
                 structured stages with transparent authorization logic and
                 integrated validation states—aligning system behavior with
-                engineers’ mental models. Work was delivered through a sequenced
+                engineers' mental models. Work was delivered through a sequenced
                 sprint model:
               </p>
 
@@ -432,121 +705,606 @@
 
               <h3 class="block-subtitle">Key Modules Delivered</h3>
 
-              <!-- Optional: Rhythm / timeline list (works well for "steps") -->
-              <div class="rhythm-list">
-                <div class="rhythm-item">
-                  <div class="rhythm-day">
+              <!-- Accordion rhythm list -->
+              <div class="rhythm-list rhythm-list--accordion">
+                <!-- Card 1: Evidence & Promotion -->
+                <div
+                  class="rhythm-item rhythm-accordion"
+                  data-accordion="evidence"
+                >
+                  <div
+                    class="rhythm-header"
+                    role="button"
+                    tabindex="0"
+                    aria-expanded="false"
+                    aria-controls="accordion-evidence"
+                  >
+                    <div class="rhythm-day">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path d="M9 12h6M9 16h6M9 8h3" />
+                        <path
+                          d="M5 4h10a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"
+                        />
+                        <path d="M17 7h.01" />
+                      </svg>
+                    </div>
+                    <div class="rhythm-content">
+                      <div class="rhythm-title">Evidence &amp; Promotion</div>
+                      <div class="rhythm-desc">
+                        Structured promotion workflows and validation states
+                        supporting controlled progression across pipeline
+                        environments.
+                      </div>
+                    </div>
                     <svg
+                      class="rhythm-chevron"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="1.5"
+                      stroke-width="2"
                       stroke-linecap="round"
                       stroke-linejoin="round"
                       aria-hidden="true"
                     >
-                      <path d="M9 12h6M9 16h6M9 8h3" />
-                      <path
-                        d="M5 4h10a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"
+                      <path d="m6 9 6 6 6-6" />
+                    </svg>
+                  </div>
+                  <div class="rhythm-accordion-body" id="accordion-evidence">
+                    <div class="rhythm-accordion-inner">
+                      <img
+                        src="./images/evidence.webp"
+                        alt="Evidence and Promotion module — UI showing evidence upload, code quality checks, and promotion status"
+                        class="rhythm-mockup"
+                        loading="lazy"
                       />
-                      <circle
-                        cx="16"
-                        cy="18"
-                        r="3"
-                        fill="currentColor"
-                        stroke="none"
-                        opacity="0"
+                      <button
+                        class="rhythm-spec-link"
+                        data-wiki-modal="wiki-evidence"
+                      >
+                        View design documentation &rarr;
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 2: Pipelines Overview -->
+                <div
+                  class="rhythm-item rhythm-accordion"
+                  data-accordion="listing"
+                >
+                  <div
+                    class="rhythm-header"
+                    role="button"
+                    tabindex="0"
+                    aria-expanded="false"
+                    aria-controls="accordion-listing"
+                  >
+                    <div class="rhythm-day">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <circle cx="5" cy="6" r="2" />
+                        <circle cx="5" cy="18" r="2" />
+                        <circle cx="19" cy="12" r="2" />
+                        <path d="M7 6h4a4 4 0 0 1 4 4v1" />
+                        <path d="M7 18h4a4 4 0 0 0 4-4v-1" />
+                      </svg>
+                    </div>
+                    <div class="rhythm-content">
+                      <div class="rhythm-title">Pipelines Overview</div>
+                      <div class="rhythm-desc">
+                        Improved visibility into pipeline health and developer
+                        actions required to progress builds.
+                      </div>
+                    </div>
+                    <svg
+                      class="rhythm-chevron"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="m6 9 6 6 6-6" />
+                    </svg>
+                  </div>
+                  <div class="rhythm-accordion-body" id="accordion-listing">
+                    <div class="rhythm-accordion-inner">
+                      <img
+                        src="./images/listing.webp"
+                        alt="Pipelines Overview module — UI showing pipeline list with status, source, activity and action columns"
+                        class="rhythm-mockup"
+                        loading="lazy"
                       />
-                      <path d="M17 7h.01" />
-                    </svg>
-                  </div>
-                  <div class="rhythm-content">
-                    <div class="rhythm-title">Evidence & Promotion</div>
-                    <div class="rhythm-desc">
-                      Structured promotion workflows and validation states
-                      supporting controlled progression across pipeline
-                      environments.
+                      <button
+                        class="rhythm-spec-link"
+                        data-wiki-modal="wiki-listing"
+                      >
+                        View design documentation &rarr;
+                      </button>
                     </div>
                   </div>
                 </div>
 
-                <div class="rhythm-item">
-                  <div class="rhythm-day">
+                <!-- Card 3: Diagnostics -->
+                <div
+                  class="rhythm-item rhythm-accordion"
+                  data-accordion="diagnostics"
+                >
+                  <div
+                    class="rhythm-header"
+                    role="button"
+                    tabindex="0"
+                    aria-expanded="false"
+                    aria-controls="accordion-diagnostics"
+                  >
+                    <div class="rhythm-day">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <circle cx="11" cy="11" r="7" />
+                        <path d="m21 21-4.35-4.35" />
+                        <path d="M11 8v3l2 2" />
+                      </svg>
+                    </div>
+                    <div class="rhythm-content">
+                      <div class="rhythm-title">Diagnostics</div>
+                      <div class="rhythm-desc">
+                        Unified troubleshooting surfaces across logs, timelines,
+                        and policy checks.
+                      </div>
+                    </div>
                     <svg
+                      class="rhythm-chevron"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="1.5"
+                      stroke-width="2"
                       stroke-linecap="round"
                       stroke-linejoin="round"
                       aria-hidden="true"
                     >
-                      <circle cx="5" cy="6" r="2" />
-                      <circle cx="5" cy="18" r="2" />
-                      <circle cx="19" cy="12" r="2" />
-                      <path d="M7 6h4a4 4 0 0 1 4 4v1" />
-                      <path d="M7 18h4a4 4 0 0 0 4-4v-1" />
+                      <path d="m6 9 6 6 6-6" />
                     </svg>
                   </div>
-                  <div class="rhythm-content">
-                    <div class="rhythm-title">Pipelines Overview</div>
-                    <div class="rhythm-desc">
-                      Improved visibility into pipeline health and developer
-                      actions required to progress builds.
+                  <div class="rhythm-accordion-body" id="accordion-diagnostics">
+                    <div class="rhythm-accordion-inner">
+                      <img
+                        src="./images/logs.webp"
+                        alt="Diagnostics module — UI showing run logs, pipeline information panel, and Jira references"
+                        class="rhythm-mockup"
+                        loading="lazy"
+                      />
+                      <button
+                        class="rhythm-spec-link"
+                        data-wiki-modal="wiki-diagnostics"
+                      >
+                        View design documentation &rarr;
+                      </button>
                     </div>
                   </div>
                 </div>
 
-                <div class="rhythm-item">
-                  <div class="rhythm-day">
+                <!-- Card 4: Reporting -->
+                <div
+                  class="rhythm-item rhythm-accordion"
+                  data-accordion="reporting"
+                >
+                  <div
+                    class="rhythm-header"
+                    role="button"
+                    tabindex="0"
+                    aria-expanded="false"
+                    aria-controls="accordion-reporting"
+                  >
+                    <div class="rhythm-day">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path d="M3 3v18h18" />
+                        <path d="m7 16 4-4 4 4 4-4" />
+                      </svg>
+                    </div>
+                    <div class="rhythm-content">
+                      <div class="rhythm-title">Reporting</div>
+                      <div class="rhythm-desc">
+                        Structured reporting to support auditing and operational
+                        oversight.
+                      </div>
+                    </div>
                     <svg
+                      class="rhythm-chevron"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="1.5"
+                      stroke-width="2"
                       stroke-linecap="round"
                       stroke-linejoin="round"
                       aria-hidden="true"
                     >
-                      <circle cx="11" cy="11" r="7" />
-                      <path d="m21 21-4.35-4.35" />
-                      <path d="M11 8v3l2 2" />
+                      <path d="m6 9 6 6 6-6" />
                     </svg>
                   </div>
-                  <div class="rhythm-content">
-                    <div class="rhythm-title">Diagnostics</div>
-                    <div class="rhythm-desc">
-                      Unified troubleshooting surfaces across logs, timelines,
-                      and policy checks.
+                  <div class="rhythm-accordion-body" id="accordion-reporting">
+                    <div class="rhythm-accordion-inner">
+                      <img
+                        src="./images/reporting.webp"
+                        alt="Reporting module — deployment authorizer evidence report showing code quality, security scan, and functional test results"
+                        class="rhythm-mockup"
+                        loading="lazy"
+                      />
+                      <button
+                        class="rhythm-spec-link"
+                        data-wiki-modal="wiki-reporting"
+                      >
+                        View design documentation &rarr;
+                      </button>
                     </div>
                   </div>
                 </div>
+              </div>
 
-                <div class="rhythm-item">
-                  <div class="rhythm-day">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path d="M3 3v18h18" />
-                      <path d="m7 16 4-4 4 4 4-4" />
-                    </svg>
-                  </div>
-                  <div class="rhythm-content">
-                    <div class="rhythm-title">Reporting</div>
-                    <div class="rhythm-desc">
-                      Structured reporting to support auditing and operational
-                      oversight.
+              <!-- Wiki strip modals -->
+              <div
+                class="wiki-modal"
+                id="wiki-evidence"
+                role="dialog"
+                aria-modal="true"
+                aria-label="Evidence and Promotion design specifications"
+                hidden
+              >
+                <div class="wiki-modal-backdrop"></div>
+                <div class="wiki-modal-frame">
+                  <div class="wiki-modal-toolbar">
+                    <div class="wiki-modal-controls">
+                      <button
+                        class="wiki-btn"
+                        data-zoom-out
+                        aria-label="Zoom out"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <circle cx="11" cy="11" r="7" />
+                          <path d="m21 21-4.35-4.35" />
+                          <path d="M8 11h6" />
+                        </svg>
+                      </button>
+                      <span class="wiki-zoom-label">Fit</span>
+                      <button
+                        class="wiki-btn"
+                        data-zoom-in
+                        aria-label="Zoom in"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <circle cx="11" cy="11" r="7" />
+                          <path d="m21 21-4.35-4.35" />
+                          <path d="M11 8v3M8 11h6" />
+                        </svg>
+                      </button>
+
+                      <button
+                        class="wiki-btn wiki-btn--close"
+                        data-close
+                        aria-label="Close"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path d="M18 6 6 18M6 6l12 12" />
+                        </svg>
+                      </button>
                     </div>
+                  </div>
+                  <div class="wiki-modal-canvas">
+                    <img
+                      src="./images/evidenceWIKI.png"
+                      alt="Evidence and Promotion design specifications — Confluence wiki strip"
+                      class="wiki-modal-img"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="wiki-modal"
+                id="wiki-listing"
+                role="dialog"
+                aria-modal="true"
+                aria-label="Pipelines Overview design specifications"
+                hidden
+              >
+                <div class="wiki-modal-backdrop"></div>
+                <div class="wiki-modal-frame">
+                  <div class="wiki-modal-toolbar">
+                    <div class="wiki-modal-controls">
+                      <button
+                        class="wiki-btn"
+                        data-zoom-out
+                        aria-label="Zoom out"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <circle cx="11" cy="11" r="7" />
+                          <path d="m21 21-4.35-4.35" />
+                          <path d="M8 11h6" />
+                        </svg>
+                      </button>
+                      <span class="wiki-zoom-label">Fit</span>
+                      <button
+                        class="wiki-btn"
+                        data-zoom-in
+                        aria-label="Zoom in"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <circle cx="11" cy="11" r="7" />
+                          <path d="m21 21-4.35-4.35" />
+                          <path d="M11 8v3M8 11h6" />
+                        </svg>
+                      </button>
+
+                      <button
+                        class="wiki-btn wiki-btn--close"
+                        data-close
+                        aria-label="Close"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path d="M18 6 6 18M6 6l12 12" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="wiki-modal-canvas">
+                    <img
+                      src="./images/listingWIKI.png"
+                      alt="Pipelines Overview design specifications — Confluence wiki strip"
+                      class="wiki-modal-img"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="wiki-modal"
+                id="wiki-diagnostics"
+                role="dialog"
+                aria-modal="true"
+                aria-label="Diagnostics design specifications"
+                hidden
+              >
+                <div class="wiki-modal-backdrop"></div>
+                <div class="wiki-modal-frame">
+                  <div class="wiki-modal-toolbar">
+                    <div class="wiki-modal-controls">
+                      <button
+                        class="wiki-btn"
+                        data-zoom-out
+                        aria-label="Zoom out"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <circle cx="11" cy="11" r="7" />
+                          <path d="m21 21-4.35-4.35" />
+                          <path d="M8 11h6" />
+                        </svg>
+                      </button>
+                      <span class="wiki-zoom-label">Fit</span>
+                      <button
+                        class="wiki-btn"
+                        data-zoom-in
+                        aria-label="Zoom in"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <circle cx="11" cy="11" r="7" />
+                          <path d="m21 21-4.35-4.35" />
+                          <path d="M11 8v3M8 11h6" />
+                        </svg>
+                      </button>
+
+                      <button
+                        class="wiki-btn wiki-btn--close"
+                        data-close
+                        aria-label="Close"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path d="M18 6 6 18M6 6l12 12" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="wiki-modal-canvas">
+                    <img
+                      src="./images/diagnosisWIKI.png"
+                      alt="Diagnostics design specifications — Confluence wiki strip"
+                      class="wiki-modal-img"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="wiki-modal"
+                id="wiki-reporting"
+                role="dialog"
+                aria-modal="true"
+                aria-label="Reporting design specifications"
+                hidden
+              >
+                <div class="wiki-modal-backdrop"></div>
+                <div class="wiki-modal-frame">
+                  <div class="wiki-modal-toolbar">
+                    <div class="wiki-modal-controls">
+                      <button
+                        class="wiki-btn"
+                        data-zoom-out
+                        aria-label="Zoom out"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <circle cx="11" cy="11" r="7" />
+                          <path d="m21 21-4.35-4.35" />
+                          <path d="M8 11h6" />
+                        </svg>
+                      </button>
+                      <span class="wiki-zoom-label">Fit</span>
+                      <button
+                        class="wiki-btn"
+                        data-zoom-in
+                        aria-label="Zoom in"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <circle cx="11" cy="11" r="7" />
+                          <path d="m21 21-4.35-4.35" />
+                          <path d="M11 8v3M8 11h6" />
+                        </svg>
+                      </button>
+
+                      <button
+                        class="wiki-btn wiki-btn--close"
+                        data-close
+                        aria-label="Close"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path d="M18 6 6 18M6 6l12 12" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="wiki-modal-canvas">
+                    <img
+                      src="./images/daReportWIKI.png"
+                      alt="Reporting design specifications — Confluence wiki strip"
+                      class="wiki-modal-img"
+                      loading="lazy"
+                    />
                   </div>
                 </div>
               </div>
@@ -657,8 +1415,11 @@
               </p>
             </div>
           </article>
+          <!-- /end article X1 — Reflection -->
         </div>
+        <!-- /.container -->
       </section>
+      <!-- /.case-study-content -->
 
       <!-- Navigation -->
       <section class="section case-study-nav">
@@ -705,7 +1466,11 @@
               </svg>
             </a>
 
-            <a class="social-icon" href="/cdn-cgi/l/email-protection#6b0f0a05020e070a2b0f1b0e050a1f0245080406" aria-label="Email">
+            <a
+              class="social-icon"
+              href="/cdn-cgi/l/email-protection#6b0f0a05020e070a2b0f1b0e050a1f0245080406"
+              aria-label="Email"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -732,6 +1497,356 @@
     </a>
 
     <!-- Theme + shared interactions -->
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="../script.js" defer></script>
+    <script
+      data-cfasync="false"
+      src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+    ></script>
+    <script src="../script.js" defer></script>
 
-    <!-- RECOMMENDED: gate private case pages just l
+    <!-- Artifact modal + lightbox + accordion interaction -->
+    <script>
+      // ── Standard modals ──
+      document.querySelectorAll('[data-artifact]').forEach(function (figure) {
+        var thumb = figure.querySelector('.artifact-thumb');
+        var modal = figure.nextElementSibling;
+        if (!modal || modal.classList.contains('lightbox')) return;
+        function openModal() {
+          modal.removeAttribute('hidden');
+          document.body.style.overflow = 'hidden';
+          modal.querySelector('.artifact-modal-close').focus();
+        }
+        function closeModal() {
+          modal.setAttribute('hidden', '');
+          document.body.style.overflow = '';
+          thumb.focus();
+        }
+        thumb.addEventListener('click', openModal);
+        thumb.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openModal();
+          }
+        });
+        modal
+          .querySelector('.artifact-modal-backdrop')
+          .addEventListener('click', closeModal);
+        modal
+          .querySelector('.artifact-modal-close')
+          .addEventListener('click', closeModal);
+        modal
+          .querySelector('.artifact-modal-scroll')
+          .addEventListener('click', closeModal);
+        modal.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') closeModal();
+        });
+      });
+
+      // ── Lightbox viewer (flow diagram) ──
+      (function () {
+        var figure = document.querySelector('[data-artifact-lightbox]');
+        var lightbox = document.getElementById('artifact-modal-flow');
+        if (!figure || !lightbox) return;
+        var thumb = figure.querySelector('.artifact-thumb');
+        var canvas = document.getElementById('lb-canvas');
+        var img = document.getElementById('lb-img');
+        var label = document.getElementById('lb-zoom-label');
+        var scale = 1;
+        var STEP = 0.25;
+        var MIN = 0.25;
+        var MAX = 3;
+        function setZoom(z) {
+          scale = Math.min(MAX, Math.max(MIN, z));
+          img.style.transform = 'scale(' + scale + ')';
+          img.style.transformOrigin = 'top left';
+          label.textContent = Math.round(scale * 100) + '%';
+        }
+        function openLightbox() {
+          lightbox.removeAttribute('hidden');
+          document.body.style.overflow = 'hidden';
+          setZoom(1);
+          document.getElementById('lb-close').focus();
+        }
+        function closeLightbox() {
+          lightbox.setAttribute('hidden', '');
+          document.body.style.overflow = '';
+          thumb.focus();
+        }
+        var overlay = thumb.querySelector('.artifact-overlay');
+        var fade = thumb.querySelector('.artifact-scroll-fade');
+        if (overlay) {
+          overlay.style.pointerEvents = 'auto';
+          overlay.addEventListener('click', openLightbox);
+        }
+        if (fade) {
+          fade.style.pointerEvents = 'auto';
+          fade.addEventListener('click', openLightbox);
+        }
+        thumb.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openLightbox();
+          }
+        });
+        document
+          .getElementById('lb-zoom-in')
+          .addEventListener('click', function () {
+            setZoom(scale + STEP);
+          });
+        document
+          .getElementById('lb-zoom-out')
+          .addEventListener('click', function () {
+            setZoom(scale - STEP);
+          });
+        document
+          .getElementById('lb-zoom-reset')
+          .addEventListener('click', function () {
+            setZoom(1);
+            canvas.scrollTop = 0;
+            canvas.scrollLeft = 0;
+          });
+        document
+          .getElementById('lb-close')
+          .addEventListener('click', closeLightbox);
+        lightbox
+          .querySelector('.artifact-modal-backdrop')
+          .addEventListener('click', closeLightbox);
+        lightbox.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') closeLightbox();
+        });
+        canvas.addEventListener(
+          'wheel',
+          function (e) {
+            if (e.ctrlKey || e.metaKey) {
+              e.preventDefault();
+              setZoom(scale + (e.deltaY < 0 ? STEP : -STEP));
+            }
+          },
+          { passive: false },
+        );
+      })();
+
+      // ── Accordion rhythm cards ──
+      (function () {
+        var HOVER_DELAY = 500; // ms before hover opens accordion
+        var cards = document.querySelectorAll('.rhythm-accordion');
+        var hoverTimer = null;
+
+        function openCard(card) {
+          // Close all others first
+          cards.forEach(function (c) {
+            if (c !== card) closeCard(c);
+          });
+          var header = card.querySelector('.rhythm-header');
+          var body = card.querySelector('.rhythm-accordion-body');
+          var inner = card.querySelector('.rhythm-accordion-inner');
+          card.classList.add('is-open');
+          header.setAttribute('aria-expanded', 'true');
+          body.style.height = inner.offsetHeight + 'px';
+        }
+
+        function closeCard(card) {
+          var header = card.querySelector('.rhythm-header');
+          var body = card.querySelector('.rhythm-accordion-body');
+          card.classList.remove('is-open');
+          header.setAttribute('aria-expanded', 'false');
+          body.style.height = '0';
+        }
+
+        function toggleCard(card) {
+          if (card.classList.contains('is-open')) {
+            closeCard(card);
+          } else {
+            openCard(card);
+          }
+        }
+
+        cards.forEach(function (card) {
+          var header = card.querySelector('.rhythm-header');
+
+          // Click / tap — immediate toggle
+          header.addEventListener('click', function () {
+            clearTimeout(hoverTimer);
+            toggleCard(card);
+          });
+
+          // Keyboard
+          header.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              clearTimeout(hoverTimer);
+              toggleCard(card);
+            }
+          });
+
+          // Hover — delayed open on desktop only
+          card.addEventListener('mouseenter', function () {
+            if (card.classList.contains('is-open')) return;
+            hoverTimer = setTimeout(function () {
+              openCard(card);
+            }, HOVER_DELAY);
+          });
+          card.addEventListener('mouseleave', function () {
+            clearTimeout(hoverTimer);
+          });
+        });
+      })();
+
+      // ── Wiki strip modals ──
+      (function () {
+        document.querySelectorAll('.wiki-modal').forEach(function (modal) {
+          var canvas = modal.querySelector('.wiki-modal-canvas');
+          var img = modal.querySelector('.wiki-modal-img');
+          var label = modal.querySelector('.wiki-zoom-label');
+          var btnIn = modal.querySelector('[data-zoom-in]');
+          var btnOut = modal.querySelector('[data-zoom-out]');
+          var STEP = 0.2; // 20% per click
+          var nativeW = 0; // image natural pixel width
+          var fitW = 0; // width at fit-to-canvas state
+          var currentW = 0;
+
+          function getFitWidth() {
+            // Always fit to canvas width with padding
+            return canvas.clientWidth - 64;
+          }
+
+          function updateButtons() {
+            // Hide + when at 100% native; hide - when at fit width
+            var atNative = currentW >= nativeW;
+            var atFit = currentW <= fitW;
+            btnIn.style.visibility = atNative ? 'hidden' : 'visible';
+            btnOut.style.visibility = atFit ? 'hidden' : 'visible';
+            // Label: hidden at fit state, show % when zoomed
+            if (atFit) {
+              label.style.visibility = 'hidden';
+              label.textContent = 'Fit';
+            } else if (atNative) {
+              label.style.visibility = 'visible';
+              label.textContent = '100%';
+            } else {
+              label.style.visibility = 'visible';
+              label.textContent = Math.round((currentW / nativeW) * 100) + '%';
+            }
+            // Enable scrollbars only when zoomed past fit
+            canvas.style.overflow = atFit ? 'hidden' : 'auto';
+          }
+
+          function applyWidth(w) {
+            // Clamp between fit width and native width
+            currentW = Math.min(nativeW, Math.max(fitW, Math.round(w)));
+            img.style.width = currentW + 'px';
+            img.style.maxWidth = 'none'; // allow exceeding canvas width when zoomed
+            img.style.height = 'auto';
+            // Always block layout so overflow scrolls symmetrically left AND right.
+            // flex justify-content:center clips the start side, preventing left-scroll.
+            // Instead: center horizontally via margin:auto, vertically via padding-top.
+            canvas.style.display = 'block';
+            canvas.style.alignItems = '';
+            canvas.style.justifyContent = '';
+            img.style.margin = '0 auto';
+            // Vertical centering: pad top so image sits in the middle when it fits
+            var renderedH =
+              img.offsetHeight ||
+              Math.round((currentW * img.naturalHeight) / nativeW);
+            var canvasInnerH = canvas.clientHeight - 64; // subtract top+bottom padding
+            if (renderedH < canvasInnerH) {
+              var topPad = Math.max(
+                32,
+                Math.round((canvas.clientHeight - renderedH) / 2),
+              );
+              canvas.style.paddingTop = topPad + 'px';
+            } else {
+              canvas.style.paddingTop = '32px';
+            }
+            updateButtons();
+          }
+
+          function resetToFit() {
+            fitW = getFitWidth();
+            // Reset img to CSS-driven width (100% of canvas)
+            img.style.width = '';
+            img.style.maxWidth = '';
+            img.style.marginTop = '';
+            img.style.margin = '';
+            currentW = fitW;
+            canvas.scrollTop = 0;
+            canvas.scrollLeft = 0;
+            canvas.style.overflow = 'hidden';
+            // Restore flex centering for the fit state
+            canvas.style.display = 'flex';
+            canvas.style.alignItems = 'center';
+            canvas.style.justifyContent = 'center';
+            canvas.style.paddingTop = '32px';
+            label.textContent = 'Fit';
+            label.style.visibility = 'hidden';
+            btnIn.style.visibility = 'visible';
+            btnOut.style.visibility = 'hidden';
+          }
+
+          function openModal() {
+            modal.removeAttribute('hidden');
+            document.body.style.overflow = 'hidden';
+            function init() {
+              nativeW = img.naturalWidth;
+              if (!nativeW) return;
+              requestAnimationFrame(resetToFit);
+            }
+            if (img.naturalWidth) {
+              init();
+            } else {
+              img.addEventListener('load', init, { once: true });
+            }
+            modal.querySelector('[data-close]').focus();
+          }
+
+          function closeModal() {
+            modal.setAttribute('hidden', '');
+            document.body.style.overflow = '';
+          }
+
+          btnIn.addEventListener('click', function () {
+            applyWidth(currentW * (1 + STEP));
+          });
+          btnOut.addEventListener('click', function () {
+            applyWidth(currentW * (1 - STEP));
+          });
+          label.addEventListener('click', resetToFit);
+
+          modal
+            .querySelector('[data-close]')
+            .addEventListener('click', closeModal);
+          modal
+            .querySelector('.wiki-modal-backdrop')
+            .addEventListener('click', closeModal);
+          modal.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') closeModal();
+          });
+
+          // Ctrl/Cmd + scroll to zoom
+          canvas.addEventListener(
+            'wheel',
+            function (e) {
+              if (e.ctrlKey || e.metaKey) {
+                e.preventDefault();
+                applyWidth(currentW * (e.deltaY < 0 ? 1 + STEP : 1 - STEP));
+              }
+            },
+            { passive: false },
+          );
+
+          modal._openWikiModal = openModal;
+        });
+
+        // Spec link buttons inside accordion cards
+        document.querySelectorAll('[data-wiki-modal]').forEach(function (btn) {
+          btn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            var modal = document.getElementById(
+              btn.getAttribute('data-wiki-modal'),
+            );
+            if (modal && modal._openWikiModal) modal._openWikiModal();
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>
