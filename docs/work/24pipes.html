@@ -140,66 +140,16 @@
         </div>
       </section>
 
-      <!-- Hero visual (optional) -->
+      <!-- Hero visual -->
       <section class="section case-study-hero" style="padding-top: 0">
         <div class="container">
           <figure class="hero-figure">
-            <svg
+            <img
+              src="./images/24pipesHero.webp"
+              alt="Flow diagram showing the end-to-end CI/CD pipeline — from GitHub through Jules CI, Spinnaker CD, and into DEV, QA, STAGE, and PROD environments, with Release Management and Release Orchestration layers"
               class="hero-svg"
-              viewBox="0 0 1200 400"
-              xmlns="http://www.w3.org/2000/svg"
-              preserveAspectRatio="xMidYMid slice"
-              aria-label="[Hero diagram description]"
-              role="img"
-            >
-              <defs>
-                <linearGradient id="heroGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop
-                    offset="0%"
-                    style="stop-color: #f0f0f0; stop-opacity: 1"
-                  />
-                  <stop
-                    offset="100%"
-                    style="stop-color: #e8e8e8; stop-opacity: 1"
-                  />
-                </linearGradient>
-                <radialGradient id="heroInk">
-                  <stop
-                    offset="0%"
-                    style="stop-color: #6e5b98; stop-opacity: 0.18"
-                  />
-                  <stop
-                    offset="100%"
-                    style="stop-color: #6e5b98; stop-opacity: 0"
-                  />
-                </radialGradient>
-              </defs>
-
-              <rect width="1200" height="400" fill="url(#heroGrad)" />
-              <circle cx="930" cy="190" r="160" fill="url(#heroInk)" />
-
-              <g stroke="#2a2a2a" stroke-width="2" fill="none" opacity="0.7">
-                <rect x="180" y="110" width="320" height="180" rx="6" />
-                <rect
-                  x="520"
-                  y="90"
-                  width="500"
-                  height="220"
-                  rx="6"
-                  opacity="0.55"
-                />
-                <line x1="500" y1="200" x2="520" y2="200" />
-              </g>
-
-              <g stroke="#2a2a2a" stroke-width="0.6" opacity="0.1">
-                <line x1="300" y1="50" x2="300" y2="350" />
-                <line x1="600" y1="50" x2="600" y2="350" />
-                <line x1="900" y1="50" x2="900" y2="350" />
-                <line x1="100" y1="120" x2="1100" y2="120" />
-                <line x1="100" y1="200" x2="1100" y2="200" />
-                <line x1="100" y1="280" x2="1100" y2="280" />
-              </g>
-            </svg>
+              loading="eager"
+            />
           </figure>
         </div>
       </section>
@@ -337,7 +287,7 @@
               <img
                 src="./images/BAR24_productsBefore.webp"
                 alt="Lucidspark board showing 7 parallel systems in the Build and Release Ecosystem before intervention — Evidence Widget, Deployment App, Release Manager, Runway, Earhart, Release Coordinator, Pipelines, and Policies with no shared structure"
-                class="artifact-img"
+                class="artifact-img artifact-img--color"
                 loading="lazy"
               />
               <div class="artifact-overlay">
@@ -686,17 +636,26 @@
                 sprint model:
               </p>
 
-              <p class="block-text">
-                <b>Sprint 1 — Discovery and backend logic alignment.</b> Mapping
-                system states, permissions, and workflow transitions with
-                engineering teams.
-              </p>
-
-              <p class="block-text">
-                <b>Sprint 2 — Dev-ready experience design.</b> Delivering
-                interaction models and UI architecture aligned with
-                implementation constraints.
-              </p>
+              <div class="sprint-pair">
+                <div class="sprint-card">
+                  <div class="sprint-eyebrow">Sprint 1</div>
+                  <div class="sprint-title">
+                    Discovery &amp; backend logic alignment
+                  </div>
+                  <p class="sprint-desc">
+                    Mapping system states, permissions, and workflow transitions
+                    with engineering teams.
+                  </p>
+                </div>
+                <div class="sprint-card">
+                  <div class="sprint-eyebrow">Sprint 2</div>
+                  <div class="sprint-title">Dev-ready experience design</div>
+                  <p class="sprint-desc">
+                    Delivering interaction models and UI architecture aligned
+                    with implementation constraints.
+                  </p>
+                </div>
+              </div>
 
               <p class="block-text">
                 This structure allowed design exploration and technical
@@ -1309,6 +1268,138 @@
                 </div>
               </div>
             </div>
+          </article>
+          <!-- /end article X1 — Execution -->
+
+          <!-- =====================================================
+               Artifact: Sprint sequencing diagram
+               Sits at .container level — same width as TOC row
+          ====================================================== -->
+          <figure class="artifact-figure" data-artifact>
+            <div
+              class="artifact-thumb artifact-thumb--color"
+              role="button"
+              tabindex="0"
+              aria-label="View full diagram: 6-sprint delivery sequencing across modules"
+            >
+              <img
+                src="./images/GAplanUX.webp"
+                alt="Sprint sequencing plan showing 6 sprints across November 2024 to January 2025, with modules moving through discovery, Figma specs, validation, and UX delivery phases"
+                class="artifact-img artifact-img--color"
+                loading="lazy"
+              />
+              <div class="artifact-overlay">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="m21 21-4.35-4.35" />
+                  <path d="M11 8v3M8 11h6" />
+                </svg>
+                <span>View diagram</span>
+              </div>
+            </div>
+            <figcaption class="artifact-caption">
+              GA delivery plan — 6-sprint sequencing across Evidence, Listing,
+              Diagnostics, Waterfall&nbsp;/&nbsp;Logs, and Reporting modules,
+              November&nbsp;2024&nbsp;–&nbsp;January&nbsp;2025
+            </figcaption>
+          </figure>
+
+          <!-- Modal — sibling of figure, not nested inside it -->
+          <div
+            class="artifact-modal lightbox"
+            id="artifact-modal-sprints"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Sprint sequencing diagram"
+            hidden
+          >
+            <div class="artifact-modal-backdrop"></div>
+            <div class="lightbox-frame">
+              <div class="lightbox-toolbar">
+                <span class="lightbox-title"
+                  >GA delivery plan — 6-sprint sequencing</span
+                >
+                <div class="lightbox-controls">
+                  <button
+                    class="lightbox-btn"
+                    data-zoom-out
+                    aria-label="Zoom out"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <circle cx="11" cy="11" r="7" />
+                      <path d="m21 21-4.35-4.35" />
+                      <path d="M8 11h6" />
+                    </svg>
+                  </button>
+                  <span class="lightbox-zoom-level">100%</span>
+                  <button
+                    class="lightbox-btn"
+                    data-zoom-in
+                    aria-label="Zoom in"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <circle cx="11" cy="11" r="7" />
+                      <path d="m21 21-4.35-4.35" />
+                      <path d="M11 8v3M8 11h6" />
+                    </svg>
+                  </button>
+                  <button
+                    class="lightbox-btn lightbox-btn--close"
+                    data-close
+                    aria-label="Close"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M18 6 6 18M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div class="lightbox-canvas">
+                <img
+                  src="./images/GAplanUX.webp"
+                  alt="Full view: 6-sprint GA delivery sequencing plan"
+                  class="lightbox-img"
+                />
+              </div>
+            </div>
+          </div>
+          <!-- end artifact -->
+
+          <!-- Purple section rule -->
+          <div class="section-rule-accent"></div>
+
+          <article class="content-article">
+            <!-- open article X1 — Impact onward -->
 
             <!-- Impact -->
             <div id="impact" class="content-block">
@@ -1366,6 +1457,14 @@
                 developer platform.
               </p>
             </div>
+          </article>
+          <!-- /end article X1 — Impact -->
+
+          <!-- Purple section rule -->
+          <div class="section-rule-accent"></div>
+
+          <article class="content-article">
+            <!-- open article X1 — Reflection -->
 
             <!-- Reflection -->
             <div id="reflection" class="content-block">
@@ -1607,6 +1706,86 @@
         document
           .getElementById('lb-close')
           .addEventListener('click', closeLightbox);
+        lightbox
+          .querySelector('.artifact-modal-backdrop')
+          .addEventListener('click', closeLightbox);
+        lightbox.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') closeLightbox();
+        });
+        canvas.addEventListener(
+          'wheel',
+          function (e) {
+            if (e.ctrlKey || e.metaKey) {
+              e.preventDefault();
+              setZoom(scale + (e.deltaY < 0 ? STEP : -STEP));
+            }
+          },
+          { passive: false },
+        );
+      })();
+
+      // ── Sprint sequencing lightbox ──
+      (function () {
+        var lightbox = document.getElementById('artifact-modal-sprints');
+        if (!lightbox) return;
+        var figure = lightbox.previousElementSibling;
+        // Walk back past the purple rule and figure to find the thumb
+        var thumb = null;
+        var el = lightbox.previousElementSibling;
+        while (el) {
+          var t = el.querySelector && el.querySelector('.artifact-thumb');
+          if (t) {
+            thumb = t;
+            break;
+          }
+          el = el.previousElementSibling;
+        }
+        var canvas = lightbox.querySelector('.lightbox-canvas');
+        var img = lightbox.querySelector('.lightbox-img');
+        var label = lightbox.querySelector('.lightbox-zoom-level');
+        var btnIn = lightbox.querySelector('[data-zoom-in]');
+        var btnOut = lightbox.querySelector('[data-zoom-out]');
+        var btnClose = lightbox.querySelector('[data-close]');
+        var scale = 1;
+        var STEP = 0.25,
+          MIN = 0.5,
+          MAX = 3;
+
+        function setZoom(z) {
+          scale = Math.min(MAX, Math.max(MIN, z));
+          img.style.transform = 'scale(' + scale + ')';
+          img.style.transformOrigin = 'top left';
+          label.textContent = Math.round(scale * 100) + '%';
+        }
+        function openLightbox() {
+          lightbox.removeAttribute('hidden');
+          document.body.style.overflow = 'hidden';
+          setZoom(1);
+          canvas.scrollTop = 0;
+          canvas.scrollLeft = 0;
+          btnClose.focus();
+        }
+        function closeLightbox() {
+          lightbox.setAttribute('hidden', '');
+          document.body.style.overflow = '';
+          if (thumb) thumb.focus();
+        }
+        if (thumb) {
+          thumb.addEventListener('click', openLightbox);
+          thumb.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              openLightbox();
+            }
+          });
+        }
+        btnIn.addEventListener('click', function () {
+          setZoom(scale + STEP);
+        });
+        btnOut.addEventListener('click', function () {
+          setZoom(scale - STEP);
+        });
+        btnClose.addEventListener('click', closeLightbox);
         lightbox
           .querySelector('.artifact-modal-backdrop')
           .addEventListener('click', closeLightbox);

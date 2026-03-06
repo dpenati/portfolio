@@ -905,6 +905,62 @@ html[data-theme='auto'] .case-study-strip {
 }
 
 /* -------------------------
+   Sprint Pair
+   Two-up cards for Sprint 1 / Sprint 2 in Execution section
+-------------------------- */
+
+.sprint-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 28px 0 32px 0;
+}
+
+@media (max-width: 640px) {
+  .sprint-pair {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sprint-card {
+  padding: 24px 22px 22px;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-top: 3px solid var(--accent);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+
+.sprint-eyebrow {
+  font-family: 'Cairo Play', var(--sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.sprint-title {
+  font-family: var(--serif);
+  font-size: clamp(17px, 2vw, 20px);
+  font-weight: 600;
+  font-style: italic;
+  line-height: 1.3;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.sprint-desc {
+  font-family: var(--condensed);
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--ink);
+  opacity: 0.85;
+  margin: 0;
+}
+
+/* -------------------------
    Highlights Block
 -------------------------- */
 
@@ -1078,6 +1134,16 @@ html[data-theme='auto'] .case-study-strip {
 .artifact-thumb:hover .artifact-overlay span,
 .artifact-thumb:focus .artifact-overlay span {
   opacity: 1;
+}
+
+/* Color override — opt specific thumbnails out of grayscale */
+.artifact-img--color {
+  filter: none;
+}
+
+.artifact-thumb:hover .artifact-img--color,
+.artifact-thumb:focus .artifact-img--color {
+  filter: none;
 }
 
 /* Caption */
