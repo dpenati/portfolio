@@ -6,20 +6,17 @@ import {
   signOut,
 } from 'https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js';
 
-// Keep your existing behavior: 1 day strict expiry, key name unchanged
 const EXPIRY_MS = 24 * 60 * 60 * 1000;
 const LAST_LOGIN_KEY = 'dp_last_login_at';
-
-// Default landing page (your current behavior)
 const DEFAULT_REDIRECT = './work/indexWK.html';
 
-// DOM
 const form = document.getElementById('loginForm');
 const emailInput = document.getElementById('email');
 const passwordInput = document.getElementById('password');
 const msg = document.getElementById('msg');
 
-// ---- helpers ----
+let loginInProgress = false;
+
 function showMessage(text) {
   if (!msg) return;
   msg.textContent = text || '';
@@ -51,26 +48,16 @@ function isExpired() {
   }
 }
 
-/**
- * SAFETY: only allow redirects to your private Work HTML pages.
- * - Blocks protocols (https://), protocol-relative (//), javascript:, data:
- * - Forces a "./work/..." relative path
- * - Forces ".html" extension
- */
 function sanitizeNext(nextRaw) {
   if (!nextRaw) return null;
 
   let next = String(nextRaw).trim();
   if (!next) return null;
 
-  // Decode once if needed (avoid throwing on malformed encodings)
   try {
     next = decodeURIComponent(next);
-  } catch {
-    // keep original string if decode fails
-  }
+  } catch {}
 
-  // Hard blocks
   const lower = next.toLowerCase();
   if (
     lower.includes('://') ||
@@ -81,15 +68,8 @@ function sanitizeNext(nextRaw) {
     return null;
   }
 
-  // Normalize: allow "work/24pipes.html" -> "./work/24pipes.html"
   if (next.startsWith('work/')) next = `./${next}`;
 
-  // Allowlist: only private work pages (html only)
-  // Examples allowed:
-  // ./work/indexWK.html
-  // ./work/24pipes.html
-  // ./work/16canopy.html
-  // ./work/12cyber.html
   const allowed = /^\.\/work\/[a-zA-Z0-9_-]+\.html$/;
   if (!allowed.test(next)) return null;
 
@@ -111,11 +91,12 @@ function getRedirectTarget() {
   return safe || DEFAULT_REDIRECT;
 }
 
-// ---- automatic redirect if already signed in & still valid ----
 onAuthStateChanged(auth, async (user) => {
   if (!user) return;
 
-  // Signed in but expired → force sign out and stay on login page
+  // Important: do not run expiry enforcement while a login submit is happening
+  if (loginInProgress) return;
+
   if (isExpired()) {
     try {
       await signOut(auth);
@@ -125,11 +106,9 @@ onAuthStateChanged(auth, async (user) => {
     return;
   }
 
-  // Signed in + valid → go to requested target (sanitized)
   window.location.replace(getRedirectTarget());
 });
 
-// ---- form submit ----
 if (form) {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -143,15 +122,15 @@ if (form) {
       return;
     }
 
+    loginInProgress = true;
+
     try {
       await signInWithEmailAndPassword(auth, email, password);
-
-      // Keep strict 1-day behavior
       setLastLoginNow();
-
-      // Go where the user intended (or default)
       window.location.replace(getRedirectTarget());
     } catch (err) {
+      loginInProgress = false;
+
       const code = err?.code || '';
       if (code.includes('auth/invalid-credential')) {
         showMessage('Invalid email or password.');
@@ -165,7 +144,6 @@ if (form) {
   });
 }
 
-// ---- password show/hide (matches your existing markup) ----
 document.addEventListener('DOMContentLoaded', () => {
   const toggle = document.querySelector('.auth-password-toggle');
   if (!toggle || !passwordInput) return;
