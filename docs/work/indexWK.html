@@ -64,7 +64,9 @@
       }
 
       @keyframes dpSpin {
-        to { transform: rotate(360deg); }
+        to {
+          transform: rotate(360deg);
+        }
       }
 
       html.auth-pending #auth-loading {
@@ -83,7 +85,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Case Studies — Daniela Penati</title>
-    <meta name="description" content="Daniela Penati's case studies and UX work." />
+    <meta
+      name="description"
+      content="Daniela Penati's case studies and UX work."
+    />
     <meta name="color-scheme" content="light dark" />
 
     <!-- Fonts -->
@@ -104,13 +109,13 @@
 
       /* Domain color tokens */
       :root {
-        --domain-engineering: #6e5b98;   /* purple — existing accent */
-        --domain-healthcare:  #2a7d6f;   /* teal */
-        --domain-security:    #3a5a8c;   /* slate blue */
+        --domain-engineering: #6e5b98; /* purple — existing accent */
+        --domain-healthcare: #2a7d6f; /* teal */
+        --domain-security: #3a5a8c; /* slate blue */
 
-        --domain-engineering-soft: rgba(110, 91, 152, 0.10);
-        --domain-healthcare-soft:  rgba(42, 125, 111, 0.10);
-        --domain-security-soft:    rgba(58, 90, 140, 0.10);
+        --domain-engineering-soft: rgba(110, 91, 152, 0.1);
+        --domain-healthcare-soft: rgba(42, 125, 111, 0.1);
+        --domain-security-soft: rgba(58, 90, 140, 0.1);
       }
 
       /* -------------------------
@@ -242,13 +247,28 @@
         flex-shrink: 0;
       }
 
-      .filter-pill[data-filter="engineering"] .filter-pill-dot { background: var(--domain-engineering); }
-      .filter-pill[data-filter="healthcare"]  .filter-pill-dot { background: var(--domain-healthcare); }
-      .filter-pill[data-filter="security"]    .filter-pill-dot { background: var(--domain-security); }
+      .filter-pill[data-filter='engineering'] .filter-pill-dot {
+        background: var(--domain-engineering);
+      }
+      .filter-pill[data-filter='healthcare'] .filter-pill-dot {
+        background: var(--domain-healthcare);
+      }
+      .filter-pill[data-filter='security'] .filter-pill-dot {
+        background: var(--domain-security);
+      }
 
-      .filter-pill[data-filter="engineering"].is-active { border-color: var(--domain-engineering); color: #fff; }
-      .filter-pill[data-filter="healthcare"].is-active  { border-color: var(--domain-healthcare);  color: #fff; }
-      .filter-pill[data-filter="security"].is-active    { border-color: var(--domain-security);    color: #fff; }
+      .filter-pill[data-filter='engineering'].is-active {
+        border-color: var(--domain-engineering);
+        color: #fff;
+      }
+      .filter-pill[data-filter='healthcare'].is-active {
+        border-color: var(--domain-healthcare);
+        color: #fff;
+      }
+      .filter-pill[data-filter='security'].is-active {
+        border-color: var(--domain-security);
+        color: #fff;
+      }
 
       /* -------------------------
          Work grid
@@ -306,9 +326,15 @@
         flex-shrink: 0;
       }
 
-      .work-card[data-domain="engineering"] .work-card-bar { background: var(--domain-engineering); }
-      .work-card[data-domain="healthcare"]  .work-card-bar { background: var(--domain-healthcare); }
-      .work-card[data-domain="security"]    .work-card-bar { background: var(--domain-security); }
+      .work-card[data-domain='engineering'] .work-card-bar {
+        background: var(--domain-engineering);
+      }
+      .work-card[data-domain='healthcare'] .work-card-bar {
+        background: var(--domain-healthcare);
+      }
+      .work-card[data-domain='security'] .work-card-bar {
+        background: var(--domain-security);
+      }
 
       /* Card body */
       .work-card-body {
@@ -328,9 +354,15 @@
         margin-bottom: 10px;
       }
 
-      .work-card[data-domain="engineering"] .work-card-eyebrow { color: var(--domain-engineering); }
-      .work-card[data-domain="healthcare"]  .work-card-eyebrow { color: var(--domain-healthcare); }
-      .work-card[data-domain="security"]    .work-card-eyebrow { color: var(--domain-security); }
+      .work-card[data-domain='engineering'] .work-card-eyebrow {
+        color: var(--domain-engineering);
+      }
+      .work-card[data-domain='healthcare'] .work-card-eyebrow {
+        color: var(--domain-healthcare);
+      }
+      .work-card[data-domain='security'] .work-card-eyebrow {
+        color: var(--domain-security);
+      }
 
       .work-card-title {
         font-family: var(--serif);
@@ -392,13 +424,21 @@
         font-weight: 500;
         text-decoration: none;
         color: var(--muted);
-        transition: color 200ms ease, gap 200ms ease;
+        transition:
+          color 200ms ease,
+          gap 200ms ease;
         align-self: flex-start;
       }
 
-      .work-card[data-domain="engineering"] .work-card-cta:hover { color: var(--domain-engineering); }
-      .work-card[data-domain="healthcare"]  .work-card-cta:hover { color: var(--domain-healthcare); }
-      .work-card[data-domain="security"]    .work-card-cta:hover { color: var(--domain-security); }
+      .work-card[data-domain='engineering'] .work-card-cta:hover {
+        color: var(--domain-engineering);
+      }
+      .work-card[data-domain='healthcare'] .work-card-cta:hover {
+        color: var(--domain-healthcare);
+      }
+      .work-card[data-domain='security'] .work-card-cta:hover {
+        color: var(--domain-security);
+      }
 
       .work-card-cta:hover {
         gap: 10px;
@@ -462,17 +502,34 @@
               xmlns="http://www.w3.org/2000/svg"
               aria-hidden="true"
             >
-              <circle cx="30" cy="30" r="27" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.3" />
-              <circle cx="30" cy="30" r="24" fill="currentColor" opacity="0.08" />
+              <circle
+                cx="30"
+                cy="30"
+                r="27"
+                stroke="currentColor"
+                stroke-width="1.5"
+                fill="none"
+                opacity="0.3"
+              />
+              <circle
+                cx="30"
+                cy="30"
+                r="24"
+                fill="currentColor"
+                opacity="0.08"
+              />
               <text
-                x="30" y="38"
+                x="30"
+                y="38"
                 text-anchor="middle"
                 font-family="'Cairo Play', sans-serif"
                 font-size="20"
                 font-weight="800"
                 letter-spacing="-1"
                 fill="currentColor"
-              >d:p</text>
+              >
+                d:p
+              </text>
             </svg>
             <div>
               <div class="brand-title">Daniela Penati</div>
@@ -484,7 +541,13 @@
         <div class="header-actions">
           <nav class="nav" aria-label="Primary">
             <a href="../daniela/indexDP.html">About</a>
-            <a class="is-current" aria-current="page" aria-disabled="true" tabindex="-1">Work</a>
+            <a
+              class="is-current"
+              aria-current="page"
+              aria-disabled="true"
+              tabindex="-1"
+              >Work</a
+            >
             <a href="../index.html#contact">Contact</a>
           </nav>
           <button
@@ -501,7 +564,6 @@
     </header>
 
     <main id="main">
-
       <!-- Page intro + filter bar -->
       <div class="index-strip">
         <div class="container">
@@ -516,7 +578,9 @@
           <div class="filter-bar">
             <div class="filter-row" role="group" aria-label="Filter by domain">
               <span class="filter-label">Filter</span>
-              <button class="filter-pill is-active" data-filter="all">All</button>
+              <button class="filter-pill is-active" data-filter="all">
+                All
+              </button>
               <button class="filter-pill" data-filter="engineering">
                 <span class="filter-pill-dot" aria-hidden="true"></span>
                 Engineering Tools
@@ -529,7 +593,9 @@
                 <span class="filter-pill-dot" aria-hidden="true"></span>
                 Security
               </button>
-              <span class="filter-count" id="filter-count" aria-live="polite">3 projects</span>
+              <span class="filter-count" id="filter-count" aria-live="polite"
+                >3 projects</span
+              >
             </div>
           </div>
         </div>
@@ -539,15 +605,18 @@
       <section class="work-index" aria-label="Case studies">
         <div class="container">
           <div class="work-grid" id="work-grid">
-
             <!-- Card 1: Pipelines — Engineering Tools -->
             <article class="work-card" data-domain="engineering">
               <div class="work-card-bar" aria-hidden="true"></div>
               <div class="work-card-body">
                 <p class="work-card-eyebrow">Engineering Tools</p>
-                <h2 class="work-card-title">Bringing Structure to Enterprise Engineering Workflows</h2>
+                <h2 class="work-card-title">
+                  Bringing Structure to Enterprise Engineering Workflows
+                </h2>
                 <p class="work-card-desc">
-                  Re-architected six core engineering workflow domains within a constrained delivery window—introducing discovery-first sequencing to restore predictability across the SDLC.
+                  Re-architected six core engineering workflow domains within a
+                  constrained delivery window—introducing discovery-first
+                  sequencing to restore predictability across the SDLC.
                 </p>
                 <div class="work-card-meta">
                   <div class="work-card-meta-item">
@@ -556,7 +625,9 @@
                   </div>
                   <div class="work-card-meta-item">
                     <span class="work-card-meta-label">Domain</span>
-                    <span class="work-card-meta-value">Enterprise Engineering Platform</span>
+                    <span class="work-card-meta-value"
+                      >Enterprise Engineering Platform</span
+                    >
                   </div>
                   <div class="work-card-meta-item">
                     <span class="work-card-meta-label">Year</span>
@@ -575,9 +646,13 @@
               <div class="work-card-bar" aria-hidden="true"></div>
               <div class="work-card-body">
                 <p class="work-card-eyebrow">Healthcare</p>
-                <h2 class="work-card-title">Designing the Digital Backbone of an Accountable Care Network</h2>
+                <h2 class="work-card-title">
+                  Designing the Digital Backbone of an Accountable Care Network
+                </h2>
                 <p class="work-card-desc">
-                  Integrated clinical and insurance systems across a multi-EMR network into a unified patient experience—bridging fragmented data sources under a single coherent view.
+                  Integrated clinical and insurance systems across a multi-EMR
+                  network into a unified patient experience—bridging fragmented
+                  data sources under a single coherent view.
                 </p>
                 <div class="work-card-meta">
                   <div class="work-card-meta-item">
@@ -586,7 +661,9 @@
                   </div>
                   <div class="work-card-meta-item">
                     <span class="work-card-meta-label">Domain</span>
-                    <span class="work-card-meta-value">Healthcare Integration</span>
+                    <span class="work-card-meta-value"
+                      >Healthcare Integration</span
+                    >
                   </div>
                   <div class="work-card-meta-item">
                     <span class="work-card-meta-label">Year</span>
@@ -605,9 +682,13 @@
               <div class="work-card-bar" aria-hidden="true"></div>
               <div class="work-card-body">
                 <p class="work-card-eyebrow">Security</p>
-                <h2 class="work-card-title">Reframing Enterprise Security Around Identity</h2>
+                <h2 class="work-card-title">
+                  Reframing Enterprise Security Around Identity
+                </h2>
                 <p class="work-card-desc">
-                  Shifted a fragmented, channel-based detection model toward an identity-centric risk framework—unifying signals across channels into a coherent threat picture.
+                  Shifted a fragmented, channel-based detection model toward an
+                  identity-centric risk framework—unifying signals across
+                  channels into a coherent threat picture.
                 </p>
                 <div class="work-card-meta">
                   <div class="work-card-meta-item">
@@ -616,7 +697,9 @@
                   </div>
                   <div class="work-card-meta-item">
                     <span class="work-card-meta-label">Domain</span>
-                    <span class="work-card-meta-value">Enterprise Cybersecurity</span>
+                    <span class="work-card-meta-value"
+                      >Enterprise Cybersecurity</span
+                    >
                   </div>
                   <div class="work-card-meta-item">
                     <span class="work-card-meta-label">Year</span>
@@ -634,7 +717,6 @@
             <div class="work-empty" id="work-empty" role="status">
               No projects match this filter.
             </div>
-
           </div>
         </div>
       </section>
@@ -652,14 +734,36 @@
               rel="noopener noreferrer"
               aria-label="LinkedIn"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V9h4v2" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="22"
+                height="22"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V9h4v2"
+                />
                 <path d="M2 9h4v12H2z" />
                 <path d="M4 4a2 2 0 1 0 0 .001z" />
               </svg>
             </a>
-            <a class="social-icon" href="mailto:daniela@penati.com" aria-label="Email">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+            <a
+              class="social-icon"
+              href="mailto:daniela@penati.com"
+              aria-label="Email"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="22"
+                height="22"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
                 <path d="M4 4h16v16H4z" />
                 <path d="m4 6 8 6 8-6" />
               </svg>
@@ -675,23 +779,27 @@
     </a>
 
     <script src="../script.js" defer></script>
-
-    <!-- Auth scripts — preserve existing login gate -->
-    <script src="../auth-config.js" defer></script>
-    <script src="../auth-members.js" defer></script>
+    <!-- <script>
+      // Check if user is logged in
+      if (sessionStorage.getItem('isLoggedIn') !== 'true') {
+        window.location.href = '../index.html';
+      }
+    </script> -->
+    <script type="module" src="../auth-members.js"></script>
 
     <script>
       /* -----------------------------------------------
          Domain filter
          ----------------------------------------------- */
       (function () {
-        const pills   = document.querySelectorAll('.filter-pill');
-        const cards   = document.querySelectorAll('.work-card');
-        const empty   = document.getElementById('work-empty');
+        const pills = document.querySelectorAll('.filter-pill');
+        const cards = document.querySelectorAll('.work-card');
+        const empty = document.getElementById('work-empty');
         const counter = document.getElementById('filter-count');
 
         function updateCount(visible) {
-          counter.textContent = visible + ' project' + (visible !== 1 ? 's' : '');
+          counter.textContent =
+            visible + ' project' + (visible !== 1 ? 's' : '');
         }
 
         pills.forEach(function (pill) {
@@ -699,7 +807,9 @@
             const filter = this.dataset.filter;
 
             // Update active pill
-            pills.forEach(function (p) { p.classList.remove('is-active'); });
+            pills.forEach(function (p) {
+              p.classList.remove('is-active');
+            });
             this.classList.add('is-active');
 
             // Show / hide cards
