@@ -633,9 +633,14 @@
 
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="../script.js" defer></script>
 
-    <!-- Auth scripts — preserve existing login gate -->
-    <script src="../auth-config.js" defer></script>
-    <script src="../auth-members.js" defer></script>
+    <script src="../script.js" defer></script>
+    <!-- <script>
+      // Check if user is logged in
+      if (sessionStorage.getItem('isLoggedIn') !== 'true') {
+        window.location.href = '../index.html';
+      }
+    </script> -->
+    <script type="module" src="../auth-members.js"></script>
 
     <script>
       /* -----------------------------------------------
