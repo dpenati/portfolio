@@ -2,93 +2,71 @@
 <html lang="en" data-theme="auto">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>About — Daniela Penati</title>
-    <meta
-      name="description"
-      content="I lead by building the foundations that let teams do their best work."
-    />
-
-    <meta name="color-scheme" content="light dark" />
-
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cairo+Play:wght@400;600;700;800&family=Caveat:wght@700&family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;600;700&family=Roboto+Condensed:wght@300;400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cairo+Play:wght@400;600;700;800&family=Caveat:wght@700&family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&family=Roboto+Condensed:wght@300;400&display=swap"
       rel="stylesheet"
     />
-
     <link rel="stylesheet" href="./styleDP.css" />
   </head>
-
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- ::: 01 HEADER -->
     <header class="site-header" id="top">
       <div class="container header-row">
-        <div class="brand">
-          <a href="../index.html" class="brand-link">
-            <svg
-              class="brand-mark"
-              viewBox="0 0 60 60"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
+        <a
+          href="../index.html"
+          class="brand-link"
+          aria-label="Daniela Penati home"
+        >
+          <svg
+            class="brand-mark"
+            viewBox="0 0 60 60"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <circle
+              cx="30"
+              cy="30"
+              r="27"
+              stroke="currentColor"
+              stroke-width="1.5"
+              fill="none"
+              opacity="0.3"
+            />
+            <circle cx="30" cy="30" r="24" fill="currentColor" opacity="0.08" />
+            <text
+              x="30"
+              y="38"
+              text-anchor="middle"
+              font-family="Cairo Play"
+              font-size="20"
+              font-weight="800"
+              letter-spacing="-1"
+              fill="currentColor"
             >
-              <circle
-                cx="30"
-                cy="30"
-                r="27"
-                stroke="currentColor"
-                stroke-width="1.5"
-                fill="none"
-                opacity="0.3"
-              />
-              <circle
-                cx="30"
-                cy="30"
-                r="24"
-                fill="currentColor"
-                opacity="0.08"
-              />
-              <text
-                x="30"
-                y="38"
-                text-anchor="middle"
-                font-family="'Cairo Play', sans-serif"
-                font-size="20"
-                font-weight="800"
-                letter-spacing="-1"
-                fill="currentColor"
-              >
-                d:p
-              </text>
-            </svg>
-            <div>
-              <div class="brand-title">Daniela Penati</div>
-              <div class="brand-subtitle">UX Design & Leadership</div>
-            </div>
-          </a>
-        </div>
+              dp
+            </text>
+          </svg>
+          <div>
+            <div class="brand-title">Daniela Penati</div>
+            <div class="brand-subtitle">UX Design &amp; Leadership</div>
+          </div>
+        </a>
 
         <div class="header-actions">
-          <nav class="nav" aria-label="Primary">
-            <a
-              class="is-current"
-              aria-current="page"
-              aria-disabled="true"
-              tabindex="-1"
-              >About</a
-            >
-            <a href="../login.html?next=.%2Fwork%2FindexWK.html">Work</a>
-            <a href="../index.html#contact">Contact</a>
+          <nav class="nav" aria-label="Primary navigation">
+            <a class="is-current" aria-current="page">About</a>
+            <a href="../work/indexWK.html">Work</a>
+            <a href="mailto:daniela.penati@gmail.com">Contact</a>
           </nav>
           <button
             class="theme-toggle"
             type="button"
-            aria-label="Toggle dark mode"
-            aria-pressed="false"
+            aria-label="Toggle theme"
             data-theme-toggle
           >
             <span class="theme-icon" aria-hidden="true">◐</span>
@@ -98,14 +76,11 @@
     </header>
 
     <main id="main">
-      <!-- ::: 02 HERO — purple fixed background with grid atmosphere -->
-      <div class="hero-parallax-container">
-        <div class="hero-parallax-fixed" id="heroFixed">
-          <!-- Graph paper grid — fades in on scroll -->
+      <section class="hero-parallax-container" aria-label="About hero">
+        <div class="hero-parallax-fixed">
           <svg
             class="hero-grid-canvas"
-            id="heroGrid"
-            viewBox="0 0 1200 300"
+            viewBox="0 0 1200 320"
             preserveAspectRatio="xMidYMid slice"
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"
@@ -140,298 +115,121 @@
               </pattern>
             </defs>
             <rect
-              id="heroGridRect"
               width="1200"
-              height="300"
+              height="320"
               fill="url(#heroLargeGrid)"
               opacity="0.4"
             />
           </svg>
 
-          <!-- Ghost title (layer 1 — slowest drift) -->
-          <div class="hero-title-corner" id="heroTitle">About</div>
-
-          <!-- Quote (layer 2 — medium drift) -->
-          <div class="hero-quote-block" id="heroQuote" aria-label="Quote">
-            <p class="hero-quote-text">"La chiarezza è una forma di cura."</p>
-            <p class="hero-quote-author">— Daniela Penati</p>
+          <div class="hero-title-corner">About</div>
+          <div class="hero-quote-block" aria-label="Quote">
+            <p class="hero-quote-text">
+              &ldquo;La chiarezza &egrave; una forma di cura.&rdquo;
+            </p>
+            <p class="hero-quote-author">&mdash; Daniela Penati</p>
           </div>
         </div>
-      </div>
+      </section>
 
-      <!-- ::: 03 HOOK STRIP — scrolls over the purple -->
       <section class="glass-strip glass-strip--hook" id="hookStrip">
-        <div class="container">
-          <div class="hook-content">
-            <div class="hook-line-main">
-              I build the foundations that let teams do their best work.
-            </div>
-            <div class="hook-line-sub">
-              Where others see friction, I identify
-              <span class="highlight-marker">structural patterns</span>.
-            </div>
-            <div class="hook-line-final">
-              When organizations outgrow their systems, I design frameworks that
-              scale.
-            </div>
+        <div class="container hook-content">
+          <div class="hook-line-main">
+            I build the foundations that let teams do their best work.
+          </div>
+          <div class="hook-line-sub">
+            Where others see friction, I identify
+            <span class="highlight-marker">structural patterns</span>.
+          </div>
+          <div class="hook-line-final">
+            When organizations outgrow their systems, I design frameworks that
+            scale.
           </div>
         </div>
       </section>
 
-      <!-- ::: 04–05 SPLIT — scrolls normally, no background so purple peeks through -->
-      <section class="about-split" aria-label="About details">
-        <div class="container about-split-inner">
-          <!-- Left: bullets panel -->
-          <div class="about-split-text">
-            <div class="glass-panel glass-panel--purple">
-              <p class="split-lead">
-                I build trust through consistency, clarity, and operational
-                follow-through.
+      <section class="award-zone" aria-label="Award and principles">
+        <div class="award-bg"></div>
+        <div class="award-bg-overlay"></div>
+
+        <div class="container award-composition">
+          <div class="award-top-row">
+            <div class="award-photo-col">
+              <figure class="award-photo-frame">
+                <img
+                  src="./images/danielaJMH.webp"
+                  alt="Daniela Penati with award"
+                />
+              </figure>
+              <!-- <div class="award-chip">★ OPTUM SUPERHERO · 2019</div> -->
+            </div>
+
+            <aside class="award-card" aria-label="Award note">
+              <p class="award-card-eyebrow">★ 2019 OPTUM SUPERHERO AWARD</p>
+              <h2 class="award-card-title">
+                7,000+ nominations. One of the few chosen.
+              </h2>
+              <p class="award-card-body">
+                Superheroes take initiative and display resilience and
+                creativity. They challenge the status quo and encourage new,
+                innovative ideas.
               </p>
-              <ul class="split-bullets">
-                <li>
-                  My work is grounded in empathy—for teams navigating pressure,
-                  for users interpreting complexity, and for partners who need
-                  alignment across disciplines.
-                </li>
-                <li>
-                  I map existing systems, surface hidden dependencies, and
-                  design the structures that enable confident execution.
-                </li>
-              </ul>
-            </div>
+            </aside>
           </div>
 
-          <!-- Right: portrait -->
-          <div class="about-split-photo">
-            <figure class="portrait-frame portrait-frame--tilt">
-              <img
-                src="./images/danielaJMH.webp"
-                alt="Portrait of Daniela Penati"
-                loading="lazy"
-              />
-            </figure>
+          <div class="award-principles glass-panel glass-panel--clear">
+            <p class="award-principles-eyebrow">About</p>
+            <h2>
+              I build trust through consistency, clarity, and operational
+              follow-through.
+            </h2>
+            <ul>
+              <li>
+                My work is grounded in empathy &mdash; for teams navigating
+                pressure, for users interpreting complexity, and for partners
+                who need alignment across disciplines.
+              </li>
+              <li>
+                I map existing systems, surface hidden dependencies, and design
+                the structures that enable confident execution.
+              </li>
+            </ul>
           </div>
         </div>
       </section>
 
-      <!-- ::: 06 PURPLE REVEAL ZONE — sticky purple with sliding close strip -->
-      <div class="reveal-scroll-zone" id="revealZone">
-        <!-- Close strip — sits on top of purple, scrolls away naturally -->
-        <div class="close-strip-sliding" id="closeStrip">
-          <div class="container">
-            <p class="close-strip-title">
-              I work at the intersection of people, processes, and platforms.
-            </p>
-            <p class="close-strip-body">
-              My strength lies where systems require translation—where alignment
-              must be intentional, dependencies visible, and scale achieved
-              without losing the human thread.
-            </p>
-          </div>
+      <section class="section-d">
+        <div class="container">
+          <p class="section-d-title">
+            I work at the intersection of people, processes, and platforms.
+          </p>
+          <p class="section-d-body">
+            My strength lies where systems require translation &mdash; where
+            alignment must be intentional, dependencies visible, and scale
+            achieved without losing the human thread.
+          </p>
         </div>
+      </section>
 
-        <!-- Purple sticky layer (sits behind, draws grid on reveal) -->
-        <div class="purple-sticky" id="purpleSticky">
-          <!-- Graph paper grid — draws on as strip slides away -->
-          <svg
-            class="reveal-grid-canvas"
-            id="revealGrid"
-            viewBox="0 0 1200 900"
-            preserveAspectRatio="xMidYMid slice"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-          >
-            <defs>
-              <pattern
-                id="revealSmallGrid"
-                width="40"
-                height="40"
-                patternUnits="userSpaceOnUse"
-              >
-                <path
-                  d="M 40 0 L 0 0 0 40"
-                  fill="none"
-                  stroke="rgba(255,255,255,0.10)"
-                  stroke-width="0.5"
-                />
-              </pattern>
-              <pattern
-                id="revealLargeGrid"
-                width="200"
-                height="200"
-                patternUnits="userSpaceOnUse"
-              >
-                <rect width="200" height="200" fill="url(#revealSmallGrid)" />
-                <path
-                  d="M 200 0 L 0 0 0 200"
-                  fill="none"
-                  stroke="rgba(255,255,255,0.20)"
-                  stroke-width="1"
-                />
-              </pattern>
-            </defs>
-
-            <!-- Base grid -->
-            <rect
-              id="revealGridRect"
-              width="1200"
-              height="900"
-              fill="url(#revealLargeGrid)"
-              opacity="0"
-            />
-
-            <!-- Horizontal accent lines (draw left→right) -->
-            <line
-              id="rh1"
-              x1="0"
-              y1="225"
-              x2="1200"
-              y2="225"
-              stroke="rgba(255,255,255,0.20)"
-              stroke-width="1"
-              stroke-dasharray="1200"
-              stroke-dashoffset="1200"
-            />
-            <line
-              id="rh2"
-              x1="0"
-              y1="450"
-              x2="1200"
-              y2="450"
-              stroke="rgba(255,255,255,0.14)"
-              stroke-width="0.6"
-              stroke-dasharray="1200"
-              stroke-dashoffset="1200"
-            />
-            <line
-              id="rh3"
-              x1="0"
-              y1="675"
-              x2="1200"
-              y2="675"
-              stroke="rgba(255,255,255,0.20)"
-              stroke-width="1"
-              stroke-dasharray="1200"
-              stroke-dashoffset="1200"
-            />
-
-            <!-- Vertical accent lines (draw top→bottom) -->
-            <line
-              id="rv1"
-              x1="240"
-              y1="0"
-              x2="240"
-              y2="900"
-              stroke="rgba(255,255,255,0.14)"
-              stroke-width="0.6"
-              stroke-dasharray="900"
-              stroke-dashoffset="900"
-            />
-            <line
-              id="rv2"
-              x1="480"
-              y1="0"
-              x2="480"
-              y2="900"
-              stroke="rgba(255,255,255,0.20)"
-              stroke-width="1"
-              stroke-dasharray="900"
-              stroke-dashoffset="900"
-            />
-            <line
-              id="rv3"
-              x1="720"
-              y1="0"
-              x2="720"
-              y2="900"
-              stroke="rgba(255,255,255,0.14)"
-              stroke-width="0.6"
-              stroke-dasharray="900"
-              stroke-dashoffset="900"
-            />
-            <line
-              id="rv4"
-              x1="960"
-              y1="0"
-              x2="960"
-              y2="900"
-              stroke="rgba(255,255,255,0.20)"
-              stroke-width="1"
-              stroke-dasharray="900"
-              stroke-dashoffset="900"
-            />
-
-            <!-- Intersection dots -->
-            <g id="revealDots" opacity="0">
-              <circle cx="240" cy="225" r="2.5" fill="rgba(255,255,255,0.30)" />
-              <circle cx="480" cy="225" r="3" fill="rgba(255,255,255,0.40)" />
-              <circle cx="720" cy="225" r="2.5" fill="rgba(255,255,255,0.30)" />
-              <circle cx="960" cy="225" r="2.5" fill="rgba(255,255,255,0.30)" />
-              <circle cx="240" cy="450" r="2.5" fill="rgba(255,255,255,0.30)" />
-              <circle cx="480" cy="450" r="3.5" fill="rgba(255,255,255,0.45)" />
-              <circle cx="720" cy="450" r="3.5" fill="rgba(255,255,255,0.45)" />
-              <circle cx="960" cy="450" r="2.5" fill="rgba(255,255,255,0.30)" />
-              <circle cx="240" cy="675" r="2.5" fill="rgba(255,255,255,0.30)" />
-              <circle cx="480" cy="675" r="2.5" fill="rgba(255,255,255,0.30)" />
-              <circle cx="720" cy="675" r="3" fill="rgba(255,255,255,0.40)" />
-              <circle cx="960" cy="675" r="2.5" fill="rgba(255,255,255,0.30)" />
-            </g>
-          </svg>
-
-          <!-- Drift grid (parallax layer — moves slowly as you scroll) -->
-          <svg
-            id="revealDriftGrid"
-            class="reveal-drift-grid"
-            viewBox="0 0 1200 900"
-            preserveAspectRatio="xMidYMid slice"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-          >
-            <defs>
-              <pattern
-                id="driftPat"
-                width="80"
-                height="80"
-                patternUnits="userSpaceOnUse"
-              >
-                <path
-                  d="M 80 0 L 0 0 0 80"
-                  fill="none"
-                  stroke="white"
-                  stroke-width="0.35"
-                />
-              </pattern>
-            </defs>
-            <rect
-              width="1400"
-              height="1100"
-              x="-100"
-              y="-100"
-              fill="url(#driftPat)"
-            />
-          </svg>
-
-          <!-- Resume button — fades in once strip is gone -->
-          <div class="purple-content" id="purpleContent">
-            <p class="purple-eyebrow">Nice to meet you.</p>
+      <section class="resume-strip">
+        <div class="resume-strip-grid"></div>
+        <div class="resume-strip-grid-lg"></div>
+        <div class="resume-strip-inner">
+          <p class="resume-strip-eyebrow">Nice to meet you.</p>
+          <div class="resume-strip-actions">
             <a
               href="./Daniela_CV.pdf"
               target="_blank"
               rel="noopener"
-              class="resume-button"
-              id="resumeBtn"
+              class="btn-white"
+              >Download Resume</a
             >
-              Download Resume
-            </a>
+            <a href="#top" class="btn-ghost-white">Back to top</a>
           </div>
         </div>
-        <!-- end purple-sticky -->
-      </div>
-      <!-- end reveal-scroll-zone -->
+      </section>
     </main>
 
-    <!-- ::: 07 FOOTER -->
     <footer class="site-footer">
       <div class="container footer-row">
         <div class="footer-meta">
@@ -439,135 +237,36 @@
             class="social-icon"
             href="https://www.linkedin.com/in/danielapenati/"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener"
             aria-label="LinkedIn"
+            >in</a
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              width="22"
-              height="22"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path
-                d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V9h4v2"
-              />
-              <path d="M2 9h4v12H2z" />
-              <path d="M4 4a2 2 0 1 0 0 .001z" />
-            </svg>
-          </a>
-
           <a
             class="social-icon"
-            href="/cdn-cgi/l/email-protection#a1c5c0cfc8c4cdc0e1c5d1c4cfc0d5c88fc2cecc"
+            href="mailto:daniela.penati@gmail.com"
             aria-label="Email"
+            >@</a
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              width="22"
-              height="22"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path d="M4 4h16v16H4z" />
-              <path d="m4 6 8 6 8-6" />
-            </svg>
-          </a>
-
-          <span class="footer-copy"
-            >© <span data-year>2026</span> Daniela Penati</span
-          >
+          <span class="footer-copy">© 2026 Daniela Penati</span>
         </div>
       </div>
     </footer>
 
-    <a class="fab-top" href="#top" aria-label="Back to top">
-      <span aria-hidden="true">↑</span>
-    </a>
+    <a class="fab-top" href="#top" aria-label="Back to top"
+      ><span aria-hidden="true">↑</span></a
+    >
 
-    <script src="../script.js" defer></script>
-
-    <!-- Theme toggle -->
     <script>
-      (function () {
-        const btn = document.querySelector('[data-theme-toggle]');
-        if (!btn) return;
-        btn.addEventListener('click', () => {
+      document
+        .querySelector('[data-theme-toggle]')
+        ?.addEventListener('click', () => {
           const root = document.documentElement;
-          const cur = root.getAttribute('data-theme') || 'auto';
-          const next = cur === 'dark' ? 'light' : 'dark';
-          root.setAttribute('data-theme', next);
-          btn.setAttribute('aria-pressed', String(next === 'dark'));
+          const current = root.getAttribute('data-theme');
+          root.setAttribute(
+            'data-theme',
+            current === 'dark' ? 'light' : 'dark',
+          );
         });
-      })();
-    </script>
-
-    <!-- Parallax & reveal scroll driver -->
-    <script>
-      (function () {
-        const heroTitle = document.getElementById('heroTitle');
-        const heroQuote = document.getElementById('heroQuote');
-        const revealZone = document.getElementById('revealZone');
-        const closeStrip = document.getElementById('closeStrip');
-        const revealGridRect = document.getElementById('revealGridRect');
-        const revealDots = document.getElementById('revealDots');
-        const revealDrift = document.getElementById('revealDriftGrid');
-        const resumeBtn = document.getElementById('resumeBtn');
-        const hLines = ['rh1', 'rh2', 'rh3'].map((id) =>
-          document.getElementById(id),
-        );
-        const vLines = ['rv1', 'rv2', 'rv3', 'rv4'].map((id) =>
-          document.getElementById(id),
-        );
-
-        function clamp(v, lo, hi) {
-          return Math.max(lo, Math.min(hi, v));
-        }
-
-        function tick() {
-          const sy = window.scrollY;
-
-          // ── HERO drift ──
-          heroTitle.style.transform = `translateY(${sy * 0.1}px)`;
-          heroQuote.style.transform = `translateY(${sy * 0.18}px)`;
-
-          // ── GRID draw-on: purely based on purple section visibility ──
-          const purpleRect = revealZone.getBoundingClientRect();
-          const wh = window.innerHeight;
-
-          // progress 0 = purple just entered view, 1 = purple fully in view
-          const progress = clamp((wh - purpleRect.top) / wh, 0, 1);
-
-          revealGridRect.setAttribute('opacity', clamp(progress * 1.2, 0, 0.9));
-
-          hLines.forEach((line, i) => {
-            const p = clamp((progress - i * 0.08) * 2, 0, 1);
-            line.setAttribute('stroke-dashoffset', 1200 * (1 - p));
-          });
-
-          vLines.forEach((line, i) => {
-            const p = clamp((progress - 0.1 - i * 0.06) * 2, 0, 1);
-            line.setAttribute('stroke-dashoffset', 900 * (1 - p));
-          });
-
-          const dotsP = clamp((progress - 0.4) * 4, 0, 1);
-          revealDots.setAttribute('opacity', dotsP);
-          revealDrift.style.transform = `translateY(${-purpleRect.top * 0.07}px)`;
-
-          if (progress > 0.4) {
-            resumeBtn.classList.add('is-visible');
-          } else {
-            resumeBtn.classList.remove('is-visible');
-          }
-        }
-
-        window.addEventListener('scroll', tick, { passive: true });
-        window.addEventListener('load', tick);
-      })();
     </script>
   </body>
 </html>
