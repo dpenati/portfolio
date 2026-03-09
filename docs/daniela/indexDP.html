@@ -2,71 +2,90 @@
 <html lang="en" data-theme="auto">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>About — Daniela Penati</title>
+    <meta
+      name="description"
+      content="I lead by building the foundations that let teams do their best work."
+    />
+    <meta name="color-scheme" content="light dark" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Cairo+Play:wght@400;600;700;800&family=Caveat:wght@700&family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&family=Roboto+Condensed:wght@300;400&display=swap"
       rel="stylesheet"
     />
+
     <link rel="stylesheet" href="./styleDP.css" />
   </head>
+
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="site-header" id="top">
       <div class="container header-row">
-        <a
-          href="../index.html"
-          class="brand-link"
-          aria-label="Daniela Penati home"
-        >
-          <svg
-            class="brand-mark"
-            viewBox="0 0 60 60"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-          >
-            <circle
-              cx="30"
-              cy="30"
-              r="27"
-              stroke="currentColor"
-              stroke-width="1.5"
-              fill="none"
-              opacity="0.3"
-            />
-            <circle cx="30" cy="30" r="24" fill="currentColor" opacity="0.08" />
-            <text
-              x="30"
-              y="38"
-              text-anchor="middle"
-              font-family="Cairo Play"
-              font-size="20"
-              font-weight="800"
-              letter-spacing="-1"
-              fill="currentColor"
+        <div class="brand">
+          <a href="../index.html" class="brand-link">
+            <svg
+              class="brand-mark"
+              viewBox="0 0 60 60"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
             >
-              dp
-            </text>
-          </svg>
-          <div>
-            <div class="brand-title">Daniela Penati</div>
-            <div class="brand-subtitle">UX Design &amp; Leadership</div>
-          </div>
-        </a>
+              <circle
+                cx="30"
+                cy="30"
+                r="27"
+                stroke="currentColor"
+                stroke-width="1.5"
+                fill="none"
+                opacity="0.3"
+              />
+              <circle
+                cx="30"
+                cy="30"
+                r="24"
+                fill="currentColor"
+                opacity="0.08"
+              />
+              <text
+                x="30"
+                y="38"
+                text-anchor="middle"
+                font-family="'Cairo Play', sans-serif"
+                font-size="20"
+                font-weight="800"
+                letter-spacing="-1"
+                fill="currentColor"
+              >
+                d:p
+              </text>
+            </svg>
+            <div>
+              <div class="brand-title">Daniela Penati</div>
+              <div class="brand-subtitle">UX Design &amp; Leadership</div>
+            </div>
+          </a>
+        </div>
 
         <div class="header-actions">
-          <nav class="nav" aria-label="Primary navigation">
-            <a class="is-current" aria-current="page">About</a>
-            <a href="../work/indexWK.html">Work</a>
-            <a href="mailto:daniela.penati@gmail.com">Contact</a>
+          <nav class="nav" aria-label="Primary">
+            <a
+              class="is-current"
+              aria-current="page"
+              aria-disabled="true"
+              tabindex="-1"
+              >About</a
+            >
+            <a href="../login.html?next=.%2Fwork%2FindexWK.html">Work</a>
+            <a href="../index.html#contact">Contact</a>
           </nav>
           <button
             class="theme-toggle"
             type="button"
-            aria-label="Toggle theme"
+            aria-label="Toggle dark mode"
+            aria-pressed="false"
             data-theme-toggle
           >
             <span class="theme-icon" aria-hidden="true">◐</span>
@@ -75,156 +94,159 @@
       </div>
     </header>
 
-    <main id="main">
-      <section class="hero-parallax-container" aria-label="About hero">
-        <div class="hero-parallax-fixed">
-          <svg
-            class="hero-grid-canvas"
-            viewBox="0 0 1200 320"
-            preserveAspectRatio="xMidYMid slice"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-          >
-            <defs>
-              <pattern
-                id="heroSmallGrid"
-                width="40"
-                height="40"
-                patternUnits="userSpaceOnUse"
-              >
-                <path
-                  d="M 40 0 L 0 0 0 40"
-                  fill="none"
-                  stroke="rgba(255,255,255,0.10)"
-                  stroke-width="0.5"
-                />
-              </pattern>
-              <pattern
-                id="heroLargeGrid"
-                width="200"
-                height="200"
-                patternUnits="userSpaceOnUse"
-              >
-                <rect width="200" height="200" fill="url(#heroSmallGrid)" />
-                <path
-                  d="M 200 0 L 0 0 0 200"
-                  fill="none"
-                  stroke="rgba(255,255,255,0.18)"
-                  stroke-width="1"
-                />
-              </pattern>
-            </defs>
-            <rect
-              width="1200"
-              height="320"
-              fill="url(#heroLargeGrid)"
-              opacity="0.4"
-            />
-          </svg>
-
-          <div class="hero-title-corner">About</div>
-          <div class="hero-quote-block" aria-label="Quote">
-            <p class="hero-quote-text">
-              &ldquo;La chiarezza &egrave; una forma di cura.&rdquo;
-            </p>
-            <p class="hero-quote-author">&mdash; Daniela Penati</p>
+    <main id="main" class="about-stack">
+      <section class="panel panel--hero" aria-label="About introduction">
+        <div class="panel__inner panel__inner--hero">
+          <div class="grid-overlay grid-overlay--hero" aria-hidden="true"></div>
+          <div class="container hero-copy" id="heroCopy">
+            <p class="hero-kicker">About</p>
+            <p class="hero-quote">“La chiarezza è una forma di cura.”</p>
+            <p class="hero-author">— Daniela Penati</p>
           </div>
         </div>
       </section>
 
-      <section class="glass-strip glass-strip--hook" id="hookStrip">
-        <div class="container hook-content">
-          <div class="hook-line-main">
-            I build the foundations that let teams do their best work.
-          </div>
-          <div class="hook-line-sub">
-            Where others see friction, I identify
-            <span class="highlight-marker">structural patterns</span>.
-          </div>
-          <div class="hook-line-final">
-            When organizations outgrow their systems, I design frameworks that
-            scale.
-          </div>
-        </div>
-      </section>
-
-      <section class="award-zone" aria-label="Award and principles">
-        <div class="award-bg"></div>
-        <div class="award-bg-overlay"></div>
-
-        <div class="container award-composition">
-          <div class="award-top-row">
-            <div class="award-photo-col">
-              <figure class="award-photo-frame">
-                <img
-                  src="./images/danielaJMH.webp"
-                  alt="Daniela Penati with award"
-                />
-              </figure>
-              <!-- <div class="award-chip">★ OPTUM SUPERHERO · 2019</div> -->
-            </div>
-
-            <aside class="award-card" aria-label="Award note">
-              <p class="award-card-eyebrow">★ 2019 OPTUM SUPERHERO AWARD</p>
-              <h2 class="award-card-title">
-                7,000+ nominations. One of the few chosen.
+      <section
+        class="panel panel--strip panel--strip-thesis"
+        id="stripThesis"
+        aria-label="Core positioning"
+      >
+        <div class="panel__inner panel__inner--strip">
+          <div class="container strip-layout">
+            <div class="strip-copy strip-copy--thesis">
+              <h2>
+                I build the foundations that let teams do their best&nbsp;work.
               </h2>
-              <p class="award-card-body">
-                Superheroes take initiative and display resilience and
-                creativity. They challenge the status quo and encourage new,
-                innovative ideas.
+              <p class="strip-line-emphasis">
+                Where others see friction, I identify
+                <span class="highlight-marker">structural patterns</span>.
               </p>
-            </aside>
-          </div>
-
-          <div class="award-principles glass-panel glass-panel--clear">
-            <p class="award-principles-eyebrow">About</p>
-            <h2>
-              I build trust through consistency, clarity, and operational
-              follow-through.
-            </h2>
-            <ul>
-              <li>
-                My work is grounded in empathy &mdash; for teams navigating
-                pressure, for users interpreting complexity, and for partners
-                who need alignment across disciplines.
-              </li>
-              <li>
-                I map existing systems, surface hidden dependencies, and design
-                the structures that enable confident execution.
-              </li>
-            </ul>
+              <p class="strip-support">
+                When organizations outgrow their systems, I
+                design&nbsp;frameworks that&nbsp;scale.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="section-d">
-        <div class="container">
-          <p class="section-d-title">
-            I work at the intersection of people, processes, and platforms.
-          </p>
-          <p class="section-d-body">
-            My strength lies where systems require translation &mdash; where
-            alignment must be intentional, dependencies visible, and scale
-            achieved without losing the human thread.
-          </p>
+      <section
+        class="panel panel--portrait"
+        aria-label="Portrait and principles"
+      >
+        <div class="panel__inner panel__inner--content panel__inner--light">
+          <div class="container portrait-layout">
+            <figure class="portrait-card portrait-card--tilt">
+              <img
+                src="./images/aboutMe.jpg"
+                alt="Portrait of Daniela Penati"
+                loading="lazy"
+              />
+            </figure>
+
+            <div class="principles-wrap">
+              <div class="principles-card">
+                <p class="split-lead">
+                  I build trust through consistency, clarity, and operational
+                  follow-through.
+                </p>
+                <ul class="split-bullets">
+                  <li>
+                    My work is grounded in empathy—for teams navigating
+                    pressure, for users interpreting complexity, and for
+                    partners who need alignment across disciplines.
+                  </li>
+                  <li>
+                    I map existing systems, surface hidden dependencies, and
+                    design the structures that enable confident execution.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section class="resume-strip">
-        <div class="resume-strip-grid"></div>
-        <div class="resume-strip-grid-lg"></div>
-        <div class="resume-strip-inner">
-          <p class="resume-strip-eyebrow">Nice to meet you.</p>
-          <div class="resume-strip-actions">
-            <a
-              href="./Daniela_CV.pdf"
-              target="_blank"
-              rel="noopener"
-              class="btn-white"
-              >Download Resume</a
-            >
-            <a href="#top" class="btn-ghost-white">Back to top</a>
+      <section
+        class="panel panel--strip panel--strip-method"
+        aria-label="How I work"
+      >
+        <div class="panel__inner panel__inner--strip">
+          <div class="container strip-layout">
+            <div class="strip-copy strip-copy--method">
+              <h2>
+                I work at the intersection of people, processes,
+                and&nbsp;platforms.
+              </h2>
+              <p>
+                My strength lies where systems require translation—where
+                alignment must be intentional, dependencies visible, and scale
+                achieved without losing&nbsp;the&nbsp;human&nbsp;thread.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel panel--team" aria-label="Team collaboration">
+        <div class="panel__inner panel__inner--image">
+          <div class="team-image-wrap" id="teamImageWrap">
+            <img
+              src="./images/aboutTeamL.webp"
+              alt="Workshop session with a cross-functional team"
+              loading="lazy"
+              id="teamImage"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="panel panel--strip panel--strip-resolution"
+        aria-label="Closing reflection"
+      >
+        <div class="panel__inner panel__inner--strip">
+          <div class="container strip-layout">
+            <div class="strip-copy strip-copy--resolution">
+              <h2>
+                I design the conditions that help teams move
+                forward&nbsp;together.
+              </h2>
+              <p>
+                The work I care about most is often invisible: making complexity
+                legible, creating shared understanding, and helping people build
+                with&nbsp;confidence.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel panel--cta" aria-label="Resume options">
+        <div class="panel__inner panel__inner--cta">
+          <div
+            class="grid-overlay grid-overlay--soft"
+            id="ctaGrid"
+            aria-hidden="true"
+          ></div>
+          <div class="container cta-shell">
+            <div class="cta-content">
+              <p class="purple-eyebrow">Nice to meet you</p>
+              <div class="cta-actions">
+                <a
+                  class="resume-button resume-button--solid"
+                  href="./resume.html"
+                  >Read Resume Online</a
+                >
+                <a
+                  class="resume-button resume-button--ghost"
+                  href="./Daniela_CV.pdf"
+                  target="_blank"
+                  rel="noopener"
+                  >Download PDF</a
+                >
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -237,36 +259,133 @@
             class="social-icon"
             href="https://www.linkedin.com/in/danielapenati/"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
             aria-label="LinkedIn"
-            >in</a
           >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="22"
+              height="22"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V9h4v2"
+              />
+              <path d="M2 9h4v12H2z" />
+              <path d="M4 4a2 2 0 1 0 0 .001z" />
+            </svg>
+          </a>
+
           <a
             class="social-icon"
-            href="mailto:daniela.penati@gmail.com"
+            href="/cdn-cgi/l/email-protection#a1c5c0cfc8c4cdc0e1c5d1c4cfc0d5c88fc2cecc"
             aria-label="Email"
-            >@</a
           >
-          <span class="footer-copy">© 2026 Daniela Penati</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="22"
+              height="22"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M4 4h16v16H4z" />
+              <path d="m4 6 8 6 8-6" />
+            </svg>
+          </a>
+
+          <span class="footer-copy"
+            >© <span data-year>2026</span> Daniela Penati</span
+          >
         </div>
       </div>
     </footer>
 
-    <a class="fab-top" href="#top" aria-label="Back to top"
-      ><span aria-hidden="true">↑</span></a
-    >
+    <a class="fab-top" href="#top" aria-label="Back to top">
+      <span aria-hidden="true">↑</span>
+    </a>
 
     <script>
-      document
-        .querySelector('[data-theme-toggle]')
-        ?.addEventListener('click', () => {
+      (function () {
+        const btn = document.querySelector('[data-theme-toggle]');
+        const year = document.querySelector('[data-year]');
+        if (year) year.textContent = new Date().getFullYear();
+        if (!btn) return;
+
+        btn.addEventListener('click', () => {
           const root = document.documentElement;
-          const current = root.getAttribute('data-theme');
-          root.setAttribute(
-            'data-theme',
-            current === 'dark' ? 'light' : 'dark',
-          );
+          const cur = root.getAttribute('data-theme') || 'auto';
+          const next = cur === 'dark' ? 'light' : 'dark';
+          root.setAttribute('data-theme', next);
+          btn.setAttribute('aria-pressed', String(next === 'dark'));
         });
+      })();
+    </script>
+
+    <script>
+      (function () {
+        const mq = window.matchMedia('(min-width: 961px)');
+        const root = document.documentElement;
+        const heroCopy = document.getElementById('heroCopy');
+        const heroGrid = document.querySelector('.grid-overlay--hero');
+        const thesisStrip = document.getElementById('stripThesis');
+        const teamImage = document.getElementById('teamImage');
+        const ctaGrid = document.getElementById('ctaGrid');
+
+        function clamp(v, min, max) {
+          return Math.max(min, Math.min(max, v));
+        }
+
+        function updateParallax() {
+          if (!mq.matches) {
+            root.classList.remove('header-hidden');
+            if (heroCopy) heroCopy.style.transform = '';
+            if (heroGrid) heroGrid.style.transform = '';
+            if (teamImage) teamImage.style.transform = '';
+            if (ctaGrid) ctaGrid.style.transform = '';
+            return;
+          }
+
+          const thesisTop = thesisStrip
+            ? thesisStrip.getBoundingClientRect().top
+            : 9999;
+          root.classList.toggle('header-hidden', thesisTop <= 0);
+
+          const sy = window.scrollY || window.pageYOffset;
+          if (heroCopy)
+            heroCopy.style.transform = `translate3d(0, ${sy * 0.14}px, 0)`;
+          if (heroGrid)
+            heroGrid.style.transform = `translate3d(0, ${sy * 0.06}px, 0)`;
+
+          if (teamImage) {
+            const rect = teamImage.getBoundingClientRect();
+            const offset = clamp(
+              (window.innerHeight * 0.5 - rect.top) * 0.08,
+              -36,
+              36,
+            );
+            teamImage.style.transform = `translate3d(0, ${offset}px, 0) scale(1.08)`;
+          }
+
+          if (ctaGrid) {
+            const rect = ctaGrid.getBoundingClientRect();
+            const offset = clamp(
+              (window.innerHeight * 0.5 - rect.top) * 0.05,
+              -28,
+              28,
+            );
+            ctaGrid.style.transform = `translate3d(0, ${offset}px, 0)`;
+          }
+        }
+
+        window.addEventListener('scroll', updateParallax, { passive: true });
+        window.addEventListener('resize', updateParallax);
+        window.addEventListener('load', updateParallax);
+      })();
     </script>
   </body>
 </html>
