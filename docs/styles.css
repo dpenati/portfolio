@@ -1761,11 +1761,11 @@ html[data-theme='auto'] .resume-strip--closing {
 .competencies-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: clamp(16px, 2vw, 32px);
+  gap: clamp(20px, 2.4vw, 36px);
 }
 
 .competency-cell {
-  padding: clamp(18px, 2.6vw, 28px) clamp(12px, 2vw, 24px);
+  padding: clamp(10px, 1.4vw, 16px) 0 0;
 }
 
 .competency-label {
