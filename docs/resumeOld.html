@@ -1,0 +1,1057 @@
+<!doctype html>
+<html lang="en" data-theme="auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Resume — Daniela Penati</title>
+    <meta
+      name="description"
+      content="Daniela Penati — Principal UX & Enterprise Systems Designer"
+    />
+    <meta name="color-scheme" content="light dark" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo+Play:wght@400;600;700;800&family=Caveat:wght@700&family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&family=Roboto+Condensed:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Reuse the About page stylesheet — all classes already exist there -->
+    <link rel="stylesheet" href="./daniela/styleDP.css" />
+
+    <style>
+      /* ── Resume-specific overrides & extensions ── */
+
+      /* Hero: tighter than indexDP, name-forward */
+      .resume-hero {
+        background: linear-gradient(135deg, #6e5b98 0%, #9888ba 100%);
+        position: relative;
+        overflow: hidden;
+        padding: clamp(72px, 14vh, 120px) 0 clamp(48px, 8vh, 80px);
+      }
+      .resume-hero::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+        background-size: 84px 84px;
+        opacity: 0.3;
+      }
+      .resume-hero-inner {
+        position: relative;
+        z-index: 1;
+      }
+      .resume-name {
+        margin: 0 0 6px;
+        font-family: var(--hook);
+        font-weight: 800;
+        font-size: clamp(2.8rem, 7vw, 6rem);
+        line-height: 1;
+        letter-spacing: -0.02em;
+        color: #fff;
+      }
+      .resume-title {
+        margin: 0 0 20px;
+        font-family: var(--sans);
+        font-weight: 400;
+        font-size: clamp(0.75rem, 1.4vw, 0.88rem);
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.65);
+      }
+      .resume-tagline {
+        margin: 0 0 24px;
+        font-family: 'Caveat', cursive;
+        font-size: clamp(1.5rem, 3vw, 2.2rem);
+        color: rgba(255, 255, 255, 0.82);
+        line-height: 1.1;
+      }
+      .resume-summary {
+        max-width: 68ch;
+        font-family: var(--condensed);
+        font-size: clamp(1rem, 1.4vw, 1.15rem);
+        line-height: 1.7;
+        color: rgba(255, 255, 255, 0.72);
+        margin: 0 0 28px;
+      }
+      .resume-domains {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .resume-domain-tag {
+        padding: 5px 14px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 999px;
+        font-family: var(--sans);
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        color: rgba(255, 255, 255, 0.8);
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      /* Download button in hero */
+      .resume-actions {
+        margin-top: 32px;
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .resume-dl-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 22px;
+        border-radius: 10px;
+        font-family: var(--sans);
+        font-size: 0.88rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition:
+          transform 180ms ease,
+          background 180ms ease;
+      }
+      .resume-dl-btn:hover {
+        transform: translateY(-2px);
+      }
+      .resume-dl-btn--solid {
+        background: #fff;
+        color: var(--accent-strong);
+        border: 2px solid #fff;
+      }
+      .resume-dl-btn--ghost {
+        background: transparent;
+        color: #fff;
+        border: 2px solid rgba(255, 255, 255, 0.6);
+      }
+      .resume-dl-btn--ghost:hover {
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      /* ── Competencies strip ── */
+      .competencies-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: clamp(16px, 2vw, 32px);
+      }
+      @media (max-width: 780px) {
+        .competencies-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .competency-cell {
+        padding: clamp(24px, 3vw, 36px) clamp(12px, 2vw, 24px);
+      }
+      .competency-label {
+        font-family: var(--sans);
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.45);
+        margin-bottom: 10px;
+      }
+      .competency-items {
+        font-family: var(--condensed);
+        font-size: clamp(0.92rem, 1.2vw, 1.05rem);
+        line-height: 1.65;
+        color: rgba(255, 255, 255, 0.82);
+      }
+      .competency-items span {
+        display: inline;
+      }
+      .competency-items span::after {
+        content: ' •';
+        color: rgba(255, 255, 255, 0.3);
+        margin: 0 0.15em;
+      }
+      .competency-items span:last-child::after {
+        content: '';
+      }
+
+      /* ── Section: light panel with rule layout ── */
+      .resume-section {
+        padding: clamp(56px, 8vh, 96px) 0;
+        border-bottom: 1px solid var(--rule);
+      }
+      .resume-section:last-of-type {
+        border-bottom: none;
+      }
+
+      .section-kicker {
+        font-family: 'Caveat', cursive;
+        font-size: clamp(1.4rem, 2.5vw, 2rem);
+        font-weight: 700;
+        letter-spacing: 0.01em;
+        text-transform: none;
+        color: var(--accent);
+        margin-bottom: clamp(28px, 4vh, 48px);
+        line-height: 1.1;
+      }
+
+      /* Experience entries: left label / right content */
+      .exp-entries {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(40px, 6vh, 64px);
+      }
+      .exp-entry {
+        display: grid;
+        grid-template-columns: 220px 1fr;
+        gap: 0 clamp(32px, 4vw, 56px);
+        align-items: start;
+      }
+      @media (max-width: 760px) {
+        .exp-entry {
+          grid-template-columns: 1fr;
+          gap: 16px 0;
+        }
+      }
+
+      .exp-meta {
+        padding-top: 4px;
+      }
+      .exp-company {
+        font-family: var(--hook);
+        font-weight: 700;
+        font-size: clamp(1rem, 1.4vw, 1.15rem);
+        line-height: 1.2;
+        color: var(--ink);
+        margin-bottom: 4px;
+      }
+      .exp-title {
+        font-family: var(--sans);
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: rgba(120, 120, 130, 0.9);
+        letter-spacing: 0.02em;
+        line-height: 1.4;
+        margin-bottom: 14px;
+      }
+      .exp-domain {
+        font-family: var(--sans);
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: var(--accent);
+        letter-spacing: 0.02em;
+        line-height: 1.4;
+        margin-bottom: 8px;
+      }
+      .exp-context {
+        font-family: var(--condensed);
+        font-size: 0.85rem;
+        line-height: 1.55;
+        color: var(--muted);
+        font-style: italic;
+      }
+
+      /* Vertical rule divider */
+      .exp-divider {
+        display: none;
+      }
+      @media (min-width: 761px) {
+        .exp-entry {
+          position: relative;
+        }
+        .exp-entry::after {
+          content: '';
+          position: absolute;
+          left: 220px;
+          top: 0;
+          bottom: 0;
+          width: 1px;
+          background: var(--rule);
+        }
+      }
+
+      .exp-body {
+      }
+      .exp-lead {
+        font-family: var(--condensed);
+        font-size: clamp(1rem, 1.35vw, 1.12rem);
+        line-height: 1.7;
+        color: var(--ink);
+        margin: 0 0 18px;
+      }
+      .exp-bullets {
+        margin: 0;
+        padding-left: 1.1em;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .exp-bullets li {
+        font-family: var(--condensed);
+        font-size: clamp(0.92rem, 1.2vw, 1.05rem);
+        line-height: 1.68;
+        color: var(--ink);
+      }
+      .exp-bullets li::marker {
+        color: var(--accent);
+      }
+
+      /* Foundational experience — compact card grid */
+      .foundational-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: clamp(16px, 2vw, 24px);
+        margin-top: 28px;
+      }
+      @media (max-width: 760px) {
+        .foundational-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .foundational-card {
+        padding: clamp(18px, 2.5vw, 28px);
+        border: 1px solid var(--rule);
+        border-radius: 14px;
+        background: var(--surface);
+        transition:
+          border-color 220ms ease,
+          box-shadow 220ms ease;
+      }
+      .foundational-card:hover {
+        border-color: var(--accent);
+        box-shadow: 0 8px 24px rgba(110, 91, 152, 0.1);
+      }
+      .foundational-co {
+        font-family: var(--hook);
+        font-weight: 700;
+        font-size: 1rem;
+        color: var(--ink);
+        margin-bottom: 3px;
+      }
+      .foundational-domain {
+        font-family: var(--sans);
+        font-size: 0.72rem;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 10px;
+      }
+      .foundational-desc {
+        font-family: var(--condensed);
+        font-size: 0.95rem;
+        line-height: 1.65;
+        color: var(--muted);
+      }
+
+      /* Education + Tools — two-col on wide, stacked on mobile */
+      .edu-tools-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 clamp(40px, 6vw, 80px);
+        align-items: start;
+      }
+      @media (max-width: 680px) {
+        .edu-tools-grid {
+          grid-template-columns: 1fr;
+          gap: 40px 0;
+        }
+      }
+
+      .edu-item {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        padding: 14px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .edu-item:last-child {
+        border-bottom: none;
+      }
+      .edu-degree {
+        font-family: var(--hook);
+        font-weight: 600;
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.88);
+        line-height: 1.3;
+      }
+      .edu-school {
+        font-family: var(--condensed);
+        font-size: 0.88rem;
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      .tools-group {
+        margin-bottom: 24px;
+      }
+      .tools-group:last-child {
+        margin-bottom: 0;
+      }
+      .tools-group-label {
+        font-family: var(--sans);
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 8px;
+      }
+      .tools-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .tools-pill {
+        padding: 4px 12px;
+        border: 1px solid var(--rule);
+        border-radius: 999px;
+        font-family: var(--sans);
+        font-size: 0.78rem;
+        color: var(--ink);
+        background: var(--bg);
+      }
+
+      /* Domains closing strip */
+      .domains-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 20px;
+      }
+      .domain-chip {
+        padding: 8px 18px;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        border-radius: 999px;
+        font-family: var(--condensed);
+        font-size: 0.95rem;
+        color: rgba(255, 255, 255, 0.8);
+        background: rgba(255, 255, 255, 0.06);
+      }
+
+      /* Tighten up the dark strip inner padding */
+      .panel__inner--strip .container {
+        padding-top: clamp(36px, 5vh, 56px);
+        padding-bottom: clamp(36px, 5vh, 56px);
+      }
+
+      /* Utility */
+      .mt-0 {
+        margin-top: 0;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- ── Header (mirrors indexDP.html) ── -->
+    <header class="site-header" id="top">
+      <div class="container header-row">
+        <div class="brand">
+          <a href="../index.html" class="brand-link">
+            <svg
+              class="brand-mark"
+              viewBox="0 0 60 60"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <circle
+                cx="30"
+                cy="30"
+                r="27"
+                stroke="currentColor"
+                stroke-width="1.5"
+                fill="none"
+                opacity="0.3"
+              />
+              <circle
+                cx="30"
+                cy="30"
+                r="24"
+                fill="currentColor"
+                opacity="0.08"
+              />
+              <text
+                x="30"
+                y="38"
+                text-anchor="middle"
+                font-family="'Cairo Play', sans-serif"
+                font-size="20"
+                font-weight="800"
+                letter-spacing="-1"
+                fill="currentColor"
+              >
+                d:p
+              </text>
+            </svg>
+            <div>
+              <div class="brand-title">Daniela Penati</div>
+              <div class="brand-subtitle">UX Design &amp; Leadership</div>
+            </div>
+          </a>
+        </div>
+        <div class="header-actions">
+          <nav class="nav" aria-label="Primary">
+            <a href="./daniela/indexDP.html">About</a>
+            <a href="./login.html?next=.%2Fwork%2FindexWK.html">Work</a>
+            <a href="./index.html#contact">Contact</a>
+          </nav>
+          <button
+            class="theme-toggle"
+            type="button"
+            aria-label="Toggle dark mode"
+            aria-pressed="false"
+            data-theme-toggle
+          >
+            <span class="theme-icon" aria-hidden="true">◐</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- ── HERO ── -->
+      <section class="resume-hero" aria-label="Introduction">
+        <div class="container resume-hero-inner">
+          <p class="resume-title">
+            Principal UX &amp; Enterprise Systems Designer
+          </p>
+          <h1 class="resume-name">Daniela Penati</h1>
+          <p class="resume-tagline">Architecting clarity at system scale.</p>
+          <p class="resume-summary">
+            I design platforms that transform fragmented ecosystems into
+            coherent systems and translate backend complexity into role-based
+            experiences that improve predictability across complex workflows.
+          </p>
+          <div class="resume-domains">
+            <span class="resume-domain-tag">Enterprise Platforms</span>
+            <span class="resume-domain-tag">Developer Ecosystems (DevEx)</span>
+            <span class="resume-domain-tag">SSecurity & Data Systems</span>
+            <span class="resume-domain-tag">Healthcare Platforms</span>
+          </div>
+          <div class="resume-actions">
+            <a
+              href="./daniela/Daniela_CV.pdf"
+              target="_blank"
+              rel="noopener"
+              class="resume-dl-btn resume-dl-btn--solid"
+            >
+              Download PDF
+            </a>
+            <a
+              href="https://www.linkedin.com/in/danielapenati/"
+              target="_blank"
+              rel="noopener"
+              class="resume-dl-btn resume-dl-btn--ghost"
+            >
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── COMPETENCIES (dark glass strip) ── -->
+      <div class="panel__inner--strip">
+        <div class="container" style="width: 100%">
+          <p
+            class="section-kicker"
+            style="
+              color: rgba(255, 255, 255, 0.4);
+              margin-bottom: clamp(20px, 3vh, 32px);
+            "
+          >
+            Core Competencies
+          </p>
+          <div class="competencies-grid">
+            <div class="competency-cell">
+              <div class="competency-label">Platform &amp; Systems Design</div>
+              <div class="competency-items">
+                <span>Enterprise Platform Architecture</span>
+                <span>Complex Workflow Modeling</span>
+                <span>Multi-System Integration</span>
+                <span>Service Design</span>
+                <span>Developer Experience (DevEx)</span>
+              </div>
+            </div>
+            <div class="competency-cell">
+              <div class="competency-label">
+                Strategy &amp; Organizational Impact
+              </div>
+              <div class="competency-items">
+                <span>UX Strategy &amp; Vision</span>
+                <span>Design Operations</span>
+                <span>Cross-Functional Leadership</span>
+                <span>Organizational Enablement</span>
+              </div>
+            </div>
+            <div class="competency-cell">
+              <div class="competency-label">
+                AI-Enabled Systems &amp; Governance
+              </div>
+              <div class="competency-items">
+                <span>AI-Enabled Systems</span>
+                <span>Platform Governance</span>
+                <span>Operational Integrity</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── PROFESSIONAL EXPERIENCE ── -->
+      <section class="resume-section" aria-label="Professional Experience">
+        <div class="container">
+          <p class="section-kicker">Professional Experience</p>
+
+          <div class="exp-entries">
+            <!-- JPMC -->
+            <div class="exp-entry">
+              <div class="exp-meta">
+                <div class="exp-company">JPMorgan Chase</div>
+                <div class="exp-title">User Experience Manager (VP)</div>
+                <div class="exp-domain">
+                  Enterprise Developer Platforms &amp; Secure Software Supply
+                  Chain
+                </div>
+              </div>
+              <div class="exp-body">
+                <p class="exp-lead">
+                  Experience lead for Application Management &amp; Secure
+                  Software Supply Chain (S3C), shaping developer platforms used
+                  by 40K+ engineers while balancing hands-on systems design,
+                  team leadership, and platform strategy.
+                </p>
+                <ul class="exp-bullets">
+                  <li>
+                    Re-architected eight core Pipelines workflows within a
+                    12-week delivery window, sequencing UX discovery ahead of
+                    backend build cycles to produce dev-ready designs that
+                    improved estimation accuracy and reduced downstream churn.
+                  </li>
+                  <li>
+                    Explored AI-assisted workflows for UX discovery and
+                    technical documentation governance, authoring proposals for
+                    LLM-based agents and validating early automation
+                    opportunities using Copilot within the SDLC.
+                  </li>
+                  <li>
+                    Scaled and structured a multidisciplinary UX team from 4 to
+                    11, establishing operating practices and research rhythms
+                    that strengthened execution quality and cross-functional
+                    alignment.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Optum / JMH -->
+            <div class="exp-entry">
+              <div class="exp-meta">
+                <div class="exp-company">Optum / John Muir Health</div>
+                <div class="exp-title">Lead User Experience</div>
+                <div class="exp-domain">
+                  Healthcare Platforms &amp; Patient Engagement Systems
+                </div>
+              </div>
+              <div class="exp-body">
+                <p class="exp-lead">
+                  Led UX design across digital health platforms supporting
+                  patient engagement, telehealth services, and care
+                  coordination—translating complex clinical workflows into
+                  structured care systems for patients, providers, and care
+                  teams.
+                </p>
+                <ul class="exp-bullets">
+                  <li>
+                    Led discovery and experience architecture for the UCSF–JMH
+                    Accountable Care Network (Canopy Health), defining the
+                    digital foundation for a unified clinical and insurance
+                    portal integrating multi-EMR records with cost and claims
+                    visibility.
+                  </li>
+                  <li>
+                    Designed and launched a responsive, SSO-enabled physician
+                    portal centralizing calendars, secure communications,
+                    training, and account management to streamline coordination
+                    across care teams.
+                  </li>
+                  <li>
+                    Designed and launched JMH's first in-house native patient
+                    mobile app, extending Epic's EHR beyond its standard mobile
+                    offering to deliver a differentiated, integration-ready
+                    experience.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Symantec -->
+            <div class="exp-entry">
+              <div class="exp-meta">
+                <div class="exp-company">Symantec</div>
+                <div class="exp-title">Principal User Experience</div>
+                <div class="exp-domain">
+                  Enterprise Security Platforms &amp; DLP
+                </div>
+              </div>
+              <div class="exp-body">
+                <p class="exp-lead">
+                  Led UX design for enterprise data protection platforms in
+                  close partnership with security and engineering teams,
+                  translating complex security policies into structured
+                  workflows for security analysts and enterprise administrators.
+                </p>
+                <ul class="exp-bullets">
+                  <li>
+                    Reframed Symantec's DLP platform from a channel-based,
+                    data-centric model to an identity-centric
+                    architecture—eliminating costly re-architecture and
+                    introducing a unified Users view that correlated
+                    cross-channel incidents to a single identity.
+                  </li>
+                  <li>
+                    Led cross-product integration of DLP and Data Insight,
+                    aligning global teams through task modeling, journey
+                    mapping, and a three-day war-room; reframed a high-stakes
+                    TAB session with 80 enterprise customers from UI critique to
+                    workflow validation.
+                  </li>
+                  <li>
+                    Standardized workflows across DLP's four core product areas,
+                    introducing cohesive interaction patterns that reduced
+                    duplication and strengthened consistency across the
+                    enterprise security suite.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── FOUNDATIONAL EXPERIENCE (light bg, card grid) ── -->
+      <section
+        class="resume-section"
+        style="background: var(--surface)"
+        aria-label="Foundational Experience"
+      >
+        <div class="container">
+          <p class="section-kicker">Foundational Platform Experience</p>
+          <p class="exp-lead" style="max-width: 68ch; margin-bottom: 0">
+            Early in my career, I led foundational platform redesigns across
+            healthcare, logistics, and connected-device ecosystems—work that
+            shaped my systems-thinking approach to complex product architecture.
+          </p>
+          <div class="foundational-grid">
+            <div class="foundational-card">
+              <div class="foundational-co">Mirixa</div>
+              <div class="foundational-domain">Healthcare Technology</div>
+              <p class="foundational-desc">
+                Redesigned the MirixaPro MTM SaaS platform within a four-month
+                delivery window, introducing UX practices into an
+                engineering-led environment. Restructured workflows doubled
+                client adoption in the first week of launch.
+              </p>
+            </div>
+            <div class="foundational-card">
+              <div class="foundational-co">International Asset Systems</div>
+              <div class="foundational-domain">Global Logistics Platforms</div>
+              <p class="foundational-desc">
+                Unified five global logistics applications into a modular
+                platform architecture, defining reusable interaction patterns
+                that reduced development time by 50%.
+              </p>
+            </div>
+            <div class="foundational-card">
+              <div class="foundational-co">Pie Digital</div>
+              <div class="foundational-domain">Connected Home Networking</div>
+              <p class="foundational-desc">
+                Unified fragmented product concepts into a coherent
+                multi-surface ecosystem for the Pie Box connected-home router
+                platform.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── EDUCATION + TOOLS (dark strip) ── -->
+      <div class="panel__inner--strip">
+        <div class="container" style="width: 100%">
+          <div class="edu-tools-grid" style="color: var(--glass-text)">
+            <div>
+              <p
+                class="section-kicker"
+                style="color: rgba(255, 255, 255, 0.4); margin-bottom: 24px"
+              >
+                Education &amp; Specializations
+              </p>
+              <div class="edu-item">
+                <div class="edu-degree">Oxford AI Program</div>
+                <div class="edu-school">Saïd Business School</div>
+              </div>
+              <div class="edu-item">
+                <div class="edu-degree">
+                  Human-Computer Interaction for UX Design
+                </div>
+                <div class="edu-school">MIT CSAIL</div>
+              </div>
+              <div class="edu-item">
+                <div class="edu-degree">Internet Design &amp; Technology</div>
+                <div class="edu-school">SFSU MSP Certificate</div>
+              </div>
+              <div class="edu-item">
+                <div class="edu-degree">Industrial &amp; Behavioral Design</div>
+                <div class="edu-school">
+                  College Castello Sforzesco — Milan, Italy
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <p
+                class="section-kicker"
+                style="color: rgba(255, 255, 255, 0.4); margin-bottom: 24px"
+              >
+                Design &amp; Collaboration
+              </p>
+              <div class="tools-group">
+                <div
+                  class="tools-group-label"
+                  style="color: rgba(255, 255, 255, 0.4)"
+                >
+                  Design &amp; Prototyping
+                </div>
+                <div class="tools-pills">
+                  <span
+                    class="tools-pill"
+                    style="
+                      border-color: rgba(255, 255, 255, 0.15);
+                      color: rgba(255, 255, 255, 0.8);
+                      background: rgba(255, 255, 255, 0.06);
+                    "
+                    >Figma</span
+                  >
+                  <span
+                    class="tools-pill"
+                    style="
+                      border-color: rgba(255, 255, 255, 0.15);
+                      color: rgba(255, 255, 255, 0.8);
+                      background: rgba(255, 255, 255, 0.06);
+                    "
+                    >Lucid</span
+                  >
+                  <span
+                    class="tools-pill"
+                    style="
+                      border-color: rgba(255, 255, 255, 0.15);
+                      color: rgba(255, 255, 255, 0.8);
+                      background: rgba(255, 255, 255, 0.06);
+                    "
+                    >Adobe CC</span
+                  >
+                  <span
+                    class="tools-pill"
+                    style="
+                      border-color: rgba(255, 255, 255, 0.15);
+                      color: rgba(255, 255, 255, 0.8);
+                      background: rgba(255, 255, 255, 0.06);
+                    "
+                    >Sketch</span
+                  >
+                </div>
+              </div>
+              <div class="tools-group">
+                <div
+                  class="tools-group-label"
+                  style="color: rgba(255, 255, 255, 0.4)"
+                >
+                  Dev &amp; Engineering Environments
+                </div>
+                <div class="tools-pills">
+                  <span
+                    class="tools-pill"
+                    style="
+                      border-color: rgba(255, 255, 255, 0.15);
+                      color: rgba(255, 255, 255, 0.8);
+                      background: rgba(255, 255, 255, 0.06);
+                    "
+                    >IntelliJ</span
+                  >
+                  <span
+                    class="tools-pill"
+                    style="
+                      border-color: rgba(255, 255, 255, 0.15);
+                      color: rgba(255, 255, 255, 0.8);
+                      background: rgba(255, 255, 255, 0.06);
+                    "
+                    >GitHub</span
+                  >
+                  <span
+                    class="tools-pill"
+                    style="
+                      border-color: rgba(255, 255, 255, 0.15);
+                      color: rgba(255, 255, 255, 0.8);
+                      background: rgba(255, 255, 255, 0.06);
+                    "
+                    >Copilot</span
+                  >
+                  <span
+                    class="tools-pill"
+                    style="
+                      border-color: rgba(255, 255, 255, 0.15);
+                      color: rgba(255, 255, 255, 0.8);
+                      background: rgba(255, 255, 255, 0.06);
+                    "
+                    >Firebase</span
+                  >
+                  <span
+                    class="tools-pill"
+                    style="
+                      border-color: rgba(255, 255, 255, 0.15);
+                      color: rgba(255, 255, 255, 0.8);
+                      background: rgba(255, 255, 255, 0.06);
+                    "
+                    >HTML/CSS</span
+                  >
+                </div>
+              </div>
+              <div class="tools-group">
+                <div
+                  class="tools-group-label"
+                  style="color: rgba(255, 255, 255, 0.4)"
+                >
+                  Emerging Practices
+                </div>
+                <div class="tools-pills">
+                  <span
+                    class="tools-pill"
+                    style="
+                      border-color: rgba(255, 255, 255, 0.15);
+                      color: rgba(255, 255, 255, 0.8);
+                      background: rgba(255, 255, 255, 0.06);
+                    "
+                    >AI-assisted discovery</span
+                  >
+                  <span
+                    class="tools-pill"
+                    style="
+                      border-color: rgba(255, 255, 255, 0.15);
+                      color: rgba(255, 255, 255, 0.8);
+                      background: rgba(255, 255, 255, 0.06);
+                    "
+                    >Documentation automation</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── DOMAINS closing strip ── -->
+      <div
+        class="panel__inner--strip"
+        style="background: linear-gradient(135deg, #6e5b98 0%, #9888ba 100%)"
+      >
+        <div class="container" style="width: 100%">
+          <p
+            class="section-kicker"
+            style="color: rgba(255, 255, 255, 0.5); margin-bottom: 16px"
+          >
+            Systems &amp; Domains
+          </p>
+          <p
+            style="
+              font-family: var(--condensed);
+              font-size: clamp(0.9rem, 1.2vw, 1rem);
+              color: rgba(255, 255, 255, 0.6);
+              margin: 0 0 20px;
+            "
+          >
+            My work focuses on complex ecosystems where infrastructure,
+            workflows, and human decision-making intersect — from developer
+            platforms and cybersecurity systems to healthcare and logistics
+            operations.
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <!-- ── Footer ── -->
+    <footer class="site-footer">
+      <div class="container footer-row">
+        <div class="footer-meta">
+          <a
+            class="social-icon"
+            href="https://www.linkedin.com/in/danielapenati/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="22"
+              height="22"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V9h4v2"
+              />
+              <path d="M2 9h4v12H2z" />
+              <path d="M4 4a2 2 0 1 0 0 .001z" />
+            </svg>
+          </a>
+          <a
+            class="social-icon"
+            href="mailto:daniela@dpenati.com"
+            aria-label="Email"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="22"
+              height="22"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M4 4h16v16H4z" />
+              <path d="m4 6 8 6 8-6" />
+            </svg>
+          </a>
+          <span class="footer-copy"
+            >© <span data-year>2026</span> Daniela Penati</span
+          >
+        </div>
+      </div>
+    </footer>
+
+    <a class="fab-top" href="#top" aria-label="Back to top">
+      <span aria-hidden="true">↑</span>
+    </a>
+
+    <script>
+      (function () {
+        const btn = document.querySelector('[data-theme-toggle]');
+        const year = document.querySelector('[data-year]');
+        if (year) year.textContent = new Date().getFullYear();
+        if (!btn) return;
+        btn.addEventListener('click', () => {
+          const root = document.documentElement;
+          const cur = root.getAttribute('data-theme') || 'auto';
+          const next = cur === 'dark' ? 'light' : 'dark';
+          root.setAttribute('data-theme', next);
+          btn.setAttribute('aria-pressed', String(next === 'dark'));
+        });
+      })();
+    </script>
+  </body>
+</html>
