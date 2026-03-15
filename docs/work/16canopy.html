@@ -4,16 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-    <!-- ====== PAGE META (EDIT) ====== -->
-    <title>[Case Study Title] — Daniela Penati</title>
+    <title>[Case Study Canopy Health] — Daniela Penati</title>
     <meta
       name="description"
-      content="[1–2 sentence summary for SEO + share previews.]"
+      content="Leading discovery and experience architecture for Canopy Health — a new Bay Area healthcare network spanning UCSF Health and John Muir Health."
     />
 
     <meta name="color-scheme" content="light dark" />
 
-    <!-- Fonts (same as your current WK pages) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,7 +19,6 @@
       rel="stylesheet"
     />
 
-    <!-- Work/private styles -->
     <link rel="stylesheet" href="./stylesWK.css" />
   </head>
 
@@ -33,7 +30,6 @@
       <div class="container header-row">
         <div class="brand">
           <a href="../index.html" class="brand-link">
-            <!-- Brand mark (keep as-is) -->
             <svg
               class="brand-mark"
               viewBox="0 0 60 60"
@@ -69,7 +65,6 @@
                 d:p
               </text>
             </svg>
-
             <div>
               <div class="brand-title">Daniela Penati</div>
               <div class="brand-subtitle">UX Design & Leadership</div>
@@ -80,10 +75,9 @@
         <div class="header-actions">
           <nav class="nav" aria-label="Primary">
             <a href="../daniela/indexDP.html">About</a>
-            <a href="./indexWK.html">Work</a>
+            <a href="./indexWK.html" aria-current="page">Work</a>
             <a href="../index.html#contact">Contact</a>
           </nav>
-
           <button
             class="theme-toggle"
             type="button"
@@ -102,279 +96,1315 @@
       <div class="case-study-strip">
         <div class="container">
           <div class="breadcrumb">
-            <!-- In private area, you may prefer indexWK.html instead of index.html#work -->
             <a href="./indexWK.html">← All Work</a>
           </div>
-
-          <!-- ====== TOP SUMMARY (EDIT) ====== -->
-          <h1 class="case-study-title">[Case Study Title]</h1>
+          <h1 class="case-study-title">
+            Designing a Digital Front Door for a New Healthcare Network
+          </h1>
           <p class="case-study-subtitle">
-            [Short subtitle / positioning sentence]
+            Leading discovery and experience architecture for Canopy Health — a
+            new Bay Area ACO spanning UCSF Health and John Muir Health.
           </p>
-
           <div class="case-study-meta">
-            <span><strong>Role:</strong> [Role]</span>
-            <span><strong>Domain:</strong> [Domain / product area]</span>
-            <span><strong>Year:</strong> [Year]</span>
+            <span><strong>Role:</strong> UX Lead</span>
+            <span
+              ><strong>Domain:</strong> Consumer Health &amp; Digital
+              Platforms</span
+            >
+            <span><strong>Year:</strong> 2016</span>
+            <span
+              ><strong>Partners:</strong> UCSF Health &amp; John Muir
+              Health</span
+            >
           </div>
         </div>
       </div>
 
-      <!-- Hero visual (optional) -->
-      <section class="section case-study-hero">
-        <div class="container">
-          <figure class="hero-figure">
-            <!-- Replace with your SVG, or swap to an image -->
-            <!-- Option A (SVG): keep a unique <svg> per case -->
-            <svg
-              class="hero-svg"
-              viewBox="0 0 1200 400"
-              xmlns="http://www.w3.org/2000/svg"
-              preserveAspectRatio="xMidYMid slice"
-              aria-label="[Hero diagram description]"
-              role="img"
-            >
-              <defs>
-                <linearGradient id="heroGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop
-                    offset="0%"
-                    style="stop-color: #f0f0f0; stop-opacity: 1"
-                  />
-                  <stop
-                    offset="100%"
-                    style="stop-color: #e8e8e8; stop-opacity: 1"
-                  />
-                </linearGradient>
-                <radialGradient id="heroInk">
-                  <stop
-                    offset="0%"
-                    style="stop-color: #6e5b98; stop-opacity: 0.18"
-                  />
-                  <stop
-                    offset="100%"
-                    style="stop-color: #6e5b98; stop-opacity: 0"
-                  />
-                </radialGradient>
-              </defs>
-
-              <rect width="1200" height="400" fill="url(#heroGrad)" />
-              <circle cx="930" cy="190" r="160" fill="url(#heroInk)" />
-
-              <!-- Minimal placeholder geometry -->
-              <g stroke="#2a2a2a" stroke-width="2" fill="none" opacity="0.7">
-                <rect x="180" y="110" width="320" height="180" rx="6" />
-                <rect
-                  x="520"
-                  y="90"
-                  width="500"
-                  height="220"
-                  rx="6"
-                  opacity="0.55"
-                />
-                <line x1="500" y1="200" x2="520" y2="200" />
-              </g>
-
-              <g stroke="#2a2a2a" stroke-width="0.6" opacity="0.1">
-                <line x1="300" y1="50" x2="300" y2="350" />
-                <line x1="600" y1="50" x2="600" y2="350" />
-                <line x1="900" y1="50" x2="900" y2="350" />
-                <line x1="100" y1="120" x2="1100" y2="120" />
-                <line x1="100" y1="200" x2="1100" y2="200" />
-                <line x1="100" y1="280" x2="1100" y2="280" />
-              </g>
-            </svg>
-
-            <!-- Option B (Image): uncomment and use instead of SVG
-            <img class="hero-img" src="./images/[your-hero].webp" alt="[Alt text]" />
-            -->
-          </figure>
-        </div>
-      </section>
-
       <!-- Table of contents -->
-      <section class="section case-study-toc">
+      <section class="section section--flush-top case-study-toc">
         <div class="container">
           <div class="toc-row">
             <div class="toc-label">On this page</div>
             <nav class="toc-links">
               <a href="#context">Context</a>
-              <a href="#approach">Strategic Approach</a>
+              <a href="#strategy">Strategy</a>
               <a href="#execution">Execution</a>
+              <a href="#interface">Interface</a>
               <a href="#impact">Impact</a>
-              <a href="#reflection">Reflection</a>
             </nav>
           </div>
         </div>
       </section>
 
-      <!-- Content -->
-      <section class="section case-study-content">
+      <!-- Hero visual -->
+      <section class="section section--flush-top case-study-hero">
         <div class="container">
-          <article class="content-article">
-            <!-- Highlights -->
-            <div class="content-block highlights-block">
-              <div class="callout">
-                <h3 class="callout-title">Highlights</h3>
-                <ul class="callout-list">
-                  <li>[Outcome / shift #1]</li>
-                  <li>[Outcome / shift #2]</li>
-                  <li>[Outcome / shift #3]</li>
-                  <li>[Outcome / shift #4]</li>
-                </ul>
-              </div>
-            </div>
+          <figure class="hero-figure">
+            <img
+              src="./images/16canopyHero.webp"
+              alt="Canopy Health consumer portal — showing the provider search interface and member portal entry point across a Bay Area healthcare network"
+              class="hero-svg"
+              loading="eager"
+            />
+          </figure>
+        </div>
+      </section>
 
+      <!-- Content -->
+      <section class="section section--flush-top case-study-content">
+        <div class="container">
+          <!-- Opening block -->
+          <div class="opening-block">
+            <p class="opening-lead">
+              This project required more than designing a healthcare portal. It
+              required defining a coherent patient experience before the
+              underlying network infrastructure fully existed:
+            </p>
+            <ul class="shifts-list">
+              <li>
+                <span class="shift-label">Framing</span>
+                Reframed the challenge from portal design to experience
+                architecture — establishing how patients would understand,
+                enter, and navigate a newly formed healthcare network.
+              </li>
+              <li>
+                <span class="shift-label">Discovery</span>
+                Grounded design decisions in structured research on patient
+                behaviors, provider search patterns, and insurance comprehension
+                — before a single screen was designed.
+              </li>
+              <li>
+                <span class="shift-label">Architecture</span>
+                Mapped the core patient journeys across multiple backend systems
+                — identity, eligibility, provider directories — creating a
+                stable experience model that could absorb evolving
+                infrastructure.
+              </li>
+              <li>
+                <span class="shift-label">Entry Points</span>
+                Designed the primary interfaces through which patients would
+                encounter the network: the public website, provider discovery,
+                and member portal access.
+              </li>
+            </ul>
+          </div>
+
+          <article class="content-article">
             <!-- Context -->
             <div id="context" class="content-block">
               <div class="block-label">Context</div>
-              <h2 class="block-title">
-                [What was happening / why this mattered]
-              </h2>
+              <h2 class="block-title">A New Healthcare Network Taking Shape</h2>
 
-              <p class="block-text">[Paragraph 1]</p>
-              <p class="block-text">[Paragraph 2]</p>
+              <p class="block-text">
+                In 2016, UCSF Health and John Muir Health initiated an
+                affiliation to form a Bay Area–wide accountable care
+                organization, later branded as Canopy Health. The ambition was
+                significant: create a unified digital entry point capable of
+                connecting patients to services across organizations while
+                leveraging existing EMR systems.
+              </p>
+              <p>
+                At the time, the underlying ecosystem was still evolving.
+                Provider directories, eligibility data, benefits information,
+                and clinical services lived across different systems and
+                organizations. The digital experience therefore needed to define
+                a coherent way for patients to understand and navigate the
+                network before its operational infrastructure was fully unified.
+              </p>
+              <p>
+                I was asked to lead the discovery and architectural definition
+                of the new consumer experience — establishing how patients would
+                enter the ecosystem, find providers, understand coverage, and
+                access services across institutions.
+              </p>
+              <p class="block-text">
+                Without a clear experience framework, the platform risked
+                amplifying the complexity of the underlying healthcare systems
+                rather than resolving it.
+              </p>
 
-              <!-- Optional: Problem / constraints grid (reuse your existing classes) -->
               <div class="insight-grid">
                 <div class="insight-card">
                   <div class="insight-icon">1</div>
-                  <h3 class="insight-title">[Constraint / condition]</h3>
-                  <p class="insight-desc">[Explain]</p>
+                  <h3 class="insight-title">
+                    Defining a New Network for Patients
+                  </h3>
+                  <p class="insight-desc">
+                    Canopy Health represented a new collaboration between
+                    healthcare organizations. The digital experience needed to
+                    explain what the network was, how it related to existing
+                    providers, and how patients should navigate care within it.
+                  </p>
                 </div>
 
                 <div class="insight-card">
                   <div class="insight-icon">2</div>
-                  <h3 class="insight-title">[Constraint / condition]</h3>
-                  <p class="insight-desc">[Explain]</p>
+                  <h3 class="insight-title">
+                    Provider Discovery Across Institutions
+                  </h3>
+                  <p class="insight-desc">
+                    Patients needed a reliable way to find in-network providers
+                    across multiple health systems. Existing directory
+                    experiences were fragmented and data quality varied across
+                    sources.
+                  </p>
                 </div>
 
                 <div class="insight-card">
                   <div class="insight-icon">3</div>
-                  <h3 class="insight-title">[Constraint / condition]</h3>
-                  <p class="insight-desc">[Explain]</p>
+                  <h3 class="insight-title">
+                    Translating Insurance Complexity
+                  </h3>
+                  <p class="insight-desc">
+                    Benefits, eligibility, and coverage information originated
+                    from insurance systems designed for administrative use. The
+                    challenge was translating these structures into interfaces
+                    patients could easily understand.
+                  </p>
                 </div>
 
                 <div class="insight-card">
                   <div class="insight-icon">4</div>
-                  <h3 class="insight-title">[Constraint / condition]</h3>
-                  <p class="insight-desc">[Explain]</p>
+                  <h3 class="insight-title">
+                    Designing Ahead of System Integration
+                  </h3>
+                  <p class="insight-desc">
+                    Many of the underlying systems supporting provider data,
+                    eligibility, and member services were still evolving. The
+                    experience architecture needed to remain stable even as
+                    backend infrastructure continued to mature.
+                  </p>
                 </div>
               </div>
             </div>
+          </article>
+          <!-- /end Context article -->
 
-            <!-- Strategic Approach -->
-            <div id="approach" class="content-block">
-              <div class="block-label">Strategic Approach</div>
-              <h2 class="block-title">[Your framing / principles / plan]</h2>
+          <!-- Artifact: Ecosystem map -->
+          <figure class="artifact-figure" data-artifact>
+            <div
+              class="artifact-thumb"
+              role="button"
+              tabindex="0"
+              aria-label="View full diagram: Canopy Health audience ecosystem map"
+            >
+              <img
+                src="./images/canopy_ecosystem.webp"
+                alt="Audience ecosystem map showing the relationships between consumers, employers, hospitals (UCSF Health and John Muir Health), and insurers within the Canopy Health network"
+                class="artifact-img artifact-img--color"
+                loading="lazy"
+              />
+              <div class="artifact-overlay">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="m21 21-4.35-4.35" />
+                  <path d="M11 8v3M8 11h6" />
+                </svg>
+                <span>View diagram</span>
+              </div>
+            </div>
+            <figcaption class="artifact-caption">
+              Canopy Health audience ecosystem — consumers, employers,
+              hospitals, and insurers within a newly formed Bay Area network
+            </figcaption>
+          </figure>
 
-              <p class="block-text">[Paragraph]</p>
+          <!-- Modal -->
+          <div
+            class="artifact-modal"
+            id="artifact-modal-ecosystem"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Canopy Health ecosystem map"
+            hidden
+          >
+            <div class="artifact-modal-backdrop"></div>
+            <div class="artifact-modal-frame">
+              <button class="artifact-modal-close" aria-label="Close diagram">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M18 6 6 18M6 6l12 12" />
+                </svg>
+              </button>
+              <div class="artifact-modal-scroll">
+                <img
+                  src="./images/canopy_ecosystem.webp"
+                  alt="Full view: Canopy Health audience ecosystem map"
+                  class="artifact-modal-img"
+                />
+              </div>
+              <p class="artifact-modal-caption">
+                Canopy Health audience ecosystem — consumers, employers,
+                hospitals, and insurers within a newly formed Bay Area network
+              </p>
+            </div>
+          </div>
+
+          <div class="section-rule-accent"></div>
+
+          <article class="content-article">
+            <!-- Strategy -->
+            <div id="strategy" class="content-block">
+              <div class="block-label">Strategy</div>
+              <h2 class="block-title">
+                Establishing the Experience Architecture
+              </h2>
+
+              <p class="block-text">
+                Rather than beginning with interface design, the effort started
+                with discovery. The objective was to understand how patients
+                would navigate a newly formed healthcare network and how those
+                journeys intersected with existing clinical, insurance, and
+                provider systems.
+              </p>
+              <p class="block-text">
+                The discovery phase focused on clarifying patient expectations,
+                provider discovery patterns, insurance concepts, enrollment
+                models, and identity verification processes. By synthesizing
+                research insights with input from business and technical teams,
+                the work shifted from individual features to defining the core
+                journeys that would structure the portal experience.
+              </p>
 
               <div class="insight-grid insight-grid-3">
                 <div class="insight-card">
                   <div class="insight-icon">A</div>
-                  <h3 class="insight-title">[Pillar]</h3>
-                  <p class="insight-desc">[What you did + why]</p>
+                  <h3 class="insight-title">Understanding the Ecosystem</h3>
+                  <p class="insight-desc">
+                    The first priority was understanding how patients
+                    conceptualize care access within a network spanning multiple
+                    organizations. Discovery work explored patient expectations,
+                    provider search behaviors, insurance terminology, and
+                    account enrollment processes. Mapping these elements early
+                    helped clarify where confusion typically occurs —
+                    particularly around eligibility, provider networks, and
+                    coverage visibility.
+                  </p>
                 </div>
 
                 <div class="insight-card">
                   <div class="insight-icon">B</div>
-                  <h3 class="insight-title">[Pillar]</h3>
-                  <p class="insight-desc">[What you did + why]</p>
+                  <h3 class="insight-title">Architecting the Journeys</h3>
+                  <p class="insight-desc">
+                    Once discovery insights were consolidated with technical and
+                    operational constraints, the next step was defining the core
+                    user journeys structuring the portal. Flow diagrams for
+                    account creation, identity verification, provider discovery,
+                    appointment access, and cost visibility helped validate how
+                    multiple backend systems would integrate within a coherent
+                    experience.
+                  </p>
                 </div>
 
                 <div class="insight-card">
                   <div class="insight-icon">C</div>
-                  <h3 class="insight-title">[Pillar]</h3>
-                  <p class="insight-desc">[What you did + why]</p>
+                  <h3 class="insight-title">Designing the Entry Points</h3>
+                  <p class="insight-desc">
+                    With system interactions defined, the final step was
+                    translating the architecture into concrete interaction
+                    designs. Early mockups focused on the most important entry
+                    points: the website, login experience, and provider search
+                    interface — establishing the primary pathways through which
+                    patients would discover providers and access services.
+                  </p>
                 </div>
               </div>
             </div>
+          </article>
+          <!-- /end Strategy article -->
 
+          <!-- =====================================================
+               Artifact: Experience strategy diagram
+               Standard modal — fits container width
+          ====================================================== -->
+          <figure class="artifact-figure" data-artifact>
+            <div
+              class="artifact-thumb"
+              role="button"
+              tabindex="0"
+              aria-label="View full diagram: Experience Strategy — Understanding, Structuring, Designing"
+            >
+              <img
+                src="./images/canopy_strategy.png"
+                alt="Experience Strategy diagram showing three sequential steps across Q1–Q3: Step 1 Understanding the Ecosystem (patient expectations, stakeholder interviews, insurance concepts, enrollment models, identity verification), Step 2 Architecting the Journeys (task model, UX architecture, system mapping, user journey), and Step 3 Designing the Entry Points (website and login, provider search UI, appointment access), followed by handoff to agency"
+                class="artifact-img artifact-img--color"
+                loading="lazy"
+              />
+              <div class="artifact-overlay">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="m21 21-4.35-4.35" />
+                  <path d="M11 8v3M8 11h6" />
+                </svg>
+                <span>View diagram</span>
+              </div>
+            </div>
+            <figcaption class="artifact-caption">
+              A simplified view of the strategy process used to translate
+              ecosystem research into a coherent portal architecture
+            </figcaption>
+          </figure>
+
+          <!-- Modal -->
+          <div
+            class="artifact-modal"
+            id="artifact-modal-strategy"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Experience strategy diagram"
+            hidden
+          >
+            <div class="artifact-modal-backdrop"></div>
+            <div class="artifact-modal-frame">
+              <button class="artifact-modal-close" aria-label="Close diagram">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M18 6 6 18M6 6l12 12" />
+                </svg>
+              </button>
+              <div class="artifact-modal-scroll">
+                <img
+                  src="./images/canopy_strategy.png"
+                  alt="Full view: Experience Strategy — Understanding, Structuring, Designing"
+                  class="artifact-modal-img"
+                />
+              </div>
+              <p class="artifact-modal-caption">
+                A simplified view of the strategy process used to translate
+                ecosystem research into a coherent portal architecture and
+                primary patient entry points
+              </p>
+            </div>
+          </div>
+          <!-- end artifact -->
+
+          <div class="section-rule-accent"></div>
+
+          <article class="content-article">
             <!-- Execution -->
             <div id="execution" class="content-block">
               <div class="block-label">Execution</div>
-              <h2 class="block-title">[How it played out]</h2>
+              <h2 class="block-title">From Strategy to Structured Journeys</h2>
 
-              <p class="block-text">[Paragraph]</p>
+              <p class="block-text">
+                Each strategic principle shaped a distinct phase of the project
+                — from discovery research to experience architecture, and
+                finally to the design of the platform's primary entry points.
+              </p>
 
-              <h3 class="block-subtitle">[Subsection heading]</h3>
-              <p class="block-text">[Explain]</p>
+              <!-- Phase 1 -->
+              <h3 class="block-subtitle">1. Understanding the Ecosystem</h3>
+              <p class="block-text">
+                Before defining the portal experience, the first priority was
+                understanding how patients navigate healthcare networks and
+                insurance systems. Discovery focused on how patients choose
+                providers, what information they expect from healthcare portals,
+                how insurance concepts influence care decisions, and what causes
+                confusion around coverage and benefits.
+              </p>
+              <p class="block-text">
+                The research program combined stakeholder interviews,
+                hypothesis-driven research sessions, and usability reviews of
+                existing healthcare portals. Early work also mapped the broader
+                ecosystem of stakeholders interacting with the Canopy network —
+                including consumers, employers, hospitals, and insurers —
+                clarifying how the consumer portal needed to function as an
+                entry point within a larger healthcare system.
+              </p>
+            </div>
+          </article>
 
-              <!-- Optional: Rhythm / timeline list (works well for “steps”) -->
-              <div class="rhythm-list">
-                <div class="rhythm-item">
-                  <div class="rhythm-day">1</div>
-                  <div class="rhythm-content">
-                    <div class="rhythm-title">[Step title]</div>
-                    <div class="rhythm-desc">[What happened / output]</div>
-                  </div>
+          <!-- Artifact: Hypotheses -->
+          <figure class="artifact-figure" data-artifact>
+            <div
+              class="artifact-thumb"
+              role="button"
+              tabindex="0"
+              aria-label="View full diagram: Research assumptions and hypotheses"
+            >
+              <img
+                src="./images/canopy_hypotheses.webp"
+                alt="Assumptions and hypotheses slide — structured research framing around patient behaviors, portal usage patterns, and provider search"
+                class="artifact-img artifact-img--color"
+                loading="lazy"
+              />
+              <div class="artifact-overlay">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="m21 21-4.35-4.35" />
+                  <path d="M11 8v3M8 11h6" />
+                </svg>
+                <span>View diagram</span>
+              </div>
+            </div>
+            <figcaption class="artifact-caption">
+              Hypothesis-driven research framing — assumptions around patient
+              portal behaviors, provider search, and insurance comprehension
+            </figcaption>
+          </figure>
+
+          <div
+            class="artifact-modal"
+            id="artifact-modal-hypotheses"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Research hypotheses diagram"
+            hidden
+          >
+            <div class="artifact-modal-backdrop"></div>
+            <div class="artifact-modal-frame">
+              <button class="artifact-modal-close" aria-label="Close diagram">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M18 6 6 18M6 6l12 12" />
+                </svg>
+              </button>
+              <div class="artifact-modal-scroll">
+                <img
+                  src="./images/canopy_hypotheses.webp"
+                  alt="Full view: Research assumptions and hypotheses"
+                  class="artifact-modal-img"
+                />
+              </div>
+              <p class="artifact-modal-caption">
+                Hypothesis-driven research framing — assumptions around patient
+                portal behaviors, provider search, and insurance comprehension
+              </p>
+            </div>
+          </div>
+
+          <article class="content-article">
+            <div class="content-block">
+              <h3 class="block-subtitle">Key Research Insights</h3>
+              <p class="block-text">
+                Research synthesis revealed several recurring patterns that
+                shaped the experience priorities:
+              </p>
+
+              <div class="insight-grid">
+                <div class="insight-card">
+                  <div class="insight-icon">↗</div>
+                  <h3 class="insight-title">Passive Portal Usage</h3>
+                  <p class="insight-desc">
+                    Patients rarely visit healthcare portals proactively — entry
+                    is typically triggered by a specific need, making first-time
+                    clarity critical.
+                  </p>
                 </div>
-
-                <div class="rhythm-item">
-                  <div class="rhythm-day">2</div>
-                  <div class="rhythm-content">
-                    <div class="rhythm-title">[Step title]</div>
-                    <div class="rhythm-desc">[What happened / output]</div>
-                  </div>
+                <div class="insight-card">
+                  <div class="insight-icon">↗</div>
+                  <h3 class="insight-title">
+                    Provider Choice Drives Enrollment
+                  </h3>
+                  <p class="insight-desc">
+                    Provider availability strongly influences insurance plan
+                    selection — making provider discovery a primary driver, not
+                    a secondary feature.
+                  </p>
                 </div>
-
-                <div class="rhythm-item">
-                  <div class="rhythm-day">3</div>
-                  <div class="rhythm-content">
-                    <div class="rhythm-title">[Step title]</div>
-                    <div class="rhythm-desc">[What happened / output]</div>
-                  </div>
+                <div class="insight-card">
+                  <div class="insight-icon">↗</div>
+                  <h3 class="insight-title">Insurance Terminology Barriers</h3>
+                  <p class="insight-desc">
+                    Insurance terminology creates confusion for many users — the
+                    portal needed to translate administrative concepts into
+                    plain patient language.
+                  </p>
+                </div>
+                <div class="insight-card">
+                  <div class="insight-icon">↗</div>
+                  <h3 class="insight-title">Cost as a Care Decision Factor</h3>
+                  <p class="insight-desc">
+                    Cost visibility plays a major role in care decisions —
+                    transparency around coverage and out-of-pocket costs was a
+                    key patient need.
+                  </p>
                 </div>
               </div>
             </div>
+          </article>
 
-            <!-- Impact -->
+          <!-- Artifact: Research insights -->
+          <figure class="artifact-figure" data-artifact>
+            <div
+              class="artifact-thumb"
+              role="button"
+              tabindex="0"
+              aria-label="View full diagram: Research insights and usability findings"
+            >
+              <img
+                src="./images/canopy_insights.webp"
+                alt="Research insights slide — usability findings covering patient portal behaviors, provider search patterns, and insurance comprehension themes"
+                class="artifact-img artifact-img--color"
+                loading="lazy"
+              />
+              <div class="artifact-overlay">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="m21 21-4.35-4.35" />
+                  <path d="M11 8v3M8 11h6" />
+                </svg>
+                <span>View diagram</span>
+              </div>
+            </div>
+            <figcaption class="artifact-caption">
+              Research synthesis — key insights from patient interviews and
+              usability sessions informing the portal's experience priorities
+            </figcaption>
+          </figure>
+
+          <div
+            class="artifact-modal"
+            id="artifact-modal-insights"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Research insights diagram"
+            hidden
+          >
+            <div class="artifact-modal-backdrop"></div>
+            <div class="artifact-modal-frame">
+              <button class="artifact-modal-close" aria-label="Close diagram">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M18 6 6 18M6 6l12 12" />
+                </svg>
+              </button>
+              <div class="artifact-modal-scroll">
+                <img
+                  src="./images/canopy_insights.webp"
+                  alt="Full view: Research insights and usability findings"
+                  class="artifact-modal-img"
+                />
+              </div>
+              <p class="artifact-modal-caption">
+                Research synthesis — key insights from patient interviews and
+                usability sessions informing the portal's experience priorities
+              </p>
+            </div>
+          </div>
+
+          <div class="section-rule-accent"></div>
+
+          <article class="content-article">
+            <div class="content-block">
+              <!-- Phase 2 -->
+              <h3 class="block-subtitle">2. Architecting the Journeys</h3>
+              <p class="block-text">
+                With research insights consolidated, the next step was defining
+                the core user journeys that would structure the portal
+                experience. These journeys connected multiple backend systems —
+                including identity services, provider directories, eligibility
+                data, and care scheduling platforms.
+              </p>
+              <p class="block-text">
+                Detailed flow diagrams were created for the most critical portal
+                interactions, beginning with sign-up and authentication flows.
+                These diagrams helped align product, engineering, and business
+                stakeholders on how identity, eligibility, and provider systems
+                would integrate within the user experience.
+              </p>
+
+              <div class="sprint-pair">
+                <div class="sprint-card">
+                  <div class="sprint-eyebrow">Core Journeys Mapped</div>
+                  <div class="sprint-title">
+                    Account creation &amp; identity verification
+                  </div>
+                  <p class="sprint-desc">
+                    Sign-up, authentication, and enrollment flows — the critical
+                    entry path for new members into the ecosystem.
+                  </p>
+                </div>
+                <div class="sprint-card">
+                  <div class="sprint-eyebrow">Core Journeys Mapped</div>
+                  <div class="sprint-title">
+                    Provider discovery &amp; appointment access
+                  </div>
+                  <p class="sprint-desc">
+                    In-network provider search, specialty filtering, and care
+                    scheduling — anchoring the network's core value proposition.
+                  </p>
+                </div>
+              </div>
+
+              <p class="block-text">
+                Mapping these journeys early allowed the team to validate how
+                different systems would integrate into a coherent experience —
+                and identify where architectural decisions needed to stabilize
+                before interface design could proceed.
+              </p>
+            </div>
+          </article>
+
+          <!-- Artifact: User flows -->
+          <figure
+            class="artifact-figure artifact-figure--scroll"
+            data-artifact
+            data-artifact-flows
+          >
+            <div
+              class="artifact-thumb artifact-thumb--scroll"
+              role="button"
+              tabindex="0"
+              aria-label="View full diagram: Portal user flows and journey architecture"
+            >
+              <div class="artifact-scroll-track">
+                <img
+                  src="./images/canopy_flows.webp"
+                  alt="Portal user flow diagrams — showing account creation, identity verification, provider discovery, appointment access, and coverage viewing journeys across backend systems"
+                  class="artifact-img artifact-img--scroll"
+                  loading="lazy"
+                />
+              </div>
+              <div class="artifact-scroll-fade"></div>
+              <div class="artifact-overlay">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="m21 21-4.35-4.35" />
+                  <path d="M11 8v3M8 11h6" />
+                </svg>
+                <span>View full diagram</span>
+              </div>
+            </div>
+            <figcaption class="artifact-caption">
+              Portal user flow architecture — core journeys spanning account
+              creation, identity verification, provider discovery, and benefits
+              access
+            </figcaption>
+          </figure>
+
+          <!-- Lightbox for flows -->
+          <div
+            class="artifact-modal lightbox"
+            id="artifact-modal-flows"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Portal user flow architecture"
+            hidden
+          >
+            <div class="artifact-modal-backdrop"></div>
+            <div class="lightbox-frame">
+              <div class="lightbox-toolbar">
+                <span class="lightbox-title"
+                  >Portal user flow architecture — core patient journeys</span
+                >
+                <div class="lightbox-controls">
+                  <button
+                    class="lightbox-btn"
+                    data-zoom-out
+                    aria-label="Zoom out"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <circle cx="11" cy="11" r="7" />
+                      <path d="m21 21-4.35-4.35" />
+                      <path d="M8 11h6" />
+                    </svg>
+                  </button>
+                  <span class="lightbox-zoom-level">100%</span>
+                  <button
+                    class="lightbox-btn"
+                    data-zoom-in
+                    aria-label="Zoom in"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <circle cx="11" cy="11" r="7" />
+                      <path d="m21 21-4.35-4.35" />
+                      <path d="M11 8v3M8 11h6" />
+                    </svg>
+                  </button>
+                  <button
+                    class="lightbox-btn lightbox-btn--close"
+                    data-close
+                    aria-label="Close"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M18 6 6 18M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div class="lightbox-canvas">
+                <img
+                  src="./images/canopy_flows.webp"
+                  alt="Full view: Portal user flow architecture"
+                  class="lightbox-img"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="section-rule-accent"></div>
+
+          <article class="content-article">
+            <div class="content-block">
+              <!-- Phase 3 -->
+              <h3 class="block-subtitle">3. Designing the Entry Points</h3>
+              <p class="block-text">
+                Once the system interactions were defined, the work shifted to
+                designing the primary entry points into the ecosystem. These
+                entry points — the public website, login experience, and
+                provider search interface — established the primary pathways
+                through which patients would discover providers, access
+                services, and eventually transition into the member portal.
+              </p>
+
+              <!-- Accordion: key modules -->
+              <div class="rhythm-list rhythm-list--accordion">
+                <!-- Provider Discovery -->
+                <div
+                  class="rhythm-item rhythm-accordion"
+                  data-accordion="provider"
+                >
+                  <div
+                    class="rhythm-header"
+                    role="button"
+                    tabindex="0"
+                    aria-expanded="false"
+                    aria-controls="accordion-provider"
+                  >
+                    <div class="rhythm-day">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <circle cx="11" cy="11" r="7" />
+                        <path d="m21 21-4.35-4.35" />
+                      </svg>
+                    </div>
+                    <div class="rhythm-content">
+                      <div class="rhythm-title">Provider Discovery</div>
+                      <div class="rhythm-desc">
+                        Location-based search, specialty filtering, provider
+                        profiles, and clear in-network indicators across
+                        institutions.
+                      </div>
+                    </div>
+                    <svg
+                      class="rhythm-chevron"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="m6 9 6 6 6-6" />
+                    </svg>
+                  </div>
+                  <div class="rhythm-accordion-body" id="accordion-provider">
+                    <div class="rhythm-accordion-inner">
+                      <img
+                        src="./images/canopy_findadoc.webp"
+                        alt="Find a Doctor interface — location-based provider search with specialty filters and in-network indicators"
+                        class="rhythm-mockup"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Portal Access -->
+                <div
+                  class="rhythm-item rhythm-accordion"
+                  data-accordion="portal"
+                >
+                  <div
+                    class="rhythm-header"
+                    role="button"
+                    tabindex="0"
+                    aria-expanded="false"
+                    aria-controls="accordion-portal"
+                  >
+                    <div class="rhythm-day">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <rect x="3" y="11" width="18" height="11" rx="2" />
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                      </svg>
+                    </div>
+                    <div class="rhythm-content">
+                      <div class="rhythm-title">Member Portal Access</div>
+                      <div class="rhythm-desc">
+                        Secure authentication and account access supporting
+                        healthcare identity requirements and future portal
+                        functionality.
+                      </div>
+                    </div>
+                    <svg
+                      class="rhythm-chevron"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="m6 9 6 6 6-6" />
+                    </svg>
+                  </div>
+                  <div class="rhythm-accordion-body" id="accordion-portal">
+                    <div class="rhythm-accordion-inner">
+                      <img
+                        src="./images/canopy_login.webp"
+                        alt="Member portal login screens — secure authentication with healthcare identity verification"
+                        class="rhythm-mockup"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /end accordion -->
+            </div>
+          </article>
+          <!-- /end Execution article -->
+
+          <div class="section-rule-accent"></div>
+
+          <article class="content-article">
+            <!-- Interface Design -->
+            <div id="interface" class="content-block">
+              <div class="block-label">Interface Design</div>
+              <h2 class="block-title">Bringing the Experience to Life</h2>
+
+              <p class="block-text">
+                With the key journeys and entry points defined, the final phase
+                focused on translating the experience architecture into the
+                visual and interaction design of the Canopy Health website. The
+                website served as the primary public entry point into the
+                network — introducing the Canopy brand while guiding patients
+                toward the most common tasks: learning about the network,
+                finding providers, and accessing their member portal.
+              </p>
+              <p class="block-text">
+                Design work included responsive page layouts, provider directory
+                interfaces, and content modules designed to support the
+                network's messaging around coordinated care and transparent
+                costs.
+              </p>
+            </div>
+          </article>
+
+          <!-- Artifact: Website UI — full-width scroll -->
+          <figure
+            class="artifact-figure artifact-figure--scroll"
+            data-artifact
+            data-artifact-website
+          >
+            <div
+              class="artifact-thumb artifact-thumb--scroll"
+              role="button"
+              tabindex="0"
+              aria-label="View full diagram: Canopy Health website UI"
+            >
+              <div class="artifact-scroll-track">
+                <img
+                  src="./images/canopy_website.webp"
+                  alt="Canopy Health website UI — responsive homepage, provider search, and member portal entry point"
+                  class="artifact-img artifact-img--scroll"
+                  loading="lazy"
+                />
+              </div>
+              <div class="artifact-scroll-fade"></div>
+              <div class="artifact-overlay">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="m21 21-4.35-4.35" />
+                  <path d="M11 8v3M8 11h6" />
+                </svg>
+                <span>View full design</span>
+              </div>
+            </div>
+            <figcaption class="artifact-caption">
+              Canopy Health website — responsive UI across homepage, provider
+              discovery, and member portal entry point
+            </figcaption>
+          </figure>
+
+          <!-- Website lightbox -->
+          <div
+            class="artifact-modal lightbox"
+            id="artifact-modal-website"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Canopy Health website UI"
+            hidden
+          >
+            <div class="artifact-modal-backdrop"></div>
+            <div class="lightbox-frame">
+              <div class="lightbox-toolbar">
+                <span class="lightbox-title"
+                  >Canopy Health website — responsive UI</span
+                >
+                <div class="lightbox-controls">
+                  <button
+                    class="lightbox-btn"
+                    data-zoom-out
+                    aria-label="Zoom out"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <circle cx="11" cy="11" r="7" />
+                      <path d="m21 21-4.35-4.35" />
+                      <path d="M8 11h6" />
+                    </svg>
+                  </button>
+                  <span class="lightbox-zoom-level">100%</span>
+                  <button
+                    class="lightbox-btn"
+                    data-zoom-in
+                    aria-label="Zoom in"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <circle cx="11" cy="11" r="7" />
+                      <path d="m21 21-4.35-4.35" />
+                      <path d="M11 8v3M8 11h6" />
+                    </svg>
+                  </button>
+                  <button
+                    class="lightbox-btn lightbox-btn--close"
+                    data-close
+                    aria-label="Close"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M18 6 6 18M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div class="lightbox-canvas">
+                <img
+                  src="./images/canopy_website.webp"
+                  alt="Full view: Canopy Health website UI"
+                  class="lightbox-img"
+                />
+              </div>
+            </div>
+          </div>
+
+          <article class="content-article">
+            <div class="content-block">
+              <h3 class="block-subtitle">Visualizing the Network</h3>
+              <p class="block-text">
+                To help patients understand the geographic scope of the Canopy
+                network, I also created a custom illustration of the Bay Area
+                highlighting participating regions and care locations. The
+                illustration supported the website's messaging around
+                coordinated care across institutions and helped make the network
+                feel tangible and local to patients.
+              </p>
+            </div>
+          </article>
+
+          <!-- Artifact: Bay Area illustration -->
+          <figure class="artifact-figure" data-artifact>
+            <div
+              class="artifact-thumb"
+              role="button"
+              tabindex="0"
+              aria-label="View full illustration: Bay Area network map"
+            >
+              <img
+                src="./images/canopy_bayarea.webp"
+                alt="Custom Bay Area illustration highlighting Canopy Health participating regions and care locations across UCSF Health and John Muir Health"
+                class="artifact-img artifact-img--color"
+                loading="lazy"
+              />
+              <div class="artifact-overlay">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="m21 21-4.35-4.35" />
+                  <path d="M11 8v3M8 11h6" />
+                </svg>
+                <span>View illustration</span>
+              </div>
+            </div>
+            <figcaption class="artifact-caption">
+              Custom Bay Area network illustration — highlighting participating
+              regions and care locations across the Canopy Health network
+            </figcaption>
+          </figure>
+
+          <div
+            class="artifact-modal"
+            id="artifact-modal-bayarea"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Bay Area network illustration"
+            hidden
+          >
+            <div class="artifact-modal-backdrop"></div>
+            <div class="artifact-modal-frame">
+              <button
+                class="artifact-modal-close"
+                aria-label="Close illustration"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M18 6 6 18M6 6l12 12" />
+                </svg>
+              </button>
+              <div class="artifact-modal-scroll">
+                <img
+                  src="./images/canopy_bayarea.webp"
+                  alt="Full view: Bay Area network illustration"
+                  class="artifact-modal-img"
+                />
+              </div>
+              <p class="artifact-modal-caption">
+                Custom Bay Area network illustration — participating regions and
+                care locations across the Canopy Health network
+              </p>
+            </div>
+          </div>
+
+          <div class="section-rule-accent"></div>
+
+          <article class="content-article">
+            <!-- Impact & Takeaways -->
             <div id="impact" class="content-block">
-              <div class="block-label">Impact</div>
-              <h2 class="block-title">Outcomes</h2>
+              <div class="block-label">Impact &amp; Takeaways</div>
+              <h2 class="block-title">
+                Designing Before the Infrastructure Converged
+              </h2>
 
-              <p class="block-text">[What changed, for users + org]</p>
+              <p class="block-text">
+                Establishing the digital foundation for the Canopy Health
+                network required defining the experience before the
+                infrastructure fully existed. By grounding the work in discovery
+                and mapping the core patient journeys early, the project created
+                a stable experience architecture that development teams and
+                partner agencies could implement and extend over time.
+              </p>
 
               <div class="impact-grid">
                 <div class="impact-card">
-                  <div class="impact-metric">[Metric]</div>
-                  <div class="impact-label">[Label]</div>
-                  <p class="impact-desc">[What it means]</p>
+                  <div class="impact-metric">Discovery-First</div>
+                  <p class="impact-desc">
+                    Research and journey mapping preceded interface design —
+                    establishing shared alignment across product, engineering,
+                    and business stakeholders.
+                  </p>
                 </div>
 
                 <div class="impact-card">
-                  <div class="impact-metric">[Metric]</div>
-                  <div class="impact-label">[Label]</div>
-                  <p class="impact-desc">[What it means]</p>
+                  <div class="impact-metric">3 Core Entry Points</div>
+                  <p class="impact-desc">
+                    Public website, provider discovery, and member portal access
+                    — designed as a coherent system, not isolated features.
+                  </p>
                 </div>
 
                 <div class="impact-card">
-                  <div class="impact-metric">[Metric]</div>
-                  <div class="impact-label">[Label]</div>
-                  <p class="impact-desc">[What it means]</p>
+                  <div class="impact-metric">Multi-System Integration</div>
+                  <p class="impact-desc">
+                    Experience flows mapped across identity, eligibility,
+                    provider directory, and scheduling systems — creating a
+                    stable architecture ahead of full backend convergence.
+                  </p>
+                </div>
+
+                <div class="impact-card">
+                  <div class="impact-metric">Scalable Foundation</div>
+                  <p class="impact-desc">
+                    The experience architecture provided a model that
+                    implementation partners and internal teams could extend as
+                    the network's infrastructure continued to mature.
+                  </p>
                 </div>
               </div>
 
-              <p class="block-text">[Short closing outcome paragraph]</p>
-            </div>
+              <p class="block-text">
+                This approach — clarifying the experience before the systems
+                fully converge — has remained a guiding principle in much of my
+                work on complex platforms.
+              </p>
 
-            <!-- Reflection -->
-            <div id="reflection" class="content-block">
-              <div class="block-label">Reflection</div>
-              <h2 class="block-title">What I Learned</h2>
-
-              <p class="block-text">[Reflection paragraph]</p>
-
-              <div class="callout callout-reflection">
-                <p class="block-text">
-                  [A crisp takeaway / principle you’d carry forward]
-                </p>
-              </div>
-
-              <p class="block-text">[Final reflection paragraph]</p>
+              <!-- Closing reflection -->
+              <p class="reflection-close">
+                In large, federated platforms, the most valuable design
+                contribution is often the clarity you establish before a single
+                line of code is written.
+              </p>
             </div>
           </article>
+          <!-- /end Impact article -->
         </div>
+        <!-- /.container -->
       </section>
 
       <!-- Navigation -->
@@ -382,12 +1412,6 @@
         <div class="container">
           <div class="nav-row">
             <a href="./indexWK.html" class="nav-back">← All Work</a>
-
-            <!-- Optional prev/next (EDIT per file) -->
-            <!-- <div class="nav-next-prev">
-              <a href="./24pipes.html" class="nav-link">← 24pipes</a>
-              <a href="./12cyber.html" class="nav-link">12cyber →</a>
-            </div> -->
           </div>
         </div>
       </section>
@@ -421,10 +1445,9 @@
                 <path d="M4 4a2 2 0 1 0 0 .001z" />
               </svg>
             </a>
-
             <a
               class="social-icon"
-              href="mailto:daniela@dpenati.com"
+              href="/cdn-cgi/l/email-protection#6b0f0a05020e070a2b0f1b0e050a1f0245080406"
               aria-label="Email"
             >
               <svg
@@ -440,22 +1463,200 @@
                 <path d="m4 6 8 6 8-6" />
               </svg>
             </a>
-
             <span class="footer-copy">© 2026 Daniela Penati</span>
           </div>
         </div>
       </div>
     </footer>
 
-    <!-- Floating back-to-top button -->
+    <!-- Floating back-to-top -->
     <a class="fab-top" href="#top" aria-label="Back to top">
       <span aria-hidden="true">↑</span>
     </a>
 
-    <!-- Theme + shared interactions -->
+    <script
+      data-cfasync="false"
+      src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+    ></script>
     <script src="../script.js" defer></script>
 
-    <!-- RECOMMENDED: gate private case pages just like indexWK -->
-    <script type="module" src="../auth-members.js"></script>
+    <!-- Artifact modal + lightbox + accordion interaction -->
+    <script>
+      // ── Standard modals ──
+      document.querySelectorAll('[data-artifact]').forEach(function (figure) {
+        var thumb = figure.querySelector('.artifact-thumb');
+        var modal = figure.nextElementSibling;
+        if (!modal || modal.classList.contains('lightbox')) return;
+        function openModal() {
+          modal.removeAttribute('hidden');
+          document.body.style.overflow = 'hidden';
+          modal.querySelector('.artifact-modal-close').focus();
+        }
+        function closeModal() {
+          modal.setAttribute('hidden', '');
+          document.body.style.overflow = '';
+          thumb.focus();
+        }
+        thumb.addEventListener('click', openModal);
+        thumb.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openModal();
+          }
+        });
+        modal
+          .querySelector('.artifact-modal-backdrop')
+          .addEventListener('click', closeModal);
+        modal
+          .querySelector('.artifact-modal-close')
+          .addEventListener('click', closeModal);
+        modal
+          .querySelector('.artifact-modal-scroll')
+          .addEventListener('click', closeModal);
+        modal.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') closeModal();
+        });
+      });
+
+      // ── Generic lightbox factory ──
+      function initLightbox(figureAttr, modalId) {
+        var figure = document.querySelector('[' + figureAttr + ']');
+        var lightbox = document.getElementById(modalId);
+        if (!figure || !lightbox) return;
+        var thumb = figure.querySelector('.artifact-thumb');
+        var canvas = lightbox.querySelector('.lightbox-canvas');
+        var img = lightbox.querySelector('.lightbox-img');
+        var label = lightbox.querySelector('.lightbox-zoom-level');
+        var btnIn = lightbox.querySelector('[data-zoom-in]');
+        var btnOut = lightbox.querySelector('[data-zoom-out]');
+        var btnClose = lightbox.querySelector('[data-close]');
+        var scale = 1;
+        var STEP = 0.25,
+          MIN = 0.5,
+          MAX = 3;
+
+        function setZoom(z) {
+          scale = Math.min(MAX, Math.max(MIN, z));
+          img.style.transform = 'scale(' + scale + ')';
+          img.style.transformOrigin = 'top left';
+          label.textContent = Math.round(scale * 100) + '%';
+        }
+        function openLightbox() {
+          lightbox.removeAttribute('hidden');
+          document.body.style.overflow = 'hidden';
+          setZoom(1);
+          canvas.scrollTop = 0;
+          canvas.scrollLeft = 0;
+          btnClose.focus();
+        }
+        function closeLightbox() {
+          lightbox.setAttribute('hidden', '');
+          document.body.style.overflow = '';
+          if (thumb) thumb.focus();
+        }
+
+        // Click on overlay or fade
+        var overlay = thumb.querySelector('.artifact-overlay');
+        var fade = thumb.querySelector('.artifact-scroll-fade');
+        if (overlay) {
+          overlay.style.pointerEvents = 'auto';
+          overlay.addEventListener('click', openLightbox);
+        }
+        if (fade) {
+          fade.style.pointerEvents = 'auto';
+          fade.addEventListener('click', openLightbox);
+        }
+
+        thumb.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openLightbox();
+          }
+        });
+        btnIn.addEventListener('click', function () {
+          setZoom(scale + STEP);
+        });
+        btnOut.addEventListener('click', function () {
+          setZoom(scale - STEP);
+        });
+        btnClose.addEventListener('click', closeLightbox);
+        lightbox
+          .querySelector('.artifact-modal-backdrop')
+          .addEventListener('click', closeLightbox);
+        lightbox.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') closeLightbox();
+        });
+        canvas.addEventListener(
+          'wheel',
+          function (e) {
+            if (e.ctrlKey || e.metaKey) {
+              e.preventDefault();
+              setZoom(scale + (e.deltaY < 0 ? STEP : -STEP));
+            }
+          },
+          { passive: false },
+        );
+      }
+
+      initLightbox('data-artifact-flows', 'artifact-modal-flows');
+      initLightbox('data-artifact-website', 'artifact-modal-website');
+
+      // ── Accordion rhythm cards ──
+      (function () {
+        var HOVER_DELAY = 500;
+        var cards = document.querySelectorAll('.rhythm-accordion');
+        var hoverTimer = null;
+
+        function openCard(card) {
+          cards.forEach(function (c) {
+            if (c !== card) closeCard(c);
+          });
+          var header = card.querySelector('.rhythm-header');
+          var body = card.querySelector('.rhythm-accordion-body');
+          var inner = card.querySelector('.rhythm-accordion-inner');
+          card.classList.add('is-open');
+          header.setAttribute('aria-expanded', 'true');
+          body.style.height = inner.offsetHeight + 'px';
+        }
+        function closeCard(card) {
+          var header = card.querySelector('.rhythm-header');
+          var body = card.querySelector('.rhythm-accordion-body');
+          card.classList.remove('is-open');
+          header.setAttribute('aria-expanded', 'false');
+          body.style.height = '0';
+        }
+        function toggleCard(card) {
+          if (card.classList.contains('is-open')) {
+            closeCard(card);
+          } else {
+            openCard(card);
+          }
+        }
+
+        cards.forEach(function (card) {
+          var header = card.querySelector('.rhythm-header');
+          header.addEventListener('click', function () {
+            clearTimeout(hoverTimer);
+            toggleCard(card);
+          });
+          header.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              clearTimeout(hoverTimer);
+              toggleCard(card);
+            }
+          });
+          card.addEventListener('mouseenter', function () {
+            if (card.classList.contains('is-open')) return;
+            hoverTimer = setTimeout(function () {
+              openCard(card);
+            }, HOVER_DELAY);
+          });
+          card.addEventListener('mouseleave', function () {
+            clearTimeout(hoverTimer);
+          });
+        });
+      })();
+    </script>
   </body>
 </html>

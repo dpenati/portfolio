@@ -85,6 +85,9 @@
       cyber: './work/12cyber.html',
     };
 
+    // Temporarily disable unfinished case studies here
+    const DISABLED_CASES = ['canopy', 'cyber'];
+
     const DEFAULT_TARGET = './work/indexWK.html';
 
     // Case study data
@@ -124,12 +127,9 @@
     };
 
     function normalizeTargetHref(href) {
-      // Defensive normalization: only allow the expected ./work/*.html patterns
       if (!href || typeof href !== 'string') return DEFAULT_TARGET;
 
       const trimmed = href.trim();
-
-      // Only allow relative ./work/...html (matches allowlist in auth-login.js)
       const allowed = /^\.\/work\/[a-zA-Z0-9_-]+\.html$/;
       if (!allowed.test(trimmed)) return DEFAULT_TARGET;
 
@@ -146,12 +146,12 @@
       const study = caseStudies[cardId];
       if (!study) {
         console.warn('[work modal] Unknown card id:', cardId);
-        // Fallback: send to indexWK through login
         const fallbackHref = buildLoginRedirectUrl(DEFAULT_TARGET);
         window.location.href = fallbackHref;
         return;
       }
 
+      const isDisabled = DISABLED_CASES.includes(cardId);
       const mainText = study.summary || '';
       const targetHref = normalizeTargetHref(
         CASE_TARGETS[cardId] || DEFAULT_TARGET,
@@ -159,29 +159,34 @@
       const loginHref = buildLoginRedirectUrl(targetHref);
 
       detailContent.innerHTML = `
-        <div class="work-detail-header">
-          <h2 class="work-detail-title">${study.title}</h2>
-          <div class="work-detail-meta">
-            <span><strong>Role:</strong> ${study.meta.role}</span>
-            <span><strong>Domain:</strong> ${study.meta.domain}</span>
-            <span><strong>Year:</strong> ${study.meta.year}</span>
-          </div>
+      <div class="work-detail-header">
+        <h2 class="work-detail-title">${study.title}</h2>
+        <div class="work-detail-meta">
+          <span><strong>Role:</strong> ${study.meta.role}</span>
+          <span><strong>Domain:</strong> ${study.meta.domain}</span>
+          <span><strong>Year:</strong> ${study.meta.year}</span>
         </div>
+      </div>
 
-        <div class="work-detail-section">
-          <h3 class="work-detail-section-title">Summary</h3>
-          <div class="work-detail-section-content">
-            <p>${mainText}</p>
-          </div>
+      <div class="work-detail-section">
+        <h3 class="work-detail-section-title">Summary</h3>
+        <div class="work-detail-section-content">
+          <p>${mainText}</p>
         </div>
+      </div>
 
-        <!-- Modal CTA (same styling as your "View All Work" button) -->
-        <div class="view-all-work" style="margin-top: 18px;">
-          <button class="view-all-button" type="button" data-work-cta="${loginHref}">
-            View Work →
-          </button>
-        </div>
-      `;
+      <div class="view-all-work" style="margin-top: 18px;">
+        ${
+          isDisabled
+            ? `<button class="view-all-button" type="button" disabled aria-disabled="true" title="Coming soon">
+                 Coming Soon
+               </button>`
+            : `<button class="view-all-button" type="button" data-work-cta="${loginHref}">
+                 View Work →
+               </button>`
+        }
+      </div>
+    `;
 
       const ctaBtn = detailContent.querySelector('[data-work-cta]');
       if (ctaBtn) {
@@ -205,7 +210,6 @@
       overlay.classList.remove('is-open');
     }
 
-    // Bind card clicks
     cards.forEach((card) => {
       card.setAttribute('tabindex', '0');
 
