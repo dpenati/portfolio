@@ -309,7 +309,7 @@
                   <path d="m21 21-4.35-4.35" />
                   <path d="M11 8v3M8 11h6" />
                 </svg>
-                <span>View diagram</span>
+                <span>View full diagram</span>
               </div>
             </div>
             <figcaption class="artifact-caption">
@@ -462,7 +462,7 @@
                   <path d="m21 21-4.35-4.35" />
                   <path d="M11 8v3M8 11h6" />
                 </svg>
-                <span>View diagram</span>
+                <span>View full diagram</span>
               </div>
             </div>
             <figcaption class="artifact-caption">
@@ -785,19 +785,25 @@
             </div>
           </article>
 
-          <figure class="artifact-figure" data-artifact>
+          <figure
+            class="artifact-figure artifact-figure--scroll"
+            data-artifact
+            data-artifact-taskmodel
+          >
             <div
-              class="artifact-thumb"
+              class="artifact-thumb artifact-thumb--scroll"
               role="button"
               tabindex="0"
               aria-label="View full diagram: Task model illustrating the primary patient activities across the portal ecosystem"
             >
-              <img
-                src="./images/canopy_taskmodel.webp"
-                alt="Task model illustrating the primary patient activities across the portal ecosystem"
-                class="artifact-img artifact-img--color"
-                loading="lazy"
-              />
+              <div class="artifact-scroll-track">
+                <img
+                  src="./images/canopy_taskmodel_preview.webp"
+                  alt="Task model illustrating the primary patient activities across the portal ecosystem"
+                  class="artifact-img artifact-img--scroll"
+                  loading="lazy"
+                />
+              </div>
               <div class="artifact-overlay">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -823,7 +829,7 @@
           </figure>
 
           <div
-            class="artifact-modal"
+            class="artifact-modal lightbox"
             id="artifact-modal-taskmodel"
             role="dialog"
             aria-modal="true"
@@ -831,32 +837,64 @@
             hidden
           >
             <div class="artifact-modal-backdrop"></div>
-            <div class="artifact-modal-frame">
-              <button class="artifact-modal-close" aria-label="Close diagram">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
+            <div class="lightbox-frame">
+              <div class="lightbox-toolbar">
+                <span class="lightbox-title"
+                  >Task model — primary patient activities across the portal
+                  ecosystem</span
                 >
-                  <path d="M18 6 6 18M6 6l12 12" />
-                </svg>
-              </button>
-              <div class="artifact-modal-scroll">
+                <div class="lightbox-controls">
+                  <a
+                    class="lightbox-link"
+                    href="./images/canopy_taskmodel_full.png"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="Open full-size diagram in a new tab"
+                  >
+                    View full size
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M7 17 17 7" />
+                      <path d="M8 7h9v9" />
+                    </svg>
+                  </a>
+                  <button
+                    class="lightbox-btn lightbox-btn--close"
+                    id="tm-close"
+                    aria-label="Close diagram"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M18 6 6 18M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div class="lightbox-canvas lightbox-canvas--fit" id="tm-canvas">
                 <img
-                  src="./images/canopy_taskmodel.webp"
+                  src="./images/canopy_taskmodel_preview.webp"
                   alt="Full view: Task model illustrating the primary patient activities across the portal ecosystem"
-                  class="artifact-modal-img"
+                  class="lightbox-img lightbox-img--fit"
+                  id="tm-img"
+                  draggable="false"
                 />
               </div>
-              <p class="artifact-modal-caption">
-                Task model illustrating the primary patient activities across
-                the portal ecosystem.
-              </p>
             </div>
           </div>
 
@@ -878,19 +916,25 @@
             </div>
           </article>
 
-          <figure class="artifact-figure" data-artifact>
+          <figure
+            class="artifact-figure artifact-figure--scroll"
+            data-artifact
+            data-artifact-journey
+          >
             <div
-              class="artifact-thumb"
+              class="artifact-thumb artifact-thumb--scroll"
               role="button"
               tabindex="0"
               aria-label="View full diagram: Example system journeys showing how portal interactions coordinate across multiple backend systems"
             >
-              <img
-                src="./images/canopy_journey.webp"
-                alt="Example system journeys showing how portal interactions coordinate across multiple backend systems"
-                class="artifact-img artifact-img--color"
-                loading="lazy"
-              />
+              <div class="artifact-scroll-track">
+                <img
+                  src="./images/canopy_journey_preview.webp"
+                  alt="Example system journeys showing how portal interactions coordinate across multiple backend systems"
+                  class="artifact-img artifact-img--scroll"
+                  loading="lazy"
+                />
+              </div>
               <div class="artifact-overlay">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -916,7 +960,7 @@
           </figure>
 
           <div
-            class="artifact-modal"
+            class="artifact-modal lightbox"
             id="artifact-modal-journey"
             role="dialog"
             aria-modal="true"
@@ -924,32 +968,64 @@
             hidden
           >
             <div class="artifact-modal-backdrop"></div>
-            <div class="artifact-modal-frame">
-              <button class="artifact-modal-close" aria-label="Close diagram">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
+            <div class="lightbox-frame">
+              <div class="lightbox-toolbar">
+                <span class="lightbox-title"
+                  >System journeys — portal interactions across multiple backend
+                  systems</span
                 >
-                  <path d="M18 6 6 18M6 6l12 12" />
-                </svg>
-              </button>
-              <div class="artifact-modal-scroll">
+                <div class="lightbox-controls">
+                  <a
+                    class="lightbox-link"
+                    href="./images/canopy_journey_full.webp"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="Open full-size diagram in a new tab"
+                  >
+                    View full size
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M7 17 17 7" />
+                      <path d="M8 7h9v9" />
+                    </svg>
+                  </a>
+                  <button
+                    class="lightbox-btn lightbox-btn--close"
+                    id="jr-close"
+                    aria-label="Close diagram"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M18 6 6 18M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div class="lightbox-canvas lightbox-canvas--fit" id="jr-canvas">
                 <img
-                  src="./images/canopy_journey.webp"
+                  src="./images/canopy_journey_preview.webp"
                   alt="Full view: Example system journeys showing how portal interactions coordinate across multiple backend systems"
-                  class="artifact-modal-img"
+                  class="lightbox-img lightbox-img--fit"
+                  id="jr-img"
+                  draggable="false"
                 />
               </div>
-              <p class="artifact-modal-caption">
-                Example system journeys showing how portal interactions
-                coordinate across multiple backend systems.
-              </p>
             </div>
           </div>
 
@@ -1613,7 +1689,57 @@
           { passive: false },
         );
       }
+      function initFitLightbox(figureSelector, modalId, closeId) {
+        var figure = document.querySelector(figureSelector);
+        var lightbox = document.getElementById(modalId);
+        if (!figure || !lightbox) return;
+        var thumb = figure.querySelector('.artifact-thumb');
+        var closeBtn = document.getElementById(closeId);
 
+        function openLightbox() {
+          lightbox.removeAttribute('hidden');
+          document.body.style.overflow = 'hidden';
+          closeBtn.focus();
+        }
+        function closeLightbox() {
+          lightbox.setAttribute('hidden', '');
+          document.body.style.overflow = '';
+          if (thumb) thumb.focus();
+        }
+
+        var overlay = thumb.querySelector('.artifact-overlay');
+        if (overlay) {
+          overlay.style.pointerEvents = 'auto';
+          overlay.addEventListener('click', openLightbox);
+        }
+
+        thumb.addEventListener('click', openLightbox);
+        thumb.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openLightbox();
+          }
+        });
+
+        closeBtn.addEventListener('click', closeLightbox);
+        lightbox
+          .querySelector('.artifact-modal-backdrop')
+          .addEventListener('click', closeLightbox);
+        lightbox.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') closeLightbox();
+        });
+      }
+
+      initFitLightbox(
+        '[data-artifact-taskmodel]',
+        'artifact-modal-taskmodel',
+        'tm-close',
+      );
+      initFitLightbox(
+        '[data-artifact-journey]',
+        'artifact-modal-journey',
+        'jr-close',
+      );
       initLightbox('data-artifact-flows', 'artifact-modal-flows');
       initLightbox('data-artifact-website', 'artifact-modal-website');
 
