@@ -758,73 +758,46 @@
               <!-- Phase 2 -->
               <h3 class="block-subtitle">2. Architecting the Journeys</h3>
               <p class="block-text">
-                With research insights consolidated, the next step was defining
-                the core user journeys that would structure the portal
-                experience. These journeys connected multiple backend systems —
-                including identity services, provider directories, eligibility
-                data, and care scheduling platforms.
-              </p>
-              <p class="block-text">
-                Detailed flow diagrams were created for the most critical portal
-                interactions, beginning with sign-up and authentication flows.
-                These diagrams helped align product, engineering, and business
-                stakeholders on how identity, eligibility, and provider systems
-                would integrate within the user experience.
+                To translate the ecosystem insights into a coherent experience,
+                the next step was defining how patients would move through the
+                portal. Because the platform needed to connect services across
+                multiple healthcare organizations and backend systems, the
+                experience architecture had to account for identity services,
+                clinical records, provider networks, and billing platforms.
+                Working closely with Product and Engineering, I mapped the key
+                user journeys and evaluated how different systems would need to
+                interact to support them.
               </p>
 
-              <div class="sprint-pair">
-                <div class="sprint-card">
-                  <div class="sprint-eyebrow">Core Journeys Mapped</div>
-                  <div class="sprint-title">
-                    Account creation &amp; identity verification
-                  </div>
-                  <p class="sprint-desc">
-                    Sign-up, authentication, and enrollment flows — the critical
-                    entry path for new members into the ecosystem.
-                  </p>
-                </div>
-                <div class="sprint-card">
-                  <div class="sprint-eyebrow">Core Journeys Mapped</div>
-                  <div class="sprint-title">
-                    Provider discovery &amp; appointment access
-                  </div>
-                  <p class="sprint-desc">
-                    In-network provider search, specialty filtering, and care
-                    scheduling — anchoring the network's core value proposition.
-                  </p>
-                </div>
-              </div>
-
+              <h3 class="block-subtitle">Task Model</h3>
               <p class="block-text">
-                Mapping these journeys early allowed the team to validate how
-                different systems would integrate into a coherent experience —
-                and identify where architectural decisions needed to stabilize
-                before interface design could proceed.
+                The task model captures the goals patients are trying to
+                accomplish and the activities they expect to perform across the
+                portal. By mapping how these tasks relate to one another, it
+                provides a structural view of the experience and helps ensure
+                that key workflows remain coherent as multiple systems are
+                integrated behind the scenes. The model also serves as a living
+                reference for the team, evolving as new insights emerge during
+                research and implementation. In total, more than 18 core
+                journeys were mapped across the platform; the diagram below
+                illustrates a representative subset.
               </p>
             </div>
           </article>
 
-          <!-- Artifact: User flows -->
-          <figure
-            class="artifact-figure artifact-figure--scroll"
-            data-artifact
-            data-artifact-flows
-          >
+          <figure class="artifact-figure" data-artifact>
             <div
-              class="artifact-thumb artifact-thumb--scroll"
+              class="artifact-thumb"
               role="button"
               tabindex="0"
-              aria-label="View full diagram: Portal user flows and journey architecture"
+              aria-label="View full diagram: Task model illustrating the primary patient activities across the portal ecosystem"
             >
-              <div class="artifact-scroll-track">
-                <img
-                  src="./images/canopy_flows.webp"
-                  alt="Portal user flow diagrams — showing account creation, identity verification, provider discovery, appointment access, and coverage viewing journeys across backend systems"
-                  class="artifact-img artifact-img--scroll"
-                  loading="lazy"
-                />
-              </div>
-              <div class="artifact-scroll-fade"></div>
+              <img
+                src="./images/canopy_taskmodel.webp"
+                alt="Task model illustrating the primary patient activities across the portal ecosystem"
+                class="artifact-img artifact-img--color"
+                loading="lazy"
+              />
               <div class="artifact-overlay">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -840,100 +813,143 @@
                   <path d="m21 21-4.35-4.35" />
                   <path d="M11 8v3M8 11h6" />
                 </svg>
-                <span>View full diagram</span>
+                <span>View diagram</span>
               </div>
             </div>
             <figcaption class="artifact-caption">
-              Portal user flow architecture — core journeys spanning account
-              creation, identity verification, provider discovery, and benefits
-              access
+              Task model illustrating the primary patient activities across the
+              portal ecosystem.
             </figcaption>
           </figure>
 
-          <!-- Lightbox for flows -->
           <div
-            class="artifact-modal lightbox"
-            id="artifact-modal-flows"
+            class="artifact-modal"
+            id="artifact-modal-taskmodel"
             role="dialog"
             aria-modal="true"
-            aria-label="Portal user flow architecture"
+            aria-label="Task model diagram"
             hidden
           >
             <div class="artifact-modal-backdrop"></div>
-            <div class="lightbox-frame">
-              <div class="lightbox-toolbar">
-                <span class="lightbox-title"
-                  >Portal user flow architecture — core patient journeys</span
+            <div class="artifact-modal-frame">
+              <button class="artifact-modal-close" aria-label="Close diagram">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
                 >
-                <div class="lightbox-controls">
-                  <button
-                    class="lightbox-btn"
-                    data-zoom-out
-                    aria-label="Zoom out"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                    >
-                      <circle cx="11" cy="11" r="7" />
-                      <path d="m21 21-4.35-4.35" />
-                      <path d="M8 11h6" />
-                    </svg>
-                  </button>
-                  <span class="lightbox-zoom-level">100%</span>
-                  <button
-                    class="lightbox-btn"
-                    data-zoom-in
-                    aria-label="Zoom in"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                    >
-                      <circle cx="11" cy="11" r="7" />
-                      <path d="m21 21-4.35-4.35" />
-                      <path d="M11 8v3M8 11h6" />
-                    </svg>
-                  </button>
-                  <button
-                    class="lightbox-btn lightbox-btn--close"
-                    data-close
-                    aria-label="Close"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
-                    >
-                      <path d="M18 6 6 18M6 6l12 12" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-              <div class="lightbox-canvas">
+                  <path d="M18 6 6 18M6 6l12 12" />
+                </svg>
+              </button>
+              <div class="artifact-modal-scroll">
                 <img
-                  src="./images/canopy_flows.webp"
-                  alt="Full view: Portal user flow architecture"
-                  class="lightbox-img"
+                  src="./images/canopy_taskmodel.webp"
+                  alt="Full view: Task model illustrating the primary patient activities across the portal ecosystem"
+                  class="artifact-modal-img"
                 />
               </div>
+              <p class="artifact-modal-caption">
+                Task model illustrating the primary patient activities across
+                the portal ecosystem.
+              </p>
+            </div>
+          </div>
+
+          <article class="content-article">
+            <div class="content-block">
+              <h3 class="block-subtitle">System Journeys</h3>
+              <p class="block-text">
+                Once the behavioral structure was established, the next step was
+                translating those activities into system interaction journeys.
+                These flows detail the specific paths a user follows to complete
+                a task and how the portal coordinates interactions across
+                identity services, clinical systems, and partner platforms.
+                Unlike the task model, which represents user goals, these
+                journeys describe the operational steps required to support
+                them. Mapping these interactions helped the team evaluate
+                implementation options, identify integration dependencies, and
+                align on how the system should respond to real user behavior.
+              </p>
+            </div>
+          </article>
+
+          <figure class="artifact-figure" data-artifact>
+            <div
+              class="artifact-thumb"
+              role="button"
+              tabindex="0"
+              aria-label="View full diagram: Example system journeys showing how portal interactions coordinate across multiple backend systems"
+            >
+              <img
+                src="./images/canopy_journey.webp"
+                alt="Example system journeys showing how portal interactions coordinate across multiple backend systems"
+                class="artifact-img artifact-img--color"
+                loading="lazy"
+              />
+              <div class="artifact-overlay">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="m21 21-4.35-4.35" />
+                  <path d="M11 8v3M8 11h6" />
+                </svg>
+                <span>View diagram</span>
+              </div>
+            </div>
+            <figcaption class="artifact-caption">
+              Example system journeys showing how portal interactions coordinate
+              across multiple backend systems.
+            </figcaption>
+          </figure>
+
+          <div
+            class="artifact-modal"
+            id="artifact-modal-journey"
+            role="dialog"
+            aria-modal="true"
+            aria-label="System journeys diagram"
+            hidden
+          >
+            <div class="artifact-modal-backdrop"></div>
+            <div class="artifact-modal-frame">
+              <button class="artifact-modal-close" aria-label="Close diagram">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M18 6 6 18M6 6l12 12" />
+                </svg>
+              </button>
+              <div class="artifact-modal-scroll">
+                <img
+                  src="./images/canopy_journey.webp"
+                  alt="Full view: Example system journeys showing how portal interactions coordinate across multiple backend systems"
+                  class="artifact-modal-img"
+                />
+              </div>
+              <p class="artifact-modal-caption">
+                Example system journeys showing how portal interactions
+                coordinate across multiple backend systems.
+              </p>
             </div>
           </div>
 
