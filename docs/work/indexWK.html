@@ -1,0 +1,680 @@
+<!doctype html>
+<html lang="en" data-theme="auto">
+  <head>
+    <style>
+      /* Auth pending: show a lightweight loading state instead of a blank page */
+      #auth-loading {
+        position: fixed;
+        inset: 0;
+        display: none;
+        place-items: center;
+        z-index: 9999;
+        background: radial-gradient(
+          circle at 30% 20%,
+          rgba(110, 91, 152, 0.22),
+          rgba(0, 0, 0, 0.78)
+        );
+        color: rgba(255, 255, 255, 0.92);
+        font-family: var(
+          --sans,
+          system-ui,
+          -apple-system,
+          Segoe UI,
+          Roboto,
+          Helvetica,
+          Arial
+        );
+        text-align: center;
+        padding: 24px;
+      }
+
+      #auth-loading .loader-card {
+        width: min(520px, calc(100vw - 48px));
+        border-radius: 14px;
+        padding: 22px 22px 18px;
+        background: rgba(20, 20, 20, 0.72);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+        backdrop-filter: blur(10px);
+      }
+
+      #auth-loading .loader-title {
+        font-family: 'Cairo Play', var(--sans, system-ui);
+        font-weight: 700;
+        letter-spacing: 0.01em;
+        font-size: 18px;
+        margin: 0 0 10px 0;
+      }
+
+      #auth-loading .loader-sub {
+        margin: 0;
+        opacity: 0.72;
+        line-height: 1.45;
+        font-size: 14px;
+      }
+
+      #auth-loading .spinner {
+        width: 34px;
+        height: 34px;
+        border-radius: 999px;
+        border: 2px solid rgba(255, 255, 255, 0.28);
+        border-top-color: rgba(255, 255, 255, 0.9);
+        margin: 0 auto 14px auto;
+        animation: dpSpin 0.9s linear infinite;
+      }
+
+      @keyframes dpSpin {
+        to { transform: rotate(360deg); }
+      }
+
+      html.auth-pending #auth-loading {
+        display: grid;
+      }
+
+      html.auth-pending body > :not(#auth-loading) {
+        opacity: 0;
+        pointer-events: none;
+      }
+    </style>
+    <script>
+      document.documentElement.classList.add('auth-pending');
+    </script>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Case Studies — Daniela Penati</title>
+    <meta name="description" content="Daniela Penati's case studies and UX work." />
+    <meta name="color-scheme" content="light dark" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo+Play:wght@400;600;700;800&family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;600;700&family=Roboto+Condensed:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./stylesWK.css" />
+
+    <style>
+      /* ===================================
+         Work Index — Gallery Cards v2
+         Domain-colored top bar, text-forward
+         =================================== */
+
+      /* Domain color tokens */
+      :root {
+        --domain-engineering: #6e5b98;   /* purple — existing accent */
+        --domain-healthcare:  #2a7d6f;   /* teal */
+        --domain-security:    #3a5a8c;   /* slate blue */
+
+        --domain-engineering-soft: rgba(110, 91, 152, 0.10);
+        --domain-healthcare-soft:  rgba(42, 125, 111, 0.10);
+        --domain-security-soft:    rgba(58, 90, 140, 0.10);
+      }
+
+      /* -------------------------
+         Page intro strip
+      -------------------------- */
+      .index-strip {
+        width: 100%;
+        background: rgba(42, 42, 42, 0.92);
+        backdrop-filter: blur(12px);
+        padding: clamp(32px, 5vh, 50px) 0 clamp(24px, 4vh, 40px);
+        position: relative;
+        z-index: 2;
+      }
+
+      html[data-theme='dark'] .index-strip,
+      html[data-theme='auto'] .index-strip {
+        background: rgba(20, 20, 20, 0.92);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        html[data-theme='auto'] .index-strip {
+          background: rgba(20, 20, 20, 0.92);
+        }
+      }
+
+      .index-breadcrumb {
+        margin-bottom: 14px;
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.55);
+      }
+
+      .index-breadcrumb a {
+        color: rgba(255, 255, 255, 0.55);
+        text-decoration: none;
+        transition: color 200ms ease;
+      }
+
+      .index-breadcrumb a:hover {
+        color: var(--domain-engineering);
+      }
+
+      .index-eyebrow {
+        font-family: 'Cairo Play', var(--sans);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.45);
+        margin-bottom: 10px;
+      }
+
+      .index-title {
+        margin: 0 0 10px 0;
+        font-family: 'Cairo Play', var(--sans);
+        font-weight: 700;
+        font-size: clamp(30px, 5vw, 52px);
+        line-height: 1.15;
+        letter-spacing: -0.01em;
+        color: #ffffff;
+      }
+
+      .index-subtitle {
+        margin: 0;
+        font-family: var(--condensed);
+        font-size: clamp(15px, 2.2vw, 18px);
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.6);
+        max-width: 60ch;
+      }
+
+      /* -------------------------
+         Filter bar
+      -------------------------- */
+      .filter-bar {
+        padding: 20px 0 0 0;
+      }
+
+      .filter-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .filter-label {
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.38);
+        margin-right: 4px;
+        flex-shrink: 0;
+      }
+
+      .filter-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 5px 14px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        background: transparent;
+        color: rgba(255, 255, 255, 0.65);
+        font-family: var(--sans);
+        font-size: 12px;
+        font-weight: 400;
+        letter-spacing: 0.02em;
+        cursor: pointer;
+        transition: all 200ms ease;
+        white-space: nowrap;
+      }
+
+      .filter-pill:hover {
+        border-color: rgba(255, 255, 255, 0.45);
+        color: #ffffff;
+      }
+
+      .filter-pill.is-active {
+        background: rgba(255, 255, 255, 0.12);
+        border-color: rgba(255, 255, 255, 0.45);
+        color: #ffffff;
+      }
+
+      /* Domain dot on pill */
+      .filter-pill-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+
+      .filter-pill[data-filter="engineering"] .filter-pill-dot { background: var(--domain-engineering); }
+      .filter-pill[data-filter="healthcare"]  .filter-pill-dot { background: var(--domain-healthcare); }
+      .filter-pill[data-filter="security"]    .filter-pill-dot { background: var(--domain-security); }
+
+      .filter-pill[data-filter="engineering"].is-active { border-color: var(--domain-engineering); color: #fff; }
+      .filter-pill[data-filter="healthcare"].is-active  { border-color: var(--domain-healthcare);  color: #fff; }
+      .filter-pill[data-filter="security"].is-active    { border-color: var(--domain-security);    color: #fff; }
+
+      /* -------------------------
+         Work grid
+      -------------------------- */
+      .work-index {
+        padding: clamp(40px, 6vw, 72px) 0;
+      }
+
+      .work-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 20px;
+      }
+
+      @media (max-width: 720px) {
+        .work-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* -------------------------
+         Work card
+      -------------------------- */
+      .work-card {
+        background: var(--surface);
+        border: 1px solid var(--rule);
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition:
+          transform 240ms ease,
+          box-shadow 240ms ease;
+        /* for filter animation */
+        opacity: 1;
+        transition:
+          opacity 250ms ease,
+          transform 250ms ease,
+          box-shadow 240ms ease;
+      }
+
+      .work-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .work-card.is-hidden {
+        display: none;
+      }
+
+      /* Colored top bar — domain-keyed */
+      .work-card-bar {
+        height: 5px;
+        flex-shrink: 0;
+      }
+
+      .work-card[data-domain="engineering"] .work-card-bar { background: var(--domain-engineering); }
+      .work-card[data-domain="healthcare"]  .work-card-bar { background: var(--domain-healthcare); }
+      .work-card[data-domain="security"]    .work-card-bar { background: var(--domain-security); }
+
+      /* Card body */
+      .work-card-body {
+        padding: 24px 24px 20px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .work-card-eyebrow {
+        font-family: 'Cairo Play', var(--sans);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+      }
+
+      .work-card[data-domain="engineering"] .work-card-eyebrow { color: var(--domain-engineering); }
+      .work-card[data-domain="healthcare"]  .work-card-eyebrow { color: var(--domain-healthcare); }
+      .work-card[data-domain="security"]    .work-card-eyebrow { color: var(--domain-security); }
+
+      .work-card-title {
+        font-family: var(--serif);
+        font-size: clamp(17px, 2.2vw, 20px);
+        font-weight: 600;
+        line-height: 1.35;
+        color: var(--ink);
+        margin: 0 0 12px 0;
+      }
+
+      .work-card-desc {
+        font-family: var(--condensed);
+        font-size: 15px;
+        line-height: 1.65;
+        color: var(--muted);
+        margin: 0 0 20px 0;
+        flex: 1;
+      }
+
+      /* Meta row: role · domain · year */
+      .work-card-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px 16px;
+        padding-top: 16px;
+        border-top: 1px solid var(--rule);
+        margin-bottom: 18px;
+      }
+
+      .work-card-meta-item {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .work-card-meta-label {
+        font-size: 9px;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+        opacity: 0.7;
+      }
+
+      .work-card-meta-value {
+        font-family: var(--sans);
+        font-size: 12px;
+        font-weight: 400;
+        color: var(--ink);
+      }
+
+      /* CTA link */
+      .work-card-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-family: var(--sans);
+        font-size: 13px;
+        font-weight: 500;
+        text-decoration: none;
+        color: var(--muted);
+        transition: color 200ms ease, gap 200ms ease;
+        align-self: flex-start;
+      }
+
+      .work-card[data-domain="engineering"] .work-card-cta:hover { color: var(--domain-engineering); }
+      .work-card[data-domain="healthcare"]  .work-card-cta:hover { color: var(--domain-healthcare); }
+      .work-card[data-domain="security"]    .work-card-cta:hover { color: var(--domain-security); }
+
+      .work-card-cta:hover {
+        gap: 10px;
+      }
+
+      .work-card-cta-arrow {
+        font-size: 15px;
+        transition: transform 200ms ease;
+      }
+
+      .work-card-cta:hover .work-card-cta-arrow {
+        transform: translateX(3px);
+      }
+
+      /* Empty state when all filtered out */
+      .work-empty {
+        display: none;
+        grid-column: 1 / -1;
+        padding: 48px 0;
+        text-align: center;
+        color: var(--muted);
+        font-family: var(--condensed);
+        font-size: 16px;
+      }
+
+      .work-empty.is-visible {
+        display: block;
+      }
+
+      /* Count badge */
+      .filter-count {
+        font-family: var(--condensed);
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.35);
+        margin-left: auto;
+        padding-left: 8px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div id="auth-loading" aria-live="polite" aria-busy="true">
+      <div class="loader-card">
+        <div class="spinner" aria-hidden="true"></div>
+        <p class="loader-title">Checking access…</p>
+        <p class="loader-sub">
+          If you're not signed in, you'll be sent to the login page.
+        </p>
+      </div>
+    </div>
+
+    <!-- Sticky header -->
+    <header class="site-header" id="top">
+      <div class="container header-row">
+        <div class="brand">
+          <a href="../index.html" class="brand-link">
+            <svg
+              class="brand-mark"
+              viewBox="0 0 60 60"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <circle cx="30" cy="30" r="27" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.3" />
+              <circle cx="30" cy="30" r="24" fill="currentColor" opacity="0.08" />
+              <text
+                x="30" y="38"
+                text-anchor="middle"
+                font-family="'Cairo Play', sans-serif"
+                font-size="20"
+                font-weight="800"
+                letter-spacing="-1"
+                fill="currentColor"
+              >d:p</text>
+            </svg>
+            <div>
+              <div class="brand-title">Daniela Penati</div>
+              <div class="brand-subtitle">UX Design & Leadership</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="header-actions">
+          <nav class="nav" aria-label="Primary">
+            <a href="../daniela/indexDP.html">About</a>
+            <a class="is-current" aria-current="page" aria-disabled="true" tabindex="-1">Work</a>
+            <a href="../index.html#contact">Contact</a>
+          </nav>
+          <button
+            class="theme-toggle"
+            type="button"
+            aria-label="Toggle dark mode"
+            aria-pressed="false"
+            data-theme-toggle
+          >
+            <span class="theme-icon" aria-hidden="true">◐</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+
+      <!-- Page intro + filter bar -->
+      <div class="index-strip">
+        <div class="container">
+          <div class="index-breadcrumb">
+            <a href="../index.html">← Home</a>
+          </div>
+          <h1 class="index-title">Case Studies</h1>
+          <p class="index-subtitle">Private archive of selected work.</p>
+
+          <!-- Filter bar -->
+          <div class="filter-bar">
+            <div class="filter-row" role="group" aria-label="Filter by domain">
+              <span class="filter-label">Filter</span>
+              <button class="filter-pill is-active" data-filter="all">All</button>
+              <button class="filter-pill" data-filter="engineering">
+                <span class="filter-pill-dot" aria-hidden="true"></span>
+                Engineering Tools
+              </button>
+              <button class="filter-pill" data-filter="healthcare">
+                <span class="filter-pill-dot" aria-hidden="true"></span>
+                Healthcare
+              </button>
+              <button class="filter-pill" data-filter="security">
+                <span class="filter-pill-dot" aria-hidden="true"></span>
+                Security
+              </button>
+              <span class="filter-count" id="filter-count" aria-live="polite">3 projects</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Work grid -->
+      <section class="work-index" aria-label="Case studies">
+        <div class="container">
+          <div class="work-grid" id="work-grid">
+
+            <!-- Card 1: Pipelines — Engineering Tools -->
+            <article class="work-card" data-domain="engineering">
+              <div class="work-card-bar" aria-hidden="true"></div>
+              <div class="work-card-body">
+                <p class="work-card-eyebrow">Engineering Tools</p>
+                <h2 class="work-card-title">Bringing Structure to Enterprise Engineering Workflows</h2>
+                <p class="work-card-desc">
+                  Re-architected six core engineering workflow domains within a constrained delivery window—introducing discovery-first sequencing to restore predictability across the SDLC.
+                </p>
+                <a href="./24pipes.html" class="work-card-cta">
+                  View case study
+                  <span class="work-card-cta-arrow" aria-hidden="true">→</span>
+                </a>
+              </div>
+            </article>
+
+            <!-- Card 2: Canopy — Healthcare -->
+            <article class="work-card" data-domain="healthcare">
+              <div class="work-card-bar" aria-hidden="true"></div>
+              <div class="work-card-body">
+                <p class="work-card-eyebrow">Healthcare</p>
+                <h2 class="work-card-title">Designing the Digital Backbone of an Accountable Care Network</h2>
+                <p class="work-card-desc">
+                  Integrated clinical and insurance systems across a multi-EMR network into a unified patient experience—bridging fragmented data sources under a single coherent view.
+                </p>
+                <a href="./16canopy.html" class="work-card-cta">
+                  View case study
+                  <span class="work-card-cta-arrow" aria-hidden="true">→</span>
+                </a>
+              </div>
+            </article>
+
+            <!-- Card 3: Identity Centric — Security -->
+            <article class="work-card" data-domain="security">
+              <div class="work-card-bar" aria-hidden="true"></div>
+              <div class="work-card-body">
+                <p class="work-card-eyebrow">Security</p>
+                <h2 class="work-card-title">Reframing Enterprise Security Around Identity</h2>
+                <p class="work-card-desc">
+                  Shifted a fragmented, channel-based detection model toward an identity-centric risk framework—unifying signals across channels into a coherent threat picture.
+                </p>
+                <a href="./12cyber.html" class="work-card-cta">
+                  View case study
+                  <span class="work-card-cta-arrow" aria-hidden="true">→</span>
+                </a>
+              </div>
+            </article>
+
+            <!-- Empty state -->
+            <div class="work-empty" id="work-empty" role="status">
+              No projects match this filter.
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container footer-row">
+        <div>
+          <div class="footer-meta">
+            <a
+              class="social-icon"
+              href="https://www.linkedin.com/in/danielapenati/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V9h4v2" />
+                <path d="M2 9h4v12H2z" />
+                <path d="M4 4a2 2 0 1 0 0 .001z" />
+              </svg>
+            </a>
+            <a class="social-icon" href="/cdn-cgi/l/email-protection#680c0906010d040928180d06091c01460b0705" aria-label="Email">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16v16H4z" />
+                <path d="m4 6 8 6 8-6" />
+              </svg>
+            </a>
+            <span class="footer-copy">© 2026 Daniela Penati</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <a class="fab-top" href="#top" aria-label="Back to top">
+      <span aria-hidden="true">↑</span>
+    </a>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="../script.js" defer></script>
+
+    <script src="../script.js" defer></script>
+    <!-- <script>
+      // Check if user is logged in
+      if (sessionStorage.getItem('isLoggedIn') !== 'true') {
+        window.location.href = '../index.html';
+      }
+    </script> -->
+    <script type="module" src="../auth-members.js"></script>
+
+    <script>
+      /* -----------------------------------------------
+         Domain filter
+         ----------------------------------------------- */
+      (function () {
+        const pills   = document.querySelectorAll('.filter-pill');
+        const cards   = document.querySelectorAll('.work-card');
+        const empty   = document.getElementById('work-empty');
+        const counter = document.getElementById('filter-count');
+
+        function updateCount(visible) {
+          counter.textContent = visible + ' project' + (visible !== 1 ? 's' : '');
+        }
+
+        pills.forEach(function (pill) {
+          pill.addEventListener('click', function () {
+            const filter = this.dataset.filter;
+
+            // Update active pill
+            pills.forEach(function (p) { p.classList.remove('is-active'); });
+            this.classList.add('is-active');
+
+            // Show / hide cards
+            let visible = 0;
+            cards.forEach(function (card) {
+              if (filter === 'all' || card.dataset.domain === filter) {
+                card.classList.remove('is-hidden');
+                visible++;
+              } else {
+                card.classList.add('is-hidden');
+              }
+            });
+
+            // Empty state
+            empty.classList.toggle('is-visible', visible === 0);
+            u
