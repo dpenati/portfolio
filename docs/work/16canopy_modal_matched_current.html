@@ -1034,29 +1034,39 @@
           <article class="content-article">
             <div class="content-block">
               <!-- Phase 3 -->
-              <h3 class="block-subtitle">3. Designing the Entry Points</h3>
+              <h3 class="block-subtitle">3. Designing the First Experience</h3>
               <p class="block-text">
-                Once the system interactions were defined, the work shifted to
-                designing the primary entry points into the ecosystem. These
-                entry points — the public website, login experience, and
-                provider search interface — established the primary pathways
-                through which patients would discover providers, access
-                services, and eventually transition into the member portal.
+                As the system interactions became clearer, the work shifted
+                toward shaping how patients would first engage with the
+                portal—defining key areas that could help users orient
+                themselves and begin navigating the experience. Capturing this
+                initial moment was critical. Early concepts explored different
+                ways to introduce patients to a network that did not yet exist
+                as a unified system.
+              </p>
+              <p class="block-text">
+                The focus was on defining a coherent starting point—organizing
+                the information patients needed most and bringing together
+                clinical data, insurance coverage, and services into a single,
+                understandable experience. These early explorations reflect
+                different ways of structuring the experience—each emphasizing a
+                distinct approach to helping patients orient themselves within
+                the portal.
               </p>
 
-              <!-- Accordion: key modules -->
+              <!-- Accordion: concept directions -->
               <div class="rhythm-list rhythm-list--accordion">
-                <!-- Provider Discovery -->
+                <!-- Option A -->
                 <div
                   class="rhythm-item rhythm-accordion"
-                  data-accordion="provider"
+                  data-accordion="option-a"
                 >
                   <div
                     class="rhythm-header"
                     role="button"
                     tabindex="0"
                     aria-expanded="false"
-                    aria-controls="accordion-provider"
+                    aria-controls="accordion-option-a"
                   >
                     <div class="rhythm-day">
                       <svg
@@ -1069,16 +1079,22 @@
                         stroke-linejoin="round"
                         aria-hidden="true"
                       >
-                        <circle cx="11" cy="11" r="7" />
-                        <path d="m21 21-4.35-4.35" />
+                        <rect x="3" y="4" width="18" height="16" rx="2" />
+                        <path d="M7 8h10M7 12h6M7 16h4" />
                       </svg>
                     </div>
                     <div class="rhythm-content">
-                      <div class="rhythm-title">Provider Discovery</div>
+                      <div class="rhythm-title">
+                        Option A: Benefits-Centered Dashboard
+                      </div>
                       <div class="rhythm-desc">
-                        Location-based search, specialty filtering, provider
-                        profiles, and clear in-network indicators across
-                        institutions.
+                        This concept explored a benefits-first entry point,
+                        positioning insurance coverage as the primary anchor for
+                        the experience. The layout emphasized a modular
+                        dashboard where patients could access services—
+                        appointments, messages, medications—through independent
+                        widgets, while surfacing alerts and system updates
+                        alongside core plan information.
                       </div>
                     </div>
                     <svg
@@ -1095,11 +1111,11 @@
                       <path d="m6 9 6 6 6-6" />
                     </svg>
                   </div>
-                  <div class="rhythm-accordion-body" id="accordion-provider">
+                  <div class="rhythm-accordion-body" id="accordion-option-a">
                     <div class="rhythm-accordion-inner">
                       <img
-                        src="./images/canopy_findadoc.webp"
-                        alt="Find a Doctor interface — location-based provider search with specialty filters and in-network indicators"
+                        src="./images/A_option.png"
+                        alt="Option A concept — benefits-centered dashboard with modular widgets and plan information"
                         class="rhythm-mockup"
                         loading="lazy"
                       />
@@ -1107,17 +1123,17 @@
                   </div>
                 </div>
 
-                <!-- Portal Access -->
+                <!-- Option B -->
                 <div
                   class="rhythm-item rhythm-accordion"
-                  data-accordion="portal"
+                  data-accordion="option-b"
                 >
                   <div
                     class="rhythm-header"
                     role="button"
                     tabindex="0"
                     aria-expanded="false"
-                    aria-controls="accordion-portal"
+                    aria-controls="accordion-option-b"
                   >
                     <div class="rhythm-day">
                       <svg
@@ -1130,16 +1146,22 @@
                         stroke-linejoin="round"
                         aria-hidden="true"
                       >
-                        <rect x="3" y="11" width="18" height="11" rx="2" />
-                        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                        <path d="M4 7h16M4 12h16M4 17h10" />
+                        <circle cx="18" cy="17" r="2" />
                       </svg>
                     </div>
                     <div class="rhythm-content">
-                      <div class="rhythm-title">Member Portal Access</div>
+                      <div class="rhythm-title">
+                        Option B: Integrated Clinical + Plan Experience
+                      </div>
                       <div class="rhythm-desc">
-                        Secure authentication and account access supporting
-                        healthcare identity requirements and future portal
-                        functionality.
+                        This direction focused on creating a unified experience
+                        across clinical and insurance systems. It introduced
+                        the idea of connecting external medical records (e.g.,
+                        UCSF, John Muir Health) into a single interface,
+                        supported by status indicators, onboarding tasks, and
+                        guided actions to help patients establish their data
+                        connections.
                       </div>
                     </div>
                     <svg
@@ -1156,19 +1178,330 @@
                       <path d="m6 9 6 6 6-6" />
                     </svg>
                   </div>
-                  <div class="rhythm-accordion-body" id="accordion-portal">
+                  <div class="rhythm-accordion-body" id="accordion-option-b">
                     <div class="rhythm-accordion-inner">
                       <img
-                        src="./images/canopy_login.webp"
-                        alt="Member portal login screens — secure authentication with healthcare identity verification"
+                        src="./images/B_option2.png"
+                        alt="Option B concept — integrated clinical and plan experience with onboarding tasks and linked records"
                         class="rhythm-mockup"
                         loading="lazy"
                       />
+                      <button
+                        class="rhythm-spec-link"
+                        type="button"
+                        data-concept-modal-open="concept-modal-b"
+                      >
+                        View additional concept explorations
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Option C -->
+                <div
+                  class="rhythm-item rhythm-accordion"
+                  data-accordion="option-c"
+                >
+                  <div
+                    class="rhythm-header"
+                    role="button"
+                    tabindex="0"
+                    aria-expanded="false"
+                    aria-controls="accordion-option-c"
+                  >
+                    <div class="rhythm-day">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path d="M5 6h14v12H5z" />
+                        <path d="M9 10h6M9 14h6" />
+                      </svg>
+                    </div>
+                    <div class="rhythm-content">
+                      <div class="rhythm-title">
+                        Option C: Service-Oriented Experience Hub
+                      </div>
+                      <div class="rhythm-desc">
+                        This concept explored a more service-driven model,
+                        organizing the experience around care activities such as
+                        appointments, billing, and health records. The
+                        interface emphasized direct access to providers and
+                        services, with persistent navigation and structured
+                        sections designed to support ongoing engagement over
+                        time.
+                      </div>
+                    </div>
+                    <svg
+                      class="rhythm-chevron"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="m6 9 6 6 6-6" />
+                    </svg>
+                  </div>
+                  <div class="rhythm-accordion-body" id="accordion-option-c">
+                    <div class="rhythm-accordion-inner">
+                      <img
+                        src="./images/C_option1.png"
+                        alt="Option C concept — service-oriented experience hub with persistent navigation and structured care sections"
+                        class="rhythm-mockup"
+                        loading="lazy"
+                      />
+                      <button
+                        class="rhythm-spec-link"
+                        type="button"
+                        data-concept-modal-open="concept-modal-c"
+                      >
+                        View additional concept explorations
+                      </button>
                     </div>
                   </div>
                 </div>
               </div>
               <!-- /end accordion -->
+
+              <div
+                class="concept-modal"
+                id="concept-modal-b"
+                role="dialog"
+                aria-modal="true"
+                aria-label="Option B concept explorations"
+                hidden
+              >
+                <div class="concept-modal-backdrop"></div>
+                <div class="concept-modal-frame concept-modal-frame--lightbox">
+                  <div class="concept-modal-toolbar">
+                    <span class="concept-modal-title"
+                      >Option B — concept explorations</span
+                    >
+                    <div class="concept-modal-controls">
+                      <button
+                        class="lightbox-btn"
+                        type="button"
+                        data-concept-zoom-out
+                        aria-label="Zoom out"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          aria-hidden="true"
+                        >
+                          <circle cx="11" cy="11" r="7" />
+                          <path d="m21 21-4.35-4.35" />
+                          <path d="M8 11h6" />
+                        </svg>
+                      </button>
+                      <span class="lightbox-zoom-level" data-concept-zoom-label
+                        >100%</span
+                      >
+                      <button
+                        class="lightbox-btn"
+                        type="button"
+                        data-concept-zoom-in
+                        aria-label="Zoom in"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          aria-hidden="true"
+                        >
+                          <circle cx="11" cy="11" r="7" />
+                          <path d="m21 21-4.35-4.35" />
+                          <path d="M11 8v3M8 11h6" />
+                        </svg>
+                      </button>
+                      <button
+                        class="lightbox-btn"
+                        type="button"
+                        data-concept-zoom-reset
+                        aria-label="Reset zoom"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          aria-hidden="true"
+                        >
+                          <circle cx="11" cy="11" r="7" />
+                          <path d="m21 21-4.35-4.35" />
+                          <path d="M11 8v6" />
+                          <path d="M11 11h3" />
+                        </svg>
+                      </button>
+                      <button
+                        class="lightbox-btn lightbox-btn--close concept-modal-close"
+                        type="button"
+                        aria-label="Close concept gallery"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          aria-hidden="true"
+                        >
+                          <path d="M18 6 6 18M6 6l12 12" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="concept-modal-scroll concept-modal-scroll--lightbox" data-concept-canvas>
+                    <div class="concept-modal-stage" data-concept-stage>
+                      <img
+                        src="./images/B_option2.png"
+                        alt="Option B concept exploration — integrated clinical and plan experience"
+                        class="concept-modal-img concept-modal-img--lightbox"
+                        data-concept-image
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="concept-modal"
+                id="concept-modal-c"
+                role="dialog"
+                aria-modal="true"
+                aria-label="Option B concept explorations"
+                hidden
+              >
+                <div class="concept-modal-cackdrop"></div>
+                <div class="concept-modal-frame concept-modal-frame--lightbox">
+                  <div class="concept-modal-toolbar">
+                    <span class="concept-modal-title"
+                      >Option C — concept explorations</span
+                    >
+                    <div class="concept-modal-controls">
+                      <button
+                        class="lightbox-btn"
+                        type="button"
+                        data-concept-zoom-out
+                        aria-label="Zoom out"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          aria-hidden="true"
+                        >
+                          <circle cx="11" cy="11" r="7" />
+                          <path d="m21 21-4.35-4.35" />
+                          <path d="M8 11h6" />
+                        </svg>
+                      </button>
+                      <span class="lightbox-zoom-level" data-concept-zoom-label
+                        >100%</span
+                      >
+                      <button
+                        class="lightbox-btn"
+                        type="button"
+                        data-concept-zoom-in
+                        aria-label="Zoom in"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          aria-hidden="true"
+                        >
+                          <circle cx="11" cy="11" r="7" />
+                          <path d="m21 21-4.35-4.35" />
+                          <path d="M11 8v3M8 11h6" />
+                        </svg>
+                      </button>
+                      <button
+                        class="lightbox-btn"
+                        type="button"
+                        data-concept-zoom-reset
+                        aria-label="Reset zoom"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          aria-hidden="true"
+                        >
+                          <circle cx="11" cy="11" r="7" />
+                          <path d="m21 21-4.35-4.35" />
+                          <path d="M11 8v6" />
+                          <path d="M11 11h3" />
+                        </svg>
+                      </button>
+                      <button
+                        class="lightbox-btn lightbox-btn--close concept-modal-close"
+                        type="button"
+                        aria-label="Close concept gallery"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          aria-hidden="true"
+                        >
+                          <path d="M18 6 6 18M6 6l12 12" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="concept-modal-scroll concept-modal-scroll--lightbox" data-concept-canvas>
+                    <div class="concept-modal-stage" data-concept-stage>
+                      <img
+                        src="./images/C_option1.png"
+                        alt="Option C concept exploration — service-oriented experience hub"
+                        class="concept-modal-img concept-modal-img--lightbox"
+                        data-concept-image
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </article>
           <!-- /end Execution article -->
@@ -1749,17 +2082,25 @@
         var cards = document.querySelectorAll('.rhythm-accordion');
         var hoverTimer = null;
 
+        function setOpenHeight(card) {
+          var body = card.querySelector('.rhythm-accordion-body');
+          var inner = card.querySelector('.rhythm-accordion-inner');
+          if (!body || !inner) return;
+          body.style.height = inner.scrollHeight + 'px';
+        }
+
         function openCard(card) {
           cards.forEach(function (c) {
             if (c !== card) closeCard(c);
           });
           var header = card.querySelector('.rhythm-header');
-          var body = card.querySelector('.rhythm-accordion-body');
-          var inner = card.querySelector('.rhythm-accordion-inner');
           card.classList.add('is-open');
           header.setAttribute('aria-expanded', 'true');
-          body.style.height = inner.offsetHeight + 'px';
+          requestAnimationFrame(function () {
+            setOpenHeight(card);
+          });
         }
+
         function closeCard(card) {
           var header = card.querySelector('.rhythm-header');
           var body = card.querySelector('.rhythm-accordion-body');
@@ -1767,6 +2108,7 @@
           header.setAttribute('aria-expanded', 'false');
           body.style.height = '0';
         }
+
         function toggleCard(card) {
           if (card.classList.contains('is-open')) {
             closeCard(card);
@@ -1777,10 +2119,12 @@
 
         cards.forEach(function (card) {
           var header = card.querySelector('.rhythm-header');
+
           header.addEventListener('click', function () {
             clearTimeout(hoverTimer);
             toggleCard(card);
           });
+
           header.addEventListener('keydown', function (e) {
             if (e.key === 'Enter' || e.key === ' ') {
               e.preventDefault();
@@ -1788,15 +2132,173 @@
               toggleCard(card);
             }
           });
+
           card.addEventListener('mouseenter', function () {
+            clearTimeout(hoverTimer);
             if (card.classList.contains('is-open')) return;
             hoverTimer = setTimeout(function () {
               openCard(card);
             }, HOVER_DELAY);
           });
+
           card.addEventListener('mouseleave', function () {
             clearTimeout(hoverTimer);
           });
+
+          card.querySelectorAll('img').forEach(function (img) {
+            img.addEventListener('load', function () {
+              if (card.classList.contains('is-open')) {
+                setOpenHeight(card);
+              }
+            });
+          });
+        });
+
+        window.addEventListener('resize', function () {
+          cards.forEach(function (card) {
+            if (card.classList.contains('is-open')) {
+              setOpenHeight(card);
+            }
+          });
+        });
+      })();
+
+      // ── Phase 3 concept modals ──
+      (function () {
+        var activeTrigger = null;
+        var activeModal = null;
+
+        function getFitScale(modal) {
+          var canvas = modal.querySelector('[data-concept-canvas]');
+          var img = modal.querySelector('[data-concept-image]');
+          if (!canvas || !img || !img.naturalWidth || !img.naturalHeight) return 1;
+          var styles = window.getComputedStyle(canvas);
+          var padX = parseFloat(styles.paddingLeft || 0) + parseFloat(styles.paddingRight || 0);
+          var padY = parseFloat(styles.paddingTop || 0) + parseFloat(styles.paddingBottom || 0);
+          var availW = Math.max(canvas.clientWidth - padX, 120);
+          var availH = Math.max(canvas.clientHeight - padY, 120);
+          return Math.min(1, availW / img.naturalWidth, availH / img.naturalHeight);
+        }
+
+        function updateConceptZoom(modal, nextScale, preserveCenter) {
+          var canvas = modal.querySelector('[data-concept-canvas]');
+          var stage = modal.querySelector('[data-concept-stage]');
+          var img = modal.querySelector('[data-concept-image]');
+          var label = modal.querySelector('[data-concept-zoom-label]');
+          if (!canvas || !stage || !img || !img.naturalWidth || !img.naturalHeight) return;
+
+          var fitScale = getFitScale(modal);
+          var minScale = fitScale;
+          var maxScale = 1;
+          var prevScale = modal._conceptScale || fitScale;
+          var scale = Math.min(maxScale, Math.max(minScale, nextScale));
+
+          var centerX = canvas.scrollLeft + canvas.clientWidth / 2;
+          var centerY = canvas.scrollTop + canvas.clientHeight / 2;
+          var relX = stage.offsetWidth ? centerX / stage.offsetWidth : 0.5;
+          var relY = stage.offsetHeight ? centerY / stage.offsetHeight : 0.5;
+
+          modal._conceptScale = scale;
+          modal._conceptFitScale = fitScale;
+
+          var scaledWidth = Math.round(img.naturalWidth * scale);
+          var scaledHeight = Math.round(img.naturalHeight * scale);
+          stage.style.width = scaledWidth + 'px';
+          stage.style.height = scaledHeight + 'px';
+          img.style.width = scaledWidth + 'px';
+          img.style.height = scaledHeight + 'px';
+
+          if (label) label.textContent = Math.round(scale * 100) + '%';
+
+          if (preserveCenter && prevScale !== scale) {
+            canvas.scrollLeft = Math.max(0, scaledWidth * relX - canvas.clientWidth / 2);
+            canvas.scrollTop = Math.max(0, scaledHeight * relY - canvas.clientHeight / 2);
+          } else if (!preserveCenter) {
+            canvas.scrollTop = 0;
+            canvas.scrollLeft = 0;
+          }
+        }
+
+        function openConceptModal(modal, trigger) {
+          activeTrigger = trigger || null;
+          activeModal = modal;
+          modal.removeAttribute('hidden');
+          document.body.style.overflow = 'hidden';
+
+          var img = modal.querySelector('[data-concept-image]');
+          var closeBtn = modal.querySelector('.concept-modal-close');
+          function finishOpen() {
+            updateConceptZoom(modal, getFitScale(modal), false);
+            if (closeBtn) closeBtn.focus();
+          }
+          if (img && !img.complete) {
+            img.addEventListener('load', finishOpen, { once: true });
+          }
+          requestAnimationFrame(finishOpen);
+        }
+
+        function closeConceptModal(modal) {
+          modal.setAttribute('hidden', '');
+          document.body.style.overflow = '';
+          if (activeTrigger) activeTrigger.focus();
+          activeTrigger = null;
+          activeModal = null;
+        }
+
+        document.querySelectorAll('[data-concept-modal-open]').forEach(function (trigger) {
+          var modalId = trigger.getAttribute('data-concept-modal-open');
+          var modal = document.getElementById(modalId);
+          if (!modal) return;
+
+          trigger.addEventListener('click', function (e) {
+            e.stopPropagation();
+            openConceptModal(modal, trigger);
+          });
+
+          var backdrop = modal.querySelector('.concept-modal-backdrop');
+          var closeBtn = modal.querySelector('.concept-modal-close');
+          var zoomIn = modal.querySelector('[data-concept-zoom-in]');
+          var zoomOut = modal.querySelector('[data-concept-zoom-out]');
+          var zoomReset = modal.querySelector('[data-concept-zoom-reset]');
+
+          if (backdrop) {
+            backdrop.addEventListener('click', function () {
+              closeConceptModal(modal);
+            });
+          }
+
+          if (closeBtn) {
+            closeBtn.addEventListener('click', function () {
+              closeConceptModal(modal);
+            });
+          }
+
+          if (zoomIn) {
+            zoomIn.addEventListener('click', function () {
+              updateConceptZoom(modal, (modal._conceptScale || getFitScale(modal)) + 0.125, true);
+            });
+          }
+
+          if (zoomOut) {
+            zoomOut.addEventListener('click', function () {
+              updateConceptZoom(modal, (modal._conceptScale || getFitScale(modal)) - 0.125, true);
+            });
+          }
+
+          if (zoomReset) {
+            zoomReset.addEventListener('click', function () {
+              updateConceptZoom(modal, getFitScale(modal), false);
+            });
+          }
+
+          modal.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') closeConceptModal(modal);
+          });
+        });
+
+        window.addEventListener('resize', function () {
+          if (!activeModal || activeModal.hasAttribute('hidden')) return;
+          updateConceptZoom(activeModal, activeModal._conceptScale || getFitScale(activeModal), true);
         });
       })();
     </script>
