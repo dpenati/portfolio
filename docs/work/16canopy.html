@@ -1114,11 +1114,18 @@
                   <div class="rhythm-accordion-body" id="accordion-option-a">
                     <div class="rhythm-accordion-inner">
                       <img
-                        src="./images/A_option.png"
+                        src="./images/canopyMockup_optA.webp"
                         alt="Option A concept — benefits-centered dashboard with modular widgets and plan information"
                         class="rhythm-mockup"
                         loading="lazy"
                       />
+                      <button
+                        class="rhythm-spec-link"
+                        type="button"
+                        data-wiki-modal="wiki-option-a"
+                      >
+                        View more &rarr;
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -1156,12 +1163,11 @@
                       </div>
                       <div class="rhythm-desc">
                         This direction focused on creating a unified experience
-                        across clinical and insurance systems. It introduced
-                        the idea of connecting external medical records (e.g.,
-                        UCSF, John Muir Health) into a single interface,
-                        supported by status indicators, onboarding tasks, and
-                        guided actions to help patients establish their data
-                        connections.
+                        across clinical and insurance systems. It introduced the
+                        idea of connecting external medical records (e.g., UCSF,
+                        John Muir Health) into a single interface, supported by
+                        status indicators, onboarding tasks, and guided actions
+                        to help patients establish their data connections.
                       </div>
                     </div>
                     <svg
@@ -1181,7 +1187,7 @@
                   <div class="rhythm-accordion-body" id="accordion-option-b">
                     <div class="rhythm-accordion-inner">
                       <img
-                        src="./images/B_option2.png"
+                        src="./images/canopyMockup_optB.webp"
                         alt="Option B concept — integrated clinical and plan experience with onboarding tasks and linked records"
                         class="rhythm-mockup"
                         loading="lazy"
@@ -1189,9 +1195,9 @@
                       <button
                         class="rhythm-spec-link"
                         type="button"
-                        data-concept-modal-open="concept-modal-b"
+                        data-wiki-modal="wiki-option-b"
                       >
-                        View additional concept explorations
+                        View more &rarr;
                       </button>
                     </div>
                   </div>
@@ -1231,11 +1237,10 @@
                       <div class="rhythm-desc">
                         This concept explored a more service-driven model,
                         organizing the experience around care activities such as
-                        appointments, billing, and health records. The
-                        interface emphasized direct access to providers and
-                        services, with persistent navigation and structured
-                        sections designed to support ongoing engagement over
-                        time.
+                        appointments, billing, and health records. The interface
+                        emphasized direct access to providers and services, with
+                        persistent navigation and structured sections designed
+                        to support ongoing engagement over time.
                       </div>
                     </div>
                     <svg
@@ -1255,7 +1260,7 @@
                   <div class="rhythm-accordion-body" id="accordion-option-c">
                     <div class="rhythm-accordion-inner">
                       <img
-                        src="./images/C_option1.png"
+                        src="./images/canopyMockup_optC.webp"
                         alt="Option C concept — service-oriented experience hub with persistent navigation and structured care sections"
                         class="rhythm-mockup"
                         loading="lazy"
@@ -1263,9 +1268,9 @@
                       <button
                         class="rhythm-spec-link"
                         type="button"
-                        data-concept-modal-open="concept-modal-c"
+                        data-wiki-modal="wiki-option-c"
                       >
-                        View additional concept explorations
+                        View more &rarr;
                       </button>
                     </div>
                   </div>
@@ -1274,24 +1279,20 @@
               <!-- /end accordion -->
 
               <div
-                class="concept-modal"
-                id="concept-modal-b"
+                class="wiki-modal"
+                id="wiki-option-a"
                 role="dialog"
                 aria-modal="true"
-                aria-label="Option B concept explorations"
+                aria-label="Option A concept explorations"
                 hidden
               >
-                <div class="concept-modal-backdrop"></div>
-                <div class="concept-modal-frame concept-modal-frame--lightbox">
-                  <div class="concept-modal-toolbar">
-                    <span class="concept-modal-title"
-                      >Option B — concept explorations</span
-                    >
-                    <div class="concept-modal-controls">
+                <div class="wiki-modal-backdrop"></div>
+                <div class="wiki-modal-frame">
+                  <div class="wiki-modal-toolbar">
+                    <div class="wiki-modal-controls">
                       <button
-                        class="lightbox-btn"
-                        type="button"
-                        data-concept-zoom-out
+                        class="wiki-btn"
+                        data-zoom-out
                         aria-label="Zoom out"
                       >
                         <svg
@@ -1299,23 +1300,19 @@
                           viewBox="0 0 24 24"
                           fill="none"
                           stroke="currentColor"
-                          stroke-width="1.5"
+                          stroke-width="2"
                           stroke-linecap="round"
                           stroke-linejoin="round"
-                          aria-hidden="true"
                         >
                           <circle cx="11" cy="11" r="7" />
                           <path d="m21 21-4.35-4.35" />
                           <path d="M8 11h6" />
                         </svg>
                       </button>
-                      <span class="lightbox-zoom-level" data-concept-zoom-label
-                        >100%</span
-                      >
+                      <span class="wiki-zoom-label">Fit</span>
                       <button
-                        class="lightbox-btn"
-                        type="button"
-                        data-concept-zoom-in
+                        class="wiki-btn"
+                        data-zoom-in
                         aria-label="Zoom in"
                       >
                         <svg
@@ -1323,90 +1320,61 @@
                           viewBox="0 0 24 24"
                           fill="none"
                           stroke="currentColor"
-                          stroke-width="1.5"
+                          stroke-width="2"
                           stroke-linecap="round"
                           stroke-linejoin="round"
-                          aria-hidden="true"
                         >
                           <circle cx="11" cy="11" r="7" />
                           <path d="m21 21-4.35-4.35" />
                           <path d="M11 8v3M8 11h6" />
                         </svg>
                       </button>
+
                       <button
-                        class="lightbox-btn"
-                        type="button"
-                        data-concept-zoom-reset
-                        aria-label="Reset zoom"
+                        class="wiki-btn wiki-btn--close"
+                        data-close
+                        aria-label="Close"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 24 24"
                           fill="none"
                           stroke="currentColor"
-                          stroke-width="1.5"
+                          stroke-width="2"
                           stroke-linecap="round"
                           stroke-linejoin="round"
-                          aria-hidden="true"
-                        >
-                          <circle cx="11" cy="11" r="7" />
-                          <path d="m21 21-4.35-4.35" />
-                          <path d="M11 8v6" />
-                          <path d="M11 11h3" />
-                        </svg>
-                      </button>
-                      <button
-                        class="lightbox-btn lightbox-btn--close concept-modal-close"
-                        type="button"
-                        aria-label="Close concept gallery"
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="1.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          aria-hidden="true"
                         >
                           <path d="M18 6 6 18M6 6l12 12" />
                         </svg>
                       </button>
                     </div>
                   </div>
-                  <div class="concept-modal-scroll concept-modal-scroll--lightbox" data-concept-canvas>
-                    <div class="concept-modal-stage" data-concept-stage>
-                      <img
-                        src="./images/B_option2.png"
-                        alt="Option B concept exploration — integrated clinical and plan experience"
-                        class="concept-modal-img concept-modal-img--lightbox"
-                        data-concept-image
-                      />
-                    </div>
+                  <div class="wiki-modal-canvas">
+                    <img
+                      src="./images/canopyMockup_optA2.webp"
+                      alt="Option A concept exploration — benefits-centered dashboard"
+                      class="wiki-modal-img"
+                      loading="lazy"
+                    />
                   </div>
                 </div>
               </div>
 
               <div
-                class="concept-modal"
-                id="concept-modal-c"
+                class="wiki-modal"
+                id="wiki-option-b"
                 role="dialog"
                 aria-modal="true"
                 aria-label="Option B concept explorations"
                 hidden
               >
-                <div class="concept-modal-cackdrop"></div>
-                <div class="concept-modal-frame concept-modal-frame--lightbox">
-                  <div class="concept-modal-toolbar">
-                    <span class="concept-modal-title"
-                      >Option C — concept explorations</span
-                    >
-                    <div class="concept-modal-controls">
+                <div class="wiki-modal-backdrop"></div>
+                <div class="wiki-modal-frame">
+                  <div class="wiki-modal-toolbar">
+                    <div class="wiki-modal-controls">
                       <button
-                        class="lightbox-btn"
-                        type="button"
-                        data-concept-zoom-out
+                        class="wiki-btn"
+                        data-zoom-out
                         aria-label="Zoom out"
                       >
                         <svg
@@ -1414,23 +1382,19 @@
                           viewBox="0 0 24 24"
                           fill="none"
                           stroke="currentColor"
-                          stroke-width="1.5"
+                          stroke-width="2"
                           stroke-linecap="round"
                           stroke-linejoin="round"
-                          aria-hidden="true"
                         >
                           <circle cx="11" cy="11" r="7" />
                           <path d="m21 21-4.35-4.35" />
                           <path d="M8 11h6" />
                         </svg>
                       </button>
-                      <span class="lightbox-zoom-level" data-concept-zoom-label
-                        >100%</span
-                      >
+                      <span class="wiki-zoom-label">Fit</span>
                       <button
-                        class="lightbox-btn"
-                        type="button"
-                        data-concept-zoom-in
+                        class="wiki-btn"
+                        data-zoom-in
                         aria-label="Zoom in"
                       >
                         <svg
@@ -1438,67 +1402,124 @@
                           viewBox="0 0 24 24"
                           fill="none"
                           stroke="currentColor"
-                          stroke-width="1.5"
+                          stroke-width="2"
                           stroke-linecap="round"
                           stroke-linejoin="round"
-                          aria-hidden="true"
                         >
                           <circle cx="11" cy="11" r="7" />
                           <path d="m21 21-4.35-4.35" />
                           <path d="M11 8v3M8 11h6" />
                         </svg>
                       </button>
+
                       <button
-                        class="lightbox-btn"
-                        type="button"
-                        data-concept-zoom-reset
-                        aria-label="Reset zoom"
+                        class="wiki-btn wiki-btn--close"
+                        data-close
+                        aria-label="Close"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 24 24"
                           fill="none"
                           stroke="currentColor"
-                          stroke-width="1.5"
+                          stroke-width="2"
                           stroke-linecap="round"
                           stroke-linejoin="round"
-                          aria-hidden="true"
-                        >
-                          <circle cx="11" cy="11" r="7" />
-                          <path d="m21 21-4.35-4.35" />
-                          <path d="M11 8v6" />
-                          <path d="M11 11h3" />
-                        </svg>
-                      </button>
-                      <button
-                        class="lightbox-btn lightbox-btn--close concept-modal-close"
-                        type="button"
-                        aria-label="Close concept gallery"
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="1.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          aria-hidden="true"
                         >
                           <path d="M18 6 6 18M6 6l12 12" />
                         </svg>
                       </button>
                     </div>
                   </div>
-                  <div class="concept-modal-scroll concept-modal-scroll--lightbox" data-concept-canvas>
-                    <div class="concept-modal-stage" data-concept-stage>
-                      <img
-                        src="./images/C_option1.png"
-                        alt="Option C concept exploration — service-oriented experience hub"
-                        class="concept-modal-img concept-modal-img--lightbox"
-                        data-concept-image
-                      />
+                  <div class="wiki-modal-canvas">
+                    <img
+                      src="./images/canopyMockup_optB2.webp"
+                      alt="Option B concept exploration — integrated clinical and plan experience"
+                      class="wiki-modal-img"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="wiki-modal"
+                id="wiki-option-c"
+                role="dialog"
+                aria-modal="true"
+                aria-label="Option C concept explorations"
+                hidden
+              >
+                <div class="wiki-modal-backdrop"></div>
+                <div class="wiki-modal-frame">
+                  <div class="wiki-modal-toolbar">
+                    <div class="wiki-modal-controls">
+                      <button
+                        class="wiki-btn"
+                        data-zoom-out
+                        aria-label="Zoom out"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <circle cx="11" cy="11" r="7" />
+                          <path d="m21 21-4.35-4.35" />
+                          <path d="M8 11h6" />
+                        </svg>
+                      </button>
+                      <span class="wiki-zoom-label">Fit</span>
+                      <button
+                        class="wiki-btn"
+                        data-zoom-in
+                        aria-label="Zoom in"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <circle cx="11" cy="11" r="7" />
+                          <path d="m21 21-4.35-4.35" />
+                          <path d="M11 8v3M8 11h6" />
+                        </svg>
+                      </button>
+
+                      <button
+                        class="wiki-btn wiki-btn--close"
+                        data-close
+                        aria-label="Close"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <path d="M18 6 6 18M6 6l12 12" />
+                        </svg>
+                      </button>
                     </div>
+                  </div>
+                  <div class="wiki-modal-canvas">
+                    <img
+                      src="./images/canopyMockup_optC2.webp"
+                      alt="Option C concept exploration — service-oriented experience hub"
+                      class="wiki-modal-img"
+                      loading="lazy"
+                    />
                   </div>
                 </div>
               </div>
@@ -2163,142 +2184,147 @@
         });
       })();
 
-      // ── Phase 3 concept modals ──
+      // ── Wiki strip modals ──
       (function () {
-        var activeTrigger = null;
-        var activeModal = null;
+        document.querySelectorAll('.wiki-modal').forEach(function (modal) {
+          var canvas = modal.querySelector('.wiki-modal-canvas');
+          var img = modal.querySelector('.wiki-modal-img');
+          var label = modal.querySelector('.wiki-zoom-label');
+          var btnIn = modal.querySelector('[data-zoom-in]');
+          var btnOut = modal.querySelector('[data-zoom-out]');
+          var STEP = 0.2;
+          var nativeW = 0;
+          var fitW = 0;
+          var currentW = 0;
 
-        function getFitScale(modal) {
-          var canvas = modal.querySelector('[data-concept-canvas]');
-          var img = modal.querySelector('[data-concept-image]');
-          if (!canvas || !img || !img.naturalWidth || !img.naturalHeight) return 1;
-          var styles = window.getComputedStyle(canvas);
-          var padX = parseFloat(styles.paddingLeft || 0) + parseFloat(styles.paddingRight || 0);
-          var padY = parseFloat(styles.paddingTop || 0) + parseFloat(styles.paddingBottom || 0);
-          var availW = Math.max(canvas.clientWidth - padX, 120);
-          var availH = Math.max(canvas.clientHeight - padY, 120);
-          return Math.min(1, availW / img.naturalWidth, availH / img.naturalHeight);
-        }
+          function getFitWidth() {
+            return canvas.clientWidth - 64;
+          }
 
-        function updateConceptZoom(modal, nextScale, preserveCenter) {
-          var canvas = modal.querySelector('[data-concept-canvas]');
-          var stage = modal.querySelector('[data-concept-stage]');
-          var img = modal.querySelector('[data-concept-image]');
-          var label = modal.querySelector('[data-concept-zoom-label]');
-          if (!canvas || !stage || !img || !img.naturalWidth || !img.naturalHeight) return;
+          function updateButtons() {
+            var atNative = currentW >= nativeW;
+            var atFit = currentW <= fitW;
+            btnIn.style.visibility = atNative ? 'hidden' : 'visible';
+            btnOut.style.visibility = atFit ? 'hidden' : 'visible';
+            if (atFit) {
+              label.style.visibility = 'hidden';
+              label.textContent = 'Fit';
+            } else if (atNative) {
+              label.style.visibility = 'visible';
+              label.textContent = '100%';
+            } else {
+              label.style.visibility = 'visible';
+              label.textContent = Math.round((currentW / nativeW) * 100) + '%';
+            }
+            canvas.style.overflow = atFit ? 'hidden' : 'auto';
+          }
 
-          var fitScale = getFitScale(modal);
-          var minScale = fitScale;
-          var maxScale = 1;
-          var prevScale = modal._conceptScale || fitScale;
-          var scale = Math.min(maxScale, Math.max(minScale, nextScale));
+          function applyWidth(w) {
+            currentW = Math.min(nativeW, Math.max(fitW, Math.round(w)));
+            img.style.width = currentW + 'px';
+            img.style.maxWidth = 'none';
+            img.style.height = 'auto';
+            canvas.style.display = 'block';
+            canvas.style.alignItems = '';
+            canvas.style.justifyContent = '';
+            img.style.margin = '0 auto';
+            var renderedH =
+              img.offsetHeight ||
+              Math.round((currentW * img.naturalHeight) / nativeW);
+            var canvasInnerH = canvas.clientHeight - 64;
+            if (renderedH < canvasInnerH) {
+              var topPad = Math.max(
+                32,
+                Math.round((canvas.clientHeight - renderedH) / 2),
+              );
+              canvas.style.paddingTop = topPad + 'px';
+            } else {
+              canvas.style.paddingTop = '32px';
+            }
+            updateButtons();
+          }
 
-          var centerX = canvas.scrollLeft + canvas.clientWidth / 2;
-          var centerY = canvas.scrollTop + canvas.clientHeight / 2;
-          var relX = stage.offsetWidth ? centerX / stage.offsetWidth : 0.5;
-          var relY = stage.offsetHeight ? centerY / stage.offsetHeight : 0.5;
-
-          modal._conceptScale = scale;
-          modal._conceptFitScale = fitScale;
-
-          var scaledWidth = Math.round(img.naturalWidth * scale);
-          var scaledHeight = Math.round(img.naturalHeight * scale);
-          stage.style.width = scaledWidth + 'px';
-          stage.style.height = scaledHeight + 'px';
-          img.style.width = scaledWidth + 'px';
-          img.style.height = scaledHeight + 'px';
-
-          if (label) label.textContent = Math.round(scale * 100) + '%';
-
-          if (preserveCenter && prevScale !== scale) {
-            canvas.scrollLeft = Math.max(0, scaledWidth * relX - canvas.clientWidth / 2);
-            canvas.scrollTop = Math.max(0, scaledHeight * relY - canvas.clientHeight / 2);
-          } else if (!preserveCenter) {
+          function resetToFit() {
+            fitW = getFitWidth();
+            img.style.width = '';
+            img.style.maxWidth = '';
+            img.style.marginTop = '';
+            img.style.margin = '';
+            currentW = fitW;
             canvas.scrollTop = 0;
             canvas.scrollLeft = 0;
+            canvas.style.overflow = 'hidden';
+            canvas.style.display = 'flex';
+            canvas.style.alignItems = 'center';
+            canvas.style.justifyContent = 'center';
+            canvas.style.paddingTop = '32px';
+            label.textContent = 'Fit';
+            label.style.visibility = 'hidden';
+            btnIn.style.visibility = 'visible';
+            btnOut.style.visibility = 'hidden';
           }
-        }
 
-        function openConceptModal(modal, trigger) {
-          activeTrigger = trigger || null;
-          activeModal = modal;
-          modal.removeAttribute('hidden');
-          document.body.style.overflow = 'hidden';
-
-          var img = modal.querySelector('[data-concept-image]');
-          var closeBtn = modal.querySelector('.concept-modal-close');
-          function finishOpen() {
-            updateConceptZoom(modal, getFitScale(modal), false);
-            if (closeBtn) closeBtn.focus();
+          function openModal() {
+            modal.removeAttribute('hidden');
+            document.body.style.overflow = 'hidden';
+            function init() {
+              nativeW = img.naturalWidth;
+              if (!nativeW) return;
+              requestAnimationFrame(resetToFit);
+            }
+            if (img.naturalWidth) {
+              init();
+            } else {
+              img.addEventListener('load', init, { once: true });
+            }
+            modal.querySelector('[data-close]').focus();
           }
-          if (img && !img.complete) {
-            img.addEventListener('load', finishOpen, { once: true });
+
+          function closeModal() {
+            modal.setAttribute('hidden', '');
+            document.body.style.overflow = '';
           }
-          requestAnimationFrame(finishOpen);
-        }
 
-        function closeConceptModal(modal) {
-          modal.setAttribute('hidden', '');
-          document.body.style.overflow = '';
-          if (activeTrigger) activeTrigger.focus();
-          activeTrigger = null;
-          activeModal = null;
-        }
-
-        document.querySelectorAll('[data-concept-modal-open]').forEach(function (trigger) {
-          var modalId = trigger.getAttribute('data-concept-modal-open');
-          var modal = document.getElementById(modalId);
-          if (!modal) return;
-
-          trigger.addEventListener('click', function (e) {
-            e.stopPropagation();
-            openConceptModal(modal, trigger);
+          btnIn.addEventListener('click', function () {
+            applyWidth(currentW * (1 + STEP));
           });
+          btnOut.addEventListener('click', function () {
+            applyWidth(currentW * (1 - STEP));
+          });
+          label.addEventListener('click', resetToFit);
 
-          var backdrop = modal.querySelector('.concept-modal-backdrop');
-          var closeBtn = modal.querySelector('.concept-modal-close');
-          var zoomIn = modal.querySelector('[data-concept-zoom-in]');
-          var zoomOut = modal.querySelector('[data-concept-zoom-out]');
-          var zoomReset = modal.querySelector('[data-concept-zoom-reset]');
-
-          if (backdrop) {
-            backdrop.addEventListener('click', function () {
-              closeConceptModal(modal);
-            });
-          }
-
-          if (closeBtn) {
-            closeBtn.addEventListener('click', function () {
-              closeConceptModal(modal);
-            });
-          }
-
-          if (zoomIn) {
-            zoomIn.addEventListener('click', function () {
-              updateConceptZoom(modal, (modal._conceptScale || getFitScale(modal)) + 0.125, true);
-            });
-          }
-
-          if (zoomOut) {
-            zoomOut.addEventListener('click', function () {
-              updateConceptZoom(modal, (modal._conceptScale || getFitScale(modal)) - 0.125, true);
-            });
-          }
-
-          if (zoomReset) {
-            zoomReset.addEventListener('click', function () {
-              updateConceptZoom(modal, getFitScale(modal), false);
-            });
-          }
-
+          modal
+            .querySelector('[data-close]')
+            .addEventListener('click', closeModal);
+          modal
+            .querySelector('.wiki-modal-backdrop')
+            .addEventListener('click', closeModal);
           modal.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape') closeConceptModal(modal);
+            if (e.key === 'Escape') closeModal();
           });
+
+          canvas.addEventListener(
+            'wheel',
+            function (e) {
+              if (e.ctrlKey || e.metaKey) {
+                e.preventDefault();
+                applyWidth(currentW * (e.deltaY < 0 ? 1 + STEP : 1 - STEP));
+              }
+            },
+            { passive: false },
+          );
+
+          modal._openWikiModal = openModal;
         });
 
-        window.addEventListener('resize', function () {
-          if (!activeModal || activeModal.hasAttribute('hidden')) return;
-          updateConceptZoom(activeModal, activeModal._conceptScale || getFitScale(activeModal), true);
+        document.querySelectorAll('[data-wiki-modal]').forEach(function (btn) {
+          btn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            var modal = document.getElementById(
+              btn.getAttribute('data-wiki-modal'),
+            );
+            if (modal && modal._openWikiModal) modal._openWikiModal();
+          });
         });
       })();
     </script>
