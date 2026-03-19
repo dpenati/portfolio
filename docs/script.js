@@ -86,7 +86,7 @@
     };
 
     // Temporarily disable unfinished case studies here
-    const DISABLED_CASES = ['canopy', 'cyber'];
+    const DISABLED_CASES = ['cyber'];
 
     const DEFAULT_TARGET = './work/indexWK.html';
 
