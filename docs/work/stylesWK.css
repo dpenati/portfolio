@@ -466,6 +466,15 @@ html[data-theme='auto'] .case-study-strip {
   color: var(--ink);
 }
 
+.block-subtitle-nested {
+  margin: 26px 0 14px 0;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: clamp(16px, 2.4vw, 18px);
+  line-height: 1.4;
+  color: var(--accent);
+}
+
 .block-text {
   margin: 0 0 20px 0;
   font-family: var(--condensed);
@@ -1304,6 +1313,23 @@ html[data-theme='auto'] .case-study-strip {
 }
 
 /* Right-edge fade — signals more content to the right */
+
+.artifact-scroll-track--website {
+  display: block;
+  overflow: hidden;
+}
+
+.artifact-img--website-preview {
+  width: 100%;
+  height: auto;
+  max-width: none;
+  object-fit: unset;
+  object-position: top left;
+  filter: none;
+  transition: none;
+  display: block;
+}
+
 .artifact-scroll-fade {
   position: absolute;
   top: 0;
@@ -1956,13 +1982,16 @@ html[data-theme='auto'] .rhythm-accordion:hover {
 }
 
 .reflection-close {
-  margin: 28px 0 0 0;
-  padding-top: 20px;
+  margin: 32px 0 0 0;
+  padding: 22px 0 0 0;
   border-top: 1px solid var(--rule);
-  font-family: var(--serif);
-  font-size: clamp(20px, 2.8vw, 28px);
-  line-height: 1.5;
-  color: var(--ink);
+  font-family: 'Cairo Play', var(--sans);
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+  color: var(--accent);
+  max-width: 28ch;
 }
 
 @media (max-width: 880px) {
@@ -2172,3 +2201,13 @@ html[data-theme='auto'] .rhythm-accordion:hover {
   }
 }
 
+
+
+.hero-caption {
+  margin: 12px 4px 0 4px;
+  font-family: var(--condensed);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--muted);
+  font-style: italic;
+}

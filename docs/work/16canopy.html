@@ -1,96 +1,89 @@
 <!doctype html>
-<html lang="en" data-theme="auto">
+
+<html data-theme="auto" lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
     <title>[Case Study Canopy Health] — Daniela Penati</title>
     <meta
-      name="description"
       content="Leading discovery and experience architecture for Canopy Health — a new Bay Area healthcare network spanning UCSF Health and John Muir Health."
+      name="description"
     />
-
-    <meta name="color-scheme" content="light dark" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta content="light dark" name="color-scheme" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cairo+Play:wght@400;600;700;800&family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;600;700&family=Roboto+Condensed:wght@300;400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cairo+Play:wght@400;600;700;800&amp;family=Inter:wght@300;400;500&amp;family=Playfair+Display:wght@400;600;700&amp;family=Roboto+Condensed:wght@300;400&amp;display=swap"
       rel="stylesheet"
     />
-
-    <link rel="stylesheet" href="./stylesWK.css" />
+    <link href="./stylesWK.css" rel="stylesheet" />
   </head>
-
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-
     <!-- Sticky header -->
     <header class="site-header" id="top">
       <div class="container header-row">
         <div class="brand">
-          <a href="../index.html" class="brand-link">
+          <a class="brand-link" href="../index.html">
             <svg
-              class="brand-mark"
-              viewBox="0 0 60 60"
-              xmlns="http://www.w3.org/2000/svg"
               aria-hidden="true"
+              class="brand-mark"
+              viewbox="0 0 60 60"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <circle
                 cx="30"
                 cy="30"
+                fill="none"
+                opacity="0.3"
                 r="27"
                 stroke="currentColor"
                 stroke-width="1.5"
-                fill="none"
-                opacity="0.3"
-              />
+              ></circle>
               <circle
                 cx="30"
                 cy="30"
-                r="24"
                 fill="currentColor"
                 opacity="0.08"
-              />
+                r="24"
+              ></circle>
               <text
-                x="30"
-                y="38"
-                text-anchor="middle"
+                fill="currentColor"
                 font-family="'Cairo Play', sans-serif"
                 font-size="20"
                 font-weight="800"
                 letter-spacing="-1"
-                fill="currentColor"
+                text-anchor="middle"
+                x="30"
+                y="38"
               >
                 d:p
               </text>
             </svg>
             <div>
               <div class="brand-title">Daniela Penati</div>
-              <div class="brand-subtitle">UX Design & Leadership</div>
+              <div class="brand-subtitle">UX Design &amp; Leadership</div>
             </div>
           </a>
         </div>
-
         <div class="header-actions">
-          <nav class="nav" aria-label="Primary">
+          <nav aria-label="Primary" class="nav">
             <a href="../daniela/indexDP.html">About</a>
-            <a href="./indexWK.html" aria-current="page">Work</a>
+            <a aria-current="page" href="./indexWK.html">Work</a>
             <a href="../index.html#contact">Contact</a>
           </nav>
           <button
-            class="theme-toggle"
-            type="button"
             aria-label="Toggle dark mode"
             aria-pressed="false"
-            data-theme-toggle
+            class="theme-toggle"
+            data-theme-toggle=""
+            type="button"
           >
-            <span class="theme-icon" aria-hidden="true">◐</span>
+            <span aria-hidden="true" class="theme-icon">◐</span>
           </button>
         </div>
       </div>
     </header>
-
     <main id="main">
       <!-- Case study header strip -->
       <div class="case-study-strip">
@@ -119,7 +112,6 @@
           </div>
         </div>
       </div>
-
       <!-- Table of contents -->
       <section class="section section--flush-top case-study-toc">
         <div class="container">
@@ -130,26 +122,27 @@
               <a href="#strategy">Strategy</a>
               <a href="#execution">Execution</a>
               <a href="#interface">Interface</a>
-              <a href="#impact">Impact</a>
+              <a href="#impact">Reflection</a>
             </nav>
           </div>
         </div>
       </section>
-
       <!-- Hero visual -->
       <section class="section section--flush-top case-study-hero">
         <div class="container">
           <figure class="hero-figure">
             <img
-              src="./images/16canopyHero.webp"
               alt="Canopy Health consumer portal — showing the provider search interface and member portal entry point across a Bay Area healthcare network"
               class="hero-svg"
               loading="eager"
+              src="./images/canopy_map.webp"
             />
+            <figcaption class="hero-caption">
+              Illustration I made to illustrate the Canopy network.
+            </figcaption>
           </figure>
         </div>
       </section>
-
       <!-- Content -->
       <section class="section section--flush-top case-study-content">
         <div class="container">
@@ -188,13 +181,11 @@
               </li>
             </ul>
           </div>
-
           <article class="content-article">
             <!-- Context -->
-            <div id="context" class="content-block">
+            <div class="content-block" id="context">
               <div class="block-label">Context</div>
               <h2 class="block-title">A New Healthcare Network Taking Shape</h2>
-
               <p class="block-text">
                 In 2016, UCSF Health and John Muir Health initiated an
                 affiliation to form a Bay Area–wide accountable care
@@ -222,7 +213,6 @@
                 amplifying the complexity of the underlying healthcare systems
                 rather than resolving it.
               </p>
-
               <div class="insight-grid">
                 <div class="insight-card">
                   <div class="insight-icon">1</div>
@@ -236,7 +226,6 @@
                     providers, and how patients should navigate care within it.
                   </p>
                 </div>
-
                 <div class="insight-card">
                   <div class="insight-icon">2</div>
                   <h3 class="insight-title">
@@ -249,7 +238,6 @@
                     sources.
                   </p>
                 </div>
-
                 <div class="insight-card">
                   <div class="insight-icon">3</div>
                   <h3 class="insight-title">
@@ -262,7 +250,6 @@
                     patients could easily understand.
                   </p>
                 </div>
-
                 <div class="insight-card">
                   <div class="insight-icon">4</div>
                   <h3 class="insight-title">
@@ -279,35 +266,34 @@
             </div>
           </article>
           <!-- /end Context article -->
-
           <!-- Artifact: Ecosystem map -->
-          <figure class="artifact-figure" data-artifact>
+          <figure class="artifact-figure" data-artifact="">
             <div
+              aria-label="View full illustration: Canopy Health audience ecosystem map"
               class="artifact-thumb"
               role="button"
               tabindex="0"
-              aria-label="View full illustration: Canopy Health audience ecosystem map"
             >
               <img
-                src="./images/canopy_ecosystem.webp"
                 alt="Audience ecosystem map showing the relationships between consumers, employers, hospitals (UCSF Health and John Muir Health), and insurers within the Canopy Health network"
                 class="artifact-img artifact-img--color"
                 loading="lazy"
+                src="./images/canopy_ecosystem.webp"
               />
               <div class="artifact-overlay">
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
+                  aria-hidden="true"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="1.5"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  aria-hidden="true"
+                  stroke-width="1.5"
+                  viewbox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <circle cx="11" cy="11" r="7" />
-                  <path d="m21 21-4.35-4.35" />
-                  <path d="M11 8v3M8 11h6" />
+                  <circle cx="11" cy="11" r="7"></circle>
+                  <path d="m21 21-4.35-4.35"></path>
+                  <path d="M11 8v3M8 11h6"></path>
                 </svg>
                 <span>View full illustration</span>
               </div>
@@ -317,37 +303,36 @@
               hospitals, and insurers within a newly formed Bay Area network
             </figcaption>
           </figure>
-
           <!-- Modal -->
           <div
+            aria-label="Canopy Health ecosystem map"
+            aria-modal="true"
             class="artifact-modal"
+            hidden=""
             id="artifact-modal-ecosystem"
             role="dialog"
-            aria-modal="true"
-            aria-label="Canopy Health ecosystem map"
-            hidden
           >
             <div class="artifact-modal-backdrop"></div>
             <div class="artifact-modal-frame">
-              <button class="artifact-modal-close" aria-label="Close diagram">
+              <button aria-label="Close diagram" class="artifact-modal-close">
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
+                  aria-hidden="true"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="1.5"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  aria-hidden="true"
+                  stroke-width="1.5"
+                  viewbox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <path d="M18 6 6 18M6 6l12 12" />
+                  <path d="M18 6 6 18M6 6l12 12"></path>
                 </svg>
               </button>
               <div class="artifact-modal-scroll">
                 <img
-                  src="./images/canopy_ecosystem.webp"
                   alt="Full view: Canopy Health audience ecosystem map"
                   class="artifact-modal-img"
+                  src="./images/canopy_ecosystem.webp"
                 />
               </div>
               <p class="artifact-modal-caption">
@@ -356,17 +341,14 @@
               </p>
             </div>
           </div>
-
           <div class="section-rule-accent"></div>
-
           <article class="content-article">
             <!-- Strategy -->
-            <div id="strategy" class="content-block">
+            <div class="content-block" id="strategy">
               <div class="block-label">Strategy</div>
               <h2 class="block-title">
                 Establishing the Experience Architecture
               </h2>
-
               <p class="block-text">
                 Rather than beginning with interface design, the effort started
                 with discovery. The objective was to understand how patients
@@ -382,7 +364,6 @@
                 the work shifted from individual features to defining the core
                 journeys that would structure the portal experience.
               </p>
-
               <div class="insight-grid insight-grid-3">
                 <div class="insight-card">
                   <div class="insight-icon">A</div>
@@ -398,7 +379,6 @@
                     coverage visibility.
                   </p>
                 </div>
-
                 <div class="insight-card">
                   <div class="insight-icon">B</div>
                   <h3 class="insight-title">Architecting the Journeys</h3>
@@ -412,7 +392,6 @@
                     experience.
                   </p>
                 </div>
-
                 <div class="insight-card">
                   <div class="insight-icon">C</div>
                   <h3 class="insight-title">Designing the Entry Points</h3>
@@ -429,38 +408,37 @@
             </div>
           </article>
           <!-- /end Strategy article -->
-
           <!-- =====================================================
                Artifact: Experience strategy diagram
                Standard modal — fits container width
           ====================================================== -->
-          <figure class="artifact-figure" data-artifact>
+          <figure class="artifact-figure" data-artifact="">
             <div
+              aria-label="View full diagram: Experience Strategy — Understanding, Structuring, Designing"
               class="artifact-thumb"
               role="button"
               tabindex="0"
-              aria-label="View full diagram: Experience Strategy — Understanding, Structuring, Designing"
             >
               <img
-                src="./images/canopy_strategy.png"
                 alt="Experience Strategy diagram showing three sequential steps across Q1–Q3: Step 1 Understanding the Ecosystem (patient expectations, stakeholder interviews, insurance concepts, enrollment models, identity verification), Step 2 Architecting the Journeys (task model, UX architecture, system mapping, user journey), and Step 3 Designing the Entry Points (website and login, provider search UI, appointment access), followed by handoff to agency"
                 class="artifact-img artifact-img--color"
                 loading="lazy"
+                src="./images/canopy_strategy.png"
               />
               <div class="artifact-overlay">
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
+                  aria-hidden="true"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="1.5"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  aria-hidden="true"
+                  stroke-width="1.5"
+                  viewbox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <circle cx="11" cy="11" r="7" />
-                  <path d="m21 21-4.35-4.35" />
-                  <path d="M11 8v3M8 11h6" />
+                  <circle cx="11" cy="11" r="7"></circle>
+                  <path d="m21 21-4.35-4.35"></path>
+                  <path d="M11 8v3M8 11h6"></path>
                 </svg>
                 <span>View full diagram</span>
               </div>
@@ -470,37 +448,36 @@
               ecosystem research into a coherent portal architecture
             </figcaption>
           </figure>
-
           <!-- Modal -->
           <div
+            aria-label="Experience strategy diagram"
+            aria-modal="true"
             class="artifact-modal"
+            hidden=""
             id="artifact-modal-strategy"
             role="dialog"
-            aria-modal="true"
-            aria-label="Experience strategy diagram"
-            hidden
           >
             <div class="artifact-modal-backdrop"></div>
             <div class="artifact-modal-frame">
-              <button class="artifact-modal-close" aria-label="Close diagram">
+              <button aria-label="Close diagram" class="artifact-modal-close">
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
+                  aria-hidden="true"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="1.5"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  aria-hidden="true"
+                  stroke-width="1.5"
+                  viewbox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <path d="M18 6 6 18M6 6l12 12" />
+                  <path d="M18 6 6 18M6 6l12 12"></path>
                 </svg>
               </button>
               <div class="artifact-modal-scroll">
                 <img
-                  src="./images/canopy_strategy.png"
                   alt="Full view: Experience Strategy — Understanding, Structuring, Designing"
                   class="artifact-modal-img"
+                  src="./images/canopy_strategy.png"
                 />
               </div>
               <p class="artifact-modal-caption">
@@ -511,21 +488,17 @@
             </div>
           </div>
           <!-- end artifact -->
-
           <div class="section-rule-accent"></div>
-
           <article class="content-article">
             <!-- Execution -->
-            <div id="execution" class="content-block">
+            <div class="content-block" id="execution">
               <div class="block-label">Execution</div>
               <h2 class="block-title">From Strategy to Structured Journeys</h2>
-
               <p class="block-text">
                 Each strategic principle shaped a distinct phase of the project
                 — from discovery research to experience architecture, and
                 finally to the design of the platform's primary entry points.
               </p>
-
               <!-- Phase 1 -->
               <h3 class="block-subtitle">1. Understanding the Ecosystem</h3>
               <p class="block-text">
@@ -547,35 +520,34 @@
               </p>
             </div>
           </article>
-
           <!-- Artifact: Hypotheses -->
-          <figure class="artifact-figure" data-artifact>
+          <figure class="artifact-figure" data-artifact="">
             <div
+              aria-label="View full diagram: Research assumptions and hypotheses"
               class="artifact-thumb"
               role="button"
               tabindex="0"
-              aria-label="View full diagram: Research assumptions and hypotheses"
             >
               <img
-                src="./images/canopy_hypotheses.webp"
                 alt="Assumptions and hypotheses slide — structured research framing around patient behaviors, portal usage patterns, and provider search"
                 class="artifact-img artifact-img--color"
                 loading="lazy"
+                src="./images/canopy_hypotheses.webp"
               />
               <div class="artifact-overlay">
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
+                  aria-hidden="true"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="1.5"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  aria-hidden="true"
+                  stroke-width="1.5"
+                  viewbox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <circle cx="11" cy="11" r="7" />
-                  <path d="m21 21-4.35-4.35" />
-                  <path d="M11 8v3M8 11h6" />
+                  <circle cx="11" cy="11" r="7"></circle>
+                  <path d="m21 21-4.35-4.35"></path>
+                  <path d="M11 8v3M8 11h6"></path>
                 </svg>
                 <span>View diagram</span>
               </div>
@@ -585,36 +557,35 @@
               portal behaviors, provider search, and insurance comprehension
             </figcaption>
           </figure>
-
           <div
+            aria-label="Research hypotheses diagram"
+            aria-modal="true"
             class="artifact-modal"
+            hidden=""
             id="artifact-modal-hypotheses"
             role="dialog"
-            aria-modal="true"
-            aria-label="Research hypotheses diagram"
-            hidden
           >
             <div class="artifact-modal-backdrop"></div>
             <div class="artifact-modal-frame">
-              <button class="artifact-modal-close" aria-label="Close diagram">
+              <button aria-label="Close diagram" class="artifact-modal-close">
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
+                  aria-hidden="true"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="1.5"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  aria-hidden="true"
+                  stroke-width="1.5"
+                  viewbox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <path d="M18 6 6 18M6 6l12 12" />
+                  <path d="M18 6 6 18M6 6l12 12"></path>
                 </svg>
               </button>
               <div class="artifact-modal-scroll">
                 <img
-                  src="./images/canopy_hypotheses.webp"
                   alt="Full view: Research assumptions and hypotheses"
                   class="artifact-modal-img"
+                  src="./images/canopy_hypotheses.webp"
                 />
               </div>
               <p class="artifact-modal-caption">
@@ -623,15 +594,13 @@
               </p>
             </div>
           </div>
-
           <article class="content-article">
             <div class="content-block">
-              <h3 class="block-subtitle">Key Research Insights</h3>
+              <h3 class="block-subtitle-nested">Key Research Insights</h3>
               <p class="block-text">
                 Research synthesis revealed several recurring patterns that
                 shaped the experience priorities:
               </p>
-
               <div class="insight-grid">
                 <div class="insight-card">
                   <div class="insight-icon">↗</div>
@@ -674,35 +643,34 @@
               </div>
             </div>
           </article>
-
           <!-- Artifact: Research insights -->
-          <figure class="artifact-figure" data-artifact>
+          <figure class="artifact-figure" data-artifact="">
             <div
+              aria-label="View full diagram: Research insights and usability findings"
               class="artifact-thumb"
               role="button"
               tabindex="0"
-              aria-label="View full diagram: Research insights and usability findings"
             >
               <img
-                src="./images/canopy_insights.webp"
                 alt="Research insights slide — usability findings covering patient portal behaviors, provider search patterns, and insurance comprehension themes"
                 class="artifact-img artifact-img--color"
                 loading="lazy"
+                src="./images/canopy_insights.webp"
               />
               <div class="artifact-overlay">
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
+                  aria-hidden="true"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="1.5"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  aria-hidden="true"
+                  stroke-width="1.5"
+                  viewbox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <circle cx="11" cy="11" r="7" />
-                  <path d="m21 21-4.35-4.35" />
-                  <path d="M11 8v3M8 11h6" />
+                  <circle cx="11" cy="11" r="7"></circle>
+                  <path d="m21 21-4.35-4.35"></path>
+                  <path d="M11 8v3M8 11h6"></path>
                 </svg>
                 <span>View diagram</span>
               </div>
@@ -712,36 +680,35 @@
               usability sessions informing the portal's experience priorities
             </figcaption>
           </figure>
-
           <div
+            aria-label="Research insights diagram"
+            aria-modal="true"
             class="artifact-modal"
+            hidden=""
             id="artifact-modal-insights"
             role="dialog"
-            aria-modal="true"
-            aria-label="Research insights diagram"
-            hidden
           >
             <div class="artifact-modal-backdrop"></div>
             <div class="artifact-modal-frame">
-              <button class="artifact-modal-close" aria-label="Close diagram">
+              <button aria-label="Close diagram" class="artifact-modal-close">
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
+                  aria-hidden="true"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="1.5"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  aria-hidden="true"
+                  stroke-width="1.5"
+                  viewbox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <path d="M18 6 6 18M6 6l12 12" />
+                  <path d="M18 6 6 18M6 6l12 12"></path>
                 </svg>
               </button>
               <div class="artifact-modal-scroll">
                 <img
-                  src="./images/canopy_insights.webp"
                   alt="Full view: Research insights and usability findings"
                   class="artifact-modal-img"
+                  src="./images/canopy_insights.webp"
                 />
               </div>
               <p class="artifact-modal-caption">
@@ -750,9 +717,7 @@
               </p>
             </div>
           </div>
-
           <div class="section-rule-accent"></div>
-
           <article class="content-article">
             <div class="content-block">
               <!-- Phase 2 -->
@@ -768,8 +733,7 @@
                 user journeys and evaluated how different systems would need to
                 interact to support them.
               </p>
-
-              <h3 class="block-subtitle">Task Model</h3>
+              <h3 class="block-subtitle-nested">Task Model</h3>
               <p class="block-text">
                 The task model captures the goals patients are trying to
                 accomplish and the activities they expect to perform across the
@@ -784,40 +748,39 @@
               </p>
             </div>
           </article>
-
           <figure
             class="artifact-figure artifact-figure--scroll"
-            data-artifact
-            data-artifact-taskmodel
+            data-artifact=""
+            data-artifact-taskmodel=""
           >
             <div
+              aria-label="View full diagram: Task model illustrating the primary patient activities across the portal ecosystem"
               class="artifact-thumb artifact-thumb--scroll"
               role="button"
               tabindex="0"
-              aria-label="View full diagram: Task model illustrating the primary patient activities across the portal ecosystem"
             >
               <div class="artifact-scroll-track">
                 <img
-                  src="./images/canopy_taskmodel_preview.webp"
                   alt="Task model illustrating the primary patient activities across the portal ecosystem"
                   class="artifact-img artifact-img--scroll"
                   loading="lazy"
+                  src="./images/canopy_taskmodel_preview.webp"
                 />
               </div>
               <div class="artifact-overlay">
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
+                  aria-hidden="true"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="1.5"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  aria-hidden="true"
+                  stroke-width="1.5"
+                  viewbox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <circle cx="11" cy="11" r="7" />
-                  <path d="m21 21-4.35-4.35" />
-                  <path d="M11 8v3M8 11h6" />
+                  <circle cx="11" cy="11" r="7"></circle>
+                  <path d="m21 21-4.35-4.35"></path>
+                  <path d="M11 8v3M8 11h6"></path>
                 </svg>
                 <span>View diagram</span>
               </div>
@@ -827,14 +790,13 @@
               portal ecosystem.
             </figcaption>
           </figure>
-
           <div
+            aria-label="Task model diagram"
+            aria-modal="true"
             class="artifact-modal lightbox"
+            hidden=""
             id="artifact-modal-taskmodel"
             role="dialog"
-            aria-modal="true"
-            aria-label="Task model diagram"
-            hidden
           >
             <div class="artifact-modal-backdrop"></div>
             <div class="lightbox-frame">
@@ -845,62 +807,61 @@
                 >
                 <div class="lightbox-controls">
                   <a
+                    aria-label="Open full-size diagram in a new tab"
                     class="lightbox-link"
                     href="./images/canopy_taskmodel_full.png"
-                    target="_blank"
                     rel="noopener"
-                    aria-label="Open full-size diagram in a new tab"
+                    target="_blank"
                   >
                     View full size
                     <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
+                      aria-hidden="true"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="1.8"
                       stroke-linecap="round"
                       stroke-linejoin="round"
-                      aria-hidden="true"
+                      stroke-width="1.8"
+                      viewbox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      <path d="M7 17 17 7" />
-                      <path d="M8 7h9v9" />
+                      <path d="M7 17 17 7"></path>
+                      <path d="M8 7h9v9"></path>
                     </svg>
                   </a>
                   <button
+                    aria-label="Close diagram"
                     class="lightbox-btn lightbox-btn--close"
                     id="tm-close"
-                    aria-label="Close diagram"
                   >
                     <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
+                      aria-hidden="true"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="1.5"
                       stroke-linecap="round"
                       stroke-linejoin="round"
-                      aria-hidden="true"
+                      stroke-width="1.5"
+                      viewbox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      <path d="M18 6 6 18M6 6l12 12" />
+                      <path d="M18 6 6 18M6 6l12 12"></path>
                     </svg>
                   </button>
                 </div>
               </div>
               <div class="lightbox-canvas lightbox-canvas--fit" id="tm-canvas">
                 <img
-                  src="./images/canopy_taskmodel_preview.webp"
                   alt="Full view: Task model illustrating the primary patient activities across the portal ecosystem"
                   class="lightbox-img lightbox-img--fit"
-                  id="tm-img"
                   draggable="false"
+                  id="tm-img"
+                  src="./images/canopy_taskmodel_preview.webp"
                 />
               </div>
             </div>
           </div>
-
           <article class="content-article">
             <div class="content-block">
-              <h3 class="block-subtitle">System Journeys</h3>
+              <h3 class="block-subtitle-nested">System Journeys</h3>
               <p class="block-text">
                 Once the behavioral structure was established, the next step was
                 translating those activities into system interaction journeys.
@@ -915,40 +876,39 @@
               </p>
             </div>
           </article>
-
           <figure
             class="artifact-figure artifact-figure--scroll"
-            data-artifact
-            data-artifact-journey
+            data-artifact=""
+            data-artifact-journey=""
           >
             <div
+              aria-label="View full diagram: Example system journeys showing how portal interactions coordinate across multiple backend systems"
               class="artifact-thumb artifact-thumb--scroll"
               role="button"
               tabindex="0"
-              aria-label="View full diagram: Example system journeys showing how portal interactions coordinate across multiple backend systems"
             >
               <div class="artifact-scroll-track">
                 <img
-                  src="./images/canopy_journey_preview.webp"
                   alt="Example system journeys showing how portal interactions coordinate across multiple backend systems"
                   class="artifact-img artifact-img--scroll"
                   loading="lazy"
+                  src="./images/canopy_journey_preview.webp"
                 />
               </div>
               <div class="artifact-overlay">
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
+                  aria-hidden="true"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="1.5"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  aria-hidden="true"
+                  stroke-width="1.5"
+                  viewbox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <circle cx="11" cy="11" r="7" />
-                  <path d="m21 21-4.35-4.35" />
-                  <path d="M11 8v3M8 11h6" />
+                  <circle cx="11" cy="11" r="7"></circle>
+                  <path d="m21 21-4.35-4.35"></path>
+                  <path d="M11 8v3M8 11h6"></path>
                 </svg>
                 <span>View diagram</span>
               </div>
@@ -958,14 +918,13 @@
               across multiple backend systems.
             </figcaption>
           </figure>
-
           <div
+            aria-label="System journeys diagram"
+            aria-modal="true"
             class="artifact-modal lightbox"
+            hidden=""
             id="artifact-modal-journey"
             role="dialog"
-            aria-modal="true"
-            aria-label="System journeys diagram"
-            hidden
           >
             <div class="artifact-modal-backdrop"></div>
             <div class="lightbox-frame">
@@ -976,61 +935,59 @@
                 >
                 <div class="lightbox-controls">
                   <a
+                    aria-label="Open full-size diagram in a new tab"
                     class="lightbox-link"
                     href="./images/canopy_journey_full.webp"
-                    target="_blank"
                     rel="noopener"
-                    aria-label="Open full-size diagram in a new tab"
+                    target="_blank"
                   >
                     View full size
                     <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
+                      aria-hidden="true"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="1.8"
                       stroke-linecap="round"
                       stroke-linejoin="round"
-                      aria-hidden="true"
+                      stroke-width="1.8"
+                      viewbox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      <path d="M7 17 17 7" />
-                      <path d="M8 7h9v9" />
+                      <path d="M7 17 17 7"></path>
+                      <path d="M8 7h9v9"></path>
                     </svg>
                   </a>
                   <button
+                    aria-label="Close diagram"
                     class="lightbox-btn lightbox-btn--close"
                     id="jr-close"
-                    aria-label="Close diagram"
                   >
                     <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
+                      aria-hidden="true"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="1.5"
                       stroke-linecap="round"
                       stroke-linejoin="round"
-                      aria-hidden="true"
+                      stroke-width="1.5"
+                      viewbox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      <path d="M18 6 6 18M6 6l12 12" />
+                      <path d="M18 6 6 18M6 6l12 12"></path>
                     </svg>
                   </button>
                 </div>
               </div>
               <div class="lightbox-canvas lightbox-canvas--fit" id="jr-canvas">
                 <img
-                  src="./images/canopy_journey_preview.webp"
                   alt="Full view: Example system journeys showing how portal interactions coordinate across multiple backend systems"
                   class="lightbox-img lightbox-img--fit"
-                  id="jr-img"
                   draggable="false"
+                  id="jr-img"
+                  src="./images/canopy_journey_preview.webp"
                 />
               </div>
             </div>
           </div>
-
           <div class="section-rule-accent"></div>
-
           <article class="content-article">
             <div class="content-block">
               <!-- Phase 3 -->
@@ -1053,7 +1010,6 @@
                 distinct approach to helping patients orient themselves within
                 the portal.
               </p>
-
               <!-- Accordion: concept directions -->
               <div class="rhythm-list rhythm-list--accordion">
                 <!-- Option A -->
@@ -1062,25 +1018,25 @@
                   data-accordion="option-a"
                 >
                   <div
+                    aria-controls="accordion-option-a"
+                    aria-expanded="false"
                     class="rhythm-header"
                     role="button"
                     tabindex="0"
-                    aria-expanded="false"
-                    aria-controls="accordion-option-a"
                   >
                     <div class="rhythm-day">
                       <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
+                        aria-hidden="true"
                         fill="none"
                         stroke="currentColor"
-                        stroke-width="1.5"
                         stroke-linecap="round"
                         stroke-linejoin="round"
-                        aria-hidden="true"
+                        stroke-width="1.5"
+                        viewbox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
                       >
-                        <rect x="3" y="4" width="18" height="16" rx="2" />
-                        <path d="M7 8h10M7 12h6M7 16h4" />
+                        <rect height="16" rx="2" width="18" x="3" y="4"></rect>
+                        <path d="M7 8h10M7 12h6M7 16h4"></path>
                       </svg>
                     </div>
                     <div class="rhythm-content">
@@ -1098,63 +1054,62 @@
                       </div>
                     </div>
                     <svg
+                      aria-hidden="true"
                       class="rhythm-chevron"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="2"
                       stroke-linecap="round"
                       stroke-linejoin="round"
-                      aria-hidden="true"
+                      stroke-width="2"
+                      viewbox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      <path d="m6 9 6 6 6-6" />
+                      <path d="m6 9 6 6 6-6"></path>
                     </svg>
                   </div>
                   <div class="rhythm-accordion-body" id="accordion-option-a">
                     <div class="rhythm-accordion-inner">
                       <img
-                        src="./images/canopyMockup_optA.webp"
                         alt="Option A concept — benefits-centered dashboard with modular widgets and plan information"
                         class="rhythm-mockup"
                         loading="lazy"
+                        src="./images/canopyMockup_optA.webp"
                       />
                       <button
                         class="rhythm-spec-link"
-                        type="button"
                         data-wiki-modal="wiki-option-a"
+                        type="button"
                       >
-                        View more &rarr;
+                        View more →
                       </button>
                     </div>
                   </div>
                 </div>
-
                 <!-- Option B -->
                 <div
                   class="rhythm-item rhythm-accordion"
                   data-accordion="option-b"
                 >
                   <div
+                    aria-controls="accordion-option-b"
+                    aria-expanded="false"
                     class="rhythm-header"
                     role="button"
                     tabindex="0"
-                    aria-expanded="false"
-                    aria-controls="accordion-option-b"
                   >
                     <div class="rhythm-day">
                       <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
+                        aria-hidden="true"
                         fill="none"
                         stroke="currentColor"
-                        stroke-width="1.5"
                         stroke-linecap="round"
                         stroke-linejoin="round"
-                        aria-hidden="true"
+                        stroke-width="1.5"
+                        viewbox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
                       >
-                        <path d="M4 7h16M4 12h16M4 17h10" />
-                        <circle cx="18" cy="17" r="2" />
+                        <path d="M4 7h16M4 12h16M4 17h10"></path>
+                        <circle cx="18" cy="17" r="2"></circle>
                       </svg>
                     </div>
                     <div class="rhythm-content">
@@ -1171,63 +1126,62 @@
                       </div>
                     </div>
                     <svg
+                      aria-hidden="true"
                       class="rhythm-chevron"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="2"
                       stroke-linecap="round"
                       stroke-linejoin="round"
-                      aria-hidden="true"
+                      stroke-width="2"
+                      viewbox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      <path d="m6 9 6 6 6-6" />
+                      <path d="m6 9 6 6 6-6"></path>
                     </svg>
                   </div>
                   <div class="rhythm-accordion-body" id="accordion-option-b">
                     <div class="rhythm-accordion-inner">
                       <img
-                        src="./images/canopyMockup_optB.webp"
                         alt="Option B concept — integrated clinical and plan experience with onboarding tasks and linked records"
                         class="rhythm-mockup"
                         loading="lazy"
+                        src="./images/canopyMockup_optB.webp"
                       />
                       <button
                         class="rhythm-spec-link"
-                        type="button"
                         data-wiki-modal="wiki-option-b"
+                        type="button"
                       >
-                        View more &rarr;
+                        View more →
                       </button>
                     </div>
                   </div>
                 </div>
-
                 <!-- Option C -->
                 <div
                   class="rhythm-item rhythm-accordion"
                   data-accordion="option-c"
                 >
                   <div
+                    aria-controls="accordion-option-c"
+                    aria-expanded="false"
                     class="rhythm-header"
                     role="button"
                     tabindex="0"
-                    aria-expanded="false"
-                    aria-controls="accordion-option-c"
                   >
                     <div class="rhythm-day">
                       <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
+                        aria-hidden="true"
                         fill="none"
                         stroke="currentColor"
-                        stroke-width="1.5"
                         stroke-linecap="round"
                         stroke-linejoin="round"
-                        aria-hidden="true"
+                        stroke-width="1.5"
+                        viewbox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
                       >
-                        <path d="M5 6h14v12H5z" />
-                        <path d="M9 10h6M9 14h6" />
+                        <path d="M5 6h14v12H5z"></path>
+                        <path d="M9 10h6M9 14h6"></path>
                       </svg>
                     </div>
                     <div class="rhythm-content">
@@ -1244,281 +1198,275 @@
                       </div>
                     </div>
                     <svg
+                      aria-hidden="true"
                       class="rhythm-chevron"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="2"
                       stroke-linecap="round"
                       stroke-linejoin="round"
-                      aria-hidden="true"
+                      stroke-width="2"
+                      viewbox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      <path d="m6 9 6 6 6-6" />
+                      <path d="m6 9 6 6 6-6"></path>
                     </svg>
                   </div>
                   <div class="rhythm-accordion-body" id="accordion-option-c">
                     <div class="rhythm-accordion-inner">
                       <img
-                        src="./images/canopyMockup_optC.webp"
                         alt="Option C concept — service-oriented experience hub with persistent navigation and structured care sections"
                         class="rhythm-mockup"
                         loading="lazy"
+                        src="./images/canopyMockup_optC.webp"
                       />
                       <button
                         class="rhythm-spec-link"
-                        type="button"
                         data-wiki-modal="wiki-option-c"
+                        type="button"
                       >
-                        View more &rarr;
+                        View more →
                       </button>
                     </div>
                   </div>
                 </div>
               </div>
               <!-- /end accordion -->
-
               <div
+                aria-label="Option A concept explorations"
+                aria-modal="true"
                 class="wiki-modal"
+                hidden=""
                 id="wiki-option-a"
                 role="dialog"
-                aria-modal="true"
-                aria-label="Option A concept explorations"
-                hidden
               >
                 <div class="wiki-modal-backdrop"></div>
                 <div class="wiki-modal-frame">
                   <div class="wiki-modal-toolbar">
                     <div class="wiki-modal-controls">
                       <button
-                        class="wiki-btn"
-                        data-zoom-out
                         aria-label="Zoom out"
+                        class="wiki-btn"
+                        data-zoom-out=""
                       >
                         <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
                           fill="none"
                           stroke="currentColor"
-                          stroke-width="2"
                           stroke-linecap="round"
                           stroke-linejoin="round"
+                          stroke-width="2"
+                          viewbox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
                         >
-                          <circle cx="11" cy="11" r="7" />
-                          <path d="m21 21-4.35-4.35" />
-                          <path d="M8 11h6" />
+                          <circle cx="11" cy="11" r="7"></circle>
+                          <path d="m21 21-4.35-4.35"></path>
+                          <path d="M8 11h6"></path>
                         </svg>
                       </button>
                       <span class="wiki-zoom-label">Fit</span>
                       <button
-                        class="wiki-btn"
-                        data-zoom-in
                         aria-label="Zoom in"
+                        class="wiki-btn"
+                        data-zoom-in=""
                       >
                         <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
                           fill="none"
                           stroke="currentColor"
-                          stroke-width="2"
                           stroke-linecap="round"
                           stroke-linejoin="round"
+                          stroke-width="2"
+                          viewbox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
                         >
-                          <circle cx="11" cy="11" r="7" />
-                          <path d="m21 21-4.35-4.35" />
-                          <path d="M11 8v3M8 11h6" />
+                          <circle cx="11" cy="11" r="7"></circle>
+                          <path d="m21 21-4.35-4.35"></path>
+                          <path d="M11 8v3M8 11h6"></path>
                         </svg>
                       </button>
-
                       <button
-                        class="wiki-btn wiki-btn--close"
-                        data-close
                         aria-label="Close"
+                        class="wiki-btn wiki-btn--close"
+                        data-close=""
                       >
                         <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
                           fill="none"
                           stroke="currentColor"
-                          stroke-width="2"
                           stroke-linecap="round"
                           stroke-linejoin="round"
+                          stroke-width="2"
+                          viewbox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
                         >
-                          <path d="M18 6 6 18M6 6l12 12" />
+                          <path d="M18 6 6 18M6 6l12 12"></path>
                         </svg>
                       </button>
                     </div>
                   </div>
                   <div class="wiki-modal-canvas">
                     <img
-                      src="./images/canopyMockup_optA2.webp"
                       alt="Option A concept exploration — benefits-centered dashboard"
                       class="wiki-modal-img"
                       loading="lazy"
+                      src="./images/canopyMockup_optA2.webp"
                     />
                   </div>
                 </div>
               </div>
-
               <div
+                aria-label="Option B concept explorations"
+                aria-modal="true"
                 class="wiki-modal"
+                hidden=""
                 id="wiki-option-b"
                 role="dialog"
-                aria-modal="true"
-                aria-label="Option B concept explorations"
-                hidden
               >
                 <div class="wiki-modal-backdrop"></div>
                 <div class="wiki-modal-frame">
                   <div class="wiki-modal-toolbar">
                     <div class="wiki-modal-controls">
                       <button
-                        class="wiki-btn"
-                        data-zoom-out
                         aria-label="Zoom out"
+                        class="wiki-btn"
+                        data-zoom-out=""
                       >
                         <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
                           fill="none"
                           stroke="currentColor"
-                          stroke-width="2"
                           stroke-linecap="round"
                           stroke-linejoin="round"
+                          stroke-width="2"
+                          viewbox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
                         >
-                          <circle cx="11" cy="11" r="7" />
-                          <path d="m21 21-4.35-4.35" />
-                          <path d="M8 11h6" />
+                          <circle cx="11" cy="11" r="7"></circle>
+                          <path d="m21 21-4.35-4.35"></path>
+                          <path d="M8 11h6"></path>
                         </svg>
                       </button>
                       <span class="wiki-zoom-label">Fit</span>
                       <button
-                        class="wiki-btn"
-                        data-zoom-in
                         aria-label="Zoom in"
+                        class="wiki-btn"
+                        data-zoom-in=""
                       >
                         <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
                           fill="none"
                           stroke="currentColor"
-                          stroke-width="2"
                           stroke-linecap="round"
                           stroke-linejoin="round"
+                          stroke-width="2"
+                          viewbox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
                         >
-                          <circle cx="11" cy="11" r="7" />
-                          <path d="m21 21-4.35-4.35" />
-                          <path d="M11 8v3M8 11h6" />
+                          <circle cx="11" cy="11" r="7"></circle>
+                          <path d="m21 21-4.35-4.35"></path>
+                          <path d="M11 8v3M8 11h6"></path>
                         </svg>
                       </button>
-
                       <button
-                        class="wiki-btn wiki-btn--close"
-                        data-close
                         aria-label="Close"
+                        class="wiki-btn wiki-btn--close"
+                        data-close=""
                       >
                         <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
                           fill="none"
                           stroke="currentColor"
-                          stroke-width="2"
                           stroke-linecap="round"
                           stroke-linejoin="round"
+                          stroke-width="2"
+                          viewbox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
                         >
-                          <path d="M18 6 6 18M6 6l12 12" />
+                          <path d="M18 6 6 18M6 6l12 12"></path>
                         </svg>
                       </button>
                     </div>
                   </div>
                   <div class="wiki-modal-canvas">
                     <img
-                      src="./images/canopyMockup_optB2.webp"
                       alt="Option B concept exploration — integrated clinical and plan experience"
                       class="wiki-modal-img"
                       loading="lazy"
+                      src="./images/canopyMockup_optB2.webp"
                     />
                   </div>
                 </div>
               </div>
-
               <div
+                aria-label="Option C concept explorations"
+                aria-modal="true"
                 class="wiki-modal"
+                hidden=""
                 id="wiki-option-c"
                 role="dialog"
-                aria-modal="true"
-                aria-label="Option C concept explorations"
-                hidden
               >
                 <div class="wiki-modal-backdrop"></div>
                 <div class="wiki-modal-frame">
                   <div class="wiki-modal-toolbar">
                     <div class="wiki-modal-controls">
                       <button
-                        class="wiki-btn"
-                        data-zoom-out
                         aria-label="Zoom out"
+                        class="wiki-btn"
+                        data-zoom-out=""
                       >
                         <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
                           fill="none"
                           stroke="currentColor"
-                          stroke-width="2"
                           stroke-linecap="round"
                           stroke-linejoin="round"
+                          stroke-width="2"
+                          viewbox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
                         >
-                          <circle cx="11" cy="11" r="7" />
-                          <path d="m21 21-4.35-4.35" />
-                          <path d="M8 11h6" />
+                          <circle cx="11" cy="11" r="7"></circle>
+                          <path d="m21 21-4.35-4.35"></path>
+                          <path d="M8 11h6"></path>
                         </svg>
                       </button>
                       <span class="wiki-zoom-label">Fit</span>
                       <button
-                        class="wiki-btn"
-                        data-zoom-in
                         aria-label="Zoom in"
+                        class="wiki-btn"
+                        data-zoom-in=""
                       >
                         <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
                           fill="none"
                           stroke="currentColor"
-                          stroke-width="2"
                           stroke-linecap="round"
                           stroke-linejoin="round"
+                          stroke-width="2"
+                          viewbox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
                         >
-                          <circle cx="11" cy="11" r="7" />
-                          <path d="m21 21-4.35-4.35" />
-                          <path d="M11 8v3M8 11h6" />
+                          <circle cx="11" cy="11" r="7"></circle>
+                          <path d="m21 21-4.35-4.35"></path>
+                          <path d="M11 8v3M8 11h6"></path>
                         </svg>
                       </button>
-
                       <button
-                        class="wiki-btn wiki-btn--close"
-                        data-close
                         aria-label="Close"
+                        class="wiki-btn wiki-btn--close"
+                        data-close=""
                       >
                         <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
                           fill="none"
                           stroke="currentColor"
-                          stroke-width="2"
                           stroke-linecap="round"
                           stroke-linejoin="round"
+                          stroke-width="2"
+                          viewbox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
                         >
-                          <path d="M18 6 6 18M6 6l12 12" />
+                          <path d="M18 6 6 18M6 6l12 12"></path>
                         </svg>
                       </button>
                     </div>
                   </div>
                   <div class="wiki-modal-canvas">
                     <img
-                      src="./images/canopyMockup_optC2.webp"
                       alt="Option C concept exploration — service-oriented experience hub"
                       class="wiki-modal-img"
                       loading="lazy"
+                      src="./images/canopyMockup_optC2.webp"
                     />
                   </div>
                 </div>
@@ -1526,15 +1474,12 @@
             </div>
           </article>
           <!-- /end Execution article -->
-
           <div class="section-rule-accent"></div>
-
           <article class="content-article">
             <!-- Interface Design -->
-            <div id="interface" class="content-block">
+            <div class="content-block" id="interface">
               <div class="block-label">Interface Design</div>
               <h2 class="block-title">Bringing the Experience to Life</h2>
-
               <p class="block-text">
                 With the key journeys and entry points defined, the final phase
                 focused on translating the experience architecture into a
@@ -1544,7 +1489,6 @@
                 portal—allowing users to move through a complex healthcare
                 network with clarity and confidence.
               </p>
-
               <h3 class="block-subtitle">Website Experience</h3>
               <p class="block-text">
                 The public-facing website was designed to help patients
@@ -1555,42 +1499,40 @@
               </p>
             </div>
           </article>
-
-          <!-- Artifact: Website UI — full-width scroll -->
+          <!-- Artifact: Website UI — full-width preview -->
           <figure
             class="artifact-figure artifact-figure--scroll"
-            data-artifact
-            data-artifact-website
+            data-artifact=""
+            data-artifact-website=""
           >
             <div
+              aria-label="View full diagram: Canopy Health website UI"
               class="artifact-thumb artifact-thumb--scroll"
               role="button"
               tabindex="0"
-              aria-label="View full diagram: Canopy Health website UI"
             >
-              <div class="artifact-scroll-track">
+              <div class="artifact-scroll-track artifact-scroll-track--website">
                 <img
-                  src="./images/canopy_website.webp"
                   alt="Canopy Health website UI — responsive homepage, provider search, and member portal entry point"
-                  class="artifact-img artifact-img--scroll"
+                  class="artifact-img artifact-img--website-preview"
                   loading="lazy"
+                  src="./images/canopy_website.webp"
                 />
               </div>
-              <div class="artifact-scroll-fade"></div>
               <div class="artifact-overlay">
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
+                  aria-hidden="true"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="1.5"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  aria-hidden="true"
+                  stroke-width="1.5"
+                  viewbox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <circle cx="11" cy="11" r="7" />
-                  <path d="m21 21-4.35-4.35" />
-                  <path d="M11 8v3M8 11h6" />
+                  <circle cx="11" cy="11" r="7"></circle>
+                  <path d="m21 21-4.35-4.35"></path>
+                  <path d="M11 8v3M8 11h6"></path>
                 </svg>
                 <span>View designs</span>
               </div>
@@ -1599,15 +1541,14 @@
               Canopy Health website — Homepage, Provider search, Audience areas.
             </figcaption>
           </figure>
-
           <!-- Website lightbox -->
           <div
+            aria-label="Canopy Health website UI"
+            aria-modal="true"
             class="artifact-modal lightbox"
+            hidden=""
             id="artifact-modal-website"
             role="dialog"
-            aria-modal="true"
-            aria-label="Canopy Health website UI"
-            hidden
           >
             <div class="artifact-modal-backdrop"></div>
             <div class="lightbox-frame">
@@ -1616,80 +1557,63 @@
                   >Canopy Health website — responsive UI</span
                 >
                 <div class="lightbox-controls">
-                  <button
-                    class="lightbox-btn"
-                    data-zoom-out
-                    aria-label="Zoom out"
+                  <a
+                    aria-label="Open full-size website design in a new tab"
+                    class="lightbox-link"
+                    href="./images/canopy_website.webp"
+                    rel="noopener"
+                    target="_blank"
                   >
+                    View full size
                     <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
+                      aria-hidden="true"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="1.5"
                       stroke-linecap="round"
                       stroke-linejoin="round"
-                      aria-hidden="true"
-                    >
-                      <circle cx="11" cy="11" r="7" />
-                      <path d="m21 21-4.35-4.35" />
-                      <path d="M8 11h6" />
-                    </svg>
-                  </button>
-                  <span class="lightbox-zoom-level">100%</span>
-                  <button
-                    class="lightbox-btn"
-                    data-zoom-in
-                    aria-label="Zoom in"
-                  >
-                    <svg
+                      stroke-width="1.8"
+                      viewbox="0 0 24 24"
                       xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      aria-hidden="true"
                     >
-                      <circle cx="11" cy="11" r="7" />
-                      <path d="m21 21-4.35-4.35" />
-                      <path d="M11 8v3M8 11h6" />
+                      <path d="M7 17 17 7"></path>
+                      <path d="M8 7h9v9"></path>
                     </svg>
-                  </button>
+                  </a>
                   <button
+                    aria-label="Close website design"
                     class="lightbox-btn lightbox-btn--close"
-                    data-close
-                    aria-label="Close"
+                    id="wb-close"
+                    type="button"
                   >
                     <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
+                      aria-hidden="true"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="1.5"
                       stroke-linecap="round"
                       stroke-linejoin="round"
-                      aria-hidden="true"
+                      stroke-width="1.5"
+                      viewbox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      <path d="M18 6 6 18M6 6l12 12" />
+                      <path d="M18 6 6 18M6 6l12 12"></path>
                     </svg>
                   </button>
                 </div>
               </div>
-              <div class="lightbox-canvas">
+              <div class="lightbox-canvas lightbox-canvas--fit" id="wb-canvas">
                 <img
-                  src="./images/canopy_website.webp"
                   alt="Full view: Canopy Health website UI"
-                  class="lightbox-img"
+                  class="lightbox-img lightbox-img--fit"
+                  draggable="false"
+                  id="wb-img"
+                  src="./images/canopy_website.webp"
                 />
               </div>
             </div>
           </div>
-
           <article class="content-article">
             <div class="content-block">
-              <h3 class="block-subtitle">Registration & Access</h3>
+              <h3 class="block-subtitle">Registration &amp; Access</h3>
               <p class="block-text">
                 The experience needed to support secure access to personal
                 health information. Registration, login, and recovery flows were
@@ -1698,35 +1622,35 @@
               </p>
             </div>
           </article>
-
           <!-- Artifact: Bay Area illustration -->
-          <figure class="artifact-figure" data-artifact>
+          <figure class="artifact-figure" data-artifact="">
             <div
+              aria-label="View full illustration: Bay Area network map"
               class="artifact-thumb"
               role="button"
               tabindex="0"
-              aria-label="View full illustration: Bay Area network map"
             >
               <img
-                src="./images/canopy_bayarea.webp"
-                alt="Custom Bay Area illustration highlighting Canopy Health participating regions and care locations across UCSF Health and John Muir Health"
+                alt="End-to-end account access flows including registration, login, username recovery, and password reset.
+"
                 class="artifact-img artifact-img--color"
                 loading="lazy"
+                src="./images/canopy_login.webp"
               />
               <div class="artifact-overlay">
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
+                  aria-hidden="true"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="1.5"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  aria-hidden="true"
+                  stroke-width="1.5"
+                  viewbox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <circle cx="11" cy="11" r="7" />
-                  <path d="m21 21-4.35-4.35" />
-                  <path d="M11 8v3M8 11h6" />
+                  <circle cx="11" cy="11" r="7"></circle>
+                  <path d="m21 21-4.35-4.35"></path>
+                  <path d="M11 8v3M8 11h6"></path>
                 </svg>
                 <span>View designs</span>
               </div>
@@ -1736,39 +1660,38 @@
               username recovery, and password reset.
             </figcaption>
           </figure>
-
           <div
+            aria-label="Access"
+            aria-modal="true"
             class="artifact-modal"
+            hidden=""
             id="artifact-modal-bayarea"
             role="dialog"
-            aria-modal="true"
-            aria-label="Bay Area network illustration"
-            hidden
           >
             <div class="artifact-modal-backdrop"></div>
             <div class="artifact-modal-frame">
               <button
-                class="artifact-modal-close"
                 aria-label="Close illustration"
+                class="artifact-modal-close"
               >
                 <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
+                  aria-hidden="true"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="1.5"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  aria-hidden="true"
+                  stroke-width="1.5"
+                  viewbox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <path d="M18 6 6 18M6 6l12 12" />
+                  <path d="M18 6 6 18M6 6l12 12"></path>
                 </svg>
               </button>
               <div class="artifact-modal-scroll">
                 <img
-                  src="./images/canopy_bayarea.webp"
                   alt="Full view: Bay Area network illustration"
                   class="artifact-modal-img"
+                  src="./images/canopy_login.webp"
                 />
               </div>
               <p class="artifact-modal-caption">
@@ -1778,26 +1701,23 @@
               </p>
             </div>
           </div>
-
           <div class="section-rule-accent"></div>
-
           <article class="content-article">
             <!-- Impact & Takeaways -->
-            <div id="impact" class="content-block">
-              <div class="block-label">Impact &amp; Takeaways</div>
+            <div class="content-block" id="impact">
+              <div class="block-label">Reflection</div>
               <h2 class="block-title">
                 Designing Before the Infrastructure Converged
               </h2>
-
               <p class="block-text">
-                Establishing the digital foundation for the Canopy Health
-                network required defining the experience before the
-                infrastructure fully existed. By grounding the work in discovery
-                and mapping the core patient journeys early, the project created
-                a stable experience architecture that development teams and
-                partner agencies could implement and extend over time.
+                Large healthcare ecosystems rarely evolve in a single step.
+                Platforms, provider networks, and insurance infrastructure often
+                mature at different speeds. The most important contribution of
+                this project was not a single interface or feature, but the
+                experience architecture that allowed the network to present a
+                clear and coherent face to patients while its underlying systems
+                continued to evolve.
               </p>
-
               <div class="impact-grid">
                 <div class="impact-card">
                   <div class="impact-metric">Discovery-First</div>
@@ -1807,15 +1727,13 @@
                     and business stakeholders.
                   </p>
                 </div>
-
                 <div class="impact-card">
-                  <div class="impact-metric">3 Core Entry Points</div>
+                  <div class="impact-metric">2 Core Entry Points</div>
                   <p class="impact-desc">
-                    Public website, provider discovery, and member portal access
-                    — designed as a coherent system, not isolated features.
+                    Public website, and member portal access — designed as a
+                    coherent system, not isolated features.
                   </p>
                 </div>
-
                 <div class="impact-card">
                   <div class="impact-metric">Multi-System Integration</div>
                   <p class="impact-desc">
@@ -1824,7 +1742,6 @@
                     stable architecture ahead of full backend convergence.
                   </p>
                 </div>
-
                 <div class="impact-card">
                   <div class="impact-metric">Scalable Foundation</div>
                   <p class="impact-desc">
@@ -1834,18 +1751,17 @@
                   </p>
                 </div>
               </div>
-
               <p class="block-text">
-                This approach — clarifying the experience before the systems
-                fully converge — has remained a guiding principle in much of my
-                work on complex platforms.
+                By starting with discovery and defining the core journeys first,
+                the design work created a stable framework that engineering
+                teams could build upon over time. This approach—clarifying the
+                experience before the systems fully converge—has remained a
+                guiding principle in much of my work on complex platforms.
               </p>
-
               <!-- Closing reflection -->
               <p class="reflection-close">
-                In large, federated platforms, the most valuable design
-                contribution is often the clarity you establish before a single
-                line of code is written.
+                “Clarity starts with people—understanding them is what makes
+                meaningful experiences possible.”
               </p>
             </div>
           </article>
@@ -1853,61 +1769,59 @@
         </div>
         <!-- /.container -->
       </section>
-
       <!-- Navigation -->
       <section class="section case-study-nav">
         <div class="container">
           <div class="nav-row">
-            <a href="./indexWK.html" class="nav-back">← All Work</a>
+            <a class="nav-back" href="./indexWK.html">← All Work</a>
           </div>
         </div>
       </section>
     </main>
-
     <!-- Footer -->
     <footer class="site-footer">
       <div class="container footer-row">
         <div>
           <div class="footer-meta">
             <a
+              aria-label="LinkedIn"
               class="social-icon"
               href="https://www.linkedin.com/in/danielapenati/"
-              target="_blank"
               rel="noopener noreferrer"
-              aria-label="LinkedIn"
+              target="_blank"
             >
               <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                width="22"
-                height="22"
                 fill="none"
+                height="22"
                 stroke="currentColor"
                 stroke-width="2"
+                viewbox="0 0 24 24"
+                width="22"
+                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
                   d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V9h4v2"
-                />
-                <path d="M2 9h4v12H2z" />
-                <path d="M4 4a2 2 0 1 0 0 .001z" />
+                ></path>
+                <path d="M2 9h4v12H2z"></path>
+                <path d="M4 4a2 2 0 1 0 0 .001z"></path>
               </svg>
             </a>
             <a
+              aria-label="Email"
               class="social-icon"
               href="/cdn-cgi/l/email-protection#6b0f0a05020e070a2b0f1b0e050a1f0245080406"
-              aria-label="Email"
             >
               <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                width="22"
-                height="22"
                 fill="none"
+                height="22"
                 stroke="currentColor"
                 stroke-width="2"
+                viewbox="0 0 24 24"
+                width="22"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <path d="M4 4h16v16H4z" />
-                <path d="m4 6 8 6 8-6" />
+                <path d="M4 4h16v16H4z"></path>
+                <path d="m4 6 8 6 8-6"></path>
               </svg>
             </a>
             <span class="footer-copy">© 2026 Daniela Penati</span>
@@ -1915,18 +1829,15 @@
         </div>
       </div>
     </footer>
-
     <!-- Floating back-to-top -->
-    <a class="fab-top" href="#top" aria-label="Back to top">
+    <a aria-label="Back to top" class="fab-top" href="#top">
       <span aria-hidden="true">↑</span>
     </a>
-
     <script
       data-cfasync="false"
       src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
     ></script>
-    <script src="../script.js" defer></script>
-
+    <script defer="" src="../script.js"></script>
     <!-- Artifact modal + lightbox + accordion interaction -->
     <script>
       // ── Standard modals ──
@@ -2096,7 +2007,11 @@
         'jr-close',
       );
       initLightbox('data-artifact-flows', 'artifact-modal-flows');
-      initLightbox('data-artifact-website', 'artifact-modal-website');
+      initFitLightbox(
+        '[data-artifact-website]',
+        'artifact-modal-website',
+        'wb-close',
+      );
 
       // ── Accordion rhythm cards ──
       (function () {
