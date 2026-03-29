@@ -97,7 +97,7 @@
         meta: {
           role: 'UX Manager',
           domain: 'Enterprise Engineering Platform',
-          timeline: '12-week',
+          time: '12-week',
         },
         summary:
           'Re-architected six core engineering workflow domains within a constrained delivery window—introducing discovery-first sequencing to restore predictability and reduce systemic churn across the SDLC.',
@@ -108,7 +108,7 @@
         meta: {
           role: 'Lead UX',
           domain: 'Healthcare & Insurance Integration',
-          timeline: 'Jan-May',
+          time: 'Jan-May',
         },
         summary:
           'Led discovery and experience design for a regional Accountable Care Network, unifying clinical and insurance systems into a cohesive patient portal across multiple organizations and regulatory constraints.',
@@ -119,7 +119,7 @@
         meta: {
           role: 'Principal UX',
           domain: 'Enterprise Cybersecurity',
-          timeline: '2-quarter',
+          time: '2-quarter',
         },
         summary:
           'Reframed enterprise data protection around identity, replacing channel-based incident management with a unified user model that correlated cross-system risk and supported investigative workflows at scale — avoiding costly system re-architecture.',
@@ -164,7 +164,7 @@
         <div class="work-detail-meta">
           <span><strong>Role:</strong> ${study.meta.role}</span>
           <span><strong>Domain:</strong> ${study.meta.domain}</span>
-          <span><strong>Timeline:</strong> ${study.meta.timeline}</span>
+          <span><strong>Time:</strong> ${study.meta.time}</span>
         </div>
       </div>
 
