@@ -164,7 +164,7 @@
         <div class="work-detail-meta">
           <span><strong>Role:</strong> ${study.meta.role}</span>
           <span><strong>Domain:</strong> ${study.meta.domain}</span>
-          <span><strong>Year:</strong> ${study.meta.year}</span>
+          <span><strong>Timeline:</strong> ${study.meta.timeline}</span>
         </div>
       </div>
 
