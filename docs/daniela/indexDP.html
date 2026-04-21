@@ -121,7 +121,7 @@
                 Where others see friction, I identify
                 <span class="highlight-marker">structural patterns</span>.
               </p>
-              <p class="strip-support">
+              <p class="strip-support strip-support--wide">
                 I align teams, workflows, and systems—designing frameworks that
                 scale and improve delivery predictability.
               </p>
@@ -130,75 +130,34 @@
         </div>
       </section>
 
-      <section
-        class="panel panel--portrait"
-        aria-label="Portrait and principles"
-      >
-        <div class="panel__inner panel__inner--content panel__inner--light">
-          <div class="container portrait-layout">
-            <figure class="portrait-card portrait-card--tilt">
-              <img
-                src="./images/aboutMe.jpg"
-                alt="Portrait of Daniela Penati"
-                loading="lazy"
-              />
-            </figure>
-
-            <div class="principles-wrap">
-              <div class="principles-card">
-                <p class="split-lead">
-                  I build trust through consistency, clarity, and operational
-                  follow-through.
-                </p>
-                <ul class="split-bullets">
-                  <li>
-                    My work is grounded in empathy—for teams navigating
-                    pressure, for users interpreting complexity, and for
-                    partners who need alignment across disciplines.
-                  </li>
-                  <li>
-                    I map existing systems, surface hidden dependencies, and
-                    design the structures that align teams and enable confident,
-                    predictable execution.
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section
-        class="panel panel--strip panel--strip-method"
-        aria-label="How I work"
-      >
-        <div class="panel__inner panel__inner--strip">
-          <div class="container strip-layout">
-            <div class="strip-copy strip-copy--method">
-              <h2>
-                I work at the intersection of people, processes,
-                and&nbsp;platforms.
-              </h2>
-              <p>
-                My strength lies where systems require translation—where
-                alignment must be intentional, dependencies visible, and scale
-                achieved without losing the human thread—enabling teams to move
-                forward with clarity and predictability.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="panel panel--team" aria-label="Team collaboration">
-        <div class="panel__inner panel__inner--image">
-          <div class="team-image-wrap" id="teamImageWrap">
+      <section class="panel panel--photo-text" aria-label="How I work">
+        <div class="panel__inner panel__inner--photo-text">
+          <div class="photo-text-bg" id="teamImageWrap">
             <img
-              src="./images/aboutTeamL.webp"
-              alt="Workshop session with a cross-functional team"
+              src="./images/PAXteam.webp"
+              alt="Cross-functional team cooking session at Sur La Table"
               loading="lazy"
               id="teamImage"
             />
+          </div>
+          <div class="photo-text-overlay" aria-hidden="true"></div>
+          <div class="container photo-text-content">
+            <div class="photo-text-card">
+              <p class="photo-text-eyebrow">How I work</p>
+              <h2 class="photo-text-heading">
+                I work at the intersection of people, processes, and platforms.
+              </h2>
+              <p class="photo-text-body">
+                I map systems, surface dependencies, and align teams around
+                shared structures—turning fragmented complexity into coherent
+                workflows.
+              </p>
+              <p class="photo-text-body">
+                My approach is grounded in clarity and follow-through: making
+                decisions visible, aligning disciplines, and enabling confident,
+                predictable execution.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -211,13 +170,13 @@
           <div class="container strip-layout">
             <div class="strip-copy strip-copy--resolution">
               <h2>
-                I design the conditions that help teams align, move forward
-                together, and deliver with clarity and confidence.
+                I design the conditions that help teams align, make decisions
+                with confidence, and deliver at scale.
               </h2>
               <p>
-                The work I care about most is often invisible: making complexity
-                legible, creating shared understanding, and helping people build
-                with&nbsp;confidence.
+                The work I care about most is often invisible—creating shared
+                understanding, reducing friction, and making complex systems
+                feel manageable.
               </p>
             </div>
           </div>
@@ -233,6 +192,13 @@
           ></div>
           <div class="container cta-shell">
             <div class="cta-content">
+              <figure class="cta-portrait">
+                <img
+                  src="./images/Daniela.webp"
+                  alt="Portrait of Daniela Penati"
+                  loading="lazy"
+                />
+              </figure>
               <p class="purple-eyebrow">Nice to meet you</p>
               <div class="cta-actions">
                 <a
@@ -364,13 +330,13 @@
             heroGrid.style.transform = `translate3d(0, ${sy * 0.06}px, 0)`;
 
           if (teamImage) {
-            const rect = teamImage.getBoundingClientRect();
+            const rect = document.getElementById('teamImageWrap').getBoundingClientRect();
             const offset = clamp(
-              (window.innerHeight * 0.5 - rect.top) * 0.08,
-              -36,
-              36,
+              (window.innerHeight * 0.5 - rect.top) * 0.1,
+              -48,
+              48,
             );
-            teamImage.style.transform = `translate3d(0, ${offset}px, 0) scale(1.08)`;
+            teamImage.style.transform = `translate3d(0, ${offset}px, 0) scale(1.1)`;
           }
 
           if (ctaGrid) {
