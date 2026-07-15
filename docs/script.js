@@ -86,7 +86,7 @@
     };
 
     // Temporarily disable unfinished case studies here
-    const DISABLED_CASES = ['cyber'];
+    const DISABLED_CASES = [];
 
     const DEFAULT_TARGET = './work/indexWK.html';
 
@@ -96,7 +96,7 @@
         title: 'Bringing Structure to Enterprise Engineering Workflows',
         meta: {
           role: 'UX Manager',
-          domain: 'Enterprise Engineering Platform',
+          domain: 'Engineering Platform',
           time: '12-week',
         },
         summary:
@@ -119,10 +119,10 @@
         meta: {
           role: 'Principal UX',
           domain: 'Enterprise Cybersecurity',
-          time: '2-quarter',
+          time: '2011–2012',
         },
         summary:
-          'Reframed enterprise data protection around identity, replacing channel-based incident management with a unified user model that correlated cross-system risk and supported investigative workflows at scale — avoiding costly system re-architecture.',
+          'Challenged the existing product direction to reframe enterprise DLP around identity — shifting from fragmented channel-based incident management to a unified investigative model. The strategy shipped as User Risk Summary in DLP v12, validated by 60+ enterprise customers, and made a costly re-architecture unnecessary.',
       },
     };
 
