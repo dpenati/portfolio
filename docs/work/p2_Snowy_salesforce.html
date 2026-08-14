@@ -103,14 +103,14 @@
             ServiceNow-aware implementation guidance.
           </p>
           <p class="presentation-lead">
-            As our team moved more workflow experiences into ServiceNow, a
-            recurring gap became clear: designers could define the intended
-            experience in Figma, but engineers still had to interpret how that
+            As our team moves more workflow experiences into ServiceNow, a
+            recurring gap is becoming clear: designers can define the intended
+            experience in Figma, but engineers still have to interpret how that
             design should translate into ServiceNow components, patterns, and
             platform constraints.
           </p>
           <blockquote class="presentation-quote presentation-quote--hero">
-            The goal was not to let AI design the interface. It was to reduce
+            The goal is not to let AI design the interface. It is to reduce
             the interpretation gap between design intent and platform
             implementation.
           </blockquote>
@@ -201,7 +201,7 @@
                     <div class="card-number">A</div>
                     <h3>Component ambiguity</h3>
                     <p>
-                      A Figma component could map directly, require
+                      A Figma component can map directly, require
                       configuration, use a reusable pattern, or have no native
                       equivalent.
                     </p>
@@ -210,21 +210,21 @@
                     <div class="card-number">B</div>
                     <h3>Platform context</h3>
                     <p>
-                      The right implementation depended on the target
-                      surface—not simply on what the design looked like.
+                      The right implementation depends on the target
+                      surface—not simply on what the design looks like.
                     </p>
                   </article>
                   <article class="condition-card">
                     <div class="card-number">C</div>
                     <h3>Hidden exceptions</h3>
                     <p>
-                      Some decisions could be automated confidently; others
-                      required interpretation or explicit human judgment.
+                      Some decisions can be automated confidently; others
+                      require interpretation or explicit human judgment.
                     </p>
                   </article>
                 </div>
                 <blockquote class="presentation-quote">
-                  The challenge was not converting pixels into code. It was
+                  The challenge is not converting pixels into code. It is
                   making the translation logic explicit.
                 </blockquote>
               </div>
@@ -252,7 +252,7 @@
                 <span class="zoom-hint">Scroll · Click to enlarge</span>
               </button>
               <figcaption>
-                Early exploration clarified that implementation choices depended
+                Early exploration clarifies that implementation choices depend
                 on platform context, component semantics, and intended
                 behavior—not visual similarity alone.
               </figcaption>
@@ -264,9 +264,9 @@
               </summary>
               <div class="deep-dive-body">
                 <p>
-                  For each design element, engineers had to determine the
+                  For each design element, engineers still need to determine the
                   closest ServiceNow component or pattern, understand which
-                  properties and tokens carried over, identify where custom
+                  properties and tokens carry over, identify where custom
                   implementation might be required, and reconstruct the intended
                   page hierarchy and behavior.
                 </p>
@@ -295,12 +295,12 @@
               Separate what can be known from what still requires judgment.
             </h2>
             <p class="presentation-body snowy-intro">
-              I treated the handoff as a
+              I am treating the handoff as a
               <span class="hl">classification problem</span> rather than a
-              code-generation problem. For each Figma element, the system needed
-              to say not only what it thought the ServiceNow equivalent was, but
-              how confident that mapping was and what kind of implementation it
-              implied.
+              code-generation problem. For each Figma element, the system needs
+              to say not only what it thinks the ServiceNow equivalent is, but
+              how confident that mapping is and what kind of implementation it
+              implies.
             </p>
 
             <div class="snowy-classification-grid">
@@ -342,7 +342,7 @@
             <blockquote
               class="presentation-quote presentation-quote--hero presentation-quote--compact"
             >
-              Confidence was useful only if uncertainty remained visible.
+              Confidence is useful only if uncertainty remains visible.
             </blockquote>
           </div>
         </div>
@@ -402,7 +402,7 @@
           <div class="container presentation-container">
             <div class="presentation-kicker">Responsibility boundaries</div>
             <h3 class="subsection-title subsection-title--large">
-              Rules, reasoning, and human review played different roles.
+              Rules, reasoning, and human review play different roles.
             </h3>
 
             <div class="snowy-responsibility-grid">
@@ -437,7 +437,7 @@
             <div class="split-layout snowy-gap-layout">
               <div>
                 <blockquote class="presentation-quote">
-                  The agent’s job was not to hide uncertainty. It was to make
+                  The agent’s job is not to hide uncertainty. It is to make
                   uncertainty actionable.
                 </blockquote>
               </div>
@@ -459,7 +459,7 @@
                   <span class="zoom-hint">View larger</span>
                 </button>
                 <figcaption>
-                  Unmapped items and gaps became explicit implementation work
+                  Unmapped items and gaps become explicit implementation work
                   rather than silent assumptions.
                 </figcaption>
               </figure>
@@ -469,10 +469,10 @@
               <summary><span>How the mapping model worked</span></summary>
               <div class="deep-dive-body">
                 <p>
-                  The Figma export preserved multiple kinds of signals.
-                  Component instances were treated as primary implementation
-                  candidates, while frames helped establish structure and text
-                  nodes preserved content. This prevented the system from trying
+                  The Figma export preserves multiple kinds of signals.
+                  Component instances are treated as primary implementation
+                  candidates, while frames help establish structure and text
+                  nodes preserve content. This prevents the system from trying
                   to map every visual element into a ServiceNow component.
                 </p>
               </div>
@@ -496,7 +496,7 @@
               From Figma intent to ServiceNow implementation
             </h2>
             <p class="presentation-body snowy-intro">
-              The prototype turned the translation logic into an
+              The prototype explores the translation logic as an
               <span class="hl">end-to-end workflow:</span> preserve structure
               from Figma, classify what ServiceNow can support, surface
               uncertainty, then generate artifacts only after the interpretation
@@ -624,14 +624,14 @@
                   Surface gaps before generating anything.
                 </h3>
                 <p class="presentation-body">
-                  Once unsupported and ambiguous mappings had been surfaced, the
-                  preview provided a low-cost checkpoint to validate whether the
-                  system had interpreted the Figma structure correctly before
+                  Once unsupported and ambiguous mappings are surfaced, the
+                  preview provides a low-cost checkpoint to validate whether the
+                  system has interpreted the Figma structure correctly before
                   creating ServiceNow artifacts.
                 </p>
                 <blockquote class="presentation-quote">
-                  Uncertainty became something the team could review—not
-                  something the system quietly filled in.
+                  Uncertainty becomes something the team can review—not
+                  something the system quietly fills in.
                 </blockquote>
               </div>
 
@@ -656,7 +656,7 @@
                     <span class="zoom-hint">View larger</span>
                   </button>
                   <figcaption>
-                    After unresolved mappings were surfaced, the preview became
+                    After unresolved mappings are surfaced, the preview becomes
                     the next checkpoint: validate the interpretation before
                     generating the page.
                   </figcaption>
@@ -669,25 +669,25 @@
         <div class="presentation-slide chapter-slide subsection-slide">
           <div class="container presentation-container">
             <div class="presentation-kicker">
-              Then I moved the capability into the platform itself
+              Then I bring the capability into the platform itself
             </div>
             <h3 class="subsection-title subsection-title--large">
-              SNOWY became the conversational layer over the translation engine.
+              SNOWY becomes the conversational layer over the translation engine.
             </h3>
             <div class="split-layout snowy-agent-layout">
               <div class="split-copy">
                 <p class="presentation-body">
-                  The mapping engine established the translation logic. I then
-                  <span class="hl">implemented SNOWY inside ServiceNow</span> so
-                  engineers could analyze a design, inspect results, retrieve
+                  The mapping engine establishes the translation logic. I then
+                  <span class="hl">prototype SNOWY inside ServiceNow</span> so
+                  engineers can analyze a design, inspect results, retrieve
                   prior conversions, and initiate generation without leaving the
                   platform.
                 </p>
               </div>
 
               <blockquote class="presentation-quote split-quote">
-                The conversational layer did not replace the mapping engine. It
-                made the capability easier to interrogate and act on.
+                The conversational layer does not replace the mapping engine. It
+                makes the capability easier to interrogate and act on.
               </blockquote>
             </div>
 
@@ -709,7 +709,7 @@
                 <span class="zoom-hint">View larger</span>
               </button>
               <figcaption>
-                Inside AI Agent Studio, SNOWY orchestrated analysis and
+                Inside AI Agent Studio, SNOWY orchestrates analysis and
                 generation tools while exposing the agent’s decisions and tool
                 activity.
               </figcaption>
@@ -721,10 +721,10 @@
               </summary>
               <div class="deep-dive-body">
                 <p>
-                  The deployed agent exposed distinct tools for analyzing a
+                  The prototype agent exposes distinct tools for analyzing a
                   Figma design, retrieving conversion history, and generating a
-                  page. Keeping those capabilities separate made the workflow
-                  easier to reason about and preserved human control over
+                  page. Keeping those capabilities separate makes the workflow
+                  easier to reason about and preserves human control over
                   generation.
                 </p>
                 <figure
@@ -759,7 +759,7 @@
             <div class="split-layout snowy-output-layout">
               <div class="split-copy">
                 <p class="presentation-body">
-                  With the approved mappings in place, the workflow could create
+                  With approved mappings in place, the workflow can create
                   ServiceNow implementation scaffolding: markup, styles, client
                   and server logic, and—in supported cases—a working page or
                   widget.
@@ -769,8 +769,8 @@
               <blockquote
                 class="presentation-quote presentation-quote--hero presentation-quote--compact split-quote"
               >
-                Generation was a starting point for review, not proof that the
-                design had been implemented correctly.
+                Generation is a starting point for review, not proof that the
+                design has been implemented correctly.
               </blockquote>
             </div>
 
@@ -792,7 +792,7 @@
                 <span class="zoom-hint">View larger</span>
               </button>
               <figcaption>
-                The generated widget exposed HTML, client logic, server logic,
+                The generated widget shows HTML, client logic, server logic,
                 and the working preview side by side.
               </figcaption>
             </figure>
@@ -801,8 +801,8 @@
               <summary><span>Implementation detail</span></summary>
               <div class="deep-dive-body">
                 <p>
-                  Generated artifacts could accelerate setup, while
-                  platform-specific exceptions and unresolved mappings remained
+                  Generated artifacts can accelerate setup, while
+                  platform-specific exceptions and unresolved mappings remain
                   available for review and correction.
                 </p>
                 <figure
@@ -841,11 +841,11 @@
           <div class="container presentation-container">
             <div class="presentation-kicker">The Impact</div>
             <h2 class="chapter-title">
-              The prototype validated an end-to-end translation workflow.
+              The prototype is testing an end-to-end translation workflow.
             </h2>
             <p class="presentation-body snowy-intro">
-              This was not a production deployment, so I would not measure its
-              success by adoption metrics. What we validated was the full path
+              This is not a production deployment, so I would not measure its
+              success by adoption metrics. What the prototype is testing is the full path
               from structured Figma intent to inspectable ServiceNow
               implementation artifacts—while keeping uncertainty and human
               review visible throughout.
@@ -853,30 +853,30 @@
 
             <div class="impact-area-grid snowy-impact-grid">
               <article>
-                <span>Intent stayed structured</span>
+                <span>Intent stays structured</span>
                 <p>
-                  The workflow preserved component, hierarchy, content, and
+                  The workflow preserves component, hierarchy, content, and
                   styling signals rather than reducing the design to pixels.
                 </p>
               </article>
               <article>
-                <span>Uncertainty stayed visible</span>
+                <span>Uncertainty stays visible</span>
                 <p>
-                  Unsupported or ambiguous elements were surfaced before
+                  Unsupported or ambiguous elements are surfaced before
                   generation instead of being silently approximated.
                 </p>
               </article>
               <article>
-                <span>Interpretation became actionable</span>
+                <span>Interpretation becomes actionable</span>
                 <p>
-                  Classification, guidance, preview, code, and build steps gave
+                  Classification, guidance, preview, code, and build steps give
                   engineers concrete material to inspect and use.
                 </p>
               </article>
               <article>
-                <span>The workflow reached the platform</span>
+                <span>The workflow reaches the platform</span>
                 <p>
-                  The translation logic could be exposed through a native
+                  The translation logic can be exposed through a native
                   ServiceNow AI agent and connected to page-generation tools.
                 </p>
               </article>
@@ -903,17 +903,17 @@
         <div class="presentation-slide chapter-slide">
           <div class="container presentation-container narrow">
             <div class="presentation-kicker">
-              It also changed the conversation with Engineering
+              It is also changing the conversation with Engineering
             </div>
             <h3 class="subsection-title subsection-title--large">
-              The prototype became a concrete engineering capability—not just a
+              The prototype is becoming a concrete engineering capability—not just a
               design experiment.
             </h3>
             <p class="presentation-body">
-              What began as a way to reduce handoff friction became a component
-              library, mapping model, agent workflow, backlog, and a clear
-              separation between work that could continue in the POC environment
-              and work requiring production governance.
+              What begins as a way to reduce handoff friction is taking shape as a component
+              library, mapping model, agent workflow, backlog, and a clearer
+              separation between work that can continue in the POC environment
+              and work that requires production governance.
             </p>
 
             <details class="deep-dive compact">
@@ -922,9 +922,9 @@
               </summary>
               <div class="deep-dive-body">
                 <p>
-                  The follow-on plan separated critical unblockers, component
+                  The follow-on plan separates critical unblockers, component
                   expansion, hardening, and eventual scale so engineering work
-                  could continue without treating the prototype as
+                  can continue without treating the prototype as
                   production-ready.
                 </p>
                 <figure
@@ -954,9 +954,9 @@
               </summary>
               <div class="deep-dive-body">
                 <p>
-                  The prototype also had to survive changing ServiceNow
-                  environments, permissions, and agent setup. I documented the
-                  architecture and state carefully enough that the work could
+                  The prototype also has to work across changing ServiceNow
+                  environments, permissions, and agent setup. I am documenting the
+                  architecture and state so the work can
                   continue after migration and handoff rather than depending on
                   one instance or one person.
                 </p>
@@ -992,9 +992,9 @@
               AI helped to reduce uncertainty without removing human judgment.
             </h3>
             <p class="presentation-body">
-              This work changed how I think about AI in design workflows. The
-              most valuable part was not asking a model to produce more output.
-              It was using AI to make an existing translation problem more
+              This work is changing how I think about AI in design workflows. The
+              most valuable part is not asking a model to produce more output.
+              It is using AI to make an existing translation problem more
               explicit—what we know, what the platform allows, where
               interpretation is required, and where people still need to decide.
             </p>
