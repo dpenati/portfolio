@@ -1,0 +1,909 @@
+/* Presentation-first additions for Building a High-Performing UX Team */
+
+.presentation-case {
+  scroll-padding-top: var(--header-hint);
+  --presentation-wide: min(1440px, 75vw);
+}
+
+/* -----------------------------------------------------------------------
+   Header: the site header was designed for a narrower, blog-style layout.
+   Widen and re-balance it so it reads as the top bar of a wide, slide-based
+   case study instead of a leftover narrow element sitting above it.
+------------------------------------------------------------------------ */
+@media (min-width: 901px) {
+  .presentation-case .site-header .header-row {
+    max-width: var(--presentation-wide);
+    margin-inline: auto;
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+}
+
+.presentation-case .site-header {
+  background: color-mix(in srgb, var(--surface) 94%, transparent);
+  backdrop-filter: blur(12px);
+}
+
+.presentation-case .site-header .brand-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.presentation-case .site-header .brand-mark {
+  width: 38px;
+  height: 38px;
+  flex: none;
+}
+
+.presentation-case .site-header .nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.presentation-case .site-header .nav a {
+  padding: 7px 12px;
+  border-radius: 7px;
+  font-family: 'Cairo Play', var(--sans);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.presentation-case .site-header .nav a:hover,
+.presentation-case .site-header .nav a[aria-current="page"] {
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+/* -----------------------------------------------------------------------
+   Zones: each of the five areas (Opening + Problem, Exploration, Solution,
+   Impact) gets its own background/ink palette so the arc of the case study
+   reads visually — dark opening, charcoal problem, a transitional mid-tone
+   through exploration, easing into a light solution and an off-white
+   impact, then back to dark for the closing reflection. Every component
+   below reads its color from var(--bg)/var(--surface)/var(--ink)/etc., so
+   redefining those variables here re-themes all descendants automatically. */
+.zone-obsidian {
+  --bg: #131218;
+  --surface: #1d1b24;
+  --ink: #f3f1f2;
+  --muted: #b6b1c4;
+  --rule: rgba(255,255,255,.14);
+  --shadow: 0 10px 30px rgba(0,0,0,.45);
+  --shadow-lg: 0 24px 70px rgba(0,0,0,.55);
+  --accent: #b6a8ff;
+  --accent-soft: rgba(182,168,255,.16);
+}
+
+.zone-charcoal {
+  --bg: #221f26;
+  --surface: #2b2831;
+  --ink: #f1eff0;
+  --muted: #b3aebc;
+  --rule: rgba(255,255,255,.12);
+  --shadow: 0 10px 26px rgba(0,0,0,.4);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,.5);
+  --accent: #c6b6ff;
+  --accent-soft: rgba(198,182,255,.24);
+}
+
+.zone-slate {
+  --bg: #55505c;
+  --surface: #625c6a;
+  --ink: #f8f6f7;
+  --muted: #d6d2dd;
+  --rule: rgba(255,255,255,.16);
+  --shadow: 0 10px 26px rgba(0,0,0,.28);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,.34);
+  --accent: #ffd479;
+  --accent-soft: rgba(255,212,121,.18);
+}
+
+.zone-linen {
+  --bg: #f6f3ee;
+  --surface: #ffffff;
+  --ink: #2a2630;
+  --muted: #6f6a78;
+  --rule: rgba(20,16,30,.10);
+  --shadow: 0 10px 26px rgba(20,16,10,.08);
+  --shadow-lg: 0 20px 50px rgba(20,16,10,.10);
+  --accent: #5b4fc4;
+  --accent-soft: rgba(91,79,196,.10);
+}
+
+.zone-offwhite {
+  --bg: #f8f9fb;
+  --surface: #ffffff;
+  --ink: #211f26;
+  --muted: #63616e;
+  --rule: rgba(20,20,30,.09);
+  --shadow: 0 10px 26px rgba(20,20,30,.06);
+  --shadow-lg: 0 20px 50px rgba(20,20,30,.08);
+  --accent: #5b4fc4;
+  --accent-soft: rgba(91,79,196,.09);
+}
+
+.case-chapter {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+/* A slim accent tick centered at the base of every slide gives each one a
+   clear edge of its own and a consistent visual beat as you scroll,
+   independent of whatever zone colors sit above and below it. */
+.presentation-slide {
+  min-height: calc(100vh - var(--header-hint));
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: clamp(56px, 8vh, 96px) 0;
+  border-bottom: 1px solid var(--rule);
+  scroll-margin-top: var(--header-hint);
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.presentation-slide::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 46px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--accent);
+  opacity: .8;
+}
+
+/* Framed slides: used for sections that would otherwise read as loose text
+   floating on the zone background — wraps the content in a defined card so
+   it feels anchored like the other bordered/grid slides around it. */
+.framed-slide .presentation-container {
+  border: 1px solid var(--rule);
+  border-radius: 22px;
+  padding: clamp(36px, 5vw, 64px);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+/* Highlight: wrap any word or phrase in <span class="hl"> to give it a
+   soft, marker-style background — use it sparingly on a title or quote to
+   draw the eye to the key phrase. */
+.hl {
+  background: var(--accent-soft);
+  padding: .02em .16em;
+  border-radius: 6px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.presentation-container {
+  width: 100%;
+}
+
+.presentation-container.narrow {
+  max-width: 980px;
+}
+
+@media (min-width: 901px) {
+  .presentation-container:not(.narrow) {
+    max-width: var(--presentation-wide);
+    width: var(--presentation-wide);
+  }
+}
+
+.presentation-hero {
+  min-height: calc(100vh - var(--header-hint));
+  background:
+    radial-gradient(circle at 85% 16%, color-mix(in srgb, var(--accent) 13%, transparent), transparent 34%),
+    linear-gradient(180deg, color-mix(in srgb, var(--surface) 92%, var(--accent-soft)) 0%, var(--bg) 100%);
+}
+
+.presentation-kicker {
+  margin-bottom: 12px;
+  font-family: 'Cairo Play', var(--sans);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.presentation-title {
+  max-width: 15ch;
+  margin: 0;
+  font-family: 'Cairo Play', var(--sans);
+  font-size: clamp(46px, 7vw, 84px);
+  line-height: 1.02;
+  letter-spacing: -.03em;
+  font-weight: 700;
+}
+
+.presentation-subtitle {
+  margin: 18px 0 30px;
+  font-family: var(--serif);
+  font-size: clamp(22px, 3vw, 32px);
+  line-height: 1.35;
+  color: var(--muted);
+  max-width: 34ch;
+}
+
+.presentation-lead,
+.presentation-body {
+  font-family: var(--condensed);
+  font-size: clamp(18px, 1.7vw, 21px);
+  line-height: 1.65;
+  color: var(--ink);
+}
+
+.presentation-lead {
+  max-width: 72ch;
+  margin: 0 0 28px;
+}
+
+.presentation-body {
+  margin: 0 0 18px;
+}
+
+.presentation-quote {
+  margin: 30px 0 0;
+  padding: 20px 0 20px 24px;
+  border-left: 3px solid var(--accent);
+  font-family: var(--serif);
+  font-size: clamp(21px, 2.3vw, 30px);
+  line-height: 1.45;
+  font-style: italic;
+  color: var(--ink);
+}
+
+.presentation-quote--hero {
+  max-width: 32ch;
+  font-size: clamp(25px, 3vw, 38px);
+}
+
+/* Opening hero quote sits alongside a lot of other content on the first
+   slide (kicker, title, subtitle, lead, three cards, closing quote) —
+   scale it down slightly so the slide feels balanced rather than top-heavy.
+   Colored with the section's accent (purple) instead of plain white so it
+   pops as a distinct beat rather than blending into the body copy. */
+#opening .presentation-quote--hero {
+  max-width: 34ch;
+  font-size: clamp(19px, 2vw, 27px);
+  color: var(--accent);
+}
+
+/* Used on hero quotes that otherwise wrap to three lines in a narrower
+   slide — pulls the size down just enough to land on two. */
+.presentation-quote--compact {
+  font-size: clamp(19px, 2vw, 26px);
+  max-width: 30ch;
+}
+
+/* The payoff-slide quote is longer than the Solution slide's — give it
+   more room so it settles on two lines instead of three. */
+.payoff-slide .presentation-quote--compact {
+  max-width: 42ch;
+}
+
+.presentation-quote--closing {
+  margin-top: 34px;
+  max-width: 55ch;
+}
+
+.presentation-quote--small {
+  font-size: 20px;
+}
+
+.presentation-quote--final {
+  margin-top: 40px;
+  padding-left: 0;
+  border-left: 0;
+  color: var(--accent);
+  font-family: 'Cairo Play', var(--sans);
+  font-style: normal;
+  font-weight: 700;
+  font-size: clamp(34px, 5vw, 58px);
+  line-height: 1.14;
+  max-width: 20ch;
+}
+
+.leadership-arc {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 42px;
+}
+
+.arc-card,
+.condition-card,
+.need-grid article,
+.pillar-grid article,
+.impact-area-grid article {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+
+.arc-card {
+  padding: 26px;
+  border-top: 3px solid var(--accent);
+}
+
+.arc-eyebrow,
+.subsection-number,
+.card-number,
+.need-grid article > span,
+.pillar-grid article > span {
+  font-family: 'Cairo Play', var(--sans);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* The opening's three arc cards are the first thing a reader scans —
+   give the Q2/Q3/Q4 labels more presence than the smaller numbering
+   labels used elsewhere so they read as clear chapter markers. */
+.arc-eyebrow {
+  font-size: 15px;
+  letter-spacing: .08em;
+}
+
+.arc-card h2 {
+  margin: 8px 0 10px;
+  font-family: var(--serif);
+  font-size: 23px;
+  line-height: 1.25;
+}
+
+.arc-card p,
+.condition-card p,
+.need-grid p,
+.pillar-grid p,
+.impact-area-grid p {
+  margin: 0;
+  font-family: var(--condensed);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.presentation-nav {
+  position: sticky;
+  top: var(--header-hint);
+  z-index: 8000;
+  background: color-mix(in srgb, var(--surface) 94%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--rule);
+}
+
+.presentation-nav-inner {
+  display: flex;
+  gap: 8px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+@media (min-width: 901px) {
+  .presentation-nav-inner {
+    max-width: var(--presentation-wide);
+    margin-inline: auto;
+  }
+}
+
+.presentation-nav a {
+  padding: 7px 11px;
+  border-radius: 7px;
+  font-family: 'Cairo Play', var(--sans);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.presentation-nav a:hover {
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.case-chapter {
+  scroll-margin-top: var(--header-hint);
+}
+
+/* The chapter band previously stuck to the viewport beneath the sticky nav,
+   which produced an unwanted parallax-like layering as content scrolled
+   underneath two stacked fixed bars. It now sits in normal flow as a simple
+   chapter marker at the start of each section. */
+.chapter-band {
+  background: color-mix(in srgb, var(--accent) 92%, #2a2a2a);
+  color: #fff;
+}
+
+.chapter-band .container {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  min-height: 44px;
+  font-family: 'Cairo Play', var(--sans);
+}
+
+.chapter-band span {
+  opacity: .65;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .12em;
+}
+
+.chapter-band strong {
+  font-size: 14px;
+  letter-spacing: .03em;
+}
+
+.chapter-title {
+  margin: 0 0 24px;
+  font-family: var(--serif);
+  font-size: clamp(32px, 4.2vw, 50px);
+  line-height: 1.18;
+  max-width: 24ch;
+}
+
+.condition-grid,
+.need-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-top: 32px;
+}
+
+.condition-card,
+.need-grid article {
+  padding: 24px;
+}
+
+.condition-card h3,
+.need-grid h3,
+.pillar-grid h3 {
+  margin: 8px 0 8px;
+  font-family: 'Cairo Play', var(--sans);
+  font-size: 18px;
+  line-height: 1.3;
+}
+
+/* The Problem chapter's four condition cards are the first grid the reader
+   hits — give their headers more presence than the smaller card headers
+   used later in Exploration and Solution. */
+.condition-card h3 {
+  font-size: 22px;
+}
+
+/* Same treatment for Exploration's four need-grid cards. */
+.need-grid h3 {
+  font-size: 22px;
+}
+
+/* And for Solution's and Impact's pillar cards. */
+.pillar-grid h3 {
+  font-size: 22px;
+}
+
+.artifact-slide {
+  background: color-mix(in srgb, var(--surface) 75%, var(--bg));
+}
+
+.presentation-artifact {
+  margin: 0;
+}
+
+.presentation-artifact-button {
+  position: relative;
+  width: 100%;
+  display: block;
+  padding: 0;
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--surface);
+  box-shadow: var(--shadow-lg);
+  cursor: zoom-in;
+}
+
+.presentation-artifact-button img {
+  width: 100%;
+  max-height: 68vh;
+  object-fit: contain;
+  background: var(--surface);
+}
+
+.presentation-artifact--side .presentation-artifact-button img {
+  max-height: 56vh;
+}
+
+.presentation-artifact--compact .presentation-artifact-button img {
+  max-height: 48vh;
+}
+
+.presentation-artifact--hero .presentation-artifact-button img {
+  max-height: 72vh;
+}
+
+.zoom-hint {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  background: rgba(20,20,20,.78);
+  color: #fff;
+  opacity: 0;
+  transform: translateY(5px);
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.presentation-artifact-button:hover .zoom-hint,
+.presentation-artifact-button:focus .zoom-hint {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.presentation-artifact figcaption {
+  margin-top: 12px;
+  max-width: 90ch;
+  font-family: var(--condensed);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.deep-dive {
+  margin-top: 30px;
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.deep-dive.compact {
+  margin-top: 22px;
+}
+
+.deep-dive summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: center;
+  padding: 16px 18px;
+  font-family: 'Cairo Play', var(--sans);
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.deep-dive summary::-webkit-details-marker { display: none; }
+.deep-dive summary::after { content: '+'; color: var(--accent); font-size: 20px; }
+.deep-dive[open] summary::after { content: '–'; }
+
+.summary-hint {
+  margin-left: auto;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.deep-dive-body {
+  padding: 20px 20px 22px;
+  border-top: 1px solid var(--rule);
+}
+
+.deep-dive-body > p {
+  font-family: var(--condensed);
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.presentation-artifact--inside { margin-top: 20px; }
+
+.split-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(360px, .95fr);
+  gap: clamp(34px, 5vw, 72px);
+  align-items: start;
+}
+
+.split-copy { min-width: 0; }
+
+.split-quote {
+  align-self: center;
+  max-width: 46ch;
+}
+
+.split-visual-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.presentation-artifact--full {
+  margin-top: 36px;
+}
+
+.subsection-title {
+  margin: 6px 0 8px;
+  font-family: var(--serif);
+  font-size: clamp(30px, 3.5vw, 44px);
+  line-height: 1.18;
+}
+
+.subsection-title--large { max-width: 22ch; }
+
+.approach-line {
+  margin: 0 0 24px;
+  font-family: 'Cairo Play', var(--sans);
+  color: var(--accent);
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.process-strip {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 11px;
+  margin: 26px 0;
+  padding: 14px 16px;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  background: var(--surface);
+  font-family: 'Cairo Play', var(--sans);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.process-strip b { color: var(--accent); font-weight: 700; }
+.process-strip--wide { font-size: 12px; }
+
+/* Small icon badge sitting above the quote/visual stack in each Exploration
+   subsection slide, giving the lighter right column some visual weight. */
+.split-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.split-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.rhythm-mini-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 20px 0 4px;
+}
+
+.rhythm-mini-grid article {
+  padding: 16px 18px;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  background: var(--bg);
+}
+
+.rhythm-mini-grid b,
+.rhythm-mini-grid span { display: block; }
+.rhythm-mini-grid b {
+  font-family: 'Cairo Play', var(--sans);
+  font-size: 13px;
+  letter-spacing: .02em;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+.rhythm-mini-grid span {
+  font-family: var(--condensed);
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+.reveal-slide,
+.payoff-slide,
+.finale-slide {
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--accent-soft) 60%, transparent), transparent 45%),
+    var(--bg);
+}
+
+.pillar-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin: 34px 0;
+}
+
+.pillar-grid article { padding: 24px; }
+
+.leadership-shift-grid {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 18px;
+  margin: 32px 0;
+}
+
+.leadership-shift-grid article {
+  padding: 26px;
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  background: var(--surface);
+}
+
+.shift-chip {
+  display: inline-flex;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-family: 'Cairo Play', var(--sans);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.leadership-shift-grid p,
+.leadership-shift-grid li {
+  font-family: var(--condensed);
+  font-size: 18px;
+  line-height: 1.6;
+}
+.leadership-shift-grid ul { margin: 18px 0 0; padding-left: 20px; }
+.leadership-shift-grid__manager { border-top: 3px solid var(--accent) !important; }
+
+.leadership-shift-grid--single {
+  grid-template-columns: 1fr;
+}
+
+.leadership-shift-grid--single article { padding: 30px 32px; }
+
+.impact-area-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.impact-area-grid article { padding: 30px 26px; }
+.impact-area-grid span {
+  display: block;
+  margin-bottom: 14px;
+  font-family: 'Cairo Play', var(--sans);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.metrics-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.metrics-strip article {
+  min-height: 230px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.metrics-strip strong {
+  display: block;
+  font-family: 'Cairo Play', var(--sans);
+  font-size: clamp(28px, 3.5vw, 44px);
+  color: var(--accent);
+  line-height: 1.15;
+}
+
+.metrics-strip p {
+  margin: 14px 0 0;
+  font-family: var(--condensed);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.platform-scale-card {
+  margin-top: 26px;
+  padding: 26px 28px;
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.platform-scale-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; padding-top: 18px; }
+.platform-scale-grid div { text-align: center; }
+.platform-scale-grid strong { display: block; font-family: 'Cairo Play', var(--sans); color: var(--accent); font-size: 32px; }
+.platform-scale-grid span { display: block; font-family: var(--condensed); font-size: 14px; line-height: 1.4; }
+
+.metrics-slide { padding-bottom: clamp(96px, 14vh, 160px); }
+
+.reflection-divider {
+  height: 1px;
+  background: var(--rule);
+  margin: 54px 0 44px;
+}
+
+.reflection-divider--tight {
+  margin: 40px 0 34px;
+}
+
+.finale-slide {
+  padding-top: clamp(80px, 12vh, 140px);
+  padding-bottom: clamp(80px, 12vh, 140px);
+}
+
+.finale-slide:not(.closing-slide) {
+  padding-bottom: clamp(120px, 18vh, 200px);
+}
+
+.closing-slide {
+  padding-top: clamp(110px, 16vh, 180px);
+  border-top: 1px solid var(--rule);
+}
+
+.finale-slide .presentation-quote--final {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.presentation-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 30000;
+  display: grid;
+  place-items: center;
+  padding: 22px;
+}
+.presentation-lightbox[hidden] { display: none; }
+.presentation-lightbox-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,.88); backdrop-filter: blur(6px); }
+.presentation-lightbox-frame { position: relative; width: min(94vw, 1500px); height: 90vh; display: flex; flex-direction: column; background: #111; border-radius: 12px; overflow: hidden; box-shadow: 0 30px 100px rgba(0,0,0,.65); }
+.presentation-lightbox-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 10px 14px; color: rgba(255,255,255,.7); font-family: var(--condensed); font-size: 13px; border-bottom: 1px solid rgba(255,255,255,.08); }
+.presentation-lightbox-toolbar button { width: 38px; height: 38px; border: 1px solid rgba(255,255,255,.16); border-radius: 8px; background: transparent; color: #fff; font-size: 24px; line-height: 1; cursor: pointer; }
+.presentation-lightbox-canvas { flex: 1; overflow: auto; display: flex; align-items: flex-start; justify-content: center; padding: 24px; background: #1a1a1a; }
+.presentation-lightbox-canvas img { max-width: none; width: auto; height: auto; min-width: min(100%, 1000px); box-shadow: 0 12px 40px rgba(0,0,0,.5); }
+
+@media (max-width: 900px) {
+  .leadership-arc,
+  .pillar-grid,
+  .impact-area-grid,
+  .metrics-strip { grid-template-columns: 1fr; }
+  .split-layout { grid-template-columns: 1fr; }
+  .presentation-artifact--side { max-width: 760px; }
+  .presentation-slide { min-height: auto; }
+  .presentation-nav { display: none; }
+}
+
+@media (max-width: 680px) {
+  .condition-grid,
+  .need-grid,
+  .rhythm-mini-grid,
+  .leadership-shift-grid,
+  .platform-scale-grid { grid-template-columns: 1fr; }
+  .presentation-title { font-size: 46px; }
+  .presentation-slide { padding: 48px 0; }
+}
