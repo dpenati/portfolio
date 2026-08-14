@@ -123,7 +123,7 @@
 .snowy-process-grid h3 {
   margin: 8px 0;
   font-family: 'Cairo Play', var(--sans);
-  font-size: 17px;
+  font-size: 22px;
   line-height: 1.3;
 }
 
@@ -260,17 +260,37 @@
   max-height: 70vh;
 }
 
+/* Lets a wide/landscape artifact fill the slide's height instead of
+   floating in a mostly-empty slide. The image scales to the figure's
+   height and the frame scrolls horizontally if the image is wider than
+   the column — the full image is still shown uncropped in the lightbox. */
+.presentation-artifact--fill {
+  height: 72vh;
+}
+
+.presentation-artifact--fill .presentation-artifact-button {
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.presentation-artifact--fill .presentation-artifact-button img {
+  height: 100%;
+  width: auto;
+  max-width: none;
+  max-height: none;
+  object-fit: cover;
+  flex: none;
+}
+
 @media (max-width: 1180px) {
   .snowy-flow {
-    grid-template-columns: 1fr 28px 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
-  .snowy-flow .snowy-arrow:nth-of-type(4),
-  .snowy-flow .snowy-arrow:nth-of-type(6) {
+  .snowy-arrow {
     display: none;
-  }
-  .snowy-node:nth-of-type(3),
-  .snowy-node:nth-of-type(4) {
-    margin-top: 6px;
   }
 
   .snowy-classification-grid,
@@ -297,14 +317,9 @@
     grid-template-columns: 1fr;
   }
 
-  .snowy-arrow {
-    transform: rotate(90deg);
-    justify-self: center;
-  }
-
-  .snowy-flow .snowy-arrow:nth-of-type(4),
-  .snowy-flow .snowy-arrow:nth-of-type(6) {
-    display: block;
+  .snowy-run-metrics,
+  .snowy-results-strip {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -316,4 +331,103 @@
   .snowy-results-strip {
     grid-template-columns: 1fr;
   }
+}
+
+
+/* ------------------------------------------------------------
+   Seven-step SNOWY demo flow
+------------------------------------------------------------- */
+.snowy-seven-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 10px;
+  margin: 32px 0 26px;
+}
+
+.snowy-seven-grid article {
+  min-width: 0;
+  padding: 18px 14px;
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.snowy-seven-grid article > span {
+  display: block;
+  margin-bottom: 7px;
+  font-family: 'Cairo Play', var(--sans);
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .10em;
+}
+
+.snowy-seven-grid h3 {
+  margin: 0 0 8px;
+  font-family: 'Cairo Play', var(--sans);
+  font-size: 15px;
+  line-height: 1.25;
+}
+
+.snowy-seven-grid p {
+  margin: 0;
+  font-family: var(--condensed);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.snowy-demo-layout {
+  grid-template-columns: minmax(300px, .72fr) minmax(0, 1.28fr);
+}
+
+.snowy-demo-evidence {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.snowy-demo-evidence .presentation-artifact {
+  min-width: 0;
+}
+
+.snowy-demo-evidence .presentation-artifact-button img {
+  max-height: 54vh;
+}
+
+@media (max-width: 1280px) {
+  .snowy-seven-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .snowy-seven-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .snowy-demo-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .snowy-demo-evidence {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 580px) {
+  .snowy-seven-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* Use the full right-hand visual column when a Solution step has one image.
+   This avoids repeating the classification/gap screenshots already shown in Exploration. */
+.snowy-demo-evidence--single {
+  grid-template-columns: 1fr;
+}
+
+.snowy-demo-evidence--single .presentation-artifact-button img {
+  max-height: 62vh;
 }

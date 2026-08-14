@@ -1,506 +1,1155 @@
 <!doctype html>
 <html lang="en" data-theme="auto">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Preserving Design Intent with AI — Daniela Penati</title>
-  <meta name="description" content="A product design case study exploring how structured Figma output can be translated into ServiceNow-aware implementation guidance with AI while preserving human judgment." />
-  <meta name="color-scheme" content="light dark" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cairo+Play:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&family=Roboto+Condensed:wght@300;400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./stylesWK.css" />
-  <link rel="stylesheet" href="./stylesWK_presentation.css" />
-  <link rel="stylesheet" href="./stylesWK_snowy.css" />
-</head>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Preserving Design Intent with AI — Daniela Penati</title>
+    <meta
+      name="description"
+      content="A product design case study exploring how structured Figma output can be translated into ServiceNow-aware implementation guidance with AI while preserving human judgment."
+    />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo+Play:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&family=Roboto+Condensed:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./stylesWK.css" />
+    <link rel="stylesheet" href="./stylesWK_presentation.css" />
+    <link rel="stylesheet" href="./stylesWK_snowy.css" />
+  </head>
 
-<body class="presentation-case snowy-case">
-  <a class="skip-link" href="#main">Skip to content</a>
+  <body class="presentation-case snowy-case">
+    <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-header" id="top">
-    <div class="container header-row">
-      <div class="brand">
-        <a href="../index.html" class="brand-link">
-          <svg class="brand-mark" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <circle cx="30" cy="30" r="27" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.3" />
-            <circle cx="30" cy="30" r="24" fill="currentColor" opacity="0.08" />
-            <text x="30" y="38" text-anchor="middle" font-family="'Cairo Play', sans-serif" font-size="20" font-weight="800" letter-spacing="-1" fill="currentColor">d:p</text>
-          </svg>
-          <div>
-            <div class="brand-title">Daniela Penati</div>
-            <div class="brand-subtitle">UX Design &amp; Leadership</div>
-          </div>
-        </a>
-      </div>
-      <div class="header-actions">
-        <nav class="nav" aria-label="Primary">
-          <a href="../daniela/indexDP.html">About</a>
-          <a href="./indexWK.html" aria-current="page">Work</a>
-          <a href="../index.html#contact">Contact</a>
-        </nav>
-        <button class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false" data-theme-toggle>
-          <span class="theme-icon" aria-hidden="true">◐</span>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <main id="main">
-
-    <!-- OPENING -->
-    <section class="presentation-hero presentation-slide zone-obsidian snowy-hero" id="opening">
-      <div class="container presentation-container">
-        <div class="presentation-kicker">AI + developer experience case study</div>
-        <h1 class="presentation-title">Preserving Design Intent with AI</h1>
-        <p class="presentation-subtitle">A prototype for translating structured Figma output into ServiceNow-aware implementation guidance.</p>
-        <p class="presentation-lead">As our team moved more workflow experiences into ServiceNow, a recurring gap became clear: designers could define the intended experience in Figma, but engineers still had to interpret how that design should translate into ServiceNow components, patterns, and platform constraints.</p>
-        <blockquote class="presentation-quote presentation-quote--hero">
-          The goal was not to let AI design the interface. It was to reduce the interpretation gap between design intent and platform implementation.
-        </blockquote>
-
-        <div class="snowy-flow" aria-label="Snowy translation workflow">
-          <div class="snowy-node">
-            <span class="snowy-node-label">Design intent</span>
-            <strong>Structured Figma output</strong>
-            <small>Components · hierarchy · content · styling signals</small>
-          </div>
-          <span class="snowy-arrow" aria-hidden="true">→</span>
-          <div class="snowy-node snowy-node--accent">
-            <span class="snowy-node-label">Translation layer</span>
-            <strong>Map + classify + reason</strong>
-            <small>Rules · confidence · platform context · gaps</small>
-          </div>
-          <span class="snowy-arrow" aria-hidden="true">→</span>
-          <div class="snowy-node">
-            <span class="snowy-node-label">Platform output</span>
-            <strong>ServiceNow guidance &amp; artifacts</strong>
-            <small>Recommendations · code · build steps · page scaffolding</small>
-          </div>
-          <span class="snowy-arrow" aria-hidden="true">→</span>
-          <div class="snowy-node snowy-node--human">
-            <span class="snowy-node-label">Human judgment</span>
-            <strong>Designer + engineer review</strong>
-            <small>Validate exceptions, experience quality, and implementation choices</small>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <nav class="presentation-nav" aria-label="Case study sections">
-      <div class="container presentation-nav-inner">
-        <a href="#problem">01 Problem</a>
-        <a href="#exploration">02 Exploration</a>
-        <a href="#solution">03 Solution</a>
-        <a href="#impact">04 Impact</a>
-      </div>
-    </nav>
-
-    <!-- PROBLEM -->
-    <section class="case-chapter zone-charcoal" id="problem" data-chapter="01">
-      <div class="chapter-band"><div class="container"><span>01</span><strong>The Problem</strong></div></div>
-
-      <div class="presentation-slide chapter-slide">
-        <div class="container presentation-container">
-          <div class="split-layout snowy-split">
-            <div class="split-copy">
-              <div class="presentation-kicker">The Problem</div>
-              <h2 class="chapter-title">A Figma design does not tell an engineer how to build the experience in ServiceNow.</h2>
-              <p class="presentation-body">The handoff contained the visual and interaction intent, but implementation still required engineers to interpret the design against a very different platform model: ServiceNow components, page frameworks, configuration options, design-system patterns, and technical constraints.</p>
-              <p class="presentation-body">That translation was manual and inconsistent. Similar design elements could be implemented differently depending on who picked up the work, while platform limitations might not become visible until development had already begun.</p>
-              <blockquote class="presentation-quote">The challenge was not converting pixels into code. It was making the translation logic explicit.</blockquote>
-            </div>
-
-            <div class="split-visual-stack">
-              <div class="condition-grid snowy-gap-grid">
-                <article class="condition-card"><div class="card-number">A</div><h3>Component ambiguity</h3><p>A Figma component could map directly, require configuration, use a reusable pattern, or have no native equivalent.</p></article>
-                <article class="condition-card"><div class="card-number">B</div><h3>Platform context</h3><p>The right implementation depended on the target surface—not simply on what the design looked like.</p></article>
-                <article class="condition-card"><div class="card-number">C</div><h3>Hidden exceptions</h3><p>Some decisions could be automated confidently; others required interpretation or explicit human judgment.</p></article>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="presentation-slide artifact-slide">
-        <div class="container presentation-container">
-          <figure class="presentation-artifact presentation-artifact--hero" data-lightbox-src="./images/directions.png" data-lightbox-title="Early platform-mapping guidance">
-            <button class="presentation-artifact-button" type="button" aria-label="Enlarge early platform-mapping guidance">
-              <img src="./images/directions.png" alt="Notes exploring ServiceNow platform options and mapping rules from Figma structure to ServiceNow components" loading="lazy" />
-              <span class="zoom-hint">View larger</span>
-            </button>
-            <figcaption>Early exploration clarified that implementation choices depended on platform context, component semantics, and intended behavior—not visual similarity alone.</figcaption>
-          </figure>
-
-          <details class="deep-dive compact">
-            <summary><span>What engineers were interpreting manually</span><span class="summary-hint">Deep dive</span></summary>
-            <div class="deep-dive-body">
-              <p>For each design element, engineers had to determine the closest ServiceNow component or pattern, understand which properties and tokens carried over, identify where custom implementation might be required, and reconstruct the intended page hierarchy and behavior.</p>
-            </div>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <!-- EXPLORATION -->
-    <section class="case-chapter zone-slate" id="exploration" data-chapter="02">
-      <div class="chapter-band"><div class="container"><span>02</span><strong>The Exploration</strong></div></div>
-
-      <div class="presentation-slide chapter-slide">
-        <div class="container presentation-container">
-          <div class="presentation-kicker">The Exploration</div>
-          <h2 class="chapter-title">Separate what can be known from what still requires judgment.</h2>
-          <p class="presentation-body snowy-intro">I treated the handoff as a classification problem rather than a code-generation problem. For each Figma element, the system needed to say not only what it thought the ServiceNow equivalent was, but how confident that mapping was and what kind of implementation it implied.</p>
-
-          <div class="snowy-classification-grid">
-            <article><span>A</span><h3>Native match</h3><p>A direct ServiceNow component exists and can be used largely as-is.</p></article>
-            <article><span>B</span><h3>Native + configuration</h3><p>A native component exists, but properties, variants, or configuration are required.</p></article>
-            <article><span>C</span><h3>Template / pattern</h3><p>No single component is sufficient, but an approved combination can represent the intent.</p></article>
-            <article><span>D</span><h3>Gap / not feasible</h3><p>The system cannot make a reliable platform-native recommendation and surfaces the issue instead of inventing an answer.</p></article>
-          </div>
-
-          <blockquote class="presentation-quote presentation-quote--hero presentation-quote--compact">Confidence was useful only if uncertainty remained visible.</blockquote>
-        </div>
-      </div>
-
-      <div class="presentation-slide chapter-slide artifact-slide">
-        <div class="container presentation-container">
-          <div class="split-layout snowy-artifact-split">
-            <div class="split-copy">
-              <div class="subsection-number">A</div>
-              <h3 class="subsection-title">Make the mapping visible</h3>
-              <p class="presentation-body">Each Figma instance was classified, paired with a ServiceNow recommendation, and accompanied by implementation guidance. The report exposed the reasoning instead of hiding it behind a generated result.</p>
-
-              <div class="snowy-run-metrics">
-                <div><strong>99%</strong><span>confidence</span></div>
-                <div><strong>239</strong><span>mapped</span></div>
-                <div><strong>3</strong><span>unmapped</span></div>
-                <div><strong>14</strong><span>gaps</span></div>
-              </div>
-              <p class="snowy-metric-note">Example from one MVP run—not a generalized performance benchmark.</p>
-            </div>
-
-            <figure class="presentation-artifact presentation-artifact--side" data-lightbox-src="./images/05_RUN3 1.png" data-lightbox-title="Mapping report with classification and implementation guidance">
-              <button class="presentation-artifact-button" type="button" aria-label="Enlarge mapping report">
-                <img src="./images/05_RUN3 1.png" alt="Mapping report showing confidence, mapped and unmapped items, classification types, implementation guidance, and generated code" loading="lazy" />
-                <span class="zoom-hint">View larger</span>
-              </button>
-              <figcaption>The mapping report made the reasoning inspectable: classification, recommendation, guidance, and generated code were visible together.</figcaption>
-            </figure>
-          </div>
-        </div>
-      </div>
-
-      <div class="presentation-slide chapter-slide subsection-slide">
-        <div class="container presentation-container">
-          <div class="presentation-kicker">Responsibility boundaries</div>
-          <h3 class="subsection-title subsection-title--large">Rules, reasoning, and human review played different roles.</h3>
-
-          <div class="snowy-responsibility-grid">
-            <article>
-              <div class="snowy-responsibility-label">Deterministic rules</div>
-              <h4>Known facts stay explicit.</h4>
-              <p>Approved component mappings, known tokens, reusable patterns, and platform constraints.</p>
-            </article>
-            <article class="snowy-responsibility-grid__agent">
-              <div class="snowy-responsibility-label">Agent reasoning</div>
-              <h4>Interpret what is not one-to-one.</h4>
-              <p>Read hierarchy and intent, evaluate plausible implementation paths, classify feasibility, and explain recommendations.</p>
-            </article>
-            <article>
-              <div class="snowy-responsibility-label">Human judgment</div>
-              <h4>Keep ambiguous choices visible.</h4>
-              <p>Resolve unclear requirements, validate experience quality, approve exceptions, and decide when custom work is warranted.</p>
-            </article>
-          </div>
-
-          <div class="split-layout snowy-gap-layout">
+    <header class="site-header" id="top">
+      <div class="container header-row">
+        <div class="brand">
+          <a href="../index.html" class="brand-link">
+            <svg
+              class="brand-mark"
+              viewBox="0 0 60 60"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <circle
+                cx="30"
+                cy="30"
+                r="27"
+                stroke="currentColor"
+                stroke-width="1.5"
+                fill="none"
+                opacity="0.3"
+              />
+              <circle
+                cx="30"
+                cy="30"
+                r="24"
+                fill="currentColor"
+                opacity="0.08"
+              />
+              <text
+                x="30"
+                y="38"
+                text-anchor="middle"
+                font-family="'Cairo Play', sans-serif"
+                font-size="20"
+                font-weight="800"
+                letter-spacing="-1"
+                fill="currentColor"
+              >
+                d:p
+              </text>
+            </svg>
             <div>
-              <blockquote class="presentation-quote">The agent’s job was not to hide uncertainty. It was to make uncertainty actionable.</blockquote>
+              <div class="brand-title">Daniela Penati</div>
+              <div class="brand-subtitle">UX Design &amp; Leadership</div>
             </div>
-            <figure class="presentation-artifact presentation-artifact--side presentation-artifact--compact" data-lightbox-src="./images/06_RUN4 1.png" data-lightbox-title="Gap report and build checklist">
-              <button class="presentation-artifact-button" type="button" aria-label="Enlarge gap report and build checklist">
-                <img src="./images/06_RUN4 1.png" alt="Gap report showing unresolved mappings and a build checklist" loading="lazy" />
+          </a>
+        </div>
+        <div class="header-actions">
+          <nav class="nav" aria-label="Primary">
+            <a href="../daniela/indexDP.html">About</a>
+            <a href="./indexWK.html" aria-current="page">Work</a>
+            <a href="../index.html#contact">Contact</a>
+          </nav>
+          <button
+            class="theme-toggle"
+            type="button"
+            aria-label="Toggle dark mode"
+            aria-pressed="false"
+            data-theme-toggle
+          >
+            <span class="theme-icon" aria-hidden="true">◐</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- OPENING -->
+      <section
+        class="presentation-hero presentation-slide zone-obsidian snowy-hero"
+        id="opening"
+      >
+        <div class="container presentation-container">
+          <div class="presentation-kicker">
+            AI + developer experience case study
+          </div>
+          <h1 class="presentation-title">Preserving Design Intent with AI</h1>
+          <p class="presentation-subtitle">
+            A prototype for translating structured Figma output into
+            ServiceNow-aware implementation guidance.
+          </p>
+          <p class="presentation-lead">
+            As our team moved more workflow experiences into ServiceNow, a
+            recurring gap became clear: designers could define the intended
+            experience in Figma, but engineers still had to interpret how that
+            design should translate into ServiceNow components, patterns, and
+            platform constraints.
+          </p>
+          <blockquote class="presentation-quote presentation-quote--hero">
+            The goal was not to let AI design the interface. It was to reduce
+            the interpretation gap between design intent and platform
+            implementation.
+          </blockquote>
+
+          <div class="snowy-flow" aria-label="Snowy translation workflow">
+            <div class="snowy-node">
+              <span class="snowy-node-label">Design intent</span>
+              <strong>Structured Figma output</strong>
+              <small>Components · hierarchy · content · styling signals</small>
+            </div>
+            <span class="snowy-arrow" aria-hidden="true">→</span>
+            <div class="snowy-node snowy-node--accent">
+              <span class="snowy-node-label">Translation layer</span>
+              <strong>Map + classify + reason</strong>
+              <small>Rules · confidence · platform context · gaps</small>
+            </div>
+            <span class="snowy-arrow" aria-hidden="true">→</span>
+            <div class="snowy-node">
+              <span class="snowy-node-label">Platform output</span>
+              <strong>ServiceNow guidance &amp; artifacts</strong>
+              <small
+                >Recommendations · code · build steps · page scaffolding</small
+              >
+            </div>
+            <span class="snowy-arrow" aria-hidden="true">→</span>
+            <div class="snowy-node snowy-node--human">
+              <span class="snowy-node-label">Human judgment</span>
+              <strong>Designer + engineer review</strong>
+              <small
+                >Validate exceptions, experience quality, and implementation
+                choices</small
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <nav class="presentation-nav" aria-label="Case study sections">
+        <div class="container presentation-nav-inner">
+          <a href="#problem">01 Problem</a>
+          <a href="#exploration">02 Exploration</a>
+          <a href="#solution">03 Solution</a>
+          <a href="#impact">04 Impact</a>
+        </div>
+      </nav>
+
+      <!-- PROBLEM -->
+      <section
+        class="case-chapter zone-charcoal"
+        id="problem"
+        data-chapter="01"
+      >
+        <div class="chapter-band">
+          <div class="container">
+            <span>01</span><strong>The Problem</strong>
+          </div>
+        </div>
+
+        <div class="presentation-slide chapter-slide">
+          <div class="container presentation-container">
+            <div class="presentation-kicker">The Problem</div>
+            <h2 class="chapter-title">
+              A Figma design does not tell an engineer how to build the
+              experience in SN.
+            </h2>
+            <div class="split-layout snowy-split">
+              <div class="split-copy">
+                <p class="presentation-body">
+                  The handoff contains the visual and interaction intent, but
+                  implementation still requires engineers to interpret the
+                  design against a very different platform model: ServiceNow
+                  components, page frameworks, configuration options,
+                  design-system patterns, and technical constraints.
+                </p>
+                <p class="presentation-body">
+                  <span class="hl"
+                    >That translation is manual and inconsistent.</span
+                  >
+                  Similar design elements can be implemented differently
+                  depending on who picks up the work, while platform limitations
+                  might not become visible until development has already begun.
+                </p>
+              </div>
+
+              <div class="split-visual-stack">
+                <div class="condition-grid snowy-gap-grid">
+                  <article class="condition-card">
+                    <div class="card-number">A</div>
+                    <h3>Component ambiguity</h3>
+                    <p>
+                      A Figma component could map directly, require
+                      configuration, use a reusable pattern, or have no native
+                      equivalent.
+                    </p>
+                  </article>
+                  <article class="condition-card">
+                    <div class="card-number">B</div>
+                    <h3>Platform context</h3>
+                    <p>
+                      The right implementation depended on the target
+                      surface—not simply on what the design looked like.
+                    </p>
+                  </article>
+                  <article class="condition-card">
+                    <div class="card-number">C</div>
+                    <h3>Hidden exceptions</h3>
+                    <p>
+                      Some decisions could be automated confidently; others
+                      required interpretation or explicit human judgment.
+                    </p>
+                  </article>
+                </div>
+                <blockquote class="presentation-quote">
+                  The challenge was not converting pixels into code. It was
+                  making the translation logic explicit.
+                </blockquote>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="presentation-slide artifact-slide">
+          <div class="container presentation-container">
+            <figure
+              class="presentation-artifact presentation-artifact--hero presentation-artifact--fill"
+              data-lightbox-src="./images/snowy/directionsH.webp"
+              data-lightbox-title="Early platform-mapping guidance"
+            >
+              <button
+                class="presentation-artifact-button"
+                type="button"
+                aria-label="Enlarge early platform-mapping guidance"
+              >
+                <img
+                  src="./images/snowy/directionsH.webp"
+                  alt="Notes exploring ServiceNow platform options and mapping rules from Figma structure to ServiceNow components"
+                  loading="lazy"
+                />
+                <span class="zoom-hint">Scroll · Click to enlarge</span>
+              </button>
+              <figcaption>
+                Early exploration clarified that implementation choices depended
+                on platform context, component semantics, and intended
+                behavior—not visual similarity alone.
+              </figcaption>
+            </figure>
+
+            <details class="deep-dive compact">
+              <summary>
+                <span>What engineers were interpreting manually</span>
+              </summary>
+              <div class="deep-dive-body">
+                <p>
+                  For each design element, engineers had to determine the
+                  closest ServiceNow component or pattern, understand which
+                  properties and tokens carried over, identify where custom
+                  implementation might be required, and reconstruct the intended
+                  page hierarchy and behavior.
+                </p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPLORATION -->
+      <section
+        class="case-chapter zone-slate"
+        id="exploration"
+        data-chapter="02"
+      >
+        <div class="chapter-band">
+          <div class="container">
+            <span>02</span><strong>The Exploration</strong>
+          </div>
+        </div>
+
+        <div class="presentation-slide chapter-slide">
+          <div class="container presentation-container">
+            <div class="presentation-kicker">The Exploration</div>
+            <h2 class="chapter-title">
+              Separate what can be known from what still requires judgment.
+            </h2>
+            <p class="presentation-body snowy-intro">
+              I treated the handoff as a
+              <span class="hl">classification problem</span> rather than a
+              code-generation problem. For each Figma element, the system needed
+              to say not only what it thought the ServiceNow equivalent was, but
+              how confident that mapping was and what kind of implementation it
+              implied.
+            </p>
+
+            <div class="snowy-classification-grid">
+              <article>
+                <span>A</span>
+                <h3>Native match</h3>
+                <p>
+                  A direct ServiceNow component exists and can be used largely
+                  as-is.
+                </p>
+              </article>
+              <article>
+                <span>B</span>
+                <h3>Native + configuration</h3>
+                <p>
+                  A native component exists, but properties, variants, or
+                  configuration are required.
+                </p>
+              </article>
+              <article>
+                <span>C</span>
+                <h3>Template / pattern</h3>
+                <p>
+                  No single component is sufficient, but an approved combination
+                  can represent the intent.
+                </p>
+              </article>
+              <article>
+                <span>D</span>
+                <h3>Gap / not feasible</h3>
+                <p>
+                  The system cannot make a reliable platform-native
+                  recommendation and surfaces the issue instead of inventing an
+                  answer.
+                </p>
+              </article>
+            </div>
+
+            <blockquote
+              class="presentation-quote presentation-quote--hero presentation-quote--compact"
+            >
+              Confidence was useful only if uncertainty remained visible.
+            </blockquote>
+          </div>
+        </div>
+
+        <div class="presentation-slide chapter-slide artifact-slide">
+          <div class="container presentation-container">
+            <div class="split-layout snowy-artifact-split">
+              <div class="split-copy">
+                <!-- <div class="subsection-number">A</div> -->
+                <h3 class="subsection-title">Make the mapping visible</h3>
+                <p class="presentation-body">
+                  Each Figma instance is classified, paired with a ServiceNow
+                  recommendation, and accompanied by implementation guidance.
+                  <span class="hl">The report exposes the reasoning</span>
+                  instead of hiding it behind a generated result.
+                </p>
+              </div>
+
+              <figure
+                class="presentation-artifact presentation-artifact--side"
+                data-lightbox-src="./images/snowy/05_RUN3 1.webp"
+                data-lightbox-title="Mapping report with classification and implementation guidance"
+              >
+                <button
+                  class="presentation-artifact-button"
+                  type="button"
+                  aria-label="Enlarge mapping report"
+                >
+                  <img
+                    src="./images/snowy/05_RUN3 1.webp"
+                    alt="Mapping report showing confidence, mapped and unmapped items, classification types, implementation guidance, and generated code"
+                    loading="lazy"
+                  />
+                  <span class="zoom-hint">View larger</span>
+                </button>
+                <figcaption>
+                  The mapping report makes the reasoning inspectable:
+                  classification, recommendation, guidance, and generated code
+                  are visible together.
+                </figcaption>
+              </figure>
+            </div>
+
+            <div class="snowy-run-metrics">
+              <div><strong>99%</strong><span>confidence</span></div>
+              <div><strong>239</strong><span>mapped</span></div>
+              <div><strong>3</strong><span>unmapped</span></div>
+              <div><strong>14</strong><span>gaps</span></div>
+            </div>
+            <p class="snowy-metric-note snowy-metric-note--center">
+              Example from one MVP run—not a generalized performance benchmark.
+            </p>
+          </div>
+        </div>
+
+        <div class="presentation-slide chapter-slide subsection-slide">
+          <div class="container presentation-container">
+            <div class="presentation-kicker">Responsibility boundaries</div>
+            <h3 class="subsection-title subsection-title--large">
+              Rules, reasoning, and human review played different roles.
+            </h3>
+
+            <div class="snowy-responsibility-grid">
+              <article>
+                <div class="snowy-responsibility-label">
+                  Deterministic rules
+                </div>
+                <h4>Known facts stay explicit.</h4>
+                <p>
+                  Approved component mappings, known tokens, reusable patterns,
+                  and platform constraints.
+                </p>
+              </article>
+              <article class="snowy-responsibility-grid__agent">
+                <div class="snowy-responsibility-label">Agent reasoning</div>
+                <h4>Interpret what is not one-to-one.</h4>
+                <p>
+                  Read hierarchy and intent, evaluate plausible implementation
+                  paths, classify feasibility, and explain recommendations.
+                </p>
+              </article>
+              <article>
+                <div class="snowy-responsibility-label">Human judgment</div>
+                <h4>Keep ambiguous choices visible.</h4>
+                <p>
+                  Resolve unclear requirements, validate experience quality,
+                  approve exceptions, and decide when custom work is warranted.
+                </p>
+              </article>
+            </div>
+
+            <div class="split-layout snowy-gap-layout">
+              <div>
+                <blockquote class="presentation-quote">
+                  The agent’s job was not to hide uncertainty. It was to make
+                  uncertainty actionable.
+                </blockquote>
+              </div>
+              <figure
+                class="presentation-artifact presentation-artifact--side presentation-artifact--compact"
+                data-lightbox-src="./images/snowy/06_RUN4 1.webp"
+                data-lightbox-title="Gap report and build checklist"
+              >
+                <button
+                  class="presentation-artifact-button"
+                  type="button"
+                  aria-label="Enlarge gap report and build checklist"
+                >
+                  <img
+                    src="./images/snowy/06_RUN4 1.webp"
+                    alt="Gap report showing unresolved mappings and a build checklist"
+                    loading="lazy"
+                  />
+                  <span class="zoom-hint">View larger</span>
+                </button>
+                <figcaption>
+                  Unmapped items and gaps became explicit implementation work
+                  rather than silent assumptions.
+                </figcaption>
+              </figure>
+            </div>
+
+            <details class="deep-dive compact">
+              <summary><span>How the mapping model worked</span></summary>
+              <div class="deep-dive-body">
+                <p>
+                  The Figma export preserved multiple kinds of signals.
+                  Component instances were treated as primary implementation
+                  candidates, while frames helped establish structure and text
+                  nodes preserved content. This prevented the system from trying
+                  to map every visual element into a ServiceNow component.
+                </p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- SOLUTION -->
+      <section class="case-chapter zone-linen" id="solution" data-chapter="03">
+        <div class="chapter-band">
+          <div class="container">
+            <span>03</span><strong>The Solution</strong>
+          </div>
+        </div>
+
+        <div class="presentation-slide chapter-slide">
+          <div class="container presentation-container">
+            <div class="presentation-kicker">The Solution</div>
+            <h2 class="chapter-title">
+              From Figma intent to ServiceNow implementation
+            </h2>
+            <p class="presentation-body snowy-intro">
+              The prototype turned the translation logic into an
+              <span class="hl">end-to-end workflow:</span> preserve structure
+              from Figma, classify what ServiceNow can support, surface
+              uncertainty, then generate artifacts only after the interpretation
+              can be reviewed.
+            </p>
+
+            <div
+              class="snowy-seven-grid"
+              aria-label="Seven-step Snowy demo flow"
+            >
+              <article>
+                <span>01</span>
+                <h3>Export the design</h3>
+                <p>
+                  Use Figma2Prompt to capture structured JSON instead of
+                  flattening the design into an image.
+                </p>
+              </article>
+              <article>
+                <span>02</span>
+                <h3>Run the engine</h3>
+                <p>
+                  Paste the export into the MVP and select the target ServiceNow
+                  experience.
+                </p>
+              </article>
+              <article>
+                <span>03</span>
+                <h3>Classify the page</h3>
+                <p>
+                  Map components and patterns, expose confidence, and identify
+                  unsupported elements.
+                </p>
+              </article>
+              <article>
+                <span>04</span>
+                <h3>Review the gaps</h3>
+                <p>
+                  Surface what cannot be mapped reliably rather than silently
+                  approximating it.
+                </p>
+              </article>
+              <article>
+                <span>05</span>
+                <h3>Generate a preview</h3>
+                <p>
+                  Create a structural preview so the interpretation can be
+                  checked before implementation.
+                </p>
+              </article>
+              <article>
+                <span>06</span>
+                <h3>Generate the page</h3>
+                <p>
+                  Use the approved mappings to create ServiceNow implementation
+                  artifacts.
+                </p>
+              </article>
+              <article>
+                <span>07</span>
+                <h3>Inspect the result</h3>
+                <p>
+                  Review the generated HTML, CSS, client logic, server logic,
+                  and resulting widget or page.
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <div class="presentation-slide chapter-slide subsection-slide">
+          <div class="container presentation-container">
+            <div class="split-layout snowy-demo-layout">
+              <div class="split-copy">
+                <div class="subsection-number">01–04</div>
+                <h3 class="subsection-title">
+                  Preserve structure. Make the interpretation visible.
+                </h3>
+                <p class="presentation-body">
+                  The workflow starts with
+                  <span class="hl">structured Figma output</span>, not a
+                  screenshot. Once the JSON enters the mapping engine, it moves
+                  into the classification logic shown in Exploration.
+                </p>
+              </div>
+
+              <blockquote class="presentation-quote split-quote">
+                The important part was not that the system produced an answer.
+                It was that engineers could see how it arrived there.
+              </blockquote>
+            </div>
+
+            <figure
+              class="presentation-artifact presentation-artifact--full"
+              data-lightbox-src="./images/snowy/04_RUN2 1.webp"
+              data-lightbox-title="Step 2 — Run the mapping engine"
+            >
+              <button
+                class="presentation-artifact-button"
+                type="button"
+                aria-label="Enlarge Run MVP interface"
+              >
+                <img
+                  src="./images/snowy/04_RUN2 1.webp"
+                  alt="Figma2Snow Run MVP interface accepting structured Figma export"
+                  loading="lazy"
+                />
                 <span class="zoom-hint">View larger</span>
               </button>
-              <figcaption>Unmapped items and gaps became explicit implementation work rather than silent assumptions.</figcaption>
+              <figcaption>
+                Run the structured export against a selected ServiceNow target
+                experience. The classification behavior shown in Exploration
+                happens immediately after this step.
+              </figcaption>
             </figure>
           </div>
-
-          <details class="deep-dive compact">
-            <summary><span>How the mapping model worked</span></summary>
-            <div class="deep-dive-body">
-              <p>The Figma export preserved multiple kinds of signals. Component instances were treated as primary implementation candidates, while frames helped establish structure and text nodes preserved content. This prevented the system from trying to map every visual element into a ServiceNow component.</p>
-            </div>
-          </details>
         </div>
-      </div>
-    </section>
 
-    <!-- SOLUTION -->
-    <section class="case-chapter zone-linen" id="solution" data-chapter="03">
-      <div class="chapter-band"><div class="container"><span>03</span><strong>The Solution</strong></div></div>
+        <div class="presentation-slide chapter-slide subsection-slide">
+          <div class="container presentation-container">
+            <div class="split-layout snowy-demo-layout">
+              <div class="split-copy">
+                <div class="subsection-number">04–05</div>
+                <h3 class="subsection-title">
+                  Surface gaps before generating anything.
+                </h3>
+                <p class="presentation-body">
+                  Once unsupported and ambiguous mappings had been surfaced, the
+                  preview provided a low-cost checkpoint to validate whether the
+                  system had interpreted the Figma structure correctly before
+                  creating ServiceNow artifacts.
+                </p>
+                <blockquote class="presentation-quote">
+                  Uncertainty became something the team could review—not
+                  something the system quietly filled in.
+                </blockquote>
+              </div>
 
-      <div class="presentation-slide chapter-slide">
-        <div class="container presentation-container">
-          <div class="presentation-kicker">The Solution</div>
-          <h2 class="chapter-title">A platform-aware translation workflow</h2>
-          <p class="presentation-body snowy-intro">The prototype combined structured Figma output, an explicit mapping and classification layer, and ServiceNow-aware implementation logic. Together they turned a design export into guidance that engineers could inspect rather than blindly accept.</p>
-
-          <div class="snowy-process-grid">
-            <article><span>01</span><h3>Export</h3><p>Capture structured Figma information rather than a screenshot.</p></article>
-            <article><span>02</span><h3>Analyze</h3><p>Map components, classify feasibility, detect gaps, and preserve hierarchy.</p></article>
-            <article><span>03</span><h3>Explain</h3><p>Return ServiceNow-aware guidance, generated code, and build steps.</p></article>
-            <article><span>04</span><h3>Review / Generate</h3><p>Let a human inspect the recommendation before creating preview or page artifacts.</p></article>
+              <div
+                class="split-visual-stack snowy-demo-evidence snowy-demo-evidence--single"
+              >
+                <figure
+                  class="presentation-artifact presentation-artifact--side"
+                  data-lightbox-src="./images/snowy/07_PREV2 1.webp"
+                  data-lightbox-title="Step 5 — Generated structural preview"
+                >
+                  <button
+                    class="presentation-artifact-button"
+                    type="button"
+                    aria-label="Enlarge generated structural preview"
+                  >
+                    <img
+                      src="./images/snowy/07_PREV2 1.webp"
+                      alt="Generated structural preview showing mapped ServiceNow components and page hierarchy"
+                      loading="lazy"
+                    />
+                    <span class="zoom-hint">View larger</span>
+                  </button>
+                  <figcaption>
+                    After unresolved mappings were surfaced, the preview became
+                    the next checkpoint: validate the interpretation before
+                    generating the page.
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
           </div>
-
-          <figure class="presentation-artifact presentation-artifact--inside" data-lightbox-src="./images/04_RUN2 1.png" data-lightbox-title="Figma2Snow Run MVP">
-            <button class="presentation-artifact-button" type="button" aria-label="Enlarge Figma2Snow Run MVP">
-              <img src="./images/04_RUN2 1.png" alt="Figma2Snow MVP interface accepting structured Figma export and a selected target experience" loading="lazy" />
-              <span class="zoom-hint">View larger</span>
-            </button>
-            <figcaption>The MVP accepted structured Figma output and ran it through the mapping engine against a selected ServiceNow target experience.</figcaption>
-          </figure>
         </div>
-      </div>
 
-      <div class="presentation-slide chapter-slide subsection-slide">
-        <div class="container presentation-container">
-          <div class="split-layout snowy-agent-layout">
-            <div class="split-copy">
-              <div class="presentation-kicker">Then I moved the capability into the platform itself</div>
-              <h3 class="subsection-title subsection-title--large">SNOWY became the conversational layer over the translation engine.</h3>
-              <p class="presentation-body">The initial mapping engine proved the translation logic. The next step was to make that capability accessible where engineers were already working by implementing SNOWY as an AI agent inside ServiceNow.</p>
-              <p class="presentation-body">The agent could analyze a Figma design, retrieve conversion history, explain the results conversationally, and initiate generation actions when appropriate.</p>
-              <blockquote class="presentation-quote">The conversational layer did not replace the mapping engine. It made the capability easier to interrogate and act on.</blockquote>
+        <div class="presentation-slide chapter-slide subsection-slide">
+          <div class="container presentation-container">
+            <div class="presentation-kicker">
+              Then I moved the capability into the platform itself
+            </div>
+            <h3 class="subsection-title subsection-title--large">
+              SNOWY became the conversational layer over the translation engine.
+            </h3>
+            <div class="split-layout snowy-agent-layout">
+              <div class="split-copy">
+                <p class="presentation-body">
+                  The mapping engine established the translation logic. I then
+                  <span class="hl">implemented SNOWY inside ServiceNow</span> so
+                  engineers could analyze a design, inspect results, retrieve
+                  prior conversions, and initiate generation without leaving the
+                  platform.
+                </p>
+              </div>
+
+              <blockquote class="presentation-quote split-quote">
+                The conversational layer did not replace the mapping engine. It
+                made the capability easier to interrogate and act on.
+              </blockquote>
             </div>
 
-            <figure class="presentation-artifact presentation-artifact--side" data-lightbox-src="./images/Overview-AI-Agent-Studio-ServiceNow.png" data-lightbox-title="SNOWY inside ServiceNow AI Agent Studio">
-              <button class="presentation-artifact-button" type="button" aria-label="Enlarge SNOWY in AI Agent Studio">
-                <img src="./images/Overview-AI-Agent-Studio-ServiceNow.png" alt="ServiceNow AI Agent Studio showing Snowy running analysis and generation tools with decision logs" loading="lazy" />
+            <figure
+              class="presentation-artifact presentation-artifact--full"
+              data-lightbox-src="./images/snowy/Overview-AI-Agent-Studio-ServiceNow.webp"
+              data-lightbox-title="SNOWY inside ServiceNow AI Agent Studio"
+            >
+              <button
+                class="presentation-artifact-button"
+                type="button"
+                aria-label="Enlarge SNOWY in AI Agent Studio"
+              >
+                <img
+                  src="./images/snowy/Overview-AI-Agent-Studio-ServiceNow.webp"
+                  alt="ServiceNow AI Agent Studio showing Snowy running analysis and generation tools with decision logs"
+                  loading="lazy"
+                />
                 <span class="zoom-hint">View larger</span>
               </button>
-              <figcaption>Inside AI Agent Studio, SNOWY orchestrated analysis and generation tools while exposing agent decisions and tool activity.</figcaption>
+              <figcaption>
+                Inside AI Agent Studio, SNOWY orchestrated analysis and
+                generation tools while exposing the agent’s decisions and tool
+                activity.
+              </figcaption>
             </figure>
+
+            <details class="deep-dive compact">
+              <summary>
+                <span>Inside the agent</span>
+              </summary>
+              <div class="deep-dive-body">
+                <p>
+                  The deployed agent exposed distinct tools for analyzing a
+                  Figma design, retrieving conversion history, and generating a
+                  page. Keeping those capabilities separate made the workflow
+                  easier to reason about and preserved human control over
+                  generation.
+                </p>
+                <figure
+                  class="presentation-artifact presentation-artifact--inside"
+                  data-lightbox-src="./images/snowy/input.webp"
+                  data-lightbox-title="Agent deployment and tool structure"
+                >
+                  <button
+                    class="presentation-artifact-button"
+                    type="button"
+                    aria-label="Enlarge agent deployment and tool structure"
+                  >
+                    <img
+                      src="./images/snowy/input.webp"
+                      alt="Agent deployment summary showing Snowy and its analysis, history, and page-generation tools"
+                      loading="lazy"
+                    />
+                    <span class="zoom-hint">View larger</span>
+                  </button>
+                </figure>
+              </div>
+            </details>
           </div>
-
-          <details class="deep-dive compact">
-            <summary><span>Inside the agent</span><span class="summary-hint">Deep dive</span></summary>
-            <div class="deep-dive-body">
-              <p>The deployed agent separated distinct capabilities for analyzing a Figma design, retrieving prior conversion results, and generating a page. Keeping those tools distinct made the workflow easier to reason about and preserved human control over generation.</p>
-              <figure class="presentation-artifact presentation-artifact--inside" data-lightbox-src="./images/input.png" data-lightbox-title="Agent deployment and tool structure">
-                <button class="presentation-artifact-button" type="button" aria-label="Enlarge agent deployment and tool structure">
-                  <img src="./images/input.png" alt="Agent deployment summary showing Snowy and its analysis, history, and page-generation tools" loading="lazy" />
-                  <span class="zoom-hint">View larger</span>
-                </button>
-              </figure>
-            </div>
-          </details>
         </div>
-      </div>
 
-      <div class="presentation-slide chapter-slide payoff-slide">
-        <div class="container presentation-container">
-          <div class="split-layout snowy-output-layout">
-            <div class="split-copy">
-              <div class="presentation-kicker">From recommendation to implementation artifact</div>
-              <h3 class="subsection-title subsection-title--large">Generation was scaffolding for review—not proof that the design was finished.</h3>
-              <p class="presentation-body">The prototype could go beyond classification and produce implementation scaffolding: generated markup, styles, client and server logic, build guidance, and—in supported cases—a page or widget that could be opened directly in ServiceNow for review.</p>
-              <blockquote class="presentation-quote presentation-quote--hero presentation-quote--compact">The output was a starting point engineers could inspect, not an opaque final answer.</blockquote>
+        <div class="presentation-slide chapter-slide payoff-slide">
+          <div class="container presentation-container">
+            <div class="subsection-number">06–07</div>
+            <h3 class="subsection-title subsection-title--large">
+              Generate the artifact—then inspect it.
+            </h3>
+            <div class="split-layout snowy-output-layout">
+              <div class="split-copy">
+                <p class="presentation-body">
+                  With the approved mappings in place, the workflow could create
+                  ServiceNow implementation scaffolding: markup, styles, client
+                  and server logic, and—in supported cases—a working page or
+                  widget.
+                </p>
+              </div>
+
+              <blockquote
+                class="presentation-quote presentation-quote--hero presentation-quote--compact split-quote"
+              >
+                Generation was a starting point for review, not proof that the
+                design had been implemented correctly.
+              </blockquote>
             </div>
 
-            <figure class="presentation-artifact presentation-artifact--side" data-lightbox-src="./images/Editing-My-First-Generated-Widget-07-07-2026_10_35 1.png" data-lightbox-title="Generated ServiceNow widget">
-              <button class="presentation-artifact-button" type="button" aria-label="Enlarge generated ServiceNow widget">
-                <img src="./images/Editing-My-First-Generated-Widget-07-07-2026_10_35 1.png" alt="Generated ServiceNow widget showing HTML, client script, server script, and working preview" loading="lazy" />
+            <figure
+              class="presentation-artifact presentation-artifact--full"
+              data-lightbox-src="./images/snowy/Editing-My-First-Generated-Widget.webp"
+              data-lightbox-title="Generated ServiceNow widget"
+            >
+              <button
+                class="presentation-artifact-button"
+                type="button"
+                aria-label="Enlarge generated ServiceNow widget"
+              >
+                <img
+                  src="./images/snowy/Editing-My-First-Generated-Widget.webp"
+                  alt="Generated ServiceNow widget showing HTML, client script, server script, and working preview"
+                  loading="lazy"
+                />
                 <span class="zoom-hint">View larger</span>
               </button>
-              <figcaption>A generated ServiceNow widget included HTML, client logic, server logic, and a working preview.</figcaption>
+              <figcaption>
+                The generated widget exposed HTML, client logic, server logic,
+                and the working preview side by side.
+              </figcaption>
             </figure>
+
+            <details class="deep-dive compact">
+              <summary><span>Implementation detail</span></summary>
+              <div class="deep-dive-body">
+                <p>
+                  Generated artifacts could accelerate setup, while
+                  platform-specific exceptions and unresolved mappings remained
+                  available for review and correction.
+                </p>
+                <figure
+                  class="presentation-artifact presentation-artifact--inside"
+                  data-lightbox-src="./images/snowy/implemDetails.webp"
+                  data-lightbox-title="Generated page implementation details"
+                >
+                  <button
+                    class="presentation-artifact-button"
+                    type="button"
+                    aria-label="Enlarge generated page implementation details"
+                  >
+                    <img
+                      src="./images/snowy/implemDetails.webp"
+                      alt="ServiceNow widget implementation showing generated HTML, CSS, server script, and client controller"
+                      loading="lazy"
+                    />
+                    <span class="zoom-hint">View larger</span>
+                  </button>
+                </figure>
+              </div>
+            </details>
           </div>
-
-          <details class="deep-dive compact">
-            <summary><span>How far generation could go</span></summary>
-            <div class="deep-dive-body">
-              <p>Generated artifacts could include page structure and implementation code that accelerated setup, while unresolved mappings and platform-specific exceptions remained visible for review.</p>
-              <figure class="presentation-artifact presentation-artifact--inside" data-lightbox-src="./images/PAG4 1.png" data-lightbox-title="Generated page implementation details">
-                <button class="presentation-artifact-button" type="button" aria-label="Enlarge generated page implementation details">
-                  <img src="./images/PAG4 1.png" alt="ServiceNow widget implementation showing generated HTML, CSS, server script, and client controller" loading="lazy" />
-                  <span class="zoom-hint">View larger</span>
-                </button>
-              </figure>
-            </div>
-          </details>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- IMPACT -->
-    <section class="case-chapter zone-offwhite" id="impact" data-chapter="04">
-      <div class="chapter-band"><div class="container"><span>04</span><strong>The Impact</strong></div></div>
-
-      <div class="presentation-slide chapter-slide framed-slide">
-        <div class="container presentation-container">
-          <div class="presentation-kicker">The Impact</div>
-          <h2 class="chapter-title">The prototype validated the translation layer.</h2>
-          <p class="presentation-body snowy-intro">This was not a production deployment, so I would not measure its success by adoption or delivery metrics. What we validated was that structured design intent could be translated into platform-aware recommendations without collapsing everything into generic AI generation.</p>
-
-          <div class="impact-area-grid snowy-impact-grid">
-            <article><span>Mapping could be explicit</span><p>The system could distinguish direct matches from configuration needs, patterns, and unsupported cases.</p></article>
-            <article><span>Gaps could remain visible</span><p>Unsupported or ambiguous elements were surfaced instead of being silently approximated.</p></article>
-            <article><span>Guidance could become actionable</span><p>The output included implementation recommendations, generated code, and build steps engineers could inspect.</p></article>
-            <article><span>The capability could live inside ServiceNow</span><p>The mapping logic could be exposed through a native AI agent and connected to generation tools in the engineers’ working environment.</p></article>
+      <!-- IMPACT -->
+      <section class="case-chapter zone-offwhite" id="impact" data-chapter="04">
+        <div class="chapter-band">
+          <div class="container">
+            <span>04</span><strong>The Impact</strong>
           </div>
+        </div>
 
-          <div class="reflection-divider reflection-divider--tight"></div>
+        <div class="presentation-slide chapter-slide framed-slide">
+          <div class="container presentation-container">
+            <div class="presentation-kicker">The Impact</div>
+            <h2 class="chapter-title">
+              The prototype validated an end-to-end translation workflow.
+            </h2>
+            <p class="presentation-body snowy-intro">
+              This was not a production deployment, so I would not measure its
+              success by adoption metrics. What we validated was the full path
+              from structured Figma intent to inspectable ServiceNow
+              implementation artifacts—while keeping uncertainty and human
+              review visible throughout.
+            </p>
 
-          <div class="presentation-kicker">Example MVP run</div>
-          <div class="snowy-results-strip">
-            <article><strong>99%</strong><span>confidence</span></article>
-            <article><strong>239</strong><span>mapped instances</span></article>
-            <article><strong>3</strong><span>unmapped</span></article>
-            <article><strong>14</strong><span>gaps surfaced</span></article>
+            <div class="impact-area-grid snowy-impact-grid">
+              <article>
+                <span>Intent stayed structured</span>
+                <p>
+                  The workflow preserved component, hierarchy, content, and
+                  styling signals rather than reducing the design to pixels.
+                </p>
+              </article>
+              <article>
+                <span>Uncertainty stayed visible</span>
+                <p>
+                  Unsupported or ambiguous elements were surfaced before
+                  generation instead of being silently approximated.
+                </p>
+              </article>
+              <article>
+                <span>Interpretation became actionable</span>
+                <p>
+                  Classification, guidance, preview, code, and build steps gave
+                  engineers concrete material to inspect and use.
+                </p>
+              </article>
+              <article>
+                <span>The workflow reached the platform</span>
+                <p>
+                  The translation logic could be exposed through a native
+                  ServiceNow AI agent and connected to page-generation tools.
+                </p>
+              </article>
+            </div>
+
+            <div class="reflection-divider reflection-divider--tight"></div>
+
+            <div class="presentation-kicker">Example MVP run</div>
+            <div class="snowy-results-strip">
+              <article><strong>99%</strong><span>confidence</span></article>
+              <article>
+                <strong>239</strong><span>mapped instances</span>
+              </article>
+              <article><strong>3</strong><span>unmapped</span></article>
+              <article><strong>14</strong><span>gaps surfaced</span></article>
+            </div>
+            <p class="snowy-metric-note snowy-metric-note--center">
+              A single prototype run, shown as evidence of behavior—not as a
+              production KPI.
+            </p>
           </div>
-          <p class="snowy-metric-note snowy-metric-note--center">A single prototype run, shown as evidence of behavior—not as a production KPI.</p>
         </div>
-      </div>
 
-      <div class="presentation-slide chapter-slide">
-        <div class="container presentation-container narrow">
-          <div class="presentation-kicker">It also changed the conversation with Engineering</div>
-          <h3 class="subsection-title subsection-title--large">The prototype became a concrete engineering capability—not just a design experiment.</h3>
-          <p class="presentation-body">What began as a way to reduce handoff friction became a component library, mapping model, agent workflow, backlog, and a clear separation between work that could continue in the POC environment and work requiring production governance.</p>
-
-          <details class="deep-dive compact">
-            <summary><span>From prototype to engineering backlog</span><span class="summary-hint">Deep dive</span></summary>
-            <div class="deep-dive-body">
-              <p>The follow-on plan separated critical unblockers, component expansion, hardening, and eventual scale so engineering work could continue without treating the prototype as production-ready.</p>
-              <figure class="presentation-artifact presentation-artifact--inside" data-lightbox-src="./images/jira.png" data-lightbox-title="SNOWY backlog and phased engineering plan">
-                <button class="presentation-artifact-button" type="button" aria-label="Enlarge SNOWY backlog and engineering plan">
-                  <img src="./images/jira.png" alt="Jira backlog and engineering planning for Snowy, with phased work covering unblockers, component expansion, hardening, and scale" loading="lazy" />
-                  <span class="zoom-hint">View larger</span>
-                </button>
-              </figure>
+        <div class="presentation-slide chapter-slide">
+          <div class="container presentation-container narrow">
+            <div class="presentation-kicker">
+              It also changed the conversation with Engineering
             </div>
-          </details>
+            <h3 class="subsection-title subsection-title--large">
+              The prototype became a concrete engineering capability—not just a
+              design experiment.
+            </h3>
+            <p class="presentation-body">
+              What began as a way to reduce handoff friction became a component
+              library, mapping model, agent workflow, backlog, and a clear
+              separation between work that could continue in the POC environment
+              and work requiring production governance.
+            </p>
 
-          <details class="deep-dive compact">
-            <summary><span>Execution under changing constraints</span><span class="summary-hint">Deep dive</span></summary>
-            <div class="deep-dive-body">
-              <p>The prototype also had to survive changing ServiceNow environments, permissions, and agent setup. I documented the architecture and state carefully enough that the work could continue after migration and handoff rather than depending on one instance or one person.</p>
-              <figure class="presentation-artifact presentation-artifact--inside" data-lightbox-src="./images/test.png" data-lightbox-title="Testing SNOWY inside AI Agent Studio">
-                <button class="presentation-artifact-button" type="button" aria-label="Enlarge SNOWY test evidence">
-                  <img src="./images/test.png" alt="ServiceNow AI Agent Studio showing Snowy setup, testing, decision logs, and runtime behavior" loading="lazy" />
-                  <span class="zoom-hint">View larger</span>
-                </button>
-              </figure>
-            </div>
-          </details>
+            <details class="deep-dive compact">
+              <summary>
+                <span>From prototype to engineering backlog</span>
+              </summary>
+              <div class="deep-dive-body">
+                <p>
+                  The follow-on plan separated critical unblockers, component
+                  expansion, hardening, and eventual scale so engineering work
+                  could continue without treating the prototype as
+                  production-ready.
+                </p>
+                <figure
+                  class="presentation-artifact presentation-artifact--inside"
+                  data-lightbox-src="./images/snowy/jira.webp"
+                  data-lightbox-title="SNOWY backlog and phased engineering plan"
+                >
+                  <button
+                    class="presentation-artifact-button"
+                    type="button"
+                    aria-label="Enlarge SNOWY backlog and engineering plan"
+                  >
+                    <img
+                      src="./images/snowy/jira.webp"
+                      alt="Jira backlog and engineering planning for Snowy, with phased work covering unblockers, component expansion, hardening, and scale"
+                      loading="lazy"
+                    />
+                    <span class="zoom-hint">View larger</span>
+                  </button>
+                </figure>
+              </div>
+            </details>
+
+            <details class="deep-dive compact">
+              <summary>
+                <span>Execution under changing constraints</span>
+              </summary>
+              <div class="deep-dive-body">
+                <p>
+                  The prototype also had to survive changing ServiceNow
+                  environments, permissions, and agent setup. I documented the
+                  architecture and state carefully enough that the work could
+                  continue after migration and handoff rather than depending on
+                  one instance or one person.
+                </p>
+                <figure
+                  class="presentation-artifact presentation-artifact--inside"
+                  data-lightbox-src="./images/snowy/test.webp"
+                  data-lightbox-title="Testing SNOWY inside AI Agent Studio"
+                >
+                  <button
+                    class="presentation-artifact-button"
+                    type="button"
+                    aria-label="Enlarge SNOWY test evidence"
+                  >
+                    <img
+                      src="./images/snowy/test.webp"
+                      alt="ServiceNow AI Agent Studio showing Snowy setup, testing, decision logs, and runtime behavior"
+                      loading="lazy"
+                    />
+                    <span class="zoom-hint">View larger</span>
+                  </button>
+                </figure>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <div
+          class="presentation-slide chapter-slide finale-slide zone-obsidian"
+        >
+          <div class="container presentation-container narrow">
+            <div class="presentation-kicker">What I learned</div>
+            <h3 class="subsection-title subsection-title--large">
+              AI helped to reduce uncertainty without removing human judgment.
+            </h3>
+            <p class="presentation-body">
+              This work changed how I think about AI in design workflows. The
+              most valuable part was not asking a model to produce more output.
+              It was using AI to make an existing translation problem more
+              explicit—what we know, what the platform allows, where
+              interpretation is required, and where people still need to decide.
+            </p>
+            <blockquote class="presentation-quote presentation-quote--final">
+              Reduce ambiguity. Preserve judgment.
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <section class="section case-study-nav">
+        <div class="container">
+          <div class="nav-row">
+            <a href="./indexWK.html" class="nav-back">← All Work</a>
+            <a href="#top" class="nav-link">Back to top ↑</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-row">
+        <div class="footer-meta">
+          <a
+            class="social-icon"
+            href="https://www.linkedin.com/in/danielapenati/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="22"
+              height="22"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V9h4v2"
+              />
+              <path d="M2 9h4v12H2z" />
+              <path d="M4 4a2 2 0 1 0 0 .001z" />
+            </svg>
+          </a>
+          <a
+            class="social-icon"
+            href="mailto:daniela@dpenati.com"
+            aria-label="Email"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="22"
+              height="22"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M4 4h16v16H4z" />
+              <path d="m4 6 8 6 8-6" />
+            </svg>
+          </a>
+          <span class="footer-copy">© 2026 Daniela Penati</span>
         </div>
       </div>
+    </footer>
 
-      <div class="presentation-slide chapter-slide finale-slide zone-obsidian">
-        <div class="container presentation-container narrow">
-          <div class="presentation-kicker">What I learned</div>
-          <h3 class="subsection-title subsection-title--large">AI was most useful when it reduced ambiguity without pretending judgment had disappeared.</h3>
-          <p class="presentation-body">This work changed how I think about AI in design workflows. The most valuable part was not asking a model to produce more output. It was using AI to make an existing translation problem more explicit—what we know, what the platform allows, where interpretation is required, and where people still need to decide.</p>
-          <blockquote class="presentation-quote presentation-quote--final">Reduce ambiguity. Preserve judgment.</blockquote>
+    <a class="fab-top" href="#top" aria-label="Back to top"
+      ><span aria-hidden="true">↑</span></a
+    >
+
+    <div
+      class="presentation-lightbox"
+      id="presentation-lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Artifact viewer"
+      hidden
+    >
+      <div class="presentation-lightbox-backdrop" data-lightbox-close></div>
+      <div class="presentation-lightbox-frame">
+        <div class="presentation-lightbox-toolbar">
+          <span id="presentation-lightbox-title"></span>
+          <button type="button" data-lightbox-close aria-label="Close image">
+            ×
+          </button>
         </div>
-      </div>
-    </section>
-
-    <section class="section case-study-nav">
-      <div class="container">
-        <div class="nav-row">
-          <a href="./indexWK.html" class="nav-back">← All Work</a>
-          <a href="#top" class="nav-link">Back to top ↑</a>
+        <div class="presentation-lightbox-canvas">
+          <img id="presentation-lightbox-img" src="" alt="" />
         </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-row">
-      <div class="footer-meta">
-        <a class="social-icon" href="https://www.linkedin.com/in/danielapenati/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V9h4v2"/>
-            <path d="M2 9h4v12H2z"/>
-            <path d="M4 4a2 2 0 1 0 0 .001z"/>
-          </svg>
-        </a>
-        <a class="social-icon" href="mailto:daniela@dpenati.com" aria-label="Email">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M4 4h16v16H4z"/>
-            <path d="m4 6 8 6 8-6"/>
-          </svg>
-        </a>
-        <span class="footer-copy">© 2026 Daniela Penati</span>
       </div>
     </div>
-  </footer>
 
-  <a class="fab-top" href="#top" aria-label="Back to top"><span aria-hidden="true">↑</span></a>
+    <script src="../script.js" defer></script>
+    <script>
+      (function () {
+        var modal = document.getElementById('presentation-lightbox');
+        var img = document.getElementById('presentation-lightbox-img');
+        var title = document.getElementById('presentation-lightbox-title');
+        var lastTrigger = null;
 
-  <div class="presentation-lightbox" id="presentation-lightbox" role="dialog" aria-modal="true" aria-label="Artifact viewer" hidden>
-    <div class="presentation-lightbox-backdrop" data-lightbox-close></div>
-    <div class="presentation-lightbox-frame">
-      <div class="presentation-lightbox-toolbar">
-        <span id="presentation-lightbox-title"></span>
-        <button type="button" data-lightbox-close aria-label="Close image">×</button>
-      </div>
-      <div class="presentation-lightbox-canvas">
-        <img id="presentation-lightbox-img" src="" alt="" />
-      </div>
-    </div>
-  </div>
+        function openFrom(figure) {
+          lastTrigger = figure.querySelector('.presentation-artifact-button');
+          img.src = figure.getAttribute('data-lightbox-src');
+          img.alt = figure.querySelector('img')?.alt || '';
+          title.textContent =
+            figure.getAttribute('data-lightbox-title') || 'Artifact';
+          modal.removeAttribute('hidden');
+          document.body.style.overflow = 'hidden';
+          modal
+            .querySelector(
+              '[data-lightbox-close]:not(.presentation-lightbox-backdrop)',
+            )
+            .focus();
+        }
 
-  <script src="../script.js" defer></script>
-  <script>
-    (function(){
-      var modal=document.getElementById('presentation-lightbox');
-      var img=document.getElementById('presentation-lightbox-img');
-      var title=document.getElementById('presentation-lightbox-title');
-      var lastTrigger=null;
+        function close() {
+          modal.setAttribute('hidden', '');
+          document.body.style.overflow = '';
+          img.src = '';
+          if (lastTrigger) lastTrigger.focus();
+        }
 
-      function openFrom(figure){
-        lastTrigger=figure.querySelector('.presentation-artifact-button');
-        img.src=figure.getAttribute('data-lightbox-src');
-        img.alt=figure.querySelector('img')?.alt || '';
-        title.textContent=figure.getAttribute('data-lightbox-title') || 'Artifact';
-        modal.removeAttribute('hidden');
-        document.body.style.overflow='hidden';
-        modal.querySelector('[data-lightbox-close]:not(.presentation-lightbox-backdrop)').focus();
-      }
+        document
+          .querySelectorAll('[data-lightbox-src]')
+          .forEach(function (figure) {
+            var btn = figure.querySelector('.presentation-artifact-button');
+            if (btn)
+              btn.addEventListener('click', function () {
+                openFrom(figure);
+              });
+          });
 
-      function close(){
-        modal.setAttribute('hidden','');
-        document.body.style.overflow='';
-        img.src='';
-        if(lastTrigger) lastTrigger.focus();
-      }
+        modal.querySelectorAll('[data-lightbox-close]').forEach(function (el) {
+          el.addEventListener('click', close);
+        });
 
-      document.querySelectorAll('[data-lightbox-src]').forEach(function(figure){
-        var btn=figure.querySelector('.presentation-artifact-button');
-        if(btn) btn.addEventListener('click',function(){openFrom(figure);});
-      });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && !modal.hasAttribute('hidden')) close();
+        });
+      })();
 
-      modal.querySelectorAll('[data-lightbox-close]').forEach(function(el){
-        el.addEventListener('click',close);
-      });
-
-      document.addEventListener('keydown',function(e){
-        if(e.key==='Escape' && !modal.hasAttribute('hidden')) close();
-      });
-    })();
-
-    document.querySelectorAll('.case-chapter').forEach(function(chapter){
-      var items=chapter.querySelectorAll('details.deep-dive');
-      items.forEach(function(item){
-        item.addEventListener('toggle',function(){
-          if(!item.open) return;
-          items.forEach(function(other){ if(other!==item) other.open=false; });
+      document.querySelectorAll('.case-chapter').forEach(function (chapter) {
+        var items = chapter.querySelectorAll('details.deep-dive');
+        items.forEach(function (item) {
+          item.addEventListener('toggle', function () {
+            if (!item.open) return;
+            items.forEach(function (other) {
+              if (other !== item) other.open = false;
+            });
+          });
         });
       });
-    });
-  </script>
-</body>
+    </script>
+  </body>
 </html>
